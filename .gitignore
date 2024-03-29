@@ -1,0 +1,10 @@
+# 忽略除了以下檔案和目錄以外的所有內容
+/*
+
+# 不忽略以下檔案和目錄
+!/[Aa]ssets/
+!/[Pp]ackages/
+!/[Pp]rojectSettings/
+!Auto-Acation-AI-RPG-Game.sln
+!.gitattributes
+!.gitignore
