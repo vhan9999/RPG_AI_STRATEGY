@@ -16,11 +16,21 @@ public class WarriorAgent : Agent
     [SerializeField]
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
+    public Sword sword;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(3);
+            sword.Slash();
+        }
+    }
+
     private void FixedUpdate()
     {
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         transform.Translate(nowDir *  Time.deltaTime * speed, Space.World);
-        Debug.Log(nowDir);
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
     }
     public override void Initialize()
@@ -71,8 +81,8 @@ public class WarriorAgent : Agent
         {
             ctrlDir = Vector3.zero;
         }
-        
-        if(Input.GetKey(KeyCode.Q))
+
+        if (Input.GetKey(KeyCode.Q))
         {
             rotateDir = -1;
         }
@@ -82,7 +92,7 @@ public class WarriorAgent : Agent
         }
         else
         {
-            rotateDir= 0;
+            rotateDir = 0;
         }
     }
 
