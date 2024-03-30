@@ -22,7 +22,6 @@ public class WarriorAgent : Agent
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(3);
             sword.Slash();
         }
     }
@@ -104,6 +103,12 @@ public class WarriorAgent : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         
+    }
+
+    // compare tag, whether hit ot not (reward)
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Character");
     }
 
 }

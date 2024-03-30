@@ -26,4 +26,12 @@ public class Sword : MonoBehaviour
     {
         anim.SetBool("isAttack", true);
     }
+
+    // sword hit (compare tag)
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Sword");
+    }
+
+    
 }
