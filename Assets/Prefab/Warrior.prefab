@@ -381,8 +381,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   lerpSpeed: 5
-  speed: 5
-  rotateSpeed: 5
+  speed: 10
+  rotateSpeed: 150
 --- !u!114 &5779950837675108811
 MonoBehaviour:
   m_ObjectHideFlags: 0
