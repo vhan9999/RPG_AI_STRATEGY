@@ -10,9 +10,10 @@ public class WarriorAgent : Agent
     private Vector3 nowDir = Vector3.zero;
     private Vector3 ctrlDir = Vector3.zero;
     [SerializeField]
-    public float lerpSpeed = 5f;
+    private float lerpSpeed = 5f;
     [SerializeField]
-    public float speed = 5f;
+    private float maxSpeed = 10f; 
+    private float speed = 10f;
     [SerializeField]
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
@@ -25,13 +26,17 @@ public class WarriorAgent : Agent
             Debug.Log(3);
             sword.Slash();
         }
+        
     }
 
     private void FixedUpdate()
     {
+        speed = Vector3.Angle(nowDir, transform.forward) < 80 ? maxSpeed : maxSpeed * 0.5f;
+        speed = sword.anim.GetBool("isAttack") ? speed * 0.75f : speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         transform.Translate(nowDir *  Time.deltaTime * speed, Space.World);
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
+        
     }
     public override void Initialize()
     {
@@ -45,42 +50,24 @@ public class WarriorAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        if (Input.GetKey(KeyCode.W) & Input.GetKey(KeyCode.D))
+        ctrlDir = Vector3.zero;
+        if (Input.GetKey(KeyCode.W))
         {
-            ctrlDir = (transform.forward + transform.right).normalized;
+            ctrlDir += transform.forward;
         }
-        else if (Input.GetKey(KeyCode.D) & Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.A))
         {
-            ctrlDir = (transform.right - transform.forward).normalized;
+            ctrlDir -= transform.right.normalized;
         }
-        else if (Input.GetKey(KeyCode.S) & Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.S))
         {
-            ctrlDir = (-transform.forward - transform.right).normalized;
+            ctrlDir -= transform.forward.normalized;
         }
-        else if (Input.GetKey(KeyCode.A) & Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.D))
         {
-            ctrlDir = (transform.forward - transform.right).normalized;
+            ctrlDir += transform.right.normalized;
         }
-        else if (Input.GetKey(KeyCode.W))
-        {
-            ctrlDir = transform.forward.normalized;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            ctrlDir = -transform.right.normalized;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            ctrlDir = -transform.forward.normalized;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            ctrlDir = transform.right.normalized;
-        }
-        else
-        {
-            ctrlDir = Vector3.zero;
-        }
+        ctrlDir = ctrlDir.normalized;
 
         if (Input.GetKey(KeyCode.Q))
         {
