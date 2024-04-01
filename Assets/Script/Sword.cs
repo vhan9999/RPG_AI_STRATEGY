@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     [SerializeField]
-    private Animator anim;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
