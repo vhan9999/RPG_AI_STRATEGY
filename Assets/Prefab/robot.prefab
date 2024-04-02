@@ -432,7 +432,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   lerpSpeed: 5
-  speed: 10
+  maxSpeed: 10
   rotateSpeed: 150
   sword: {fileID: 6186896699891289498}
 --- !u!114 &5779950837675108811
