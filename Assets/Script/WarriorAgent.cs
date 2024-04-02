@@ -18,6 +18,14 @@ public class WarriorAgent : Agent
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
     public Sword sword;
+    [SerializeField]
+    private SpeedAnim speedAnim;
+
+    public void Start()
+    {
+        speedAnim.Play();
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
