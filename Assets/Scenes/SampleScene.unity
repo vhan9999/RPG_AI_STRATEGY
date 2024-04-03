@@ -301,6 +301,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &904129726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 538762668669916248, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+  m_PrefabInstance: {fileID: 4372237709770656418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe42678b16b0ad4a8b939f62ff3e085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1821884298
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +410,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1887230908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2123661202866332720, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+  m_PrefabInstance: {fileID: 4372237709770656418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367457e9cc917ba41b601d476bb16de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4372237709770656418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -450,6 +472,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7408926214419066429, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: warCry
+      value: 
+      objectReference: {fileID: 1887230908}
+    - target: {fileID: 7408926214419066429, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: accelerate
+      value: 
+      objectReference: {fileID: 904129726}
     - target: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
       propertyPath: m_Name
       value: Warrior
