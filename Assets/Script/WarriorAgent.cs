@@ -21,6 +21,8 @@ public class WarriorAgent : Agent
     [SerializeField]
     private SpeedAnim speedAnim;
 
+    public const int MaxHealth = 100;
+    public int currentHealth = MaxHealth;
     public void Start()
     {
         speedAnim.Play();
@@ -28,6 +30,10 @@ public class WarriorAgent : Agent
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            currentHealth -= 10;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             sword.Slash();
@@ -102,7 +108,12 @@ public class WarriorAgent : Agent
     // compare tag, whether hit ot not (reward)
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Character");
+        if(other.gameObject.tag == "Sword")
+        {
+            Debug.Log("Character");
+            currentHealth -= 30;
+        }
+            
     }
 
 }
