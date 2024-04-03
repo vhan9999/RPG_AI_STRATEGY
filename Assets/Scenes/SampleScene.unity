@@ -301,17 +301,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &749815753 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8410065553193713217, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
-  m_PrefabInstance: {fileID: 4372237709770656418}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c1108cf4867ac49848b07db42ee0bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &932705207
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,11 +369,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &997793924 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
-  m_PrefabInstance: {fileID: 4372237709770656418}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1228375262
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799b65705308e6e4cb70360ab606272f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 997793924}
+  Player: {fileID: 5790978469345843842}
   HealthBar: {fileID: 1787203130}
   Hurt: {fileID: 1346413844}
 --- !u!1 &1787203129
@@ -912,24 +896,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4895414179456318418, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7408926214419066429, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
-      propertyPath: sword
-      value: 
-      objectReference: {fileID: 749815753}
     - target: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
-    - target: {fileID: 8067936565755403752, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
-      propertyPath: m_TagString
-      value: Sword
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+--- !u!1 &5790978469345843842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+  m_PrefabInstance: {fileID: 4372237709770656418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7378708031130079810
 GameObject:
   m_ObjectHideFlags: 0

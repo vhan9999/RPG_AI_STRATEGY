@@ -54,7 +54,12 @@ public class WarriorAgent : Agent
 
     private void FixedUpdate()
     {
-        speed = Vector3.Angle(nowDir, transform.forward) < 80 ? maxSpeed : maxSpeed * 0.5f;
+        if (Vector3.Angle(nowDir, transform.forward) > 120)
+            speed = maxSpeed * 0.5f;
+        else if (Vector3.Angle(nowDir, transform.forward) > 80)
+            speed = maxSpeed * 0.75f;
+        else
+            speed = maxSpeed;
         speed = sword.anim.GetBool("isAttack") ? speed * 0.75f : speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         transform.Translate(nowDir *  Time.deltaTime * speed, Space.World);
@@ -64,9 +69,9 @@ public class WarriorAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
-        opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
-        Debug.Log("Agent Spawn");
+        //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
+        //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
+        //Debug.Log("Agent Spawn");
     }
     
 
@@ -135,18 +140,18 @@ public class WarriorAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Agent's position
-        sensor.AddObservation(transform.localPosition);
+        //// Agent's position
+        //sensor.AddObservation(transform.localPosition);
 
-        // Target's position
-        sensor.AddObservation(opponent_transform.localPosition);
+        //// Target's position
+        //sensor.AddObservation(opponent_transform.localPosition);
 
-        // Agent's velocity
-        sensor.AddObservation(GetComponent<Rigidbody>().velocity);
+        //// Agent's velocity
+        //sensor.AddObservation(GetComponent<Rigidbody>().velocity);
 
-        // Agent's forward direction (assuming a flat environment, using only x and z)
-        sensor.AddObservation(transform.forward.x);
-        sensor.AddObservation(transform.forward.z);
+        //// Agent's forward direction (assuming a flat environment, using only x and z)
+        //sensor.AddObservation(transform.forward.x);
+        //sensor.AddObservation(transform.forward.z);
     }
 
 
@@ -161,7 +166,7 @@ public class WarriorAgent : Agent
         else if (other.gameObject.CompareTag("Wall"))
         {
             AddReward(-2f);
-            EndEpisode();
+            //EndEpisode();
         }
 
     }

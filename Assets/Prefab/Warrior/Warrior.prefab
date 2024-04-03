@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 890686313791203493}
   - component: {fileID: 7408926214419066429}
   - component: {fileID: 8914155739197228526}
+  - component: {fileID: 4644770537287980757}
+  - component: {fileID: 5831174045225811229}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -141,6 +143,9 @@ MonoBehaviour:
   sword: {fileID: 8410065553193713217}
   accelerate: {fileID: 538762668669916248}
   warCry: {fileID: 2123661202866332720}
+  HitCount: 0
+  opponent_transform: {fileID: 0}
+  currentHealth: 100
 --- !u!114 &8914155739197228526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +160,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!65 &4644770537287980757
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850054750572236832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 2.1066296, z: 1.2}
+  m_Center: {x: 0, y: 0.25331485, z: 0}
+--- !u!54 &5831174045225811229
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850054750572236832}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1001 &6513080150949266063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.795
+      value: 0.795
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_LocalPosition.y
