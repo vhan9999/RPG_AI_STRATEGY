@@ -18,6 +18,19 @@ public class WarriorAgent : Agent
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
     public Sword sword;
+<<<<<<< Updated upstream
+=======
+    
+    // skill
+    [SerializeField]
+    private Accelerate accelerate;
+    [SerializeField]
+    private WarCry warCry;
+    public int HitCount = 0;
+    public const int MaxHealth = 100;
+    public int currentHealth = MaxHealth;
+
+>>>>>>> Stashed changes
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -43,7 +56,13 @@ public class WarriorAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+<<<<<<< Updated upstream
         
+=======
+        //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
+        //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
+        //Debug.Log("Agent Spawn");
+>>>>>>> Stashed changes
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -86,10 +105,14 @@ public class WarriorAgent : Agent
         
     }
 
+<<<<<<< Updated upstream
     public override void CollectObservations(VectorSensor sensor)
     {
         
     }
+=======
+
+>>>>>>> Stashed changes
 
     // compare tag, whether hit ot not (reward)
     private void OnTriggerEnter(Collider other)
