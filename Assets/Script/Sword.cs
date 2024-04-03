@@ -7,24 +7,9 @@ public class Sword : MonoBehaviour
     [SerializeField]
     public Animator anim;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && anim.GetBool("isAttack"))
-        {
-            anim.SetBool("isAttack", false);
-        }
-    }
-
     public void Slash()
     {
-        anim.SetBool("isAttack", true);
+        anim.SetTrigger("attackTrigger");
     }
 
     // sword hit (compare tag)
@@ -32,6 +17,4 @@ public class Sword : MonoBehaviour
     {
         Debug.Log("Sword");
     }
-
-    
 }
