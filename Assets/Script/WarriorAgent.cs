@@ -27,11 +27,6 @@ public class WarriorAgent : Agent
     [SerializeField]
     private WarCry warCry;
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         // skill
@@ -56,10 +51,6 @@ public class WarriorAgent : Agent
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         transform.Translate(nowDir *  Time.deltaTime * speed, Space.World);
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
-    }
-    public override void Initialize()
-    {
-        
     }
 
     public override void OnEpisodeBegin()

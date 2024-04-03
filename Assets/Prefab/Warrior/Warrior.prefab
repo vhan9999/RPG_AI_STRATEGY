@@ -139,8 +139,8 @@ MonoBehaviour:
   maxSpeed: 10
   rotateSpeed: 150
   sword: {fileID: 8410065553193713217}
-  accelerate: {fileID: 0}
-  warCry: {fileID: 0}
+  accelerate: {fileID: 538762668669916248}
+  warCry: {fileID: 2123661202866332720}
 --- !u!114 &8914155739197228526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +212,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3454604efaefa5f428392ab49cf90143, type: 3}
+--- !u!114 &538762668669916248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708404292676835031, guid: 3454604efaefa5f428392ab49cf90143, type: 3}
+  m_PrefabInstance: {fileID: 6513080150949266063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe42678b16b0ad4a8b939f62ff3e085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5418978669529444724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1249484464657150971, guid: 3454604efaefa5f428392ab49cf90143, type: 3}
@@ -234,15 +245,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.8571811
+      value: -0.795
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.087
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.362
+      value: 0.602
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_LocalRotation.w
