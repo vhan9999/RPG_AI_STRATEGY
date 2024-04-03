@@ -27,7 +27,6 @@ public class WarriorAgent : Agent
     [SerializeField]
     private WarCry warCry;
     public int HitCount = 0;
-    [SerializeField] private Transform opponent_transform;
     public const int MaxHealth = 100;
     public int currentHealth = MaxHealth;
 
@@ -157,17 +156,6 @@ public class WarriorAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.transform == opponent_transform) && (sword.anim.GetBool("isAttack"))) {
-            AddReward(10f);
-            HitCount += 1;
-            Debug.Log("Player Hit Target : "+ HitCount);
-            EndEpisode();
-        }
-        else if (other.gameObject.CompareTag("Wall"))
-        {
-            AddReward(-2f);
-            //EndEpisode();
-        }
 
     }
 }
