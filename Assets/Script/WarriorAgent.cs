@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Policies;
 
 public class WarriorAgent : Agent
 {
@@ -26,9 +27,18 @@ public class WarriorAgent : Agent
     private Accelerate accelerate;
     [SerializeField]
     private WarCry warCry;
+
     public int HitCount = 0;
     public const int MaxHealth = 100;
     public int currentHealth = MaxHealth;
+
+    private BehaviorParameters bp;
+
+    public override void Initialize()
+    {
+        bp =GetComponent<BehaviorParameters>();
+        Debug.Log(bp.BehaviorType);
+    }
 
     private void Update()
     {
@@ -37,17 +47,20 @@ public class WarriorAgent : Agent
             currentHealth -= 10;
         }
         // skill 
-        if (Input.GetMouseButtonDown(0))
+        if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {
-            sword.Slash();
-        }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            accelerate.Execute();
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            warCry.Execute();
+            if (Input.GetMouseButtonDown(0))
+            {
+                sword.Slash();
+            }
+            else if (Input.GetKeyDown(KeyCode.Z))
+            {
+                accelerate.Execute();
+            }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                warCry.Execute();
+            }
         }
     }
 
@@ -120,8 +133,8 @@ public class WarriorAgent : Agent
         int rotateAction = actions.DiscreteActions[2];
         int attackAction = actions.DiscreteActions[3];
 
-        ctrlDir = Vector3.zero;
         // move forward and backward
+        if (GetComponent<BehaviorParameters>().BehaviorType != BehaviorType.HeuristicOnly) ctrlDir = Vector3.zero;
         if (moveFrontBack == 1) ctrlDir += transform.forward;
         else if (moveFrontBack == 2) ctrlDir -= transform.forward;
         if (moveLeftRight == 1) ctrlDir += transform.right;
@@ -134,7 +147,7 @@ public class WarriorAgent : Agent
 
 
         // attack
-        if (actions.DiscreteActions[3] == 1) sword.Slash();
+        if (attackAction == 1) sword.Slash();
     }
 
     public override void CollectObservations(VectorSensor sensor)
