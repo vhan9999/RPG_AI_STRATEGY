@@ -6,6 +6,12 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 
+public enum Team
+{
+    Blue,
+    Purple
+}
+
 public class WarriorAgent : Agent
 {
     private Vector3 nowDir = Vector3.zero;
@@ -13,15 +19,15 @@ public class WarriorAgent : Agent
     [SerializeField]
     private float lerpSpeed = 5f;
     [SerializeField]
-    private float maxSpeed = 10f; 
+    private float maxSpeed = 10f;
     private float speed = 10f;
     [SerializeField]
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
-    
+
     // weapon
     public Sword sword;
-    
+
     // skill
     [SerializeField]
     private Accelerate accelerate;
@@ -33,11 +39,15 @@ public class WarriorAgent : Agent
     public int currentHealth = MaxHealth;
 
     private BehaviorParameters bp;
+    public Team team;
+
+    public bool isControl = false;
 
     public override void Initialize()
     {
-        bp =GetComponent<BehaviorParameters>();
-        Debug.Log(bp.BehaviorType);
+        bp = GetComponent<BehaviorParameters>();
+        sword.RewardEvent.AddListener(AddReward);
+        team = (Team)bp.TeamId;
     }
 
     private void Update()
@@ -46,6 +56,7 @@ public class WarriorAgent : Agent
         {
             currentHealth -= 10;
         }
+        if (!isControl) return;
         // skill 
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {
@@ -72,9 +83,9 @@ public class WarriorAgent : Agent
             speed = maxSpeed * 0.75f;
         else
             speed = maxSpeed;
-        speed = sword.anim.GetBool("isAttack") ? speed * 0.75f : speed;
+        speed = sword.isAttack ? speed * 0.75f : speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
-        transform.Translate(nowDir *  Time.deltaTime * speed, Space.World);
+        transform.Translate(nowDir * Time.deltaTime * speed, Space.World);
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
 
     }
@@ -85,11 +96,12 @@ public class WarriorAgent : Agent
         //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
         //Debug.Log("Agent Spawn");
     }
-    
+
 
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
+        if (!isControl) return;
         // move
         ctrlDir = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
@@ -169,6 +181,9 @@ public class WarriorAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.TryGetComponent(out Sword otherSword) && otherSword.isAttack)
+        {
+            AddReward(-0.8f);
+        }
     }
 }
