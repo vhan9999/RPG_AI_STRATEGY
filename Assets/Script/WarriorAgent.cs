@@ -5,6 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
+using static UnityEngine.GraphicsBuffer;
 
 public enum Team
 {
@@ -40,14 +41,15 @@ public class WarriorAgent : Agent
 
     private BehaviorParameters bp;
     public Team team;
-
     public bool isControl = false;
+    private Vector3 initPosition;
 
     public override void Initialize()
     {
         bp = GetComponent<BehaviorParameters>();
         sword.RewardEvent.AddListener(AddReward);
         team = (Team)bp.TeamId;
+        initPosition = transform.position;
     }
 
     private void Update()
@@ -92,6 +94,8 @@ public class WarriorAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        transform.position = initPosition;
+        Invoke("EndEpisode", 20f);
         //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
         //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
         //Debug.Log("Agent Spawn");
@@ -135,7 +139,6 @@ public class WarriorAgent : Agent
         {
             rotateDir = 0;
         }
-
     }
 
     public override void OnActionReceived(ActionBuffers actions)
