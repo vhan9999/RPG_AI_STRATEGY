@@ -5,13 +5,6 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
-using static UnityEngine.GraphicsBuffer;
-
-public enum Team
-{
-    Blue,
-    Purple
-}
 
 public class WarriorAgent : Agent
 {
@@ -41,15 +34,16 @@ public class WarriorAgent : Agent
 
     private BehaviorParameters bp;
     public Team team;
-    public bool isControl = false;
     private Vector3 initPosition;
+    private Quaternion initRotation;
 
     public override void Initialize()
     {
         bp = GetComponent<BehaviorParameters>();
         sword.RewardEvent.AddListener(AddReward);
         team = (Team)bp.TeamId;
-        initPosition = transform.position;
+        initPosition = transform.localPosition;
+        initRotation = transform.rotation;
     }
 
     private void Update()
@@ -58,7 +52,6 @@ public class WarriorAgent : Agent
         {
             currentHealth -= 10;
         }
-        if (!isControl) return;
         // skill 
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {
@@ -85,16 +78,17 @@ public class WarriorAgent : Agent
             speed = maxSpeed * 0.75f;
         else
             speed = maxSpeed;
-        speed = sword.isAttack ? speed * 0.75f : speed;
+        speed = sword.IsSlash ? speed * 0.75f : speed;
+        speed = accelerate.IsAccelerate ? speed * 2 : speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         transform.Translate(nowDir * Time.deltaTime * speed, Space.World);
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
-
     }
 
     public override void OnEpisodeBegin()
     {
-        transform.position = initPosition;
+        transform.localPosition = initPosition;
+        transform.rotation = initRotation;
         Invoke("EndEpisode", 20f);
         //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
         //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
@@ -105,7 +99,6 @@ public class WarriorAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        if (!isControl) return;
         // move
         ctrlDir = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
@@ -147,6 +140,7 @@ public class WarriorAgent : Agent
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
         int attackAction = actions.DiscreteActions[3];
+        //int accelerateAction = actions.DiscreteActions[4];
 
         // move forward and backward
         if (GetComponent<BehaviorParameters>().BehaviorType != BehaviorType.HeuristicOnly) ctrlDir = Vector3.zero;
@@ -160,9 +154,11 @@ public class WarriorAgent : Agent
         if (rotateAction == 1) rotateDir = -1;
         else if (rotateAction == 2) rotateDir = 1;
 
-
         // attack
         if (attackAction == 1) sword.Slash();
+
+        //// skill
+        //if (accelerateAction == 1) accelerate.Execute();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -184,7 +180,7 @@ public class WarriorAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Sword otherSword) && otherSword.isAttack)
+        if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
         {
             AddReward(-0.8f);
         }

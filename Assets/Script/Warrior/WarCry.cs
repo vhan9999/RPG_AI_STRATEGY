@@ -10,6 +10,5 @@ public class WarCry : MonoBehaviour
     public void Execute()
     {
         anim.SetTrigger("warCryTrigger");
-        Debug.Log(3);
     }
 }
