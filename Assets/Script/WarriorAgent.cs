@@ -9,23 +9,18 @@ public class WarriorAgent : Agent
 {
     private Vector3 nowDir = Vector3.zero;
     private Vector3 ctrlDir = Vector3.zero;
-    [SerializeField]
-    private float lerpSpeed = 5f;
-    [SerializeField]
-    private float maxSpeed = 10f; 
+    [SerializeField]private float lerpSpeed = 5f;
+    [SerializeField]private float maxSpeed = 10f; 
     private float speed = 10f;
-    [SerializeField]
-    public float rotateSpeed = 150f;
+    [SerializeField]public float rotateSpeed = 150f;
     private int rotateDir = 0;
     
     // weapon
     public Sword sword;
     
     // skill
-    [SerializeField]
-    private Accelerate accelerate;
-    [SerializeField]
-    private WarCry warCry;
+    [SerializeField]private Accelerate accelerate;
+    [SerializeField]private WarCry warCry;
     public int HitCount = 0;
     [SerializeField] private Transform opponent_transform;
     public const int MaxHealth = 100;

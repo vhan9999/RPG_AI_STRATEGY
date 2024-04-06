@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 211044998}
   - component: {fileID: 211044997}
   - component: {fileID: 211044996}
+  - component: {fileID: 211044999}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -199,14 +200,38 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211044995}
-  m_LocalRotation: {x: 0.59972477, y: -0, z: -0, w: 0.80020636}
-  m_LocalPosition: {x: -1.83, y: 9.35, z: -0.04}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6700001, z: 0.51065874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 73.7, y: 0, z: 0}
+  m_Father: {fileID: 247407937}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211044999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211044995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd1c22fc3fcbc84fadad1d8bb944697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 200
+  playerBody: {fileID: 247407937}
+--- !u!1 &247407929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+  m_PrefabInstance: {fileID: 1346366786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &247407937 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1316968958085546779, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+  m_PrefabInstance: {fileID: 1346366786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +392,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228375262
 GameObject:
@@ -402,11 +427,11 @@ RectTransform:
   m_Father: {fileID: 1302688280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -539.4, y: -267}
-  m_SizeDelta: {x: 100, y: 10}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 36.59998, y: -267}
+  m_SizeDelta: {x: 200, y: 20}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1228375264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +566,7 @@ RectTransform:
   - {fileID: 1346413844}
   - {fileID: 1787203130}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -599,6 +624,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7258889055659362130, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.795
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258889055659362130, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.72
+      objectReference: {fileID: 0}
     - target: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
       propertyPath: m_Name
       value: Warrior
@@ -641,7 +674,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 36.599976, y: -267}
-  m_SizeDelta: {x: 100, y: 10}
+  m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1346413845
 MonoBehaviour:
@@ -711,7 +744,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1719094300
 MonoBehaviour:
@@ -725,7 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799b65705308e6e4cb70360ab606272f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 247407929}
   HealthBar: {fileID: 1787203130}
   Hurt: {fileID: 1346413844}
 --- !u!1 &1787203129
@@ -764,7 +797,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 36.599976, y: -267}
-  m_SizeDelta: {x: 100, y: 10}
+  m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1787203131
 MonoBehaviour:
