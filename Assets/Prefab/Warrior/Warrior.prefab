@@ -49,6 +49,7 @@ MonoBehaviour:
   - Character
   - Wall
   - Sword
+  - Opponent
   m_RaysPerDirection: 5
   m_MaxRayDegrees: 70
   m_SphereCastRadius: 0.5
@@ -110,6 +111,7 @@ MonoBehaviour:
   - Character
   - Wall
   - Sword
+  - Opponent
   m_RaysPerDirection: 1
   m_MaxRayDegrees: 30
   m_SphereCastRadius: 0.5
@@ -239,7 +241,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 0
   m_BehaviorName: My Behavior
   TeamId: 0
   m_UseChildSensors: 1
@@ -270,7 +272,6 @@ MonoBehaviour:
   HitCount: 0
   currentHealth: 100
   team: 0
-  isControl: 1
 --- !u!114 &8914155739197228526
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37,6 +37,9 @@ public class WarriorAgent : Agent
     private Vector3 initPosition;
     private Quaternion initRotation;
 
+    private int pridectAttackCount = 0;
+    private int actualAttackCount = 0;
+
     public override void Initialize()
     {
         bp = GetComponent<BehaviorParameters>();
@@ -155,7 +158,17 @@ public class WarriorAgent : Agent
         else if (rotateAction == 2) rotateDir = 1;
 
         // attack
-        if (attackAction == 1) sword.Slash();
+        if (!(sword.IsSlash && pridectAttackCount == 9))
+        {
+            pridectAttackCount++;
+            actualAttackCount = attackAction == 1 ? actualAttackCount + pridectAttackCount : actualAttackCount - pridectAttackCount;
+            if (pridectAttackCount == 10)
+            {
+                if (actualAttackCount > 0) sword.Slash();
+                pridectAttackCount = 0;
+                actualAttackCount = 0;
+            } 
+        }
 
         //// skill
         //if (accelerateAction == 1) accelerate.Execute();
@@ -182,7 +195,7 @@ public class WarriorAgent : Agent
     {
         if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
         {
-            AddReward(-0.8f);
+            AddReward(-0.6f);
         }
     }
 }
