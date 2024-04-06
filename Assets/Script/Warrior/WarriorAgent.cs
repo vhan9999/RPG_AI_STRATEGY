@@ -15,8 +15,7 @@ public class WarriorAgent : Agent
     [SerializeField]
     private float maxSpeed = 10f;
     private float speed = 10f;
-    [SerializeField]
-    public float rotateSpeed = 150f;
+    [SerializeField]public float rotateSpeed = 150f;
     private int rotateDir = 0;
 
     // weapon
