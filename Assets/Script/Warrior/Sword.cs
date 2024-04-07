@@ -11,16 +11,14 @@ public class Sword : MonoBehaviour
     public Animator anim;
     [HideInInspector]
     public UnityEvent<float> RewardEvent;
+    [HideInInspector]
+    public bool IsAttack = false;
+    [HideInInspector]
 
     public bool IsSlash
     {
         get => anim.GetBool("isSlash");
         set => anim.SetBool("isSlash", value);
-    }
-
-    public bool IsAttack
-    {
-        get; set;
     }
 
     public void Slash()
@@ -32,22 +30,22 @@ public class Sword : MonoBehaviour
         }
     }
 
-    // sword hit (compare tag)
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out WarriorAgent agent) && IsAttack)
         {
-            if (GetComponentInParent<WarriorAgent>().team != agent.team)
-            {
-                Debug.Log("great");
-                RewardEvent.Invoke(3f);
-            }
-            else
-            {
-                RewardEvent.Invoke(-0.8f);
-            }
+            Debug.Log("great");
+            RewardEvent.Invoke(2f);
         }
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.TryGetComponent(out WarriorAgent agent) && IsAttack)
+    //    {
+    //        IsHurt = true;
+    //    }
+    //}
 
     public void ResetSlash()
     {

@@ -37,9 +37,6 @@ public class WarriorAgent : Agent
     private Vector3 initPosition;
     private Quaternion initRotation;
 
-    private int pridectAttackCount = 0;
-    private int actualAttackCount = 0;
-
     public override void Initialize()
     {
         bp = GetComponent<BehaviorParameters>();
@@ -81,7 +78,7 @@ public class WarriorAgent : Agent
             speed = maxSpeed * 0.75f;
         else
             speed = maxSpeed;
-        speed = sword.IsSlash ? speed * 0.75f : speed;
+        speed = sword.IsSlash ? speed * 0.3f : speed;
         speed = accelerate.IsAccelerate ? speed * 2 : speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         transform.Translate(nowDir * Time.deltaTime * speed, Space.World);
@@ -92,7 +89,7 @@ public class WarriorAgent : Agent
     {
         transform.localPosition = initPosition;
         transform.rotation = initRotation;
-        Invoke("EndEpisode", 20f);
+        Invoke("EndEpisode", 30f);
         //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
         //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
         //Debug.Log("Agent Spawn");
@@ -158,17 +155,7 @@ public class WarriorAgent : Agent
         else if (rotateAction == 2) rotateDir = 1;
 
         // attack
-        if (!(sword.IsSlash && pridectAttackCount == 9))
-        {
-            pridectAttackCount++;
-            actualAttackCount = attackAction == 1 ? actualAttackCount + pridectAttackCount : actualAttackCount - pridectAttackCount;
-            if (pridectAttackCount == 10)
-            {
-                if (actualAttackCount > 0) sword.Slash();
-                pridectAttackCount = 0;
-                actualAttackCount = 0;
-            } 
-        }
+        if (attackAction == 1) sword.Slash();
 
         //// skill
         //if (accelerateAction == 1) accelerate.Execute();
@@ -195,7 +182,8 @@ public class WarriorAgent : Agent
     {
         if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
         {
-            AddReward(-0.6f);
+            Debug.Log("hurt");
+            AddReward(-0.8f);
         }
     }
 }
