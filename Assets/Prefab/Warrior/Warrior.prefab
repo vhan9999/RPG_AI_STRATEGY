@@ -46,10 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayFrontSensor
   m_DetectableTags:
-  - Character
   - Wall
   - Sword
-  - Opponent
+  - BlueTeam
+  - OrangeTeam
   m_RaysPerDirection: 5
   m_MaxRayDegrees: 70
   m_SphereCastRadius: 0.5
@@ -108,10 +108,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayBackSensor
   m_DetectableTags:
-  - Character
   - Wall
   - Sword
-  - Opponent
+  - BlueTeam
+  - OrangeTeam
   m_RaysPerDirection: 1
   m_MaxRayDegrees: 30
   m_SphereCastRadius: 0.5
@@ -266,12 +266,14 @@ MonoBehaviour:
   lerpSpeed: 5
   maxSpeed: 10
   rotateSpeed: 150
+  HitCount: 0
+  MaxHealth: 100
+  currentHealth: 100
+  team: 0
+  envController: {fileID: 0}
   sword: {fileID: 8410065553193713217}
   accelerate: {fileID: 538762668669916248}
   warCry: {fileID: 2123661202866332720}
-  HitCount: 0
-  currentHealth: 100
-  team: 0
 --- !u!114 &8914155739197228526
 MonoBehaviour:
   m_ObjectHideFlags: 0
