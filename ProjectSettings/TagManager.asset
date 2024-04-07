@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Character
   - Sword
   - Wall
-  - Opponent
+  - BlueTeam
+  - OrangeTeam
+  - Character
   layers:
   - Default
   - TransparentFX
