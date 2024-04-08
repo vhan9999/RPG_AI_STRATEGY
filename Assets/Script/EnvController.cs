@@ -12,8 +12,6 @@ public class EnvController : MonoBehaviour
         public Vector3 StartingPos;
         [HideInInspector]
         public Quaternion StartingRot;
-        [HideInInspector]
-        public Rigidbody Rb;
     }
 
 
@@ -21,7 +19,7 @@ public class EnvController : MonoBehaviour
     /// Max Academy steps before this platform resets
     /// </summary>
     /// <returns></returns>
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 25000;
+    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 9000;
 
     /// <summary>
     /// The area bounds.
@@ -34,8 +32,8 @@ public class EnvController : MonoBehaviour
     //List of Agents On Platform
     public List<PlayerInfo> AgentsList = new List<PlayerInfo>();
 
-    private int blueIsDead;
-    private int orangeIsDead;
+    private int blueDeadCount;
+    private int orangeDeadCount;
     private int teamNum;
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
@@ -51,13 +49,12 @@ public class EnvController : MonoBehaviour
         m_OrangeAgentGroup = new SimpleMultiAgentGroup();
         foreach (var item in AgentsList)
         {
-            item.StartingPos = item.Agent.transform.position;
+            item.StartingPos = item.Agent.transform.localPosition;
             item.StartingRot = item.Agent.transform.rotation;
-            item.Rb = item.Agent.GetComponent<Rigidbody>();
             if (item.Agent.team == Team.Blue)
             {
-                m_BlueAgentGroup.RegisterAgent(item.Agent);
                 teamNum++;
+                m_BlueAgentGroup.RegisterAgent(item.Agent);
             }
             else
             {
@@ -72,8 +69,6 @@ public class EnvController : MonoBehaviour
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
-            m_BlueAgentGroup.GroupEpisodeInterrupted();
-            m_OrangeAgentGroup.GroupEpisodeInterrupted();
             ResetScene();
         }
     }
@@ -86,38 +81,42 @@ public class EnvController : MonoBehaviour
         {
             m_BlueAgentGroup.AddGroupReward(-1);
             m_OrangeAgentGroup.AddGroupReward(1);
-            blueIsDead++;
+            blueDeadCount++;
         }
         else
         {
             m_OrangeAgentGroup.AddGroupReward(-1);
             m_BlueAgentGroup.AddGroupReward(1);
-            orangeIsDead++;
+            orangeDeadCount++;
         }
-        if(blueIsDead == teamNum)
+        if (blueDeadCount == teamNum)
         {
-            m_OrangeAgentGroup.AddGroupReward(5);
-            m_OrangeAgentGroup.EndGroupEpisode();
-            m_BlueAgentGroup.EndGroupEpisode();
+            m_OrangeAgentGroup.AddGroupReward(3 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_BlueAgentGroup.AddGroupReward(-1);
             ResetScene();
         }
-        if (orangeIsDead == teamNum)
+        else if (orangeDeadCount == teamNum)
         {
-            m_BlueAgentGroup.AddGroupReward(5);
-            m_OrangeAgentGroup.EndGroupEpisode();
-            m_BlueAgentGroup.EndGroupEpisode();
+            m_OrangeAgentGroup.AddGroupReward(-1);
+            m_BlueAgentGroup.AddGroupReward(3 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
             ResetScene();
         }
-
-        
-
     }
 
 
     public void ResetScene()
     {
+        foreach (var item in AgentsList)
+        {
+            item.Agent.gameObject.SetActive(true);
+            item.Agent.transform.localPosition = item.StartingPos;
+            item.Agent.transform.rotation = item.StartingRot;
+        }
+        Debug.Log($"{teamNum} {blueDeadCount} {orangeDeadCount}");
+        m_BlueAgentGroup.GroupEpisodeInterrupted();
+        m_OrangeAgentGroup.GroupEpisodeInterrupted();
         m_ResetTimer = 0;
-        blueIsDead = 0;
-        orangeIsDead = 0;
+        blueDeadCount = 0;
+        orangeDeadCount = 0;
     }
 }

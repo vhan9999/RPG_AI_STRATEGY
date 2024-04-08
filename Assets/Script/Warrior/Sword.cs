@@ -25,7 +25,7 @@ public class Sword : MonoBehaviour
     {
         if (!IsSlash)
         {
-            RewardEvent.Invoke(-0.3f);
+            RewardEvent.Invoke(-0.1f);
             IsSlash = true;
         }
     }
@@ -34,8 +34,15 @@ public class Sword : MonoBehaviour
     {
         if (other.TryGetComponent(out WarriorAgent agent) && IsAttack)
         {
-            Debug.Log("great");
-            RewardEvent.Invoke(2f);
+            if (transform.parent.tag != agent.tag)
+            {
+                Debug.Log($"{transform.parent.tag} {agent.tag}");
+                RewardEvent.Invoke(3f);
+            }
+            else
+            {
+                RewardEvent.Invoke(-1f);
+            }
         }
     }
 
