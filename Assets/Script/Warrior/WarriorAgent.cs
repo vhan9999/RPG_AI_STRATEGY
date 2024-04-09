@@ -21,7 +21,10 @@ public class WarriorAgent : ClassAgent
     private int pridectAttackCount = 0;
     private int actualAttackCount = 0;
 
-
+    private void Start()
+    {
+        sword.RewardEvent.AddListener(AddReward);
+    }
 
     private void Update()
     {
@@ -44,7 +47,7 @@ public class WarriorAgent : ClassAgent
 
     protected override void SpeedAdjust()
     {
-        speed = sword.IsSlash ? speed * 0.75f : speed;
+        speed = sword.IsSlash ? speed * 0.4f : speed;
         speed = accelerate.IsAccelerate ? speed * 2 : speed;
     }
 

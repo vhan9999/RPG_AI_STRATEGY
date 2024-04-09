@@ -24,7 +24,7 @@ public class ClassAgent : Agent
     public int HitCount = 0;
 
     //health
-    public int MaxHealth;
+    public int Health;
     public int currentHealth;
 
     //team
@@ -36,16 +36,10 @@ public class ClassAgent : Agent
     private Vector3 initPosition;
     private Quaternion initRotation;
 
-    
-
     public override void Initialize()
     {
-
-        
         bp = GetComponent<BehaviorParameters>();
         team = (Team)bp.TeamId;
-        initPosition = transform.localPosition;
-        initRotation = transform.rotation;
     }
 
     private void Update()
@@ -78,9 +72,8 @@ public class ClassAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        currentHealth = MaxHealth;
-        transform.localPosition = initPosition;
-        transform.rotation = initRotation;
+        currentHealth = Health;
+        //Debug.Log(gameObject.tag);
         //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
         //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
         //Debug.Log("Agent Spawn");
@@ -162,13 +155,14 @@ public class ClassAgent : Agent
     {
         if (currentHealth < 0)
             return;
-        if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
+        if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack && otherSword.transform.parent.tag != gameObject.tag)
         {
             AddReward(-0.6f);
-            currentHealth -= 30;
+            currentHealth -= 10;
         }
         if(currentHealth < 0)
         {
+            gameObject.SetActive(false);
             envController.DeadTouch(team);
         }
     }
