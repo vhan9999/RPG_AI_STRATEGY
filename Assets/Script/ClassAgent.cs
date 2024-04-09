@@ -5,6 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine;
 using Unity.MLAgents;
 using UnityEditor.Timeline.Actions;
+using UnityEngine.Assertions;
 
 public class ClassAgent : Agent
 {
@@ -153,14 +154,18 @@ public class ClassAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
             return;
-        if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack && otherSword.transform.parent.tag != gameObject.tag)
+        if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
         {
-            AddReward(-0.6f);
-            currentHealth -= 10;
+            ClassAgent otherAgent = otherSword.GetComponentInParent<ClassAgent>();
+            if (otherAgent != null && otherAgent.team != team)
+            {
+                AddReward(-0.2f);
+                currentHealth -= 20;
+            }
         }
-        if(currentHealth < 0)
+        if(currentHealth <= 0)
         {
             gameObject.SetActive(false);
             envController.DeadTouch(team);
