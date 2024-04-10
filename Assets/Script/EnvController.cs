@@ -19,7 +19,7 @@ public class EnvController : MonoBehaviour
     /// Max Academy steps before this platform resets
     /// </summary>
     /// <returns></returns>
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 9000;
+    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 20000;
 
     /// <summary>
     /// The area bounds.
@@ -69,6 +69,8 @@ public class EnvController : MonoBehaviour
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
+            m_BlueAgentGroup.GroupEpisodeInterrupted();
+            m_OrangeAgentGroup.GroupEpisodeInterrupted();
             ResetScene();
         }
     }
@@ -79,27 +81,31 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
-            m_BlueAgentGroup.AddGroupReward(-1);
-            m_OrangeAgentGroup.AddGroupReward(1);
+            m_BlueAgentGroup.AddGroupReward(-0.8f);
+            m_OrangeAgentGroup.AddGroupReward(1f);
             blueDeadCount++;
         }
         else
         {
-            m_OrangeAgentGroup.AddGroupReward(-1);
-            m_BlueAgentGroup.AddGroupReward(1);
+            m_OrangeAgentGroup.AddGroupReward(-0.8f);
+            m_BlueAgentGroup.AddGroupReward(1f);
             orangeDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
-            m_OrangeAgentGroup.AddGroupReward(3 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
-            m_BlueAgentGroup.AddGroupReward(-1);
+            m_OrangeAgentGroup.AddGroupReward(1 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_BlueAgentGroup.AddGroupReward(-0.5f * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
             ResetScene();
+            m_BlueAgentGroup.EndGroupEpisode();
+            m_OrangeAgentGroup.EndGroupEpisode();
         }
         else if (orangeDeadCount == teamNum)
         {
-            m_OrangeAgentGroup.AddGroupReward(-1);
-            m_BlueAgentGroup.AddGroupReward(3 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_OrangeAgentGroup.AddGroupReward(-0.5f * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_BlueAgentGroup.AddGroupReward(1 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
             ResetScene();
+            m_BlueAgentGroup.EndGroupEpisode();
+            m_OrangeAgentGroup.EndGroupEpisode();
         }
     }
 
@@ -112,9 +118,6 @@ public class EnvController : MonoBehaviour
             item.Agent.transform.localPosition = item.StartingPos;
             item.Agent.transform.rotation = item.StartingRot;
         }
-        Debug.Log($"{teamNum} {blueDeadCount} {orangeDeadCount}");
-        m_BlueAgentGroup.GroupEpisodeInterrupted();
-        m_OrangeAgentGroup.GroupEpisodeInterrupted();
         m_ResetTimer = 0;
         blueDeadCount = 0;
         orangeDeadCount = 0;
