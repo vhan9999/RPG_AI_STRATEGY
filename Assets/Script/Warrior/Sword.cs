@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Events;
 
 public class Sword : MonoBehaviour
@@ -25,23 +26,25 @@ public class Sword : MonoBehaviour
     {
         if (!IsSlash)
         {
-            RewardEvent.Invoke(-0.1f);
+            RewardEvent.Invoke(-0.03f);
             IsSlash = true;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out WarriorAgent agent) && IsAttack)
+        if (other.TryGetComponent(out ClassAgent otherAgent) && IsAttack)
         {
-            if (transform.parent.tag != agent.tag)
+            ClassAgent agent = GetComponentInParent<ClassAgent>();
+            if (agent != null && agent.team != otherAgent.team)
             {
-                Debug.Log($"{transform.parent.tag} {agent.tag}");
-                RewardEvent.Invoke(3f);
+                Debug.Log("great");
+                RewardEvent.Invoke(1f);
             }
             else
             {
-                RewardEvent.Invoke(-1f);
+                Debug.Log("Dont'hurt, you are his frend");
+                RewardEvent.Invoke(-0.3f);
             }
         }
     }
