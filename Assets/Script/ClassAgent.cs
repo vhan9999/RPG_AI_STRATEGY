@@ -25,7 +25,7 @@ public class ClassAgent : Agent
     public int HitCount = 0;
 
     //health
-    public int Health;
+    public int health;
     public int currentHealth;
 
     //team
@@ -36,6 +36,9 @@ public class ClassAgent : Agent
     //init
     private Vector3 initPosition;
     private Quaternion initRotation;
+
+    private int count1 = 0;
+    private int count2 = 0;
 
     public override void Initialize()
     {
@@ -73,7 +76,7 @@ public class ClassAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        currentHealth = Health;
+        currentHealth = health;
         //Debug.Log(gameObject.tag);
         //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
         //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
@@ -121,6 +124,7 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        count2++;
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -140,17 +144,27 @@ public class ClassAgent : Agent
         if (rotateAction == 1) rotateDir = -1;
         else if (rotateAction == 2) rotateDir = 1;
 
-        SkillAction(attackAction);
+        AttackAction(attackAction);
 
         //// skill
         //if (accelerateAction == 1) accelerate.Execute();
     }
-    public virtual void SkillAction(int attackAction)
+
+    public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
+    {
+        count1++;
+        Debug.Log($"{count1} {count2}");
+    }
+
+    public virtual void AttackAction(int attackAction)
     {
 
     }
 
-
+    public virtual void SkillAction(int skillAction) 
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
