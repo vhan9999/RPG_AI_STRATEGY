@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+public class healthBar : MonoBehaviour
 {
 
     public GameObject Player;
 
 
-    public RectTransform Health, Hurt;
+    public RectTransform HealthBar, Hurt;
 
     void Update()
     {
         
 
-        Health.sizeDelta = new Vector2(Player.GetComponent<WarriorAgent>().currentHealth*2, Health.sizeDelta.y);
+        HealthBar.sizeDelta = new Vector2(Player.GetComponent<WarriorAgent>().currentHealth*2, HealthBar.sizeDelta.y);
 
-        if (Hurt.sizeDelta.x > Health.sizeDelta.x)
+        if (Hurt.sizeDelta.x > HealthBar.sizeDelta.x)
         {
             Hurt.sizeDelta += new Vector2(-1, 0) * Time.deltaTime * 10;
         }

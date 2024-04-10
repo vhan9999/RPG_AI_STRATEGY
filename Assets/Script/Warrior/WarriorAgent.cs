@@ -5,7 +5,6 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 
 public class WarriorAgent : ClassAgent
 {
@@ -52,7 +51,7 @@ public class WarriorAgent : ClassAgent
         speed = accelerate.IsAccelerate ? speed * 2 : speed;
     }
 
-    public override void AttackAction(int attackAction)
+    public override void SkillAction(int attackAction)
     {
         if (!(sword.IsSlash && pridectAttackCount == 9))
         {
@@ -65,10 +64,5 @@ public class WarriorAgent : ClassAgent
                 actualAttackCount = 0;
             }
         }
-    }
-
-    public override void SkillAction(int skillAction)
-    {
-        
     }
 }
