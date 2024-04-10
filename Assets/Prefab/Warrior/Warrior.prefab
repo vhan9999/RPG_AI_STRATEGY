@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 8914155739197228526}
   - component: {fileID: 4644770537287980757}
   - component: {fileID: 5831174045225811229}
+  - component: {fileID: 2961696130054360618}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: BlueTeam
@@ -319,6 +320,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &2961696130054360618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850054750572236832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c9c398473c3b0429e9c0165eece1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
+  numberOfDroplets: 10
+  spawnRadius: 1
 --- !u!1001 &6513080150949266063
 PrefabInstance:
   m_ObjectHideFlags: 0
