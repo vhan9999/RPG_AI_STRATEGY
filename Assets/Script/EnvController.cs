@@ -30,7 +30,7 @@ public class EnvController : MonoBehaviour
     /// </summary>
 
     //List of Agents On Platform
-    public List<PlayerInfo> AgentsList = new List<PlayerInfo>();
+    private List<PlayerInfo> agentsList = new List<PlayerInfo>();
 
     private int blueDeadCount;
     private int orangeDeadCount;
@@ -47,7 +47,12 @@ public class EnvController : MonoBehaviour
         teamNum = 0;
         m_BlueAgentGroup = new SimpleMultiAgentGroup();
         m_OrangeAgentGroup = new SimpleMultiAgentGroup();
-        foreach (var item in AgentsList)
+        ClassAgent[] agents = GetComponentsInChildren<ClassAgent>();
+        foreach (var agent in agents)
+        {
+            agentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.position, StartingRot = agent.transform.rotation });
+        }
+        foreach (var item in agentsList)
         {
             item.StartingPos = item.Agent.transform.localPosition;
             item.StartingRot = item.Agent.transform.rotation;
@@ -112,7 +117,7 @@ public class EnvController : MonoBehaviour
 
     public void ResetScene()
     {
-        foreach (var item in AgentsList)
+        foreach (var item in agentsList)
         {
             item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;
