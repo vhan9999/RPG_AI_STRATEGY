@@ -782,9 +782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799b65705308e6e4cb70360ab606272f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  HealthBar: {fileID: 0}
-  Hurt: {fileID: 0}
 --- !u!1 &1787203129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,36 +1286,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6472186368995646575}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2961696130909835765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850054751326851071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5c9c398473c3b0429e9c0165eece1c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
-  numberOfDroplets: 10
-  spawnRadius: 1
---- !u!114 &2961696130939087061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850054751306004191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5c9c398473c3b0429e9c0165eece1c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
-  numberOfDroplets: 10
-  spawnRadius: 1
 --- !u!33 &3051688172397550590
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2047,7 +2014,7 @@ MonoBehaviour:
   maxSpeed: 10
   rotateSpeed: 150
   HitCount: 0
-  Health: 100
+  health: 0
   currentHealth: 100
   team: 1
   envController: {fileID: 6517159616926477549}
@@ -2074,7 +2041,7 @@ MonoBehaviour:
   maxSpeed: 10
   rotateSpeed: 150
   HitCount: 0
-  Health: 100
+  health: 0
   currentHealth: 100
   team: 0
   envController: {fileID: 6517159616926477549}
@@ -2212,9 +2179,9 @@ GameObject:
   - component: {fileID: 890686312889994842}
   - component: {fileID: 7408926215136397506}
   - component: {fileID: 8914155739116970769}
+  - component: {fileID: 8914155739116970770}
   - component: {fileID: 4644770537779753002}
   - component: {fileID: 5831174044483230690}
-  - component: {fileID: 2961696130939087061}
   m_Layer: 0
   m_Name: OrangeWarrior
   m_TagString: OrangeTeam
@@ -2236,9 +2203,9 @@ GameObject:
   - component: {fileID: 890686312936257402}
   - component: {fileID: 7408926215241380322}
   - component: {fileID: 8914155738877778481}
+  - component: {fileID: 8914155738877778482}
   - component: {fileID: 4644770537540520202}
   - component: {fileID: 5831174044436980418}
-  - component: {fileID: 2961696130909835765}
   m_Layer: 0
   m_Name: BlueWarrior
   m_TagString: BlueTeam
@@ -2463,6 +2430,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &8914155738877778482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850054751326851071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c9c398473c3b0429e9c0165eece1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
+  numberOfDroplets: 10
+  spawnRadius: 1
 --- !u!114 &8914155739116970769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2477,6 +2459,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &8914155739116970770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850054751306004191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c9c398473c3b0429e9c0165eece1c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
+  numberOfDroplets: 10
+  spawnRadius: 1
 --- !u!33 &9122783326817562147
 MeshFilter:
   m_ObjectHideFlags: 0

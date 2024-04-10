@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BloodDropletSpawner : MonoBehaviour
+public class BloodDroplet : MonoBehaviour
 {
     public GameObject bloodBlockPrefab; // Assign your blood block prefab in the inspector
     public int numberOfDroplets = 10; // Number of droplets to spawn
@@ -18,5 +18,9 @@ public class BloodDropletSpawner : MonoBehaviour
             // Instantiate the blood block prefab at the calculated position
             Instantiate(bloodBlockPrefab, spawnPosition, Quaternion.identity);
         }
+    }
+
+    public void DestroyBloodDroplets(){
+        Destroy(bloodBlockPrefab); // Destroy the blood block on collision
     }
 }

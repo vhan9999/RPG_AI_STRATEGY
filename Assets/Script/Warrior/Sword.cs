@@ -40,6 +40,8 @@ public class Sword : MonoBehaviour
             {
                 Debug.Log("great");
                 RewardEvent.Invoke(1f);
+                otherAgent.GetComponent<BloodDroplet>().SpawnBloodDroplets();
+                otherAgent.GetComponent<BloodDroplet>().DestroyBloodDroplets();
             }
             else
             {
