@@ -21,9 +21,6 @@ public class ClassAgent : Agent
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
 
-    
-    public int HitCount = 0;
-
     //health
     public int health;
     public int currentHealth;
