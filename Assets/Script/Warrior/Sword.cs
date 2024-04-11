@@ -11,10 +11,13 @@ public class Sword : MonoBehaviour
     [SerializeField]
     public Animator anim;
     [HideInInspector]
-    public UnityEvent<float> RewardEvent;
-    [HideInInspector]
     public bool IsAttack = false;
-    [HideInInspector]
+    private ClassAgent agent;
+
+    private void Start()
+    {
+        agent = GetComponentInParent<ClassAgent>();
+    }
 
     public bool IsSlash
     {
@@ -26,7 +29,7 @@ public class Sword : MonoBehaviour
     {
         if (!IsSlash)
         {
-            RewardEvent.Invoke(-0.03f);
+            agent.AddReward(-0.03f);
             IsSlash = true;
         }
     }
@@ -35,27 +38,18 @@ public class Sword : MonoBehaviour
     {
         if (other.TryGetComponent(out ClassAgent otherAgent) && IsAttack)
         {
-            ClassAgent agent = GetComponentInParent<ClassAgent>();
-            if (agent != null && agent.team != otherAgent.team)
+            if (agent.team != otherAgent.team)
             {
                 Debug.Log("great");
-                RewardEvent.Invoke(1f);
+                agent.AddReward(1f);
             }
             else
             {
                 Debug.Log("Dont'hurt, you are his frend");
-                RewardEvent.Invoke(-0.3f);
+                agent.AddReward(0.3f);
             }
         }
     }
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.TryGetComponent(out WarriorAgent agent) && IsAttack)
-    //    {
-    //        IsHurt = true;
-    //    }
-    //}
 
     public void ResetSlash()
     {

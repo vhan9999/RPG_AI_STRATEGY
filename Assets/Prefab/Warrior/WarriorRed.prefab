@@ -119,7 +119,7 @@ MonoBehaviour:
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: My Behavior
-  TeamId: 0
+  TeamId: 1
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
@@ -142,14 +142,13 @@ MonoBehaviour:
   lerpSpeed: 5
   maxSpeed: 10
   rotateSpeed: 150
-  HitCount: 0
-  Health: 100
+  health: 0
   currentHealth: 100
-  team: 0
+  team: 1
   envController: {fileID: 0}
-  sword: {fileID: 0}
-  accelerate: {fileID: 0}
-  warCry: {fileID: 0}
+  sword: {fileID: 6904154655029309468}
+  accelerate: {fileID: 4675237790165163769}
+  warCry: {fileID: 455429360616032395}
 --- !u!114 &3427260092468783777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +473,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1249484464657150971, guid: 3454604efaefa5f428392ab49cf90143, type: 3}
   m_PrefabInstance: {fileID: 2159702343316375598}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4675237790165163769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6708404292676835031, guid: 3454604efaefa5f428392ab49cf90143, type: 3}
+  m_PrefabInstance: {fileID: 2159702343316375598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe42678b16b0ad4a8b939f62ff3e085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8438020968775977578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,3 +550,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
   m_PrefabInstance: {fileID: 8438020968775977578}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6904154655029309468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3083174955522800246, guid: ac42f54076755af4181393f511e66604, type: 3}
+  m_PrefabInstance: {fileID: 8438020968775977578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c1108cf4867ac49848b07db42ee0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

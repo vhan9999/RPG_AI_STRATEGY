@@ -24,7 +24,7 @@ public class WarriorAgent : ClassAgent
 
     private void Start()
     {
-        sword.RewardEvent.AddListener(AddReward);
+        
     }
 
     private void Update()
@@ -48,6 +48,7 @@ public class WarriorAgent : ClassAgent
 
     protected override void SpeedAdjust()
     {
+        base.SpeedAdjust();
         speed = sword.IsSlash ? speed * 0.4f : speed;
         speed = accelerate.IsAccelerate ? speed * 2 : speed;
     }

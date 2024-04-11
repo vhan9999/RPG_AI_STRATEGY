@@ -6,6 +6,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using UnityEditor.Timeline.Actions;
 using UnityEngine.Assertions;
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 
 public class ClassAgent : Agent
 {
@@ -34,8 +35,15 @@ public class ClassAgent : Agent
     private Vector3 initPosition;
     private Quaternion initRotation;
 
+    //mask
+    private bool isCanAttack = true;
+    private bool isCanSkill1 = true;
+    private bool isCanSkill2 = true;
+
     private int count1 = 0;
     private int count2 = 0;
+
+    protected bool isDizzy = false;
 
     public override void Initialize()
     {
@@ -66,9 +74,10 @@ public class ClassAgent : Agent
         transform.Translate(nowDir * Time.deltaTime * speed, Space.World);
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
     }
+
     protected virtual void SpeedAdjust()
     {
-
+        speed = isDizzy ? speed * 0.3f : speed;
     }
 
     public override void OnEpisodeBegin()
@@ -126,7 +135,7 @@ public class ClassAgent : Agent
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
         int attackAction = actions.DiscreteActions[3];
-        //int accelerateAction = actions.DiscreteActions[4];
+        //int skill1Action = actions.DiscreteActions[4];
         if (currentHealth < 0)
             return;
         // move forward and backward
@@ -141,16 +150,21 @@ public class ClassAgent : Agent
         if (rotateAction == 1) rotateDir = -1;
         else if (rotateAction == 2) rotateDir = 1;
 
+        if (isDizzy)
+            return;
+
+        // attack
         AttackAction(attackAction);
 
-        //// skill
-        //if (accelerateAction == 1) accelerate.Execute();
+        // skill
+        //SkillAction(skill1Action);
     }
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        count1++;
-        Debug.Log($"{count1} {count2}");
+        //actionMask.SetActionEnabled(3, 1, isCanAttack);
+        //actionMask.SetActionEnabled(4, 1, isCanSkill1);
+        //actionMask.SetActionEnabled(5, 1, isCanSkill2);
     }
 
     public virtual void AttackAction(int attackAction)
@@ -181,5 +195,22 @@ public class ClassAgent : Agent
             gameObject.SetActive(false);
             envController.DeadTouch(team);
         }
+    }
+
+    public void StartDizziness()
+    {
+        isDizzy = true;
+        isCanAttack = false;
+        isCanSkill1 = false;
+        isCanSkill2 = false;
+        Invoke("Recover", 3f);
+    }
+
+    public void Recover()
+    {
+        isDizzy = false;
+        isCanAttack = true;
+        isCanSkill1 = true;
+        isCanSkill2 = true;
     }
 }
