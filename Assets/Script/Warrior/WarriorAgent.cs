@@ -23,7 +23,6 @@ public class WarriorAgent : ClassAgent
         base.Start();
         sword = GetComponentInChildren<Sword>();
         accelerate = GetComponentInChildren<Accelerate>();
-        Debug.Log(3);
     }
 
     private void Update()

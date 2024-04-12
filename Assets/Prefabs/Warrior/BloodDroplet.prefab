@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3136099864850298685}
   - component: {fileID: -7871872417387314022}
   m_Layer: 0
-  m_Name: blood_droplet
+  m_Name: BloodDroplet
   m_TagString: Blood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

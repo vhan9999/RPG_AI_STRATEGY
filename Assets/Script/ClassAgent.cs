@@ -7,6 +7,7 @@ using Unity.MLAgents;
 using UnityEditor.Timeline.Actions;
 using UnityEngine.Assertions;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using System.Collections.Generic;
 
 public class ClassAgent : Agent
 {
@@ -42,7 +43,10 @@ public class ClassAgent : Agent
     private int count1 = 0;
     private int count2 = 0;
 
+    //state
     protected bool isDizzy = false;
+
+    private Queue<GameObject> pool = new Queue<GameObject>();
 
     protected virtual void Start()
     {
