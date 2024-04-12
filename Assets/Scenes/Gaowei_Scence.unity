@@ -445,7 +445,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1821884302}
   - {fileID: 1316968957800504516}
   - {fileID: 1316968957620004324}
   m_Father: {fileID: 0}
@@ -870,6 +869,7 @@ GameObject:
   - component: {fileID: 1821884301}
   - component: {fileID: 1821884300}
   - component: {fileID: 1821884299}
+  - component: {fileID: 1821884303}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -949,7 +949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821884298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2039797, y: -7.120084, z: 6.1992645}
+  m_LocalPosition: {x: 3.9939797, y: -0.80000067, z: 8.109264}
   m_LocalScale: {x: 2.5, y: 1, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -957,9 +957,21 @@ Transform:
   - {fileID: 3126839134653427480}
   - {fileID: 6806334742635737202}
   - {fileID: 7908224850343951660}
-  m_Father: {fileID: 1168063710}
-  m_RootOrder: 0
+  m_Father: {fileID: 1316968957800504516}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821884303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821884298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de21d464fde2efe44baf0376ed5af0c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1922739551 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5301416123047062054, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
@@ -1137,7 +1149,7 @@ Transform:
   - {fileID: 1451696312408118690}
   - {fileID: 8134382760161287670}
   m_Father: {fileID: 1168063710}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &1316968957800504516
 Transform:
@@ -1147,7 +1159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7850054751326851071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6034374, y: -6.320083, z: -0.26122952}
+  m_LocalPosition: {x: -0.79, y: -6.320083, z: -1.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1156,8 +1168,9 @@ Transform:
   - {fileID: 1922739554}
   - {fileID: 1451696312160808066}
   - {fileID: 8134382760199185622}
+  - {fileID: 1821884302}
   m_Father: {fileID: 1168063710}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1451696312160808066
 Transform:
@@ -2442,9 +2455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c9c398473c3b0429e9c0165eece1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
-  numberOfDroplets: 10
-  spawnRadius: 1
+  numberOfDroplets: 20
+  spawnRadius: 2
 --- !u!114 &8914155739116970769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2471,9 +2483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c9c398473c3b0429e9c0165eece1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
-  numberOfDroplets: 10
-  spawnRadius: 1
+  numberOfDroplets: 20
+  spawnRadius: 2
 --- !u!33 &9122783326817562147
 MeshFilter:
   m_ObjectHideFlags: 0

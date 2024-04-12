@@ -153,7 +153,7 @@ public class ClassAgent : Agent
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         count1++;
-        Debug.Log($"{count1} {count2}");
+        //Debug.Log($"{count1} {count2}");
     }
 
     public virtual void AttackAction(int attackAction)

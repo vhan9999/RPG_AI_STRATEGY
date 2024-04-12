@@ -40,8 +40,7 @@ public class Sword : MonoBehaviour
             {
                 Debug.Log("great");
                 RewardEvent.Invoke(1f);
-                otherAgent.GetComponent<BloodDroplet>().SpawnBloodDroplets();
-                otherAgent.GetComponent<BloodDroplet>().DestroyBloodDroplets();
+                otherAgent.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
             }
             else
             {
@@ -49,6 +48,7 @@ public class Sword : MonoBehaviour
                 RewardEvent.Invoke(-0.3f);
             }
         }
+        
     }
 
     //private void OnTriggerStay(Collider other)
