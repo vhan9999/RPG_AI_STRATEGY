@@ -42,6 +42,7 @@ public class Sword : MonoBehaviour
             {
                 Debug.Log("great");
                 agent.AddReward(1f);
+                otherAgent.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
             }
             else
             {
@@ -49,6 +50,7 @@ public class Sword : MonoBehaviour
                 agent.AddReward(0.3f);
             }
         }
+        
     }
 
     public void ResetSlash()

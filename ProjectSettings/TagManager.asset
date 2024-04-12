@@ -9,6 +9,9 @@ TagManager:
   - OrangeTeam
   - BlueSword
   - OrangeSword
+  - Character
+  - Sword
+  - Blood
   layers:
   - Default
   - TransparentFX
