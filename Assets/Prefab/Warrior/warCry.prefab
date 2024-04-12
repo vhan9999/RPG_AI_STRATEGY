@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6395586730639298164}
   - component: {fileID: 4440587555631863623}
   m_Layer: 0
-  m_Name: warCry
+  m_Name: WarCry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,21 +10,20 @@ using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 public class WarriorAgent : ClassAgent
 {
     // weapon
-    public Sword sword;
+    private Sword sword;
 
     // skill
-    [SerializeField]
     private Accelerate accelerate;
-    [SerializeField]
-    private WarCry warCry;
 
-   
     private int pridectAttackCount = 0;
     private int actualAttackCount = 0;
 
-    private void Start()
+    protected override void Start()
     {
-        
+        base.Start();
+        sword = GetComponentInChildren<Sword>();
+        accelerate = GetComponentInChildren<Accelerate>();
+        Debug.Log(3);
     }
 
     private void Update()
@@ -38,10 +37,6 @@ public class WarriorAgent : ClassAgent
             else if (Input.GetKeyDown(KeyCode.Z))
             {
                 accelerate.Execute();
-            }
-            else if (Input.GetKeyDown(KeyCode.C))
-            {
-                warCry.Execute();
             }
         }
     }

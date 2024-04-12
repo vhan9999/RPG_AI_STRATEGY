@@ -27,9 +27,9 @@ public class ClassAgent : Agent
     public int currentHealth;
 
     //team
-    protected BehaviorParameters bp;
     public Team team;
-    public EnvController envController;
+    protected BehaviorParameters bp;
+    private EnvController envController;
 
     //init
     private Vector3 initPosition;
@@ -37,18 +37,19 @@ public class ClassAgent : Agent
 
     //mask
     private bool isCanAttack = true;
-    private bool isCanSkill1 = true;
-    private bool isCanSkill2 = true;
+    private bool isCanSkill = true;
 
     private int count1 = 0;
     private int count2 = 0;
 
     protected bool isDizzy = false;
 
-    public override void Initialize()
+    protected virtual void Start()
     {
         bp = GetComponent<BehaviorParameters>();
+        envController = GetComponentInParent<EnvController>();
         team = (Team)bp.TeamId;
+        Debug.Log(team);
     }
 
     private void Update()
@@ -135,7 +136,7 @@ public class ClassAgent : Agent
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
         int attackAction = actions.DiscreteActions[3];
-        //int skill1Action = actions.DiscreteActions[4];
+        //int skillAction = actions.DiscreteActions[4];
         if (currentHealth < 0)
             return;
         // move forward and backward
@@ -157,7 +158,7 @@ public class ClassAgent : Agent
         AttackAction(attackAction);
 
         // skill
-        //SkillAction(skill1Action);
+        //SkillAction(skillAction);
     }
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
@@ -179,8 +180,6 @@ public class ClassAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (currentHealth <= 0)
-            return;
         if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
         {
             ClassAgent otherAgent = otherSword.GetComponentInParent<ClassAgent>();
@@ -201,8 +200,7 @@ public class ClassAgent : Agent
     {
         isDizzy = true;
         isCanAttack = false;
-        isCanSkill1 = false;
-        isCanSkill2 = false;
+        isCanSkill = false;
         Invoke("Recover", 3f);
     }
 
@@ -210,7 +208,6 @@ public class ClassAgent : Agent
     {
         isDizzy = false;
         isCanAttack = true;
-        isCanSkill1 = true;
-        isCanSkill2 = true;
+        isCanSkill = true;
     }
 }
