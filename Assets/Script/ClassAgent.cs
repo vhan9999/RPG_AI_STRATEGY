@@ -29,6 +29,7 @@ public class ClassAgent : Agent
 
     //team
     public Team team;
+    public Profession profession; 
     protected BehaviorParameters bp;
     private EnvController envController;
 
@@ -36,24 +37,14 @@ public class ClassAgent : Agent
     private Vector3 initPosition;
     private Quaternion initRotation;
 
-    //mask
-    private bool isCanAttack = true;
-    private bool isCanSkill = true;
-
-    private int count1 = 0;
-    private int count2 = 0;
-
     //state
     protected bool isDizzy = false;
-
-    private Queue<GameObject> pool = new Queue<GameObject>();
 
     protected virtual void Start()
     {
         bp = GetComponent<BehaviorParameters>();
         envController = GetComponentInParent<EnvController>();
         team = (Team)bp.TeamId;
-        Debug.Log(team);
     }
 
     private void Update()
@@ -74,24 +65,31 @@ public class ClassAgent : Agent
             speed = maxSpeed * 0.75f;
         else
             speed = maxSpeed;
+        speed = isDizzy ? speed * 0.3f : speed;
         SpeedAdjust();
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
-        transform.Translate(nowDir * Time.deltaTime * speed, Space.World);
+        transform.Translate(nowDir * Time.deltaTime * speed, Space.World);   
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
     }
 
     protected virtual void SpeedAdjust()
     {
-        speed = isDizzy ? speed * 0.3f : speed;
+        
+    }
+
+    protected virtual void AttackAction(int attackAction)
+    {
+
+    }
+
+    protected virtual void SkillAction(int skillAction)
+    {
+
     }
 
     public override void OnEpisodeBegin()
     {
         currentHealth = health;
-        //Debug.Log(gameObject.tag);
-        //transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(-8f, -5f));
-        //opponent_transform.localPosition = new Vector3(Random.Range(-6f, 6f), 1.5f, Random.Range(2f, 6f));
-        //Debug.Log("Agent Spawn");
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -106,15 +104,15 @@ public class ClassAgent : Agent
         }
         if (Input.GetKey(KeyCode.A))
         {
-            ctrlDir -= transform.right.normalized;
+            ctrlDir -= transform.right;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            ctrlDir -= transform.forward.normalized;
+            ctrlDir -= transform.forward;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            ctrlDir += transform.right.normalized;
+            ctrlDir += transform.right;
         }
         ctrlDir = ctrlDir.normalized;
 
@@ -135,12 +133,11 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        count2++;
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
         int attackAction = actions.DiscreteActions[3];
-        //int skillAction = actions.DiscreteActions[4];
+        int skillAction = actions.DiscreteActions[4];
         if (currentHealth < 0)
             return;
         // move forward and backward
@@ -155,31 +152,13 @@ public class ClassAgent : Agent
         if (rotateAction == 1) rotateDir = -1;
         else if (rotateAction == 2) rotateDir = 1;
 
-        if (isDizzy)
-            return;
+        if (isDizzy) return;
 
         // attack
         AttackAction(attackAction);
 
         // skill
-        //SkillAction(skillAction);
-    }
-
-    public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
-    {
-        //actionMask.SetActionEnabled(3, 1, isCanAttack);
-        //actionMask.SetActionEnabled(4, 1, isCanSkill1);
-        //actionMask.SetActionEnabled(5, 1, isCanSkill2);
-    }
-
-    public virtual void AttackAction(int attackAction)
-    {
-
-    }
-
-    public virtual void SkillAction(int skillAction) 
-    {
-        
+        SkillAction(skillAction);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -203,15 +182,11 @@ public class ClassAgent : Agent
     public void StartDizziness()
     {
         isDizzy = true;
-        isCanAttack = false;
-        isCanSkill = false;
         Invoke("Recover", 3f);
     }
 
     public void Recover()
     {
         isDizzy = false;
-        isCanAttack = true;
-        isCanSkill = true;
     }
 }

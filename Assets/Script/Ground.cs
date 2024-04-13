@@ -10,7 +10,7 @@ public class Ground : MonoBehaviour
         if (other.gameObject.CompareTag("Blood"))
         {
             Debug.Log(3);
-            BloodDropletPoolManager.Instance.ReturnToPool(other.gameObject);
+            //BloodDropletPoolManager.Instance.ReturnToPool(other.gameObject);
         }
     }
 }

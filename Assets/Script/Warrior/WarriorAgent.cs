@@ -40,30 +40,37 @@ public class WarriorAgent : ClassAgent
         }
     }
 
+    public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
+    {
+        Debug.Log($"{!sword.IsSlash} {accelerate.IsAllowed}");
+        actionMask.SetActionEnabled(3, 1, !sword.IsSlash);
+        actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
+    }
+
     protected override void SpeedAdjust()
     {
-        base.SpeedAdjust();
         speed = sword.IsSlash ? speed * 0.4f : speed;
-        speed = accelerate.IsAccelerate ? speed * 2 : speed;
+        speed = accelerate.Status ? speed * 1.5f : speed;
     }
 
-    public override void AttackAction(int attackAction)
+    protected override void AttackAction(int attackAction)
     {
-        if (!(sword.IsSlash && pridectAttackCount == 9))
-        {
-            pridectAttackCount++;
-            actualAttackCount = attackAction == 1 ? actualAttackCount + pridectAttackCount : actualAttackCount - pridectAttackCount;
-            if (pridectAttackCount == 10)
-            {
-                if (actualAttackCount > 0) sword.Slash();
-                pridectAttackCount = 0;
-                actualAttackCount = 0;
-            }
-        }
+        //if (!(sword.IsSlash && pridectAttackCount == 9))
+        //{
+        //    pridectAttackCount++;
+        //    actualAttackCount = attackAction == 1 ? actualAttackCount + pridectAttackCount : actualAttackCount - pridectAttackCount;
+        //    if (pridectAttackCount == 10)
+        //    {
+        //        if (actualAttackCount > 0) sword.Slash();
+        //        pridectAttackCount = 0;
+        //        actualAttackCount = 0;
+        //    }
+        //}
+        if (attackAction == 1) { sword.Slash(); }
     }
 
-    public override void SkillAction(int skillAction)
+    protected override void SkillAction(int skillAction)
     {
-        
+        if (skillAction == 1) { accelerate.Execute(); }
     }
 }

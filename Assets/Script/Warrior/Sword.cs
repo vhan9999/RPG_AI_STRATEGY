@@ -42,15 +42,14 @@ public class Sword : MonoBehaviour
             {
                 //Debug.Log("great");
                 agent.AddReward(1f);
-                other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
+                //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
             }
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(0.3f);
+                agent.AddReward(-0.3f);
             }
-        }
-        
+        }    
     }
 
     public void ResetSlash()
