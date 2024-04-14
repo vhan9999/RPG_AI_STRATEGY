@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BloodDropletPoolManager : MonoBehaviour
 {
@@ -46,15 +47,15 @@ public class BloodDropletPoolManager : MonoBehaviour
     public void ReturnToPool(GameObject droplet)
     {
         droplet.SetActive(false);
-        pool.Enqueue(droplet);
+        //pool.Enqueue(droplet);
     }
 
-    public void SpawnBloodDroplets()
+    public void SpawnBloodDroplets(Vector3 position)
     {
         for (int i = 0; i < numberOfDroplets; i++)
         {
-            Vector3 spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
-            spawnPosition.y = transform.position.y;
+            Vector3 spawnPosition = position + Random.insideUnitSphere * spawnRadius;
+            spawnPosition.y = position.y;
 
             // Get a droplet from the pool instead of instantiating
             Instance.GetFromPool(spawnPosition);

@@ -31,7 +31,7 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    private EnvController envController;
+    protected EnvController envController;
 
     //init
     private Vector3 initPosition;

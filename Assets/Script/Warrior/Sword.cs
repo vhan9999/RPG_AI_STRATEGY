@@ -43,6 +43,7 @@ public class Sword : MonoBehaviour
                 //Debug.Log("great");
                 agent.AddReward(1f);
                 //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
+                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.gameObject.transform.position);
             }
             else
             {
