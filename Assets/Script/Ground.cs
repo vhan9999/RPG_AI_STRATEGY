@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private int count = 0;
+    private void OnTriggerStay(Collider other)
     {
         // Check if the object colliding with the ground is a blood droplet
         if (other.gameObject.CompareTag("Blood"))
         {
-            Debug.Log(3);
-            //BloodDropletPoolManager.Instance.ReturnToPool(other.gameObject);
+            BloodDropletPoolManager.Instance.ReturnToPool(other.gameObject);
         }
     }
 }

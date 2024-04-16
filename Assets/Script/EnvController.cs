@@ -19,7 +19,7 @@ public class EnvController : MonoBehaviour
     /// Max Academy steps before this platform resets
     /// </summary>
     /// <returns></returns>
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 8000;
+    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 800000;
 
     /// <summary>
     /// The area bounds.
@@ -50,7 +50,10 @@ public class EnvController : MonoBehaviour
         ClassAgent[] agents = GetComponentsInChildren<ClassAgent>();
         foreach (var agent in agents)
         {
-            agentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.position, StartingRot = agent.transform.rotation });
+            if (agent.enabled)
+            {
+                agentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.position, StartingRot = agent.transform.rotation });
+            }
         }
         foreach (var item in agentsList)
         {

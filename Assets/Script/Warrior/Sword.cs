@@ -40,13 +40,13 @@ public class Sword : MonoBehaviour
         {
             if (agent.team != otherAgent.team)
             {
-                //Debug.Log("great");
+                Debug.Log("great");
                 agent.AddReward(1f);
-                //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
+                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.transform.position);
             }
             else
             {
-                //Debug.Log("Dont'hurt, you are his frend");
+                Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(-0.3f);
             }
         }    
