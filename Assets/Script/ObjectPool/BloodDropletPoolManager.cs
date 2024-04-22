@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BloodDropletPoolManager : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class BloodDropletPoolManager : MonoBehaviour
     {
         droplet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         droplet.SetActive(false);
-        pool.Enqueue(droplet);
+        //pool.Enqueue(droplet);
     }
 
     public void SpawnBloodDroplets(Vector3 position)
