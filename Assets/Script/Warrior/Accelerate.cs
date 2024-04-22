@@ -31,7 +31,6 @@ public class Accelerate : MonoBehaviour
         Status = false;
         CancelInvoke("EnableSkill");
         Invoke("EnableSkill", 5f);
-        Debug.Log(3);
     }
 
     private void EnableSkill()

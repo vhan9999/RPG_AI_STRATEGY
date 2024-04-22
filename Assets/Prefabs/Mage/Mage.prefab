@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3182359526641168393}
   - component: {fileID: 359492459402938691}
   - component: {fileID: 3880016407849070039}
+  - component: {fileID: 3373690354338610695}
   m_Layer: 0
   m_Name: book
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5952681592011416370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.078, y: -0.232, z: 1.016}
+  m_LocalPosition: {x: 0.046, y: -0.232, z: 1.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3373690354338610695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952681592011416370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc38338a81596d74696a3ddae30a8567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsAttack: 0
+  magicMissile: {fileID: 7995286412899389133, guid: 360650b2147289d48bf74da0369bf18d, type: 3}
 --- !u!1 &7513846362045146616
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +240,6 @@ MonoBehaviour:
   currentHealth: 0
   team: 0
   profession: 1
-  magicMissile: {fileID: 7995286412899389133, guid: 360650b2147289d48bf74da0369bf18d, type: 3}
 --- !u!114 &2998797774162041268
 MonoBehaviour:
   m_ObjectHideFlags: 0

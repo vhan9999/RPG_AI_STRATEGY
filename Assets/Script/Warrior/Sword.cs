@@ -34,7 +34,7 @@ public class Sword : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) 
     {
         if (other.TryGetComponent(out ClassAgent otherAgent) && IsAttack)
         {
@@ -50,7 +50,7 @@ public class Sword : MonoBehaviour
                 //Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(-0.3f);
             }
-        }    
+        }
     }
 
     public void ResetSlash()

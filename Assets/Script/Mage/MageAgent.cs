@@ -6,23 +6,22 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MageAgent : ClassAgent
 {
 
     // skill
 
-    [SerializeField] private GameObject magicMissile;
     
-    private ObjectPool<MagicMissile> magicMissilePool;
     private int pridectAttackCount = 0;
     private int actualAttackCount = 0;
+    private Book book;
 
     protected override void Start()
     {
         base.Start();
-        magicMissilePool = ObjectPool<MagicMissile>.instance;
-        magicMissilePool.InitPool(magicMissile, 30);
+        book = transform.GetChild(0).GetComponent<Book>();
     }
 
     private void Update()
@@ -31,11 +30,8 @@ public class MageAgent : ClassAgent
         {
             if (Input.GetMouseButtonDown(0))
             {
-                //GameObject m = Instantiate(magicMissile, transform.position + transform.forward * 1, transform.rotation);
-                MagicMissile m = magicMissilePool.Spawn(transform.position + transform.forward * 1, transform.rotation);
-                m.moveDir = transform.forward;
-                m.team = Team.Blue;
-                m.Reset();
+                book.NormalAttack();
+
             }
             else if (Input.GetKeyDown(KeyCode.Z))
             {
@@ -43,38 +39,24 @@ public class MageAgent : ClassAgent
             }
         }
     }
-
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        
+        actionMask.SetActionEnabled(3, 1, !book.IsAttack);
+        //actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
     }
 
     protected override void SpeedAdjust()
     {
-        //speed = sword.IsSlash ? speed * 0.4f : speed;
+        speed = book.IsAttack ? speed * 0.6f : speed;
         //speed = accelerate.Status ? speed * 1.5f : speed;
     }
 
     protected override void AttackAction(int attackAction)
     {
-        //if (!(sword.IsSlash && pridectAttackCount == 9))
-        //{
-        //    pridectAttackCount++;
-        //    actualAttackCount = attackAction == 1 ? actualAttackCount + pridectAttackCount : actualAttackCount - pridectAttackCount;
-        //    if (pridectAttackCount == 10)
-        //    {
-        //        if (actualAttackCount > 0) sword.Slash();
-        //        pridectAttackCount = 0;
-        //        actualAttackCount = 0;
-        //    }
-        //}
-        //if (attackAction == 1) { sword.Slash(); }
+        if(attackAction == 1) { book.NormalAttack(); }
     }
 
     protected override void SkillAction(int skillAction)
     {
-        MagicMissile m = magicMissilePool.Spawn(transform.position + transform.forward * 1, transform.rotation);
-        m.moveDir = transform.forward;
-        m.Reset();
     }
 }

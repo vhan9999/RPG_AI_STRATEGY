@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.MLAgents;
 using UnityEngine;
 
 public class MagicMissile : MonoBehaviour
@@ -8,7 +9,7 @@ public class MagicMissile : MonoBehaviour
     [SerializeField] private float existTime;
     public Vector3 moveDir;
     private float timer;
-    public Team team;
+    public ClassAgent agent;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +32,24 @@ public class MagicMissile : MonoBehaviour
         }
 
         transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out ClassAgent otherAgent))
+        {
+            if (agent.team != otherAgent.team)
+            {
+                //Debug.Log("great");
+                agent.AddReward(1f);
+                //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
+                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.gameObject.transform.position);
+            }
+            else
+            {
+                //Debug.Log("Dont'hurt, you are his frend");
+                agent.AddReward(-0.3f);
+            }
+        }
     }
 }

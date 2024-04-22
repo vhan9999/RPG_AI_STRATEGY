@@ -9,7 +9,7 @@ public class Ground : MonoBehaviour
         // Check if the object colliding with the ground is a blood droplet
         if (other.gameObject.CompareTag("Blood"))
         {
-            Debug.Log(3);
+            //Debug.Log(3);
             //BloodDropletPoolManager.Instance.ReturnToPool(other.gameObject);
         }
     }
