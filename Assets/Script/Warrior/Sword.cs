@@ -42,12 +42,12 @@ public class Sword : MonoBehaviour
             {
                 Debug.Log("great");
                 agent.AddReward(1f);
-                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.transform.position);
+                //BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.transform.position);
             }
             else
             {
                 Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f);
+                agent.AddReward(-0.6f);
             }
         }    
     }

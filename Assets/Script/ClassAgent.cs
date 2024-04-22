@@ -168,7 +168,7 @@ public class ClassAgent : Agent
             ClassAgent otherAgent = otherSword.GetComponentInParent<ClassAgent>();
             if (otherAgent != null && otherAgent.team != team)
             {
-                AddReward(-0.2f);
+                AddReward(-0.3f);
                 currentHealth -= 20;
             }
         }
