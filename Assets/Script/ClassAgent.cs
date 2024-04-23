@@ -163,16 +163,14 @@ public class ClassAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
-        {
-            ClassAgent otherAgent = otherSword.GetComponentInParent<ClassAgent>();
-            if (otherAgent != null && otherAgent.team != team)
-            {
-                AddReward(-0.3f);
-                currentHealth -= 20;
-            }
-        }
-        if(currentHealth <= 0)
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        AddReward(damage * 0.015f);
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
             envController.DeadTouch(team);
