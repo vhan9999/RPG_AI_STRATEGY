@@ -6,23 +6,19 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using OpenCover.Framework.Model;
 
-public class berserkerAgent : ClassAgent
+public class BerserkerAgent : ClassAgent
 {
     // weapon
-    private Sword sword;
+    private Battleaxe battleaxe;
 
-    // skill
-    private Accelerate accelerate;
-
-    private int pridectAttackCount = 0;
-    private int actualAttackCount = 0;
+    private bool isWhirlwind = false;
 
     protected override void Start()
     {
         base.Start();
-        sword = GetComponentInChildren<Sword>();
-        accelerate = GetComponentInChildren<Accelerate>();
+        battleaxe = GetComponentInChildren<Battleaxe>();
     }
 
     private void Update()
@@ -31,11 +27,11 @@ public class berserkerAgent : ClassAgent
         {
             if (Input.GetMouseButtonDown(0))
             {
-                sword.Slash();
+                battleaxe.Cleave();
             }
             else if (Input.GetKeyDown(KeyCode.Z))
             {
-                accelerate.Execute();
+                
             }
         }
     }
@@ -43,14 +39,13 @@ public class berserkerAgent : ClassAgent
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         //Debug.Log($"{!sword.IsSlash} {accelerate.IsAllowed}");
-        actionMask.SetActionEnabled(3, 1, !sword.IsSlash);
-        actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
+        //actionMask.SetActionEnabled(3, 1, !sword.IsSlash);
+        //actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
     }
 
     protected override void SpeedAdjust()
     {
-        speed = sword.IsSlash ? speed * 0.4f : speed;
-        speed = accelerate.Status ? speed * 1.5f : speed;
+        //speed = sword.IsSlash ? speed * 0.4f : speed;
     }
 
     protected override void AttackAction(int attackAction)
@@ -66,11 +61,24 @@ public class berserkerAgent : ClassAgent
         //        actualAttackCount = 0;
         //    }
         //}
-        if (attackAction == 1) { sword.Slash(); }
+        if (attackAction == 1) 
+        { 
+            battleaxe.Cleave(); 
+        }
     }
 
     protected override void SkillAction(int skillAction)
     {
-        if (skillAction == 1) { accelerate.Execute(); }
+        if (skillAction == 1) 
+        { 
+            isWhirlwind = true;
+            CancelInvoke("ResetWhirlwind");
+            Invoke("ResetWhirlwind", 3f);
+        }
+    }
+
+    private void ResetWhirlwind()
+    {
+        isWhirlwind = false;
     }
 }

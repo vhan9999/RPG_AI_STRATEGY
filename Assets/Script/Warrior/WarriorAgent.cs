@@ -66,11 +66,17 @@ public class WarriorAgent : ClassAgent
         //        actualAttackCount = 0;
         //    }
         //}
-        if (attackAction == 1) { sword.Slash(); }
+        if (attackAction == 1) 
+        { 
+            sword.Slash(); 
+        }
     }
 
     protected override void SkillAction(int skillAction)
     {
-        if (skillAction == 1) { accelerate.Execute(); }
+        if (skillAction == 1) 
+        { 
+            accelerate.Execute(); 
+        }
     }
 }

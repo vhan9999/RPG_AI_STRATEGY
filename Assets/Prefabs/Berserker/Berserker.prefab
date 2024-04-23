@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091421831883453081, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
       propertyPath: m_Name
-      value: BigAxe
+      value: Battleaxe
       objectReference: {fileID: 0}
     - target: {fileID: 4322403292602538363, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
       propertyPath: m_LocalPosition.x
