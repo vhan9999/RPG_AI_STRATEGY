@@ -13,8 +13,6 @@ public class BerserkerAgent : ClassAgent
     // weapon
     private Battleaxe battleaxe;
 
-    private bool isWhirlwind = false;
-
     protected override void Start()
     {
         base.Start();
@@ -31,16 +29,25 @@ public class BerserkerAgent : ClassAgent
             }
             else if (Input.GetKeyDown(KeyCode.Z))
             {
-                
+                battleaxe.Whirlwind();
             }
+        }
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (battleaxe.IsWhirlwind)
+        {
+            transform.Rotate(0f, rotateSpeed * Time.deltaTime * 10, 0f);
         }
     }
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        //Debug.Log($"{!sword.IsSlash} {accelerate.IsAllowed}");
-        //actionMask.SetActionEnabled(3, 1, !sword.IsSlash);
-        //actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
+        actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave);
+        actionMask.SetActionEnabled(2, 1, battleaxe.IsWhirlwind);
+        actionMask.SetActionEnabled(2, 2, battleaxe.IsWhirlwind);
     }
 
     protected override void SpeedAdjust()
@@ -70,15 +77,10 @@ public class BerserkerAgent : ClassAgent
     protected override void SkillAction(int skillAction)
     {
         if (skillAction == 1) 
-        { 
-            isWhirlwind = true;
+        {
+            battleaxe.Whirlwind();
             CancelInvoke("ResetWhirlwind");
             Invoke("ResetWhirlwind", 3f);
         }
-    }
-
-    private void ResetWhirlwind()
-    {
-        isWhirlwind = false;
     }
 }

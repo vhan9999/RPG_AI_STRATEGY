@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4108032451258910172}
   - component: {fileID: 1285081580820413590}
   - component: {fileID: 2373463809870370818}
+  - component: {fileID: 1230743703}
+  - component: {fileID: 1230743704}
+  - component: {fileID: 1230743708}
   m_Layer: 0
   m_Name: Berserker
   m_TagString: Untagged
@@ -84,6 +87,73 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1230743703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166902838719059687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008566733a7c6aa45b5fa623fa660f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  lerpSpeed: 5
+  maxSpeed: 10
+  rotateSpeed: 150
+  health: 100
+  currentHealth: 100
+  team: 0
+  profession: 2
+--- !u!114 &1230743704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166902838719059687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 0
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 0300000003000000030000000200000002000000
+    VectorActionSize: 0300000003000000030000000200000002000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 1
+  m_BehaviorName: My Behavior
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &1230743708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166902838719059687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1001 &5707388697220285883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,8 +251,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
+--- !u!1 &8643271615034292002 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4091421831883453081, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
+  m_PrefabInstance: {fileID: 5707388697220285883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1146352554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8643271615034292002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44af465a6d2a1b4aa76ae8e085f1bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 9071516529585956909}
 --- !u!4 &8987145339436117400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3714474454319933475, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
+  m_PrefabInstance: {fileID: 5707388697220285883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9071516529585956909 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3661488067369971094, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
   m_PrefabInstance: {fileID: 5707388697220285883}
   m_PrefabAsset: {fileID: 0}

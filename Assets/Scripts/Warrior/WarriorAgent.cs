@@ -76,7 +76,7 @@ public class WarriorAgent : ClassAgent
     {
         if (skillAction == 1) 
         { 
-            accelerate.Execute(); 
+            accelerate.Execute();
         }
     }
 }
