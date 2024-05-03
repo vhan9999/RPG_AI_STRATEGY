@@ -31,16 +31,16 @@ public class Book : MonoBehaviour
         
     }
 
-    public void NormalAttack()
+    public void AttactCast()
     {
         if (!IsAttack && !IsSkill)
         {
             IsAttack = true;
-            Invoke("ResetAttack", 0.5f);
+            Invoke("AttackShoot", 0.5f);
         }
     }
 
-    private void ResetAttack()
+    private void AttackShoot()
     {
         
         MagicMissile m = magicMissilePool.Spawn(transform.position + transform.up, transform.rotation);
@@ -50,7 +50,7 @@ public class Book : MonoBehaviour
         IsAttack = false;
     }
 
-    public void Skill()
+    public void FireBallCast()
     {
         if (!IsAttack && !IsCoolDown)
         {
@@ -65,7 +65,7 @@ public class Book : MonoBehaviour
         IsCoolDown = false;
     }
 
-    public void Shoot()
+    public void FireBallShoot()
     {
         IsSkill = false;
         GameObject f = Instantiate(fireBall, transform.position + transform.up, transform.rotation);

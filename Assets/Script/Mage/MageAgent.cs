@@ -31,12 +31,12 @@ public class MageAgent : ClassAgent
         {
             if (Input.GetMouseButtonDown(0))
             {
-                book.NormalAttack();
+                book.FireBallShoot();
 
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                book.Skill();
+                book.FireBallCast();
             }
         }
     }
@@ -54,11 +54,11 @@ public class MageAgent : ClassAgent
 
     protected override void AttackAction(int attackAction)
     {
-        if(attackAction == 1) { book.NormalAttack(); }
+        if(attackAction == 1) { book.FireBallShoot(); }
     }
 
     protected override void SkillAction(int skillAction)
     {
-        if (skillAction == 1) { book.Skill(); }
+        if (skillAction == 1) { book.FireBallCast(); }
     }
 }

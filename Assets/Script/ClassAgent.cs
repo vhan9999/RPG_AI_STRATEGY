@@ -57,8 +57,12 @@ public class ClassAgent : Agent
 
     private void FixedUpdate()
     {
+<<<<<<< Updated upstream:Assets/Script/ClassAgent.cs
         if (currentHealth < 0)
             return;
+=======
+
+>>>>>>> Stashed changes:Assets/Scripts/ClassAgent.cs
         if (Vector3.Angle(nowDir, transform.forward) > 120)
             speed = maxSpeed * 0.5f;
         else if (Vector3.Angle(nowDir, transform.forward) > 80)
@@ -163,6 +167,7 @@ public class ClassAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
+<<<<<<< Updated upstream:Assets/Script/ClassAgent.cs
         if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
         {
             ClassAgent otherAgent = otherSword.GetComponentInParent<ClassAgent>();
@@ -173,6 +178,16 @@ public class ClassAgent : Agent
             }
         }
         if(currentHealth <= 0)
+=======
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        AddReward(-damage * 0.015f);
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+>>>>>>> Stashed changes:Assets/Scripts/ClassAgent.cs
         {
             gameObject.SetActive(false);
             envController.DeadTouch(team);
