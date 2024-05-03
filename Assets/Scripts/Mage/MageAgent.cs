@@ -7,6 +7,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEditor.Timeline.Actions;
 
 public class MageAgent : ClassAgent
 {
@@ -33,9 +34,9 @@ public class MageAgent : ClassAgent
                 book.NormalAttack();
 
             }
-            else if (Input.GetKeyDown(KeyCode.Z))
+            else if (Input.GetMouseButtonDown(1))
             {
-                
+                book.Skill();
             }
         }
     }
@@ -58,5 +59,6 @@ public class MageAgent : ClassAgent
 
     protected override void SkillAction(int skillAction)
     {
+        if (skillAction == 1) { book.Skill(); }
     }
 }
