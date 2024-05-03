@@ -55,14 +55,12 @@ public class ClassAgent : Agent
         }
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-<<<<<<< Updated upstream:Assets/Script/ClassAgent.cs
-        if (currentHealth < 0)
-            return;
-=======
-
->>>>>>> Stashed changes:Assets/Scripts/ClassAgent.cs
+        //if (this is BerserkerAgent)
+        //{
+        //    Debug.Log($"{speed} {maxSpeed} {lerpSpeed} {ctrlDir} {nowDir}");
+        //}
         if (Vector3.Angle(nowDir, transform.forward) > 120)
             speed = maxSpeed * 0.5f;
         else if (Vector3.Angle(nowDir, transform.forward) > 80)
@@ -98,40 +96,33 @@ public class ClassAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        if (currentHealth < 0)
-            return;
+        ActionSegment<int> actions = actionsOut.DiscreteActions;
         // move
-        ctrlDir = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
         {
-            ctrlDir += transform.forward;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            ctrlDir -= transform.right;
+            actions[0] = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            ctrlDir -= transform.forward;
+            actions[0] = 2;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            ctrlDir += transform.right;
+            actions[1] = 1;
         }
-        ctrlDir = ctrlDir.normalized;
+        if (Input.GetKey(KeyCode.A))
+        {
+            actions[1] = 2;
+        }
 
         // rotate
         if (Input.GetKey(KeyCode.Q))
         {
-            rotateDir = -1;
+            actions[2] = 1;
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            rotateDir = 1;
-        }
-        else
-        {
-            rotateDir = 0;
+            actions[2] = 2;
         }
     }
 
@@ -142,17 +133,29 @@ public class ClassAgent : Agent
         int rotateAction = actions.DiscreteActions[2];
         int attackAction = actions.DiscreteActions[3];
         int skillAction = actions.DiscreteActions[4];
-        if (currentHealth < 0)
-            return;
+
         // move forward and backward
-        if (GetComponent<BehaviorParameters>().BehaviorType != BehaviorType.HeuristicOnly) ctrlDir = Vector3.zero;
-        if (moveFrontBack == 1) ctrlDir += transform.forward;
-        else if (moveFrontBack == 2) ctrlDir -= transform.forward;
-        if (moveLeftRight == 1) ctrlDir += transform.right;
-        else if (moveLeftRight == 2) ctrlDir -= transform.right;
+        ctrlDir = Vector3.zero;
+        if (moveFrontBack == 1)
+        {
+            ctrlDir += transform.forward;
+        }
+        else if (moveFrontBack == 2)
+        {
+            ctrlDir -= transform.forward;
+        }
+        if (moveLeftRight == 1)
+        {
+            ctrlDir += transform.right;
+        }
+        else if (moveLeftRight == 2)
+        {
+            ctrlDir -= transform.right;
+        }
         ctrlDir = ctrlDir.normalized;
 
         // rotate
+        rotateDir = 0;
         if (rotateAction == 1) rotateDir = -1;
         else if (rotateAction == 2) rotateDir = 1;
 
@@ -167,27 +170,14 @@ public class ClassAgent : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-<<<<<<< Updated upstream:Assets/Script/ClassAgent.cs
-        if (other.TryGetComponent(out Sword otherSword) && otherSword.IsAttack)
-        {
-            ClassAgent otherAgent = otherSword.GetComponentInParent<ClassAgent>();
-            if (otherAgent != null && otherAgent.team != team)
-            {
-                AddReward(-0.2f);
-                currentHealth -= 20;
-            }
-        }
-        if(currentHealth <= 0)
-=======
 
     }
 
     public void TakeDamage(int damage)
     {
-        AddReward(-damage * 0.015f);
+        AddReward(damage * 0.015f);
         currentHealth -= damage;
         if (currentHealth <= 0)
->>>>>>> Stashed changes:Assets/Scripts/ClassAgent.cs
         {
             gameObject.SetActive(false);
             envController.DeadTouch(team);

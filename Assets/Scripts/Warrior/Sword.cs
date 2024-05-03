@@ -34,7 +34,7 @@ public class Sword : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out ClassAgent otherAgent) && IsAttack)
         {
@@ -42,15 +42,15 @@ public class Sword : MonoBehaviour
             {
                 //Debug.Log("great");
                 agent.AddReward(1f);
-                //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
-                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.gameObject.transform.position);
+                otherAgent.TakeDamage(20);
+                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.transform.position);
             }
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f);
+                agent.AddReward(-0.6f);
             }
-        }
+        }    
     }
 
     public void ResetSlash()

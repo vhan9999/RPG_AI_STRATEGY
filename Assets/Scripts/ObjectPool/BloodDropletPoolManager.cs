@@ -4,11 +4,11 @@ using UnityEngine.UIElements;
 
 public class BloodDropletPoolManager : MonoBehaviour
 {
-    public static BloodDropletPoolManager Instance { get; private set; }
     public GameObject bloodBlockPrefab;
+    static public BloodDropletPoolManager Instance {  get; private set; }
 
-    public int poolSize = 20;
-    private Queue<GameObject> pool = new Queue<GameObject>();
+    public int poolSize = 2000;
+    public Queue<GameObject> pool = new Queue<GameObject>();
 
     public int numberOfDroplets = 10; // Number of droplets to spawn
     public float spawnRadius = 1f; // Radius around the player to spawn the droplets
@@ -40,12 +40,13 @@ public class BloodDropletPoolManager : MonoBehaviour
         GameObject droplet = pool.Dequeue();
         droplet.SetActive(true);
         droplet.transform.position = position;
-
+        
         return droplet;
     }
 
     public void ReturnToPool(GameObject droplet)
     {
+        droplet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         droplet.SetActive(false);
         //pool.Enqueue(droplet);
     }
@@ -58,7 +59,7 @@ public class BloodDropletPoolManager : MonoBehaviour
             spawnPosition.y = position.y;
 
             // Get a droplet from the pool instead of instantiating
-            Instance.GetFromPool(spawnPosition);
+            GetFromPool(spawnPosition);
         }
     }
 }

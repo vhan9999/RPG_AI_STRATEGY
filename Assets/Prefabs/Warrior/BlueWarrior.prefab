@@ -142,7 +142,6 @@ GameObject:
   - component: {fileID: 8914155739197228526}
   - component: {fileID: 4644770537287980757}
   - component: {fileID: 5831174045225811229}
-  - component: {fileID: 969521621255022070}
   m_Layer: 0
   m_Name: BlueWarrior
   m_TagString: BlueTeam
@@ -267,7 +266,7 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 5
   maxSpeed: 10
-  rotateSpeed: 150
+  rotateSpeed: 200
   health: 0
   currentHealth: 100
   team: 0
@@ -307,30 +306,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7850054750572236832}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 70
+  m_Drag: 10
+  m_AngularDrag: 10
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &969521621255022070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850054750572236832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5ae621a0e22ce4db067489b3729796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
-  poolSize: 20
-  numberOfDroplets: 10
-  spawnRadius: 1
 --- !u!1001 &6513080150949266063
 PrefabInstance:
   m_ObjectHideFlags: 0
