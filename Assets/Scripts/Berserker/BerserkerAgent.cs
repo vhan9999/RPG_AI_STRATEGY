@@ -45,9 +45,9 @@ public class BerserkerAgent : ClassAgent
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave || battleaxe.IsWhirlwind);
-        actionMask.SetActionEnabled(2, 1, battleaxe.IsWhirlwind);
-        actionMask.SetActionEnabled(2, 2, battleaxe.IsWhirlwind);
+        actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave || !battleaxe.IsWhirlwind);
+        actionMask.SetActionEnabled(2, 1, !battleaxe.IsWhirlwind);
+        actionMask.SetActionEnabled(2, 2, !battleaxe.IsWhirlwind);
     }
 
     protected override void SpeedAdjust()
