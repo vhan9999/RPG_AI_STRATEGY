@@ -45,7 +45,7 @@ public class BerserkerAgent : ClassAgent
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave);
+        actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave || battleaxe.IsWhirlwind);
         actionMask.SetActionEnabled(2, 1, battleaxe.IsWhirlwind);
         actionMask.SetActionEnabled(2, 2, battleaxe.IsWhirlwind);
     }
@@ -57,17 +57,6 @@ public class BerserkerAgent : ClassAgent
 
     protected override void AttackAction(int attackAction)
     {
-        //if (!(sword.IsSlash && pridectAttackCount == 9))
-        //{
-        //    pridectAttackCount++;
-        //    actualAttackCount = attackAction == 1 ? actualAttackCount + pridectAttackCount : actualAttackCount - pridectAttackCount;
-        //    if (pridectAttackCount == 10)
-        //    {
-        //        if (actualAttackCount > 0) sword.Slash();
-        //        pridectAttackCount = 0;
-        //        actualAttackCount = 0;
-        //    }
-        //}
         if (attackAction == 1) 
         { 
             battleaxe.Cleave(); 
