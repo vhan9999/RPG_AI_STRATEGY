@@ -160,12 +160,6 @@ public class ClassAgent : Agent
         else if (rotateAction == 2) rotateDir = 1;
 
         if (isDizzy) return;
-
-        // attack
-        AttackAction(attackAction);
-
-        // skill
-        SkillAction(skillAction);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -175,7 +169,7 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int damage)
     {
-        AddReward(damage * 0.015f);
+        AddReward(-damage * 0.015f);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
