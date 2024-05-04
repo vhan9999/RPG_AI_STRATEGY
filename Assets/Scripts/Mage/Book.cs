@@ -30,7 +30,6 @@ public class Book : MonoBehaviour
     {
         
     }
-
     public void AttactCast()
     {
         if (!IsAttack && !IsSkill)
@@ -57,7 +56,7 @@ public class Book : MonoBehaviour
             fireBallCast.CastStart();
             IsCoolDown = true;
             IsSkill = true;
-            Invoke("CoolDown", 1f);
+            Invoke("CoolDown", 10f);
         }
     }
     private void CoolDown()

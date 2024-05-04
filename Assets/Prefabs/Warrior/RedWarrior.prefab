@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6018355564763816777}
   m_Layer: 0
   m_Name: RedWarrior
-  m_TagString: OrangeTeam
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3569169539208927711, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_TagString
-      value: OrangeSword
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_RootOrder

@@ -42,14 +42,14 @@ public class MageAgent : ClassAgent
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !book.IsAttack);
-        //actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
+        actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsCoolDown);
+        actionMask.SetActionEnabled(4, 1, !book.IsAttack && !book.IsCoolDown);
     }
 
     protected override void SpeedAdjust()
     {
         speed = book.IsAttack ? speed * 0.6f : speed;
-        //speed = accelerate.Status ? speed * 1.5f : speed;
+        speed = book.IsSkill ? speed * 0.3f : speed;
     }
 
     protected override void AttackAction(int attackAction)

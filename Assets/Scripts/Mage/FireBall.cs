@@ -42,6 +42,7 @@ public class FireBall : MonoBehaviour
                 isHit = true;
                 //Debug.Log("great");
                 agent.AddReward(1f);
+                other.GetComponent<ClassAgent>().TakeDamage(30);
                 //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
             }
             else
