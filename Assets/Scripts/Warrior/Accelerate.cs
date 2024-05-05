@@ -12,17 +12,17 @@ public class Accelerate : MonoBehaviour
     private float executeTime = 2f;
     private ClassAgent agent;
 
-    private void Start()
-    {
-        agent = GetComponentInParent<ClassAgent>();
-    }
-
     public bool IsAllowed { get; private set; }
 
     public bool Status
     {
         get => anim.GetBool("isAccelerate");
         set => anim.SetBool("isAccelerate", value);
+    }
+
+    private void Start()
+    {
+        agent = GetComponentInParent<ClassAgent>();
     }
 
     private void OnEnable()

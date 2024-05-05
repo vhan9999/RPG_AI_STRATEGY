@@ -10,9 +10,8 @@ public class Sword : MonoBehaviour
 {
     [SerializeField]
     public Animator anim;
-    [HideInInspector]
-    public bool IsAttack = false;
     private ClassAgent agent;
+    private bool IsAttack = false;
 
     private void Start()
     {
@@ -40,15 +39,14 @@ public class Sword : MonoBehaviour
         {
             if (agent.team != otherAgent.team)
             {
-                //Debug.Log("great");
+                Debug.Log("great");
                 agent.AddReward(1f);
                 otherAgent.TakeDamage(20);
-                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.transform.position);
             }
             else
             {
-                //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.6f);
+                Debug.Log("Dont'hurt, you are his frend");
+                agent.AddReward(-0.3f);
             }
         }    
     }

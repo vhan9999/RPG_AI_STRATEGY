@@ -7,6 +7,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using OpenCover.Framework.Model;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class BerserkerAgent : ClassAgent
 {
@@ -45,14 +46,15 @@ public class BerserkerAgent : ClassAgent
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave && !battleaxe.IsWhirlwind);
         actionMask.SetActionEnabled(2, 1, !battleaxe.IsWhirlwind);
         actionMask.SetActionEnabled(2, 2, !battleaxe.IsWhirlwind);
+        actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave && !battleaxe.IsWhirlwind);
+        actionMask.SetActionEnabled(4, 1, battleaxe.isActiveAndEnabled);
     }
 
     protected override void SpeedAdjust()
     {
-        //speed = sword.IsSlash ? speed * 0.4f : speed;
+        speed = battleaxe.IsCleave ? speed * 0.3f : speed;
     }
 
     protected override void AttackAction(int attackAction)

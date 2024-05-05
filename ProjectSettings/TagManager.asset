@@ -5,13 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - BlueTeam
-  - OrangeTeam
   - BlueSword
-  - OrangeSword
-  - Character
-  - Sword
   - Blood
+  - RedSword
+  - BlueWarrior
+  - RedWarrior
+  - BlueBerserker
+  - RedBerserker
+  - BlueBattleaxe
+  - RedBattleaxe
+  - RedBigAxe
+  - BlueBigAxe
   layers:
   - Default
   - TransparentFX
