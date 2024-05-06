@@ -91,7 +91,7 @@ public class Battleaxe : MonoBehaviour
             else
             {
                 Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(IsCleave ? -0.3f : -0.1f);
+                agent.AddReward(IsCleave ? -0.6f : -0.1f);
             }
         }
     }

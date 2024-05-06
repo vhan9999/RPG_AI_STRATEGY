@@ -35,7 +35,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8987145339436117400}
+  - {fileID: 3507261765999922120}
   - {fileID: 729498529205202736}
   - {fileID: 4812053005973962045}
   m_Father: {fileID: 0}
@@ -187,7 +187,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2.10663, z: 1.2}
   m_Center: {x: 0, y: 0.2533149, z: 0}
---- !u!1001 &5707388697220285883
+--- !u!1001 &225247225418916843
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -244,10 +244,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
---- !u!4 &8987145339436117400 stripped
+--- !u!4 &3507261765999922120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3714474454319933475, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
-  m_PrefabInstance: {fileID: 5707388697220285883}
+  m_PrefabInstance: {fileID: 225247225418916843}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7511376501188104877
 PrefabInstance:

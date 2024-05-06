@@ -46,7 +46,7 @@ public class Sword : MonoBehaviour
             else
             {
                 Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f);
+                agent.AddReward(-0.6f);
             }
         }    
     }
