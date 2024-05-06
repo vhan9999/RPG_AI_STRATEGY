@@ -43,7 +43,8 @@ public class MagicMissile : MonoBehaviour
                 //Debug.Log("great");
                 agent.AddReward(1f);
                 //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
-                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.gameObject.transform.position);
+                other.GetComponent<ClassAgent>().TakeDamage(10);
+                ObjectPool<MagicMissile>.instance.Recycle(this);
             }
             else
             {

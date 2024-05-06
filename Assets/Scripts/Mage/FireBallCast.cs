@@ -18,6 +18,7 @@ public class FireBallCast : MonoBehaviour
     }
     public void CastDone()
     {
-        book.Shoot();
+        
+        book.FireBallShoot();
     }
 }

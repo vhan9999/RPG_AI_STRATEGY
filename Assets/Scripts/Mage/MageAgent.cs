@@ -29,34 +29,34 @@ public class MageAgent : ClassAgent
         {
             if (Input.GetMouseButtonDown(0))
             {
-                book.NormalAttack();
-
+                book.AttactCast();
+                Debug.Log("a");
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                book.Skill();
+                book.FireBallCast();
             }
         }
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !book.IsAttack);
-        //actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
+        actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsCoolDown);
+        actionMask.SetActionEnabled(4, 1, !book.IsAttack && !book.IsCoolDown);
     }
 
     protected override void SpeedAdjust()
     {
         speed = book.IsAttack ? speed * 0.6f : speed;
-        //speed = accelerate.Status ? speed * 1.5f : speed;
+        speed = book.IsSkill ? speed * 0.3f : speed;
     }
 
     protected override void AttackAction(int attackAction)
     {
-        if(attackAction == 1) { book.NormalAttack(); }
+        if(attackAction == 1) { book.FireBallShoot(); }
     }
 
     protected override void SkillAction(int skillAction)
     {
-        if (skillAction == 1) { book.Skill(); }
+        if (skillAction == 1) { book.FireBallCast(); }
     }
 }
