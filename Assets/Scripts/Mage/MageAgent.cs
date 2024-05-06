@@ -31,8 +31,8 @@ public class MageAgent : ClassAgent
         {
             if (Input.GetMouseButtonDown(0))
             {
-                book.FireBallShoot();
-
+                book.AttactCast();
+                Debug.Log("a");
             }
             else if (Input.GetMouseButtonDown(1))
             {

@@ -95,7 +95,7 @@ public class ClassAgent : Agent
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
-    {
+    {  
         ActionSegment<int> actions = actionsOut.DiscreteActions;
         // move
         if (Input.GetKey(KeyCode.W))
