@@ -141,7 +141,7 @@ MonoBehaviour:
   lerpSpeed: 5
   maxSpeed: 10
   rotateSpeed: 200
-  health: 0
+  health: 100
   currentHealth: 100
   team: 0
   profession: 0

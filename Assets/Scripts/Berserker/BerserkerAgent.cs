@@ -59,10 +59,7 @@ public class BerserkerAgent : ClassAgent
 
     protected override void AttackAction(int attackAction)
     {
-        if (attackAction == 1) 
-        { 
-            battleaxe.Cleave(); 
-        }
+        if (attackAction == 1) battleaxe.Cleave();
     }
 
     protected override void SkillAction(int skillAction)

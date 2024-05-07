@@ -6,6 +6,7 @@ public class FireBallCast : MonoBehaviour
 {
     private Book book;
     public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,6 @@ public class FireBallCast : MonoBehaviour
     }
     public void CastDone()
     {
-        
         book.FireBallShoot();
     }
 }

@@ -238,8 +238,8 @@ GameObject:
   - component: {fileID: 6202821776414575649}
   - component: {fileID: 3182492681367632851}
   m_Layer: 0
-  m_Name: Mage
-  m_TagString: Untagged
+  m_Name: BlueMage
+  m_TagString: BlueMage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

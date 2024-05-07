@@ -20,7 +20,7 @@ public class MageAgent : ClassAgent
     protected override void Start()
     {
         base.Start();
-        book = transform.GetChild(0).GetComponent<Book>();
+        book = GetComponentInChildren<Book>();
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class MageAgent : ClassAgent
         {
             if (Input.GetMouseButtonDown(0))
             {
-                book.AttactCast();
+                book.AttackCast();
                 Debug.Log("a");
             }
             else if (Input.GetMouseButtonDown(1))
@@ -38,6 +38,7 @@ public class MageAgent : ClassAgent
             }
         }
     }
+
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsCoolDown);
@@ -52,11 +53,11 @@ public class MageAgent : ClassAgent
 
     protected override void AttackAction(int attackAction)
     {
-        if(attackAction == 1) { book.FireBallShoot(); }
+        if(attackAction == 1) book.FireBallShoot(); 
     }
 
     protected override void SkillAction(int skillAction)
     {
-        if (skillAction == 1) { book.FireBallCast(); }
+        if (skillAction == 1) book.FireBallCast();
     }
 }

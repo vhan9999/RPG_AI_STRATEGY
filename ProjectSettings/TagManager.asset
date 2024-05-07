@@ -16,6 +16,10 @@ TagManager:
   - RedBattleaxe
   - RedBigAxe
   - BlueBigAxe
+  - BlueMage
+  - RedMage
+  - BlueMagicMissle
+  - RedMagicMissle
   layers:
   - Default
   - TransparentFX

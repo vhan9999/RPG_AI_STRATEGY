@@ -10,7 +10,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     // Singleton ³æ¨Ò¼Ò¦¡
     private static ObjectPool<T> _instance = null;
-    public static ObjectPool<T> instance
+    public static ObjectPool<T> Instance
     {
         get
         {
@@ -40,12 +40,12 @@ public class ObjectPool<T> where T : MonoBehaviour
         List<T> warmUpList = new List<T>();
         for (int i = 0; i < warmUpCount; i++)
         {
-            T t = instance.Spawn(Vector3.zero, Quaternion.identity);
+            T t = Instance.Spawn(Vector3.zero, Quaternion.identity);
             warmUpList.Add(t);
         }
         for (int i = 0; i < warmUpList.Count; i++)
         {
-            instance.Recycle(warmUpList[i]);
+            Instance.Recycle(warmUpList[i]);
         }
     }
 
