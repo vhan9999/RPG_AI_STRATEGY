@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 6202821776414575649}
   - component: {fileID: 3182492681367632851}
   m_Layer: 0
-  m_Name: Mage
+  m_Name: MageRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7513846362045146616}
-  m_Mesh: {fileID: -2432090755550338912, guid: 4b8ac6e0bff1a754381b542a24532e0b, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 810cc26996b1d654e9471a9c74bf9337, type: 3}
 --- !u!23 &1081481251498552093
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 0300000003000000030000000200000002000000
-    VectorActionSize: 0300000003000000030000000200000002000000
+      BranchSizes: 01000000
+    VectorActionSize: 01000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: My Behavior
-  TeamId: 0
+  TeamId: 1
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
