@@ -20,7 +20,7 @@ public class Book : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fireBallCast = transform.GetChild(0).GetChild(0).GetComponent<FireBallCast>();
+        fireBallCast = transform.GetChild(0).GetComponentInChildren<FireBallCast>();
         magicMissilePool = ObjectPool<MagicMissile>.Instance;
         magicMissilePool.InitPool(magicMissile, 30);
         agent = GetComponentInParent<ClassAgent>();
@@ -71,8 +71,9 @@ public class Book : MonoBehaviour
     public void FireBallShoot()
     {
         IsSkill = false;
-        GameObject f = Instantiate(fireBall, transform.position + transform.up, transform.rotation);
-        f.GetComponent<FireBall>().moveDir = transform.forward;
-        f.GetComponent<FireBall>().agent = agent;
+        FireBall fireball = Instantiate(fireBall, transform.position + transform.up, transform.rotation).GetComponent<FireBall>();
+        fireball.moveDir = transform.forward;
+        fireball.agent = agent;
+        fireBall.tag = agent.team == Team.Blue ? "BlueFireBall" : "RedFireBall";
     }
 }

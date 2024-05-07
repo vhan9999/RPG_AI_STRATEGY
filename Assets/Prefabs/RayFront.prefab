@@ -55,6 +55,12 @@ MonoBehaviour:
   - RedBattleaxe
   - BlueBerserker
   - RedBerserker
+  - BlueMagicMissle
+  - RedMagicMissle
+  - BlueMage
+  - RedMage
+  - BlueFireBall
+  - RedFireBall
   m_RaysPerDirection: 14
   m_MaxRayDegrees: 80
   m_SphereCastRadius: 0.5
