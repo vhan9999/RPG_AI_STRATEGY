@@ -55,8 +55,8 @@ MonoBehaviour:
   - RedBattleaxe
   - BlueBerserker
   - RedBerserker
-  m_RaysPerDirection: 3
-  m_MaxRayDegrees: 60
+  m_RaysPerDirection: 6
+  m_MaxRayDegrees: 120
   m_SphereCastRadius: 0.5
   m_RayLength: 25
   m_RayLayerMask:
