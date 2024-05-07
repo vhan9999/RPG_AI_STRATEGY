@@ -52,6 +52,11 @@ public class FireBall : MonoBehaviour
                 agent.AddReward(-0.3f);
             }
         }
+        else if (other.TryGetComponent(out Wall w))
+        {
+            Debug.Log("aaa");
+            Destroy(gameObject);
+        }
     }
 
     public void ExplodeDone()

@@ -53,5 +53,10 @@ public class MagicMissile : MonoBehaviour
                 agent.AddReward(-0.3f);
             }
         }
+        else if (other.TryGetComponent(out Wall w))
+        {
+            Debug.Log("bbb");
+            ObjectPool<MagicMissile>.Instance.Recycle(this);
+        }
     }
 }

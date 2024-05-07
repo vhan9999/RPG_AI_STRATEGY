@@ -41,7 +41,7 @@ public class MageAgent : ClassAgent
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsCoolDown);
+        actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsSkill);
         actionMask.SetActionEnabled(4, 1, !book.IsAttack && !book.IsCoolDown);
     }
 
@@ -53,7 +53,7 @@ public class MageAgent : ClassAgent
 
     protected override void AttackAction(int attackAction)
     {
-        if(attackAction == 1) book.FireBallShoot(); 
+        if(attackAction == 1) book.AttackCast(); 
     }
 
     protected override void SkillAction(int skillAction)
