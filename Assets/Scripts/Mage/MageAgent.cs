@@ -30,7 +30,6 @@ public class MageAgent : ClassAgent
             if (Input.GetMouseButtonDown(0))
             {
                 book.AttackCast();
-                Debug.Log("a");
             }
             else if (Input.GetMouseButtonDown(1))
             {

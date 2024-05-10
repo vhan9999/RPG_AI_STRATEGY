@@ -19,7 +19,7 @@ public class EnvController : MonoBehaviour
     /// Max Academy steps before this platform resets
     /// </summary>
     /// <returns></returns>
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 800000;
+    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 8000;
 
     /// <summary>
     /// The area bounds.

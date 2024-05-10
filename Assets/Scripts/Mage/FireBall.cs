@@ -52,9 +52,8 @@ public class FireBall : MonoBehaviour
                 agent.AddReward(-0.3f);
             }
         }
-        else if (other.TryGetComponent(out Wall w))
+        else if (other.TryGetComponent(out Wall wall))
         {
-            Debug.Log("aaa");
             Destroy(gameObject);
         }
     }

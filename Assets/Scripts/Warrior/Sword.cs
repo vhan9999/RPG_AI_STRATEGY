@@ -39,13 +39,13 @@ public class Sword : MonoBehaviour
         {
             if (agent.team != otherAgent.team)
             {
-                Debug.Log("great");
+                //Debug.Log("great");
                 agent.AddReward(1f);
                 otherAgent.TakeDamage(20);
             }
             else
             {
-                Debug.Log("Dont'hurt, you are his frend");
+                //Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(-0.6f);
             }
         }    
