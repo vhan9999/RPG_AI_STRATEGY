@@ -24,18 +24,18 @@ public class ArcherAgent : ClassAgent
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && bow.getIsReload==false)
         {
-            bow.fire = true;
             bow.SetDrawingAnimation(true); // start drawing animation
+            bow.fire = true;
         }
         if (bow.fire && bow.firePower < bow.maxFirePower)
         {
             bow.firePower += Time.deltaTime * bow.firePowerSpeed;
         }
         if (bow.fire && Input.GetMouseButtonUp(0))
-        {
-            bow.SetDrawingAnimation(false);// Stop drawing animation
+        {                                    
+            bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
             bow.firePower = 0;
             bow.fire = false; 

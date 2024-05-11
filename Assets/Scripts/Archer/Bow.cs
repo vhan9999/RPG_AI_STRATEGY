@@ -72,4 +72,8 @@ public class Bow : MonoBehaviour
     public bool isReady {
         get => (!isReloading && currentArrow != null);
     }
+
+    public bool getIsReload {
+        get { return isReloading; }
+    }
 }
