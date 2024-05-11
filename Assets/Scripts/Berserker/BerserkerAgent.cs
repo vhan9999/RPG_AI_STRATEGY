@@ -42,7 +42,7 @@ public class BerserkerAgent : ClassAgent
             transform.Rotate(0f, rotateSpeed * Time.deltaTime * 10, 0f);
         }
     }
-
+    
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave || !battleaxe.IsWhirlwind);

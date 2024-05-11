@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.MLAgents.Policies;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class ArcherAgent : ClassAgent
@@ -11,18 +13,9 @@ public class ArcherAgent : ClassAgent
     [SerializeField]
     private string enemyTag;
 
-    [SerializeField]
-    private float maxFirePower;
-
-    [SerializeField]
-    private float firePowerSpeed;
-
-    private float firePower;
-
-    private bool fire;
-
     private void Start()
     {
+        bow = GetComponentInChildren<Bow>();
         bow.SetEnemyTag(enemyTag);
         bow.Reload();
         Cursor.visible = false;
@@ -31,16 +24,21 @@ public class ArcherAgent : ClassAgent
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) { 
-            fire = true;
+        if (Input.GetMouseButtonDown(0))
+        {
+            bow.fire = true;
+            bow.SetDrawingAnimation(true); // start drawing animation
         }
-        if (fire && firePower < maxFirePower) {
-            firePower += Time.deltaTime * firePowerSpeed;
+        if (bow.fire && bow.firePower < bow.maxFirePower)
+        {
+            bow.firePower += Time.deltaTime * bow.firePowerSpeed;
         }
-        if (fire && Input.GetMouseButtonUp(0)) {
-            bow.Fire(firePower);
-            firePower = 0;
-            fire = false;
+        if (bow.fire && Input.GetMouseButtonUp(0))
+        {
+            bow.Fire(bow.firePower);
+            bow.firePower = 0;
+            bow.fire = false;
+            bow.SetDrawingAnimation(false); // Stop drawing animation
         }
     }
 }

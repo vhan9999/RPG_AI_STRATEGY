@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4944900299389848036}
   - component: {fileID: 8483210214873099632}
   - component: {fileID: 1038277680745613499}
+  - component: {fileID: 7102025016322272461}
   m_Layer: 0
   m_Name: bow
   m_TagString: Untagged
@@ -97,9 +98,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe18eb8190e930478ff9f5a0cbfc022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 1
+  reloadTime: 2
   arrowPrefab: {fileID: 3189296879629224811, guid: f36ae60e96c03be42a06a4914b22c643, type: 3}
   spawnPoint: {fileID: 4681738720869559068}
+  anim: {fileID: 7102025016322272461}
+  maxFirePower: 30
+  firePowerSpeed: 30
+  firePower: 10
+  fire: 0
+--- !u!95 &7102025016322272461
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368760850091271061}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f77ad8e89c1e5144bbd84d9b4f9d258, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5592173484569452277
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,8 +271,6 @@ MonoBehaviour:
   profession: 4
   bow: {fileID: 1038277680745613499}
   enemyTag: BlueTeam
-  maxFirePower: 20
-  firePowerSpeed: 15
 --- !u!114 &-3773931265856962707
 MonoBehaviour:
   m_ObjectHideFlags: 0
