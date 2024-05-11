@@ -35,10 +35,10 @@ public class ArcherAgent : ClassAgent
         }
         if (bow.fire && Input.GetMouseButtonUp(0))
         {
+            bow.SetDrawingAnimation(false);// Stop drawing animation
             bow.Fire(bow.firePower);
             bow.firePower = 0;
-            bow.fire = false;
-            bow.SetDrawingAnimation(false); // Stop drawing animation
+            bow.fire = false; 
         }
     }
 }
