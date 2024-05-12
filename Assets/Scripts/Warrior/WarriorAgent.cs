@@ -15,6 +15,9 @@ public class WarriorAgent : ClassAgent
     // skill
     private Accelerate accelerate;
 
+    private int pridectAttackCount = 0;
+    private int actualAttackCount = 0;
+
     protected override void Start()
     {
         base.Start();
@@ -37,7 +40,7 @@ public class WarriorAgent : ClassAgent
         }
     }
 
-    // agent action mask
+    // agent action mask (can use with archer reload)
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         //Debug.Log($"{!sword.IsSlash} {accelerate.IsAllowed}");
@@ -55,12 +58,29 @@ public class WarriorAgent : ClassAgent
     // agent attack 
     protected override void AttackAction(int attackAction)
     {
-        if (attackAction == 1) sword.Slash();
+        //if (!(sword.IsSlash && pridectAttackCount == 9))
+        //{
+        //    pridectAttackCount++;
+        //    actualAttackCount = attackAction == 1 ? actualAttackCount + pridectAttackCount : actualAttackCount - pridectAttackCount;
+        //    if (pridectAttackCount == 10)
+        //    {
+        //        if (actualAttackCount > 0) sword.Slash();
+        //        pridectAttackCount = 0;
+        //        actualAttackCount = 0;
+        //    }
+        //}
+        if (attackAction == 1) 
+        { 
+            sword.Slash(); 
+        }
     }
 
     // agent skill
     protected override void SkillAction(int skillAction)
     {
-        if (skillAction == 1) accelerate.Execute();
+        if (skillAction == 1) 
+        { 
+            accelerate.Execute();
+        }
     }
 }
