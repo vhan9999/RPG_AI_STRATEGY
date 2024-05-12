@@ -13,8 +13,9 @@ public class ArcherAgent : ClassAgent
     [SerializeField]
     private string enemyTag;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         bow = GetComponentInChildren<Bow>();
         bow.SetEnemyTag(enemyTag);
         bow.Reload();

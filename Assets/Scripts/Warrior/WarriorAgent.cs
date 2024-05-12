@@ -40,6 +40,7 @@ public class WarriorAgent : ClassAgent
         }
     }
 
+    // agent action mask
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         //Debug.Log($"{!sword.IsSlash} {accelerate.IsAllowed}");
@@ -47,12 +48,14 @@ public class WarriorAgent : ClassAgent
         actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
     }
 
+    // agent speed 
     protected override void SpeedAdjust()
     {
         speed = sword.IsSlash ? speed * 0.4f : speed;
         speed = accelerate.Status ? speed * 1.5f : speed;
     }
 
+    // agent attack 
     protected override void AttackAction(int attackAction)
     {
         //if (!(sword.IsSlash && pridectAttackCount == 9))
@@ -72,6 +75,7 @@ public class WarriorAgent : ClassAgent
         }
     }
 
+    // agent skill
     protected override void SkillAction(int skillAction)
     {
         if (skillAction == 1) 
