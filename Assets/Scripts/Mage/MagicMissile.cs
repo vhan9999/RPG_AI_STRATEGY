@@ -9,7 +9,9 @@ public class MagicMissile : MonoBehaviour
     [SerializeField] private float existTime;
     public Vector3 moveDir;
     private float timer;
+    [HideInInspector]
     public ClassAgent agent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class MagicMissile : MonoBehaviour
         timer += deltaTime;
         if (timer > existTime) {
             //Destroy(gameObject);
-            ObjectPool<MagicMissile>.instance.Recycle(this);
+            ObjectPool<MagicMissile>.Instance.Recycle(this);
         }
 
         transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
@@ -42,14 +44,18 @@ public class MagicMissile : MonoBehaviour
             {
                 //Debug.Log("great");
                 agent.AddReward(1f);
-                //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
-                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.gameObject.transform.position);
+                otherAgent.TakeDamage(10);
+                ObjectPool<MagicMissile>.Instance.Recycle(this);
             }
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(-0.3f);
             }
+        }
+        else if (other.TryGetComponent(out Wall wall))
+        {
+            ObjectPool<MagicMissile>.Instance.Recycle(this);
         }
     }
 }

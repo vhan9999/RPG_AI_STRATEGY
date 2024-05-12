@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 698142203565768744}
   - component: {fileID: 4471556407401029550}
   - component: {fileID: 819146882078798444}
+  - component: {fileID: 431763939535413485}
   m_Layer: 0
   m_Name: MagicMissile
   m_TagString: Untagged
@@ -111,5 +112,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  existTime: 1
+  existTime: 5
   moveDir: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
+--- !u!54 &431763939535413485
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7995286412899389133}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

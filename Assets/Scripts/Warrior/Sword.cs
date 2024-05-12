@@ -10,9 +10,8 @@ public class Sword : MonoBehaviour
 {
     [SerializeField]
     public Animator anim;
-    [HideInInspector]
-    public bool IsAttack = false;
     private ClassAgent agent;
+    private bool IsAttack = false;
 
     private void Start()
     {
@@ -43,7 +42,6 @@ public class Sword : MonoBehaviour
                 //Debug.Log("great");
                 agent.AddReward(1f);
                 otherAgent.TakeDamage(20);
-                BloodDropletPoolManager.Instance.SpawnBloodDroplets(other.transform.position);
             }
             else
             {

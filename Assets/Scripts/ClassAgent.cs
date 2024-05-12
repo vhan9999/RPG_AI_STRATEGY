@@ -96,6 +96,7 @@ public class ClassAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
+        if (bp.BehaviorType != BehaviorType.HeuristicOnly) return;
         ActionSegment<int> actions = actionsOut.DiscreteActions;
         // move
         if (Input.GetKey(KeyCode.W))
@@ -156,15 +157,19 @@ public class ClassAgent : Agent
 
         // rotate
         rotateDir = 0;
-        if (rotateAction == 1) rotateDir = -1;
-        else if (rotateAction == 2) rotateDir = 1;
+        if (rotateAction == 1)
+        {
+            rotateDir = -1;
+        }
+        else if (rotateAction == 2)
+        {
+            rotateDir = 1;
+        }
 
         if (isDizzy) return;
 
-        // attack
         AttackAction(attackAction);
 
-        // skill
         SkillAction(skillAction);
     }
 
@@ -175,12 +180,13 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int damage)
     {
-        AddReward(damage * 0.015f);
+        AddReward(-damage * 0.015f);
+        //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
-            envController.DeadTouch(team);
+            envController?.DeadTouch(team);
         }
     }
 

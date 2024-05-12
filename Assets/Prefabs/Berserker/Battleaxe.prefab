@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3714474454319933475}
   - component: {fileID: 3661488067369971094}
+  - component: {fileID: 1606936256893623321}
+  - component: {fileID: 1146352554}
   m_Layer: 0
-  m_Name: BigAxe
-  m_TagString: Untagged
+  m_Name: Battleaxe
+  m_TagString: BlueBattleaxe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +56,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1606936256893623321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091421831883453081}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10446167, y: 0.7973068, z: 0.907917}
+  m_Center: {x: -0.05003357, y: 1.2, z: -0.05004978}
+--- !u!114 &1146352554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091421831883453081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44af465a6d2a1b4aa76ae8e085f1bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 3661488067369971094}
+  IsAllowedWhirlwind: 0
 --- !u!1 &4992923648748915264
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4992923648748915264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 0.045, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

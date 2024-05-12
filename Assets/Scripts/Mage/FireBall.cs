@@ -13,6 +13,7 @@ public class FireBall : MonoBehaviour
     private float timer;
     public ClassAgent agent;
     private bool isHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class FireBall : MonoBehaviour
                 isHit = true;
                 //Debug.Log("great");
                 agent.AddReward(1f);
+                other.GetComponent<ClassAgent>().TakeDamage(30);
                 //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
             }
             else
@@ -49,6 +51,10 @@ public class FireBall : MonoBehaviour
                 //Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(-0.3f);
             }
+        }
+        else if (other.TryGetComponent(out Wall wall))
+        {
+            Destroy(gameObject);
         }
     }
 

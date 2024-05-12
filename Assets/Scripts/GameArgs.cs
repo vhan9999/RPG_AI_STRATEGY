@@ -1,7 +1,7 @@
 public enum Team
 {
     Blue,
-    Orange
+    Red
 }
 
 public enum Profession

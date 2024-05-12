@@ -16,11 +16,12 @@ public class Book : MonoBehaviour
 
     private ObjectPool<MagicMissile> magicMissilePool;
     private ClassAgent agent;
+
     // Start is called before the first frame update
     void Start()
     {
-        fireBallCast = transform.GetChild(0).GetChild(0).GetComponent<FireBallCast>();
-        magicMissilePool = ObjectPool<MagicMissile>.instance;
+        fireBallCast = transform.GetChild(0).GetComponentInChildren<FireBallCast>();
+        magicMissilePool = ObjectPool<MagicMissile>.Instance;
         magicMissilePool.InitPool(magicMissile, 30);
         agent = GetComponentInParent<ClassAgent>();
     }
@@ -28,48 +29,51 @@ public class Book : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void NormalAttack()
+    public void AttackCast()
     {
         if (!IsAttack && !IsSkill)
         {
             IsAttack = true;
-            Invoke("ResetAttack", 0.5f);
+            Invoke("AttackShoot", 0.5f);
         }
     }
 
-    private void ResetAttack()
+    private void AttackShoot()
     {
         
         MagicMissile m = magicMissilePool.Spawn(transform.position + transform.up, transform.rotation);
+        m.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         m.moveDir = transform.forward;
         m.agent = agent;
         m.Reset();
         IsAttack = false;
     }
 
-    public void Skill()
+    public void FireBallCast()
     {
         if (!IsAttack && !IsCoolDown)
         {
             fireBallCast.CastStart();
             IsCoolDown = true;
             IsSkill = true;
-            Invoke("CoolDown", 1f);
+            Invoke("CoolDown", 10f);
         }
     }
+
     private void CoolDown()
     {
         IsCoolDown = false;
     }
 
-    public void Shoot()
+    public void FireBallShoot()
     {
         IsSkill = false;
-        GameObject f = Instantiate(fireBall, transform.position + transform.up, transform.rotation);
-        f.GetComponent<FireBall>().moveDir = transform.forward;
-        f.GetComponent<FireBall>().agent = agent;
+        FireBall fireball = Instantiate(fireBall, transform.position + transform.up, transform.rotation).GetComponent<FireBall>();
+        fireball.moveDir = transform.forward;
+        fireball.agent = agent;
+        fireBall.tag = agent.team == Team.Blue ? "BlueFireBall" : "RedFireBall";
     }
 }
