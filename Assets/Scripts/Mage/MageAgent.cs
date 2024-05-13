@@ -13,8 +13,6 @@ public class MageAgent : ClassAgent
 {
 
     // skill
-    private int pridectAttackCount = 0;
-    private int actualAttackCount = 0;
     private Book book;
 
     protected override void Start()
