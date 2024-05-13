@@ -22,11 +22,13 @@ TagManager:
   - RedMagicMissle
   - BlueFireBall
   - RedFireBall
+  - OrangeTeam
+  - BlueTeam
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - floor
   - Water
   - UI
   - 
