@@ -12,7 +12,14 @@ TagManager:
   - Character
   - Sword
   - Blood
-  - Arrow
+  - BlueBerserker
+  - BlueBattleaxe
+  - BlueMage
+  - BlueFireBall
+  - BlueWarrior
+  - RedArrow
+  - RedMage
+  - RedArcher
   layers:
   - Default
   - TransparentFX

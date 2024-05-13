@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -42,4 +44,21 @@ public class ArcherAgent : ClassAgent
             bow.fire = false; 
         }
     }
+
+    public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
+    {
+        actionMask.SetActionEnabled(3, 1, !bow.fire && !bow.isReady);
+        actionMask.SetActionEnabled(3, 1, !bow.fire && !bow.getIsReload);
+    }
+
+    protected override void SpeedAdjust()
+    {
+        speed = bow.fire ? speed * 0.6f : speed;
+    }
+
+    protected override void AttackAction(int attackAction)
+    {
+        if (attackAction == 1) bow.Fire(bow.firePower);
+    }
+
 }
