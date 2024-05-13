@@ -37,7 +37,7 @@ public class Book : MonoBehaviour
         if (!IsAttack && !IsSkill)
         {
             IsAttack = true;
-            Invoke("AttackShoot", 0.5f);
+            Invoke("AttackShoot", 0.8f);
         }
     }
 
@@ -59,7 +59,7 @@ public class Book : MonoBehaviour
             fireBallCast.CastStart();
             IsCoolDown = true;
             IsSkill = true;
-            Invoke("CoolDown", 10f);
+            Invoke("CoolDown", 15f);
         }
     }
 
