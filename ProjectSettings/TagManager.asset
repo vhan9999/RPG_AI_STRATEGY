@@ -20,6 +20,12 @@ TagManager:
   - RedArrow
   - RedMage
   - RedArcher
+  - RedWarrior
+  - RedSword
+  - RedBerserker
+  - RedBattleaxe
+  - RedMagicMissle
+  - BlueMagicMissle
   layers:
   - Default
   - TransparentFX
