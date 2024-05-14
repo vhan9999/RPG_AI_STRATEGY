@@ -22,6 +22,7 @@ TagManager:
   - RedFireBall
   - OrangeTeam
   - BlueTeam
+  - RedBigAxe
   layers:
   - Default
   - TransparentFX
@@ -29,10 +30,10 @@ TagManager:
   - floor
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - BlueTeam
+  - RedTeam
+  - Shoot
+  - Wall
   - 
   - 
   - 
