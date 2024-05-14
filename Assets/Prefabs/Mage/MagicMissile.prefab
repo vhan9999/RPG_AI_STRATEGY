@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4471556407401029550}
   - component: {fileID: 819146882078798444}
   - component: {fileID: 431763939535413485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MagicMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
