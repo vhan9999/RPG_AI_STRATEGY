@@ -130,53 +130,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (16)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -222,22 +182,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &28924660
@@ -247,53 +191,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (8)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -339,22 +243,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &90990722
@@ -364,53 +252,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (24)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -456,22 +304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &133079526
@@ -481,53 +313,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (28)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -572,22 +364,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -682,53 +458,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (18)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -774,22 +510,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &365780650
@@ -799,53 +519,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (13)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -891,22 +571,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &419277570
@@ -916,53 +580,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1008,22 +632,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &452581018
@@ -1033,53 +641,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1125,22 +693,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &610896189
@@ -1150,53 +702,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (12)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1242,22 +754,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &656370568
@@ -1267,53 +763,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (22)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1359,22 +815,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &656651838
@@ -1384,53 +824,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (14)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1476,22 +876,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &677373607
@@ -1501,53 +885,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (21)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1592,22 +936,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -1712,53 +1040,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1804,22 +1092,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &796740442
@@ -1829,53 +1101,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (15)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -1920,22 +1152,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -2014,53 +1230,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -2106,22 +1282,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1111269863
@@ -2131,53 +1291,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (9)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -2223,22 +1343,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1130246208
@@ -2248,53 +1352,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (17)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -2340,22 +1404,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1193144183
@@ -2365,53 +1413,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (29)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -2457,22 +1465,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1216145177
@@ -2482,53 +1474,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (19)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -2573,22 +1525,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -2778,53 +1714,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (20)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -2869,22 +1765,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -2971,53 +1851,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -3041,15 +1881,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3063,22 +1903,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1537468712
@@ -3088,53 +1912,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (10)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -3180,22 +1964,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1597058268
@@ -3205,53 +1973,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (26)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -3297,22 +2025,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1598882407
@@ -3322,53 +2034,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (7)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -3414,22 +2086,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1628123505
@@ -3439,53 +2095,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (11)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -3531,22 +2147,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &1635950740
@@ -3556,53 +2156,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (27)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -3647,22 +2207,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -3748,53 +2292,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (5)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -3839,22 +2343,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -3941,53 +2429,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (23)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -4033,22 +2481,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
 --- !u!1001 &2004813338
@@ -4058,53 +2490,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env (25)
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -4149,22 +2541,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}
@@ -4223,85 +2599,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23887846142591982, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 799626310610826714, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 858594224310873785, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423894868077253280, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745874335480052945, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2162210520236273801, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468944000047171926, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2559495576016417637, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3205571940617049589, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334388307735925068, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3464194599404970539, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460040197260863954, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5616817036739226181, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_Name
       value: Env
-      objectReference: {fileID: 0}
-    - target: {fileID: 5671030599080458868, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_RootOrder
@@ -4346,42 +2646,6 @@ PrefabInstance:
     - target: {fileID: 5671030599080458871, guid: 52bd32004061c884699199865b0d76ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766893622594238666, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6504638734250446375, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536455934457497551, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBattleaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6783037612878084141, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: RedWarrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706150953800312330, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueBerserker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127592084288115508, guid: 52bd32004061c884699199865b0d76ef, type: 3}
-      propertyPath: m_TagString
-      value: BlueWarrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52bd32004061c884699199865b0d76ef, type: 3}

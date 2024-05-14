@@ -17,6 +17,11 @@ public class FireBallCast : MonoBehaviour
     {
         anim.SetTrigger("fire");
     }
+    public void SetBack()
+    {
+        anim.Play("idle", -1, 0f);
+    }
+
     public void CastDone()
     {
         book.FireBallShoot();
