@@ -8,7 +8,7 @@ public class Bow : MonoBehaviour
     private float reloadTime;
 
     [SerializeField]
-    private GameObject arrowPrefab;
+    private Arrow arrowPrefab;
 
     [SerializeField]
     private Transform spawnPoint;
@@ -18,7 +18,7 @@ public class Bow : MonoBehaviour
     [SerializeField]
     public Animator anim;
 
-
+    private Arrow currentArrow;
     [SerializeField]
     public float maxFirePower;
 
@@ -31,7 +31,6 @@ public class Bow : MonoBehaviour
 
     private ClassAgent agent;
 
-    private ObjectPool<Arrow> ArrowPool;
 
     //public void SetEnemyTag(string enemyTag) {
     //    this.enemyTag = enemyTag;
@@ -40,8 +39,6 @@ public class Bow : MonoBehaviour
     private void Start()
     {
         agent = GetComponentInParent<ClassAgent>();
-        ArrowPool = ObjectPool<Arrow>.Instance;
-        ArrowPool.InitPool(arrowPrefab, 5);
     }
 
     public void SetDrawingAnimation(bool value)
@@ -53,7 +50,7 @@ public class Bow : MonoBehaviour
 
     public void Reload() {
         // || currentArrow != null
-        if (isReloading) return;
+        if (isReloading || currentArrow != null) return;
         isReloading = true;
         StartCoroutine(ReloadAfterTime());
     }
@@ -64,10 +61,10 @@ public class Bow : MonoBehaviour
     }
 
     public void Fire(float firePower) {
-        if (isReloading) return;
+        if (isReloading || currentArrow != null) return;
 
         // create arrow prefab
-        Arrow currentArrow = ArrowPool.Spawn(spawnPoint.position, transform.rotation);
+        currentArrow = Instantiate(arrowPrefab, spawnPoint);
         currentArrow.agent = agent;
         currentArrow.transform.localPosition = Vector3.zero;
         // tag decision
@@ -82,7 +79,7 @@ public class Bow : MonoBehaviour
     // change to getter 
     public bool isReady {
         //  && currentArrow != null
-        get => (!isReloading);
+        get => (!isReloading || currentArrow != null);
     }
 
     public bool getIsReload {

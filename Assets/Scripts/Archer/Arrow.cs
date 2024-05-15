@@ -31,10 +31,11 @@ public class Arrow : MonoBehaviour
         if (other.TryGetComponent(out ClassAgent otherAgent))
         {
             if (agent.team != otherAgent.team) {
+                Debug.Log("hit");
                 isHit = true;
                 agent.AddReward(1f);
                 other.GetComponent<ClassAgent>().TakeDamage(20);
-                ObjectPool<Arrow>.Instance.Recycle(this);
+                Destroy(gameObject);
             }
             else
             {
@@ -43,7 +44,7 @@ public class Arrow : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Wall"))
         {
-            ObjectPool<Arrow>.Instance.Recycle(this);
+            Destroy(gameObject);
         }
         rigid.velocity = Vector3.zero;
         rigid.angularVelocity = Vector3.zero;

@@ -56,6 +56,7 @@ public class ArcherAgent : ClassAgent
     protected override void AttackAction(int attackAction)
     {
         if (attackAction == 1) bow.Fire(bow.firePower);
+        else if(attackAction == 0) { }
     }
 
 }

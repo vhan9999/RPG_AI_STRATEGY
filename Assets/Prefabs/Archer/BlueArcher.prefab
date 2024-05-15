@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5592173484569452277}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -6.412, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -195,6 +195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3687686518526234062}
     m_Modifications:
+    - target: {fileID: 46507141364283284, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 3189296879629224811, guid: f36ae60e96c03be42a06a4914b22c643, type: 3}
     - target: {fileID: 2032070449275378874, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
       propertyPath: m_Name
       value: Bow
