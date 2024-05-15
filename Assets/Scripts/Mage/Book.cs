@@ -22,7 +22,7 @@ public class Book : MonoBehaviour
     {
         fireBallCast = transform.GetChild(0).GetComponentInChildren<FireBallCast>();
         magicMissilePool = ObjectPool<MagicMissile>.Instance;
-        magicMissilePool.InitPool(magicMissile, 30);
+        magicMissilePool.InitPool(magicMissile, 7);
         agent = GetComponentInParent<ClassAgent>();
     }
 
@@ -33,13 +33,13 @@ public class Book : MonoBehaviour
     }
     private void OnEnable()
     {
-        IsCoolDown = false;
-        IsSkill = false;
-    }
+       IsAttack = false;
+       IsSkill = false;
+       IsCoolDown = false;
+}
 
-    private void OnDisable()
+    private void OnDisable()    
     {
-        fireBallCast.SetBack();
         CancelInvoke("AttackShoot");
         CancelInvoke("CoolDown");
     }
