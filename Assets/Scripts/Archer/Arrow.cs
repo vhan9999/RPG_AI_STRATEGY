@@ -11,10 +11,8 @@ public class Arrow : MonoBehaviour
     private Rigidbody rigid;
     
     private string eTag;
-    private bool isHit;
-
-    public ClassAgent agent;
-
+    private bool didHit;
+    
     public void SetEnemyTag(string enemyTag) 
     {
         eTag = enemyTag;
@@ -28,22 +26,11 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ClassAgent otherAgent))
-        {
-            if (agent.team != otherAgent.team) {
-                isHit = true;
-                agent.AddReward(1f);
-                other.GetComponent<ClassAgent>().TakeDamage(20);
-                ObjectPool<Arrow>.Instance.Recycle(this);
-            }
-            else
-            {
-                agent.AddReward(-0.3f);
-            }
-        }
-        else if (other.gameObject.CompareTag("Wall"))
-        {
-            ObjectPool<Arrow>.Instance.Recycle(this);
+        if (didHit) return;
+        didHit = true;
+
+        if (other.gameObject.CompareTag("Wall")) {
+            Destroy(gameObject);
         }
         rigid.velocity = Vector3.zero;
         rigid.angularVelocity = Vector3.zero;
