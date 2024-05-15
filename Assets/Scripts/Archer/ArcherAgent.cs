@@ -12,14 +12,11 @@ public class ArcherAgent : ClassAgent
     [SerializeField]
     private Bow bow;
 
-    [SerializeField]
-    private string enemyTag;
 
     protected override void Start()
     {
         base.Start();
         bow = GetComponentInChildren<Bow>();
-        bow.SetEnemyTag(enemyTag);
         bow.Reload();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

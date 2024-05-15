@@ -8,13 +8,11 @@ public class Bow : MonoBehaviour
     private float reloadTime;
 
     [SerializeField]
-    private Arrow arrowPrefab;
+    private GameObject arrowPrefab;
 
     [SerializeField]
     private Transform spawnPoint;
 
-    private Arrow currentArrow;
-    private string enemyTag;
     private bool isReloading;
 
     [SerializeField]
@@ -31,9 +29,19 @@ public class Bow : MonoBehaviour
 
     public bool fire;
 
+    private ClassAgent agent;
 
-    public void SetEnemyTag(string enemyTag) {
-        this.enemyTag = enemyTag;
+    private ObjectPool<Arrow> ArrowPool;
+
+    //public void SetEnemyTag(string enemyTag) {
+    //    this.enemyTag = enemyTag;
+    //}
+
+    private void Start()
+    {
+        agent = GetComponentInParent<ClassAgent>();
+        ArrowPool = ObjectPool<Arrow>.Instance;
+        ArrowPool.InitPool(arrowPrefab, 5);
     }
 
     public void SetDrawingAnimation(bool value)
@@ -44,7 +52,8 @@ public class Bow : MonoBehaviour
 
 
     public void Reload() {
-        if (isReloading || currentArrow != null) return;
+        // || currentArrow != null
+        if (isReloading) return;
         isReloading = true;
         StartCoroutine(ReloadAfterTime());
     }
@@ -55,13 +64,15 @@ public class Bow : MonoBehaviour
     }
 
     public void Fire(float firePower) {
-        if (isReloading && currentArrow == null) return;
+        if (isReloading) return;
 
         // create arrow prefab
-        currentArrow = Instantiate(arrowPrefab, spawnPoint);
+        Arrow currentArrow = ArrowPool.Spawn(spawnPoint.position, transform.rotation);
+        currentArrow.agent = agent;
         currentArrow.transform.localPosition = Vector3.zero;
-        currentArrow.SetEnemyTag(enemyTag);
-
+        // tag decision
+        currentArrow.tag = agent.team == Team.Blue ? "BlueArrow" : "RedArrow";
+        
         var force = spawnPoint.TransformVector(Vector3.left * firePower);
         currentArrow.Fly(force);
         currentArrow = null;
@@ -70,7 +81,8 @@ public class Bow : MonoBehaviour
 
     // change to getter 
     public bool isReady {
-        get => (!isReloading && currentArrow != null);
+        //  && currentArrow != null
+        get => (!isReloading);
     }
 
     public bool getIsReload {
