@@ -33,13 +33,13 @@ public class Book : MonoBehaviour
     }
     private void OnEnable()
     {
+        IsAttack = false;
         IsCoolDown = false;
         IsSkill = false;
     }
 
     private void OnDisable()
     {
-        fireBallCast.SetBack();
         CancelInvoke("AttackShoot");
         CancelInvoke("CoolDown");
     }
