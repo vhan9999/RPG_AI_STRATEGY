@@ -53,6 +53,7 @@ public class Sword : MonoBehaviour
 
     public void ResetSlash()
     {
+        Debug.Log(3);
         IsSlash = false;
     }
 

@@ -67,8 +67,6 @@ public class BerserkerAgent : ClassAgent
         if (skillAction == 1) 
         {
             battleaxe.Whirlwind();
-            CancelInvoke("ResetWhirlwind");
-            Invoke("ResetWhirlwind", 3f);
         }
     }
 }
