@@ -63,6 +63,7 @@ public class FireBall : MonoBehaviour
         }
         else if (other.TryGetComponent(out Wall wall))
         {
+            Debug.Log(3);
             ObjectPool<FireBall>.Instance.Recycle(this);
         }
     }
