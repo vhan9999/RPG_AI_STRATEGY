@@ -32,9 +32,9 @@ public class Battleaxe : MonoBehaviour
     private void OnEnable()
     {
         IsWhirlwind = false;
-        IsAllowedWhirlwind = false;
+        IsAllowedWhirlwind = true;
         CancelInvoke("EnableWhirlwind");
-        Invoke("EnableWhirlwind", 5f);
+        
     }
 
     public void Cleave()
@@ -86,7 +86,7 @@ public class Battleaxe : MonoBehaviour
             {
                 //Debug.Log("great");
                 agent.AddReward(1f);
-                otherAgent.TakeDamage(IsCleave ? 20 : 8);
+                otherAgent.TakeDamage(IsCleave ? 25 : 8);
             }
             else
             {

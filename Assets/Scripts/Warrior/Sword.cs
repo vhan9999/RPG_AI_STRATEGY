@@ -41,7 +41,7 @@ public class Sword : MonoBehaviour
             {
                 //Debug.Log("great");
                 agent.AddReward(1f);
-                otherAgent.TakeDamage(20);
+                otherAgent.TakeDamage(15);
             }
             else
             {
