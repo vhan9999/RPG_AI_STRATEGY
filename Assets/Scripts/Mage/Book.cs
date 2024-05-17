@@ -15,6 +15,7 @@ public class Book : MonoBehaviour
     [SerializeField] private GameObject magicMissile;
 
     private ObjectPool<MagicMissile> magicMissilePool;
+    private ObjectPool<FireBall>fireBallPool;
     private ClassAgent agent;
 
     // Start is called before the first frame update
@@ -22,7 +23,9 @@ public class Book : MonoBehaviour
     {
         fireBallCast = transform.GetChild(0).GetComponentInChildren<FireBallCast>();
         magicMissilePool = ObjectPool<MagicMissile>.Instance;
-        magicMissilePool.InitPool(magicMissile, 30);
+        magicMissilePool.InitPool(magicMissile, 7);
+        fireBallPool = ObjectPool<FireBall>.Instance;
+        fireBallPool.InitPool(fireBall, 1);
         agent = GetComponentInParent<ClassAgent>();
     }
 
@@ -33,12 +36,12 @@ public class Book : MonoBehaviour
     }
     private void OnEnable()
     {
-        IsAttack = false;
-        IsCoolDown = false;
-        IsSkill = false;
+       IsAttack = false;
+       IsSkill = false;
+       IsCoolDown = false;
     }
 
-    private void OnDisable()
+    private void OnDisable()    
     {
         CancelInvoke("AttackShoot");
         CancelInvoke("CoolDown");
@@ -48,7 +51,6 @@ public class Book : MonoBehaviour
         if (!IsAttack && !IsSkill)
         {
             IsAttack = true;
-            agent.AddReward(-0.03f);
             Invoke("AttackShoot", 0.8f);
         }
     }
@@ -83,9 +85,10 @@ public class Book : MonoBehaviour
     public void FireBallShoot()
     {
         IsSkill = false;
-        FireBall fireball = Instantiate(fireBall, transform.position + transform.up, transform.rotation).GetComponent<FireBall>();
-        fireball.moveDir = transform.forward;
-        fireball.agent = agent;
-        fireBall.tag = agent.team == Team.Blue ? "BlueFireBall" : "RedFireBall";
+        FireBall f = fireBallPool.Spawn(transform.position + transform.up, transform.rotation);
+        f.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
+        f.moveDir = transform.forward;
+        f.agent = agent;
+        f.Reset();
     }
 }
