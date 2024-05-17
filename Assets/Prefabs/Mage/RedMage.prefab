@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2998797774162041268}
   - component: {fileID: 6202821776414575649}
   - component: {fileID: 3182492681367632851}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: RedMage
   m_TagString: RedMage
   m_Icon: {fileID: 0}

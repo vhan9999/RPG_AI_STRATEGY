@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1230743708}
   - component: {fileID: 4504582515639459199}
   - component: {fileID: 6775162443426748641}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: BlueBerserker
   m_TagString: BlueBerserker
   m_Icon: {fileID: 0}

@@ -46,14 +46,13 @@ public class Sword : MonoBehaviour
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.6f);
+                agent.AddReward(-0.3f);
             }
         }    
     }
 
     public void ResetSlash()
     {
-        Debug.Log(3);
         IsSlash = false;
     }
 

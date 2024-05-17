@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3134963040863204924}
   - component: {fileID: 6237554712024944658}
   - component: {fileID: 360738466226444089}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: RedBerserker
   m_TagString: RedBattleaxe
   m_Icon: {fileID: 0}

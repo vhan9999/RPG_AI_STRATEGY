@@ -48,6 +48,7 @@ public class Book : MonoBehaviour
         if (!IsAttack && !IsSkill)
         {
             IsAttack = true;
+            agent.AddReward(-0.03f);
             Invoke("AttackShoot", 0.8f);
         }
     }

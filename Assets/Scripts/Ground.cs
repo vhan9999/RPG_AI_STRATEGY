@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    private int count = 0;
     private void OnTriggerStay(Collider other)
     {
         // Check if the object colliding with the ground is a blood droplet
