@@ -46,7 +46,7 @@ public class WarriorAgent : ClassAgent
 
     protected override void SpeedAdjust()
     {
-        speed = sword.IsSlash ? speed * 0.4f : speed;
+        speed = sword.IsSlash ? speed * 0.6f : speed;
         speed = accelerate.Status ? speed * 1.5f : speed;
     }
 

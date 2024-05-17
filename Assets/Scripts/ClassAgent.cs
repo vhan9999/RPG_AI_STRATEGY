@@ -120,6 +120,7 @@ public class ClassAgent : Agent
         // rotate
         if (Input.GetKey(KeyCode.Q))
         {
+            Debug.Log("don");
             actions[2] = 1;
         }
         else if (Input.GetKey(KeyCode.E))
