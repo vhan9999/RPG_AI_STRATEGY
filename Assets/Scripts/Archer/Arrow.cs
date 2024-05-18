@@ -1,54 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.MLAgents;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    [SerializeField]
-    private float damage;
+    [SerializeField] private float speed;
+    [SerializeField] private float existTime;
 
-    [SerializeField]
-    private Rigidbody rigid;
-    
-    private string eTag;
-    private bool isHit;
-
+    public Vector3 moveDir;
+    private float timer;
     public ClassAgent agent;
+    private bool isHit = false;
 
-    public void SetEnemyTag(string enemyTag) 
+    private void Start()
     {
-        eTag = enemyTag;
+       
     }
 
-    public void Fly(Vector3 force) {
-        rigid.isKinematic = false;
-        rigid.AddForce(force, ForceMode.Impulse);
-        transform.SetParent(null);
+    public void Reset()
+    {
+        timer = 0;
+    }
+
+    private void Update()
+    {
+        float deltaTime = Time.deltaTime;
+        timer += deltaTime;
+        if (timer > existTime) { 
+            ObjectPool<Arrow>.Instance.Recycle(this);
+        }
+
+        transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ClassAgent otherAgent))
-        {
-            if (agent.team != otherAgent.team) {
-                Debug.Log("hit");
-                isHit = true;
+        if (other.TryGetComponent(out ClassAgent otherAgent)) {
+            if (agent.team != otherAgent.team)
+            {
+                //Debug.Log("great");
                 agent.AddReward(1f);
-                other.GetComponent<ClassAgent>().TakeDamage(20);
-                Destroy(gameObject);
+                otherAgent.TakeDamage(10);
+                ObjectPool<Arrow>.Instance.Recycle(this);
             }
             else
             {
+                //Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(-0.3f);
             }
         }
-        else if (other.gameObject.CompareTag("Wall"))
+        else if (other.TryGetComponent(out Wall wall))
         {
-            Destroy(gameObject);
+            ObjectPool<Arrow>.Instance.Recycle(this);
         }
-        rigid.velocity = Vector3.zero;
-        rigid.angularVelocity = Vector3.zero;
-        rigid.isKinematic=true;
-        transform.SetParent(other.transform);
     }
 }

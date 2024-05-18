@@ -650,6 +650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueArcher
       objectReference: {fileID: 0}
+    - target: {fileID: 5592173484569452277, guid: f4282f503e0ff654ea77747d2549f70d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4282f503e0ff654ea77747d2549f70d, type: 3}
 --- !u!4 &1840204097 stripped
