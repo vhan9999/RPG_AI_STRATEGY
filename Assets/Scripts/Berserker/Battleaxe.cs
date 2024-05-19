@@ -41,7 +41,7 @@ public class Battleaxe : MonoBehaviour
     {
         if (!IsCleave && !IsWhirlwind)
         {
-            agent.AddReward(-0.03f);
+            agent.AddReward(-0.1f);
             IsCleave = true;
         }
     }

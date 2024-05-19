@@ -134,26 +134,18 @@ public class EnvController : MonoBehaviour
 
     private void LoadRandomScene()
     {
-        List<int> blueIndexList = Enumerable.Range(0, blueAgentsList.Count).ToList();
-        List<int> redIndexList = Enumerable.Range(0, redAgentsList.Count).ToList();
-        foreach (PlayerInfo item in blueAgentsList)
+        List<int> indexList = Enumerable.Range(0, blueAgentsList.Count).ToList();
+        for (int i = 0; i < blueAgentsList.Count; i++)
         {
-            item.Agent.gameObject.SetActive(true);
-            int randomNum = Random.Range(0, blueIndexList.Count);
-            int pos = blueIndexList[randomNum];
-            item.Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = blueAgentsList[pos].StartingRot;
-            blueIndexList.RemoveAt(randomNum);
-        }
-
-        foreach (PlayerInfo item in redAgentsList)
-        {
-            item.Agent.gameObject.SetActive(true);
-            int randomNum = Random.Range(0, redIndexList.Count);
-            int pos = redIndexList[randomNum];
-            item.Agent.transform.localPosition = redAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = redAgentsList[pos].StartingRot;
-            redIndexList.RemoveAt(randomNum);
+            blueAgentsList[i].Agent.gameObject.SetActive(true);
+            redAgentsList[i].Agent.gameObject.SetActive(true);
+            int randomNum = Random.Range(0, indexList.Count);
+            int pos = indexList[randomNum];
+            blueAgentsList[i].Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
+            blueAgentsList[i].Agent.transform.rotation = blueAgentsList[pos].StartingRot;
+            redAgentsList[i].Agent.transform.localPosition = redAgentsList[pos].StartingPos;
+            redAgentsList[i].Agent.transform.rotation = redAgentsList[pos].StartingRot;
+            indexList.RemoveAt(randomNum);
         }
     }
 }

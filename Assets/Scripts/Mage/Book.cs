@@ -57,7 +57,7 @@ public class Book : MonoBehaviour
 
     private void AttackShoot()
     {
-        
+        agent.AddReward(-0.03f);
         MagicMissile m = magicMissilePool.Spawn(transform.position + transform.up, transform.rotation);
         m.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         m.moveDir = transform.forward;
@@ -70,6 +70,7 @@ public class Book : MonoBehaviour
     {
         if (!IsAttack && !IsCoolDown)
         {
+            agent.AddReward(-0.03f);
             fireBallCast.CastStart();
             IsCoolDown = true;
             IsSkill = true;
