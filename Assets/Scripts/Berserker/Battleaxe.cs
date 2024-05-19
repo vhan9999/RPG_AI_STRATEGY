@@ -50,6 +50,7 @@ public class Battleaxe : MonoBehaviour
     {
         if (IsAllowedWhirlwind)
         {
+            agent.AddReward(-0.2f);
             IsCleave = false;
             IsWhirlwind = true;
             IsAllowedWhirlwind = false;
@@ -85,7 +86,7 @@ public class Battleaxe : MonoBehaviour
             if (agent.team != otherAgent.team)
             {
                 //Debug.Log("great");
-                agent.AddReward(1f);
+                agent.AddReward(IsCleave ? 1f : 0.3f);
                 otherAgent.TakeDamage(IsCleave ? 25 : 8);
             }
             else
