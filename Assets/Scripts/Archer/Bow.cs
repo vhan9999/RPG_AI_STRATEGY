@@ -33,7 +33,7 @@ public class Bow : MonoBehaviour
     private void Start()
     {
         arrowPool = ObjectPool<Arrow>.Instance;
-        arrowPool.InitPool(arrowPrefab, 30);
+        arrowPool.InitPool(arrowPrefab, 5);
     }
 
     public void SetEnemyTag(string enemyTag)

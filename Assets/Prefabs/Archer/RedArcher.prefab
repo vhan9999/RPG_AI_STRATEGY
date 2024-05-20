@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3089432119865364496}
   - component: {fileID: -1543594343689422367}
   - component: {fileID: -4517784262080742757}
+  - component: {fileID: 8443385935878427383}
+  - component: {fileID: 6348116937799620967}
   m_Layer: 0
   m_Name: RedArcher
   m_TagString: RedArcher
@@ -117,6 +119,61 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 2.1, z: 1.2}
   m_Center: {x: 0, y: 0.24999997, z: 0}
+--- !u!114 &8443385935878427383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592173484569452277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 4
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 0300000003000000030000000200000002000000
+    VectorActionSize: 0300000003000000030000000200000002000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 1
+  m_BehaviorType: 1
+  m_BehaviorName: My Behavior
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &6348116937799620967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592173484569452277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b43712ca44ffd43900c00bc210aa9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  lerpSpeed: 5
+  maxSpeed: 10
+  rotateSpeed: 150
+  health: 100
+  currentHealth: 100
+  team: 1
+  profession: 0
+  bow: {fileID: 3497034634105338162}
+  enemyTag: BlueTeam
 --- !u!1001 &1066664762035044143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,6 +193,14 @@ PrefabInstance:
       propertyPath: arrow
       value: 
       objectReference: {fileID: 1690420554900138641, guid: f36ae60e96c03be42a06a4914b22c643, type: 3}
+    - target: {fileID: 4488535818353264157, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
+      propertyPath: reloadTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488535818353264157, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 4681738720869559068}
     - target: {fileID: 7099205941366525825, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -183,24 +248,22 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 46507141364283284, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
---- !u!1 &4930447271154643284 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5377854689133006459, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
+--- !u!114 &3497034634105338162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4488535818353264157, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
   m_PrefabInstance: {fileID: 1066664762035044143}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7461279858599138941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4930447271154643284}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14d286b2bf1ed344a6e0ea44dac8eae, type: 3}
+  m_Script: {fileID: 11500000, guid: fbe18eb8190e930478ff9f5a0cbfc022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+--- !u!4 &4681738720869559068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5635530891676177459, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}
+  m_PrefabInstance: {fileID: 1066664762035044143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7802767571060060334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7099205941366525825, guid: 7932980caa40af44fb341bd5d765abd0, type: 3}

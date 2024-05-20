@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5700436927588994146}
   - component: {fileID: 8867320271633040605}
   - component: {fileID: 904715879130357936}
-  - component: {fileID: 4056791187824714064}
+  - component: {fileID: 3189296879629224811}
   m_Layer: 6
   m_Name: Arrow
   m_TagString: RedArrow
@@ -129,7 +129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4056791187824714064
+--- !u!114 &3189296879629224811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b9ad59b1394145a5a3bfb45a5d6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  existTime: 0
-  moveDir: {x: 0, y: 0, z: 0}
-  agent: {fileID: 0}
+  damage: 20
+  rigid: {fileID: 904715879130357936}
