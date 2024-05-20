@@ -1,58 +1,60 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.MLAgents;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float existTime;
+    [SerializeField]
+    private float damage;
 
-    public Vector3 moveDir;
-    private float timer;
-    public ClassAgent agent;
-    private bool isHit = false;
+    [SerializeField]
+    private Rigidbody rigid;
 
-    private void Start()
+    private string enemyTag;
+    private bool didHit;
+
+    private void OnEnable()
     {
-       
+        ResetArrow();
     }
 
-    public void Reset()
+    private void ResetArrow()
     {
-        timer = 0;
+        didHit = false;
+        rigid.isKinematic = false;
+        rigid.velocity = Vector3.zero;
+        rigid.angularVelocity = Vector3.zero;
     }
 
-    private void Update()
+    public void SetEnemyTag(string enemyTag)
     {
-        float deltaTime = Time.deltaTime;
-        timer += deltaTime;
-        if (timer > existTime) { 
-            ObjectPool<Arrow>.Instance.Recycle(this);
-        }
+        this.enemyTag = enemyTag;
+    }
 
-        transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
+    public void Fly(Vector3 force)
+    {
+        rigid.isKinematic = false;
+        rigid.AddForce(force, ForceMode.Impulse);
+        transform.SetParent(null);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ClassAgent otherAgent)) {
-            if (agent.team != otherAgent.team)
-            {
-                //Debug.Log("great");
-                agent.AddReward(1f);
-                otherAgent.TakeDamage(10);
-                ObjectPool<Arrow>.Instance.Recycle(this);
-            }
-            else
-            {
-                //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f);
-            }
-        }
-        else if (other.TryGetComponent(out Wall wall))
+        if (didHit) return;
+        didHit = true;
+
+        if (other.gameObject.CompareTag("Wall"))
         {
             ObjectPool<Arrow>.Instance.Recycle(this);
         }
+        else if (other.gameObject.CompareTag(enemyTag))
+        {
+            // Handle enemy hit logic
+            ObjectPool<Arrow>.Instance.Recycle(this);
+        }
+
+        rigid.velocity = Vector3.zero;
+        rigid.angularVelocity = Vector3.zero;
+        rigid.isKinematic = true;
+        transform.SetParent(other.transform);
     }
 }

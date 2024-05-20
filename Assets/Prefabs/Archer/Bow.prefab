@@ -119,9 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe18eb8190e930478ff9f5a0cbfc022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAttack: 0
-  IsReload: 0
-  arrow: {fileID: 0}
+  reloadTime: 2
+  arrowPrefab: {fileID: 1690420554900138641, guid: f36ae60e96c03be42a06a4914b22c643, type: 3}
+  spawnPoint: {fileID: 0}
+  anim: {fileID: 7801074499085259746}
+  maxFirePower: 40
+  firePowerSpeed: 10
+  firePower: 20
+  fire: 0
 --- !u!1 &6154672802766362920
 GameObject:
   m_ObjectHideFlags: 0

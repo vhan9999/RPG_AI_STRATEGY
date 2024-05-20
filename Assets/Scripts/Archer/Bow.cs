@@ -1,48 +1,79 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    [HideInInspector]
-    public bool IsAttack = false;
-    public bool IsReload = false;
+    [SerializeField]
+    private float reloadTime;
 
-    [SerializeField] private GameObject arrow;
+    [SerializeField]
+    private GameObject arrowPrefab;
+
+    [SerializeField]
+    private Transform spawnPoint;
 
     private ObjectPool<Arrow> arrowPool;
-    private ClassAgent agent;
+    private Arrow currentArrow;
+    private string enemyTag;
+    private bool isReloading;
+
+    [SerializeField]
+    public Animator anim;
+
+    [SerializeField]
+    public float maxFirePower;
+
+    [SerializeField]
+    public float firePowerSpeed;
+
+    public float firePower;
+
+    public bool fire;
 
     private void Start()
     {
         arrowPool = ObjectPool<Arrow>.Instance;
-        arrowPool.InitPool(arrow, 30);
-        agent = GetComponentInParent<ClassAgent>();
+        arrowPool.InitPool(arrowPrefab, 30);
     }
 
-    private void Update()
+    public void SetEnemyTag(string enemyTag)
     {
-        
+        this.enemyTag = enemyTag;
     }
 
-    public void AttackCast() {
-        if (!IsAttack) {
-            IsAttack = true;
-            Invoke("AttackShoot", 0.8f);
-        }
+    public void SetDrawingAnimation(bool value)
+    {
+        anim.SetBool("isReadyFire", value);
     }
 
-    public void AttackShoot() {
-        Arrow a = arrowPool.Spawn(transform.position + transform.up, transform.rotation);
-        a.tag = agent.team == Team.Blue ? "BlueArrow" : "RedArrow";
-        a.moveDir = transform.forward;
-        a.agent = agent;
-        a.Reset();
-        IsAttack = false;
+    public void Reload()
+    {
+        if (isReloading || currentArrow != null) return;
+        isReloading = true;
+        StartCoroutine(ReloadAfterTime());
     }
 
-    public void Reload() { 
-        IsReload = false;
+    private IEnumerator ReloadAfterTime()
+    {
+        yield return new WaitForSeconds(reloadTime);
+        isReloading = false;
     }
+
+    public void Fire(float firePower)
+    {
+        if (isReloading && currentArrow == null) return;
+
+        // Get arrow from the pool
+        currentArrow = arrowPool.Spawn(spawnPoint.position, spawnPoint.rotation);
+        currentArrow.SetEnemyTag(enemyTag);
+
+        var force = spawnPoint.TransformVector(Vector3.left * firePower);
+        currentArrow.Fly(force);
+        currentArrow = null;
+        Reload();
+    }
+
+    public bool isReady => (!isReloading && currentArrow != null);
+
+    public bool IsReloading => isReloading;
 }
