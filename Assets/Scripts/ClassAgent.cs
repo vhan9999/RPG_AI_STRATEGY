@@ -133,7 +133,7 @@ public class ClassAgent : Agent
         sensor.AddObservation(this is WarriorAgent ? 1 : -1);
         sensor.AddObservation(this is BerserkerAgent ? 1 : -1);
         sensor.AddObservation(this is MageAgent ? 1 : -1);
-        //sensor.AddObservation(this is ArcherAgent ? 1 : -1);
+        sensor.AddObservation(this is ArcherAgent ? 1 : -1);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
