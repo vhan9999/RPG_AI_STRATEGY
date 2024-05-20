@@ -32,9 +32,9 @@ public class Battleaxe : MonoBehaviour
     private void OnEnable()
     {
         IsWhirlwind = false;
-        IsAllowedWhirlwind = true;
+        IsAllowedWhirlwind = false;
         CancelInvoke("EnableWhirlwind");
-        
+        Invoke("EnableWhirlwind", 5f);
     }
 
     public void Cleave()
@@ -71,7 +71,7 @@ public class Battleaxe : MonoBehaviour
     public void StopWhirlwind()
     {
         IsWhirlwind = false;
-        Invoke("EnableWhirlwind", 20f);
+        Invoke("EnableWhirlwind", 15f);
     }
 
     private void EnableWhirlwind()

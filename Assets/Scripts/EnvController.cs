@@ -134,8 +134,9 @@ public class EnvController : MonoBehaviour
 
     private void LoadRandomScene()
     {
-        List<int> indexList = Enumerable.Range(0, blueAgentsList.Count).ToList();
-        for (int i = 0; i < blueAgentsList.Count; i++)
+        int count = Math.Min(blueAgentsList.Count, redAgentsList.Count);
+        List<int> indexList = Enumerable.Range(0, count).ToList();
+        for (int i = 0; i < count; i++)
         {
             blueAgentsList[i].Agent.gameObject.SetActive(true);
             redAgentsList[i].Agent.gameObject.SetActive(true);
