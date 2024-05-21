@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
+using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -19,6 +20,11 @@ public class FireBall : MonoBehaviour
     {
 
     }
+    
+    public void Reset()
+    {
+        timer = 0;
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,10 +33,17 @@ public class FireBall : MonoBehaviour
         timer += deltaTime;
         if (timer > existTime)
         {
-            Destroy(gameObject);
+            ObjectPool<FireBall>.Instance.Recycle(this);
         }
         if(!isHit)
             transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
+    }
+    
+    private void OnEnable()
+    {
+        isHit = false;
+        anim.SetBool("touch", false);
+        anim.SetTrigger("new");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,15 +65,11 @@ public class FireBall : MonoBehaviour
                 agent.AddReward(-0.3f);
             }
         }
-        else if (other.TryGetComponent(out Wall wall))
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void ExplodeDone()
     {
-        Destroy(gameObject);
+        ObjectPool<FireBall>.Instance.Recycle(this);
     }
 }
 

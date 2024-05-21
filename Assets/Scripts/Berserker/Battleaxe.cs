@@ -41,7 +41,7 @@ public class Battleaxe : MonoBehaviour
     {
         if (!IsCleave && !IsWhirlwind)
         {
-            agent.AddReward(-0.03f);
+            agent.AddReward(-0.1f);
             IsCleave = true;
         }
     }
@@ -50,6 +50,7 @@ public class Battleaxe : MonoBehaviour
     {
         if (IsAllowedWhirlwind)
         {
+            agent.AddReward(-0.2f);
             IsCleave = false;
             IsWhirlwind = true;
             IsAllowedWhirlwind = false;
@@ -70,7 +71,7 @@ public class Battleaxe : MonoBehaviour
     public void StopWhirlwind()
     {
         IsWhirlwind = false;
-        Invoke("EnableWhirlwind", 20f);
+        Invoke("EnableWhirlwind", 15f);
     }
 
     private void EnableWhirlwind()
@@ -85,13 +86,13 @@ public class Battleaxe : MonoBehaviour
             if (agent.team != otherAgent.team)
             {
                 //Debug.Log("great");
-                agent.AddReward(1f);
-                otherAgent.TakeDamage(IsCleave ? 20 : 8);
+                agent.AddReward(IsCleave ? 1f : 0.3f);
+                otherAgent.TakeDamage(IsCleave ? 25 : 8);
             }
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(IsCleave ? -0.6f : -0.1f);
+                agent.AddReward(IsCleave ? -0.3f : -0.1f);
             }
         }
     }

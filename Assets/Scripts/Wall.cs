@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerStay(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.TryGetComponent(out FireBall fireball))
+        {
+            ObjectPool<FireBall>.Instance.Recycle(fireball);       
+        }
+        else if (other.TryGetComponent(out MagicMissile magicMissile))
+        {
+            ObjectPool<MagicMissile>.Instance.Recycle(magicMissile);
+        }
     }
 }

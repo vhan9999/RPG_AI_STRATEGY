@@ -54,12 +54,15 @@ public class BerserkerAgent : ClassAgent
 
     protected override void SpeedAdjust()
     {
-        speed = battleaxe.IsCleave ? speed * 0.3f : speed;
+        speed = battleaxe.IsCleave ? speed * 0.5f : speed;
     }
 
     protected override void AttackAction(int attackAction)
     {
-        if (attackAction == 1) battleaxe.Cleave();
+        if (attackAction == 1)
+        {
+            battleaxe.Cleave();
+        }
     }
 
     protected override void SkillAction(int skillAction)
@@ -67,8 +70,6 @@ public class BerserkerAgent : ClassAgent
         if (skillAction == 1) 
         {
             battleaxe.Whirlwind();
-            CancelInvoke("ResetWhirlwind");
-            Invoke("ResetWhirlwind", 3f);
         }
     }
 }

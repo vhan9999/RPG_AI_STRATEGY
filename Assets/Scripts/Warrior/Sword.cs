@@ -41,12 +41,12 @@ public class Sword : MonoBehaviour
             {
                 //Debug.Log("great");
                 agent.AddReward(1f);
-                otherAgent.TakeDamage(20);
+                otherAgent.TakeDamage(15);
             }
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.6f);
+                agent.AddReward(-0.3f);
             }
         }    
     }

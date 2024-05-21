@@ -27,10 +27,9 @@ public class Accelerate : MonoBehaviour
 
     private void OnEnable()
     {
-        IsAllowed = false;
+        IsAllowed = true;
         Status = false;
         CancelInvoke("EnableSkill");
-        Invoke("EnableSkill", 5f);
     }
 
     private void EnableSkill()
@@ -51,6 +50,6 @@ public class Accelerate : MonoBehaviour
     private void Stop()
     {
         anim.SetBool("isAccelerate", false);
-        Invoke("EnableSkill", 5f);
+        Invoke("EnableSkill", 10f);
     }
 }
