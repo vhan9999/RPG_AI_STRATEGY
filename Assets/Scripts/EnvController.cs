@@ -79,28 +79,28 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
-            m_BlueAgentGroup.AddGroupReward(-0.8f);
-            m_OrangeAgentGroup.AddGroupReward(1f);
+            m_BlueAgentGroup.AddGroupReward(-0.1f);
+            m_OrangeAgentGroup.AddGroupReward(0.2f);
             blueDeadCount++;
         }
         else
         {
-            m_OrangeAgentGroup.AddGroupReward(-0.8f);
-            m_BlueAgentGroup.AddGroupReward(1f);
+            m_OrangeAgentGroup.AddGroupReward(-0.1f);
+            m_BlueAgentGroup.AddGroupReward(0.2f);
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
-            m_OrangeAgentGroup.AddGroupReward(1 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
-            m_BlueAgentGroup.AddGroupReward(-0.5f * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_OrangeAgentGroup.AddGroupReward(1);
+            m_BlueAgentGroup.AddGroupReward(-0.5f);
             m_BlueAgentGroup.EndGroupEpisode();
             m_OrangeAgentGroup.EndGroupEpisode();
             ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
-            m_OrangeAgentGroup.AddGroupReward(-0.5f * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
-            m_BlueAgentGroup.AddGroupReward(1 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_OrangeAgentGroup.AddGroupReward(-0.5f);
+            m_BlueAgentGroup.AddGroupReward(1);
             m_BlueAgentGroup.EndGroupEpisode();
             m_OrangeAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -109,6 +109,10 @@ public class EnvController : MonoBehaviour
 
     private void ResetScene()
     {
+        foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
+        {
+            item.Agent.gameObject.SetActive(false);
+        }
         if (IsRandomScene)
         {
             LoadRandomScene();
