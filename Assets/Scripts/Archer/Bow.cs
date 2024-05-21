@@ -50,12 +50,12 @@ public class Bow : MonoBehaviour
     {
         if (isReloading || currentArrow != null) return;
         isReloading = true;
-        StartCoroutine(ReloadAfterTime());
+        Invoke("ReloadAfterTime", reloadTime);
     }
 
-    private IEnumerator ReloadAfterTime()
+    private void ReloadAfterTime()
     {
-        yield return new WaitForSeconds(reloadTime);
+        Debug.Log(1);
         isReloading = false;
     }
 

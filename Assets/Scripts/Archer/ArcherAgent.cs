@@ -24,6 +24,7 @@ public class ArcherAgent : ClassAgent
 
     private void Update()
     {
+        //Debug.Log(bow.IsReloading);
         if (Input.GetMouseButtonDown(0) && !bow.IsReloading)
         {
             bow.SetDrawingAnimation(true); // start drawing animation

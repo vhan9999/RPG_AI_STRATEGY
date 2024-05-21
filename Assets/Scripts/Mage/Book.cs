@@ -57,10 +57,8 @@ public class Book : MonoBehaviour
 
     private void AttackShoot()
     {
-<<<<<<< HEAD
-=======
+
         agent.AddReward(-0.03f);
->>>>>>> main
         MagicMissile m = magicMissilePool.Spawn(transform.position + transform.up, transform.rotation);
         m.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         m.moveDir = transform.forward;
