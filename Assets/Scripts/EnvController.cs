@@ -79,28 +79,28 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
-            m_BlueAgentGroup.AddGroupReward(-0.8f);
-            m_OrangeAgentGroup.AddGroupReward(1f);
+            m_BlueAgentGroup.AddGroupReward(-0.1f);
+            m_OrangeAgentGroup.AddGroupReward(0.2f);
             blueDeadCount++;
         }
         else
         {
-            m_OrangeAgentGroup.AddGroupReward(-0.8f);
-            m_BlueAgentGroup.AddGroupReward(1f);
+            m_OrangeAgentGroup.AddGroupReward(-0.1f);
+            m_BlueAgentGroup.AddGroupReward(0.2f);
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
-            m_OrangeAgentGroup.AddGroupReward(1 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
-            m_BlueAgentGroup.AddGroupReward(-0.5f * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_OrangeAgentGroup.AddGroupReward(1);
+            m_BlueAgentGroup.AddGroupReward(-0.5f);
             m_BlueAgentGroup.EndGroupEpisode();
             m_OrangeAgentGroup.EndGroupEpisode();
             ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
-            m_OrangeAgentGroup.AddGroupReward(-0.5f * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
-            m_BlueAgentGroup.AddGroupReward(1 * (1 - (float)m_ResetTimer / MaxEnvironmentSteps));
+            m_OrangeAgentGroup.AddGroupReward(-0.5f);
+            m_BlueAgentGroup.AddGroupReward(1);
             m_BlueAgentGroup.EndGroupEpisode();
             m_OrangeAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -109,6 +109,10 @@ public class EnvController : MonoBehaviour
 
     private void ResetScene()
     {
+        foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
+        {
+            item.Agent.gameObject.SetActive(false);
+        }
         if (IsRandomScene)
         {
             LoadRandomScene();
@@ -134,26 +138,19 @@ public class EnvController : MonoBehaviour
 
     private void LoadRandomScene()
     {
-        List<int> blueIndexList = Enumerable.Range(0, blueAgentsList.Count).ToList();
-        List<int> redIndexList = Enumerable.Range(0, redAgentsList.Count).ToList();
-        foreach (PlayerInfo item in blueAgentsList)
+        int count = Math.Min(blueAgentsList.Count, redAgentsList.Count);
+        List<int> indexList = Enumerable.Range(0, count).ToList();
+        for (int i = 0; i < count; i++)
         {
-            item.Agent.gameObject.SetActive(true);
-            int randomNum = Random.Range(0, blueIndexList.Count);
-            int pos = blueIndexList[randomNum];
-            item.Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = blueAgentsList[pos].StartingRot;
-            blueIndexList.RemoveAt(randomNum);
-        }
-
-        foreach (PlayerInfo item in redAgentsList)
-        {
-            item.Agent.gameObject.SetActive(true);
-            int randomNum = Random.Range(0, redIndexList.Count);
-            int pos = redIndexList[randomNum];
-            item.Agent.transform.localPosition = redAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = redAgentsList[pos].StartingRot;
-            redIndexList.RemoveAt(randomNum);
+            blueAgentsList[i].Agent.gameObject.SetActive(true);
+            redAgentsList[i].Agent.gameObject.SetActive(true);
+            int randomNum = Random.Range(0, indexList.Count);
+            int pos = indexList[randomNum];
+            blueAgentsList[i].Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
+            blueAgentsList[i].Agent.transform.rotation = blueAgentsList[pos].StartingRot;
+            redAgentsList[i].Agent.transform.localPosition = redAgentsList[pos].StartingPos;
+            redAgentsList[i].Agent.transform.rotation = redAgentsList[pos].StartingRot;
+            indexList.RemoveAt(randomNum);
         }
     }
 }

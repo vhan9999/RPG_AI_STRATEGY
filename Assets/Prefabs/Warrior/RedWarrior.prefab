@@ -140,8 +140,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  lerpSpeed: 5
-  maxSpeed: 10
+  lerpSpeed: 50
+  maxSpeed: 100
   rotateSpeed: 200
   health: 100
   currentHealth: 100

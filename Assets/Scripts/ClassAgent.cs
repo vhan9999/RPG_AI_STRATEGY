@@ -33,6 +33,7 @@ public class ClassAgent : Agent
     public Profession profession; 
     protected BehaviorParameters bp;
     protected EnvController envController;
+    protected Rigidbody rb;
 
     //init
     private Vector3 initPosition;
@@ -46,6 +47,7 @@ public class ClassAgent : Agent
         bp = GetComponent<BehaviorParameters>();
         envController = GetComponentInParent<EnvController>();
         team = (Team)bp.TeamId;
+        rb = GetComponentInParent<Rigidbody>();
     }
 
     private void Update()
@@ -71,7 +73,9 @@ public class ClassAgent : Agent
         speed = isDizzy ? speed * 0.3f : speed;
         SpeedAdjust();
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
-        transform.Translate(nowDir * Time.deltaTime * speed, Space.World);   
+        //transform.Translate(nowDir * Time.deltaTime * speed, Space.World);
+        rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
+        //rb.velocity = nowDir * Time.deltaTime * speed;
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
     }
 
@@ -120,7 +124,6 @@ public class ClassAgent : Agent
         // rotate
         if (Input.GetKey(KeyCode.Q))
         {
-            Debug.Log("don");
             actions[2] = 1;
         }
         else if (Input.GetKey(KeyCode.E))

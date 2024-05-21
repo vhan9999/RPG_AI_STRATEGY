@@ -20,10 +20,12 @@ public class FireBall : MonoBehaviour
     {
 
     }
+    
     public void Reset()
     {
         timer = 0;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,12 +38,14 @@ public class FireBall : MonoBehaviour
         if(!isHit)
             transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
     }
+    
     private void OnEnable()
     {
         isHit = false;
         anim.SetBool("touch", false);
         anim.SetTrigger("new");
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out ClassAgent otherAgent))
@@ -60,10 +64,6 @@ public class FireBall : MonoBehaviour
                 //Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(-0.3f);
             }
-        }
-        else if (other.TryGetComponent(out Wall wall))
-        {
-            ObjectPool<FireBall>.Instance.Recycle(this);
         }
     }
 
