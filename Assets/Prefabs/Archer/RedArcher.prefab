@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4517784262080742757}
   - component: {fileID: 8443385935878427383}
   - component: {fileID: 6348116937799620967}
+  - component: {fileID: 6191277983067919532}
   m_Layer: 0
   m_Name: RedArcher
   m_TagString: RedArcher
@@ -136,8 +137,8 @@ MonoBehaviour:
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 0300000003000000030000000200000002000000
-    VectorActionSize: 0300000003000000030000000200000002000000
+      BranchSizes: 0100000003000000030000000200000002000000
+    VectorActionSize: 0100000003000000030000000200000002000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -174,6 +175,20 @@ MonoBehaviour:
   profession: 0
   bow: {fileID: 3497034634105338162}
   enemyTag: BlueTeam
+--- !u!114 &6191277983067919532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592173484569452277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1001 &1066664762035044143
 PrefabInstance:
   m_ObjectHideFlags: 0

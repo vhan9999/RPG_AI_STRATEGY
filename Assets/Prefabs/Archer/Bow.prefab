@@ -124,7 +124,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   anim: {fileID: 7801074499085259746}
   maxFirePower: 40
-  firePowerSpeed: 10
+  firePowerSpeed: 70
   firePower: 20
   fire: 0
 --- !u!1 &6154672802766362920
