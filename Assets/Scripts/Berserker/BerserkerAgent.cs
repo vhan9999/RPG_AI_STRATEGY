@@ -40,7 +40,7 @@ public class BerserkerAgent : ClassAgent
         base.FixedUpdate();
         if (battleaxe.IsWhirlwind)
         {
-            transform.Rotate(0f, rotateSpeed * Time.deltaTime * 10, 0f);
+            transform.Rotate(0f, rotateSpeed * Time.deltaTime * 8, 0f);
         }
     }
 
@@ -54,7 +54,7 @@ public class BerserkerAgent : ClassAgent
 
     protected override void SpeedAdjust()
     {
-        speed = battleaxe.IsCleave ? speed * 0.5f : speed;
+        speed = battleaxe.IsCleave ? speed * 0.4f : speed;
     }
 
     protected override void AttackAction(int attackAction)
