@@ -173,9 +173,8 @@ MonoBehaviour:
   health: 100
   currentHealth: 100
   team: 1
-  profession: 0
+  profession: 4
   bow: {fileID: 3497034634105338162}
-  enemyTag: BlueTeam
 --- !u!114 &6191277983067919532
 MonoBehaviour:
   m_ObjectHideFlags: 0

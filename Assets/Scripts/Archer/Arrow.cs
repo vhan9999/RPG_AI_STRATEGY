@@ -1,16 +1,19 @@
 using System.Collections;
+using Unity.MLAgents;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    [SerializeField]
-    private float damage;
 
     [SerializeField]
     private Rigidbody rigid;
 
-    private string enemyTag;
-    private bool didHit;
+    //private string enemyTag;
+    private bool didHit = false;
+
+    public ClassAgent agent;
+
+    private int damage;
 
     private void OnEnable()
     {
@@ -25,36 +28,52 @@ public class Arrow : MonoBehaviour
         rigid.angularVelocity = Vector3.zero;
     }
 
-    public void SetEnemyTag(string enemyTag)
-    {
-        this.enemyTag = enemyTag;
-    }
+    //public void SetEnemyTag(string enemyTag)
+    //{
+    //    this.enemyTag = enemyTag;
+    //}
 
     public void Fly(Vector3 force)
     {
         rigid.isKinematic = false;
         rigid.AddForce(force, ForceMode.Impulse);
-        transform.SetParent(null);
+        damage = (int)force[2];
+        //Debug.Log(damage);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (didHit) return;
-        didHit = true;
+        if (other.TryGetComponent(out ClassAgent otherAgent)) {
+            if (agent.team != otherAgent.team) {
+                didHit = true;
+                agent.AddReward(1f);
+                other.GetComponent<ClassAgent>().TakeDamage(damage);
+                //Debug.Log("Hit opponent");
+                ObjectPool<Arrow>.Instance.Recycle(this);
+            }
+            else
+            {
+                //Debug.Log("Hit teammate");
+                agent.AddReward(-0.3f);
+                ObjectPool<Arrow>.Instance.Recycle(this);
+            }
+        }
 
         if (other.gameObject.CompareTag("Wall"))
         {
+            agent.AddReward(-0.3f);
             ObjectPool<Arrow>.Instance.Recycle(this);
         }
-        else if (other.gameObject.CompareTag(enemyTag))
+
+
+        if (other.gameObject.CompareTag("RedArrow") || other.gameObject.CompareTag("BlueArrow"))
         {
-            // Handle enemy hit logic
+            agent.AddReward(-0.3f);
             ObjectPool<Arrow>.Instance.Recycle(this);
         }
 
         rigid.velocity = Vector3.zero;
         rigid.angularVelocity = Vector3.zero;
         rigid.isKinematic = true;
-        transform.SetParent(other.transform);
     }
 }

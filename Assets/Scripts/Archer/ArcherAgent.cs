@@ -9,17 +9,12 @@ public class ArcherAgent : ClassAgent
     [SerializeField]
     private Bow bow;
 
-    [SerializeField]
-    private string enemyTag;
 
     protected override void Start()
     {
         base.Start();
         bow = GetComponentInChildren<Bow>();
-        bow.SetEnemyTag(enemyTag);
         bow.Reload();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
@@ -45,8 +40,7 @@ public class ArcherAgent : ClassAgent
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !bow.fire && !bow.isReady);
-        actionMask.SetActionEnabled(1, 1, !bow.fire && !bow.IsReloading);
+        actionMask.SetActionEnabled(3, 1, !bow.fire && !bow.IsReloading);
     }
 
     protected override void SpeedAdjust()

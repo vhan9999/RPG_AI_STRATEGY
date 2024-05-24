@@ -13,8 +13,7 @@ public class Bow : MonoBehaviour
     private Transform spawnPoint;
 
     private ObjectPool<Arrow> arrowPool;
-    private Arrow currentArrow;
-    private string enemyTag;
+    private ClassAgent agent;
     private bool isReloading;
 
     [SerializeField]
@@ -33,12 +32,8 @@ public class Bow : MonoBehaviour
     private void Start()
     {
         arrowPool = ObjectPool<Arrow>.Instance;
-        arrowPool.InitPool(arrowPrefab, 5);
-    }
-
-    public void SetEnemyTag(string enemyTag)
-    {
-        this.enemyTag = enemyTag;
+        arrowPool.InitPool(arrowPrefab, 2);
+        agent = GetComponentInParent<ClassAgent>();
     }
 
     public void SetDrawingAnimation(bool value)
@@ -48,32 +43,31 @@ public class Bow : MonoBehaviour
 
     public void Reload()
     {
-        if (isReloading || currentArrow != null) return;
         isReloading = true;
         Invoke("ReloadAfterTime", reloadTime);
     }
 
     private void ReloadAfterTime()
     {
-        Debug.Log(1);
         isReloading = false;
     }
 
     public void Fire(float firePower)
     {
-        if (isReloading && currentArrow == null) return;
+        if (isReloading) return;
 
         // Get arrow from the pool
-        currentArrow = arrowPool.Spawn(spawnPoint.position, spawnPoint.rotation);
-        currentArrow.SetEnemyTag(enemyTag);
-
+        agent.AddReward(-0.03f);
+        Arrow a = arrowPool.Spawn(spawnPoint.position, transform.rotation);
+        a.tag = agent.team == Team.Blue ? "BlueArrow" : "RedArrow";
+        Debug.Log(a.tag);
+        a.agent = agent;
+        
         var force = spawnPoint.TransformVector(Vector3.left * firePower);
-        currentArrow.Fly(force);
-        currentArrow = null;
+        a.Fly(force);
         Reload();
     }
 
-    public bool isReady => (!isReloading && currentArrow != null);
 
     public bool IsReloading => isReloading;
 }
