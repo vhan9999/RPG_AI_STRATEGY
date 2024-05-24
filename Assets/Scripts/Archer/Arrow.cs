@@ -37,7 +37,7 @@ public class Arrow : MonoBehaviour
     {
         rigid.isKinematic = false;
         rigid.AddForce(force, ForceMode.Impulse);
-        damage = (int)force[2];
+        damage = Mathf.Abs((int)force[2]);
         //Debug.Log(damage);
     }
 
@@ -47,7 +47,7 @@ public class Arrow : MonoBehaviour
             if (agent.team != otherAgent.team) {
                 didHit = true;
                 agent.AddReward(1f);
-                other.GetComponent<ClassAgent>().TakeDamage(damage);
+                otherAgent.GetComponent<ClassAgent>().TakeDamage(damage);
                 //Debug.Log("Hit opponent");
                 ObjectPool<Arrow>.Instance.Recycle(this);
             }

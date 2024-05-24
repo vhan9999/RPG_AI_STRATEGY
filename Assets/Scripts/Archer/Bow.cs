@@ -60,7 +60,7 @@ public class Bow : MonoBehaviour
         agent.AddReward(-0.03f);
         Arrow a = arrowPool.Spawn(spawnPoint.position, transform.rotation);
         a.tag = agent.team == Team.Blue ? "BlueArrow" : "RedArrow";
-        Debug.Log(a.tag);
+        //Debug.Log(a.tag);
         a.agent = agent;
         
         var force = spawnPoint.TransformVector(Vector3.left * firePower);
