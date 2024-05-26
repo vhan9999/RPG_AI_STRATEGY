@@ -141,7 +141,7 @@ public class EnvController : MonoBehaviour
             int randomNum = Random.Range(0, blueIndexList.Count);
             int pos = blueIndexList[randomNum];
             blueIndexList.RemoveAt(randomNum);
-            item.Agent.transform.position = blueAgentsList[pos].StartingPos;
+            item.Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
             item.Agent.transform.rotation = Quaternion.EulerAngles(0, Random.Range(0, 360), 0);
         }
 
@@ -152,7 +152,7 @@ public class EnvController : MonoBehaviour
             int randomNum = Random.Range(0, redIndexList.Count);
             int pos = redIndexList[randomNum];
             redIndexList.RemoveAt(randomNum);
-            item.Agent.transform.position = redAgentsList[pos].StartingPos;
+            item.Agent.transform.localPosition = redAgentsList[pos].StartingPos;
             item.Agent.transform.rotation = Quaternion.EulerAngles(0, Random.Range(0, 360), 0);
         }
     }

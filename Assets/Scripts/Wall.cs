@@ -8,11 +8,13 @@ public class Wall : MonoBehaviour
     {
         if (other.TryGetComponent(out FireBall fireball))
         {
-            ObjectPool<FireBall>.Instance.Recycle(fireball);       
+            ObjectPool<FireBall>.Instance.Recycle(fireball);
+            Debug.Log(3);
         }
         else if (other.TryGetComponent(out MagicMissile magicMissile))
         {
             ObjectPool<MagicMissile>.Instance.Recycle(magicMissile);
+            Debug.Log(3);
         }
     }
 }
