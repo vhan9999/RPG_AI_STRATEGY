@@ -140,7 +140,6 @@ public class EnvController : MonoBehaviour
             item.Agent.gameObject.SetActive(true);
             int randomNum = Random.Range(0, blueIndexList.Count);
             int pos = blueIndexList[randomNum];
-            Debug.Log(pos);
             blueIndexList.RemoveAt(randomNum);
             item.Agent.transform.position = blueAgentsList[pos].StartingPos;
             item.Agent.transform.rotation = Quaternion.EulerAngles(0, Random.Range(0, 360), 0);
