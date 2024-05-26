@@ -140,7 +140,7 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 50
   maxSpeed: 100
-  rotateSpeed: 150
+  rotateSpeed: 180
   health: 80
   currentHealth: 80
   team: 0

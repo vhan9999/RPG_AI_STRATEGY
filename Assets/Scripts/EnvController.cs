@@ -131,21 +131,30 @@ public class EnvController : MonoBehaviour
 
     private void LoadRandomScene()
     {
-        int count = Mathf.Min(blueAgentsList.Count, redAgentsList.Count);
-        List<int> indexList = Enumerable.Range(0, count).ToList();
-        for (int i = 0; i < count; i++)
+        List<int> blueIndexList = Enumerable.Range(0, blueAgentsList.Count).ToList();
+        List<int> redIndexList = Enumerable.Range(0, redAgentsList.Count).ToList();
+
+        foreach (PlayerInfo item in blueAgentsList)
         {
-            blueAgentsList[i].Agent.gameObject.SetActive(false);
-            redAgentsList[i].Agent.gameObject.SetActive(false);
-            blueAgentsList[i].Agent.gameObject.SetActive(true);
-            redAgentsList[i].Agent.gameObject.SetActive(true);
-            int randomNum = Random.Range(0, indexList.Count);
-            int pos = indexList[randomNum];
-            blueAgentsList[i].Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
-            blueAgentsList[i].Agent.transform.rotation = blueAgentsList[pos].StartingRot;
-            redAgentsList[i].Agent.transform.localPosition = redAgentsList[pos].StartingPos;
-            redAgentsList[i].Agent.transform.rotation = redAgentsList[pos].StartingRot;
-            indexList.RemoveAt(randomNum);
+            item.Agent.gameObject.SetActive(false);
+            item.Agent.gameObject.SetActive(true);
+            int randomNum = Random.Range(0, blueIndexList.Count);
+            int pos = blueIndexList[randomNum];
+            Debug.Log(pos);
+            blueIndexList.RemoveAt(randomNum);
+            item.Agent.transform.position = blueAgentsList[pos].StartingPos;
+            item.Agent.transform.rotation = Quaternion.EulerAngles(0, Random.Range(0, 360), 0);
+        }
+
+        foreach (PlayerInfo item in redAgentsList)
+        {
+            item.Agent.gameObject.SetActive(false);
+            item.Agent.gameObject.SetActive(true);
+            int randomNum = Random.Range(0, redIndexList.Count);
+            int pos = redIndexList[randomNum];
+            redIndexList.RemoveAt(randomNum);
+            item.Agent.transform.position = redAgentsList[pos].StartingPos;
+            item.Agent.transform.rotation = Quaternion.EulerAngles(0, Random.Range(0, 360), 0);
         }
     }
 }

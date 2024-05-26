@@ -85,13 +85,13 @@ public class Battleaxe : MonoBehaviour
         {
             if (agent.team != otherAgent.team)
             {
-                Debug.Log("great");
+                //Debug.Log("great");
                 agent.AddReward(IsCleave ? 1f : 0.3f);
                 otherAgent.TakeDamage(IsCleave ? 25 : 8);
             }
             else
             {
-                Debug.Log("Dont'hurt, you are his frend");
+                //Debug.Log("Dont'hurt, you are his frend");
                 agent.AddReward(IsCleave ? -0.3f : -0.1f);
             }
         }

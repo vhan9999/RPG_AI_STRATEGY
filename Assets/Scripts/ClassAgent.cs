@@ -185,7 +185,7 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int damage)
     {
-        AddReward(-damage * 0.015f);
+        AddReward(-damage * (this is MageAgent ? 0.02f : 0.01f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
         if (currentHealth <= 0)
