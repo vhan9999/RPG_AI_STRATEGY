@@ -174,15 +174,15 @@ public class EnvControlleraaa : MonoBehaviour
             int randomSoldier = Random.Range(0, soldierPrices.Count);
             if (randomSoldier == 0)
             {
-                agent = warriorPool.Spawn(team == Team.Blue ? blueWarrior : redWarrior, transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
+                agent = warriorPool.Spawn( transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
             }
             else if (randomSoldier == 1)
             {
-                agent = berserkerPool.Spawn(team == Team.Blue ? blueBerserker : redBerserker, transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
+                agent = berserkerPool.Spawn(transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
             }
             else if (randomSoldier == 2)
             {
-                agent = magePool.Spawn(team == Team.Blue ? blueMage : redMage, transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
+                agent = magePool.Spawn(transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
             }
             Money -= soldierPrices[randomSoldier];
             agentList.Add(agent);
