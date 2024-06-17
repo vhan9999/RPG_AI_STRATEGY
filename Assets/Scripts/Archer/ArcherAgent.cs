@@ -10,9 +10,9 @@ public class ArcherAgent : ClassAgent
     private Bow bow;
 
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         bow = GetComponentInChildren<Bow>();
         bow.Reload();
     }
