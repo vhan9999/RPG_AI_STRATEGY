@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class ObjectPool<T> where T : MonoBehaviour
 {
-    private Queue<T> _objectQueue;
+    private Queue<T> _objectQueue = new Queue<T>();
     private GameObject _prefab;
-    private GameObject _parent;
+    private Transform _parent;
+
+    public ObjectPool()
+    {
+        
+    }
 
     // Singleton 單例模式
-    private static ObjectPool<T> _instance = null;
-    public static ObjectPool<T> Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new ObjectPool<T>();
-            }
-            return _instance;
-        }
-    }
+    public static ObjectPool<T> Instance { get; } = new ObjectPool<T>();
 
     public int queueCount
     {
@@ -30,22 +24,21 @@ public class ObjectPool<T> where T : MonoBehaviour
         }
     }
 
-    public void InitPool(GameObject prefab, int warmUpCount = 0)
+    public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parant = null)
     {
-        _parent = GameObject.Find("magicMissilePool");
+        _parent = parant == null ? GameObject.Find("magicMissilePool").transform : parant;
         _prefab = prefab;
-        _objectQueue = new Queue<T>();
 
         // 物件池預熱。
         List<T> warmUpList = new List<T>();
         for (int i = 0; i < warmUpCount; i++)
         {
-            T t = Instance.Spawn(Vector3.zero, Quaternion.identity);
+            T t = Spawn(Vector3.zero, Quaternion.identity);
             warmUpList.Add(t);
         }
         for (int i = 0; i < warmUpList.Count; i++)
         {
-            Instance.Recycle(warmUpList[i]);
+            Recycle(warmUpList[i]);
         }
     }
 
@@ -72,6 +65,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         obj.gameObject.transform.position = position;
         obj.gameObject.transform.rotation = quaternion;
         obj.gameObject.SetActive(true);
+
         return obj;
     }
 

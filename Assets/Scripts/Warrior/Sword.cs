@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class Sword : MonoBehaviour
 {
     [SerializeField]
-    public Animator anim;
+    private Animator anim;
     private ClassAgent agent;
     private bool IsAttack = false;
 
