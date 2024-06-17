@@ -48,7 +48,6 @@ public class ObjectPool<T> where T : MonoBehaviour
     {
         if (queueCount <= 0)
         {
-          
             GameObject g = Object.Instantiate(_prefab, position, quaternion);
             g.transform.SetParent(transform ?? _parent);
             T t = g.GetComponent<T>();
