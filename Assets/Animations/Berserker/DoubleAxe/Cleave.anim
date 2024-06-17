@@ -601,7 +601,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5833333
+  - time: 0.68333334
     functionName: SetAttackState
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -615,7 +615,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.4166666
+  - time: 1.7166667
     functionName: ResetCleave
     data: 
     objectReferenceParameter: {fileID: 0}

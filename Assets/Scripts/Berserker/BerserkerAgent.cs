@@ -13,10 +13,10 @@ public class BerserkerAgent : ClassAgent
 {
     // weapon
     private Battleaxe battleaxe;
-
-    protected override void Start()
+    private Vector3 newDir = Vector3.zero;
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         battleaxe = GetComponentInChildren<Battleaxe>();
     }
 
@@ -30,6 +30,7 @@ public class BerserkerAgent : ClassAgent
             }
             else if (Input.GetKeyDown(KeyCode.Z))
             {
+                newDir = nowDir;
                 battleaxe.Whirlwind();
             }
         }
@@ -38,23 +39,21 @@ public class BerserkerAgent : ClassAgent
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (battleaxe.IsWhirlwind)
-        {
-            transform.Rotate(0f, rotateSpeed * Time.deltaTime * 10, 0f);
-        }
     }
     
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(2, 1, !battleaxe.IsWhirlwind);
-        actionMask.SetActionEnabled(2, 2, !battleaxe.IsWhirlwind);
+
+
+        //actionMask.SetActionEnabled(2, 1, !battleaxe.IsWhirlwind);
+        //actionMask.SetActionEnabled(2, 2, !battleaxe.IsWhirlwind);
         actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave && !battleaxe.IsWhirlwind);
-        actionMask.SetActionEnabled(4, 1, battleaxe.isActiveAndEnabled);
+        actionMask.SetActionEnabled(4, 1, battleaxe.IsAllowedWhirlwind);
     }
 
     protected override void SpeedAdjust()
     {
-        speed = battleaxe.IsCleave ? speed * 0.5f : speed;
+        speed = battleaxe.IsCleave ? speed * 0.4f : speed;
     }
 
     protected override void AttackAction(int attackAction)
@@ -69,6 +68,8 @@ public class BerserkerAgent : ClassAgent
     {
         if (skillAction == 1) 
         {
+            if(battleaxe.IsAllowedWhirlwind)
+                newDir = nowDir;
             battleaxe.Whirlwind();
         }
     }

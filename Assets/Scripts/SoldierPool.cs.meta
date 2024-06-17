@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 00fa16db01c2dc84a821ca72aa981892
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bWarrior: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+  - bBerserker: {fileID: 5166902838719059687, guid: 39c517421cde8bc4e88f5545f54038ee, type: 3}
+  - bMage: {fileID: 7513846362045146616, guid: d4b2dc17fe4270342b171082c650a1c9, type: 3}
+  - rWarrior: {fileID: 182752182871103305, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
+  - rBerserker: {fileID: 7797180692352469063, guid: 5eda4d348b313cc488337c34be2ad702, type: 3}
+  - rMage: {fileID: 7513846362045146616, guid: dc37fe81b38db0843b6d613be6006faa, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

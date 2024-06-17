@@ -19,11 +19,11 @@ public class Book : MonoBehaviour
     private ClassAgent agent;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         fireBallCast = transform.GetChild(0).GetComponentInChildren<FireBallCast>();
         magicMissilePool = ObjectPool<MagicMissile>.Instance;
-        magicMissilePool.InitPool(magicMissile, 7);
+        magicMissilePool.InitPool(magicMissile, 8);
         fireBallPool = ObjectPool<FireBall>.Instance;
         fireBallPool.InitPool(fireBall, 1);
         agent = GetComponentInParent<ClassAgent>();

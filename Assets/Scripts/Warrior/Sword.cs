@@ -8,12 +8,11 @@ using UnityEngine.Events;
 
 public class Sword : MonoBehaviour
 {
-    [SerializeField]
     public Animator anim;
-    private ClassAgent agent;
+    public ClassAgent agent;
     private bool IsAttack = false;
 
-    private void Start()
+    private void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
     }
@@ -28,27 +27,34 @@ public class Sword : MonoBehaviour
     {
         if (!IsSlash)
         {
-            agent.AddReward(-0.03f);
+            agent.AddReward(-0.2f);
             IsSlash = true;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ClassAgent otherAgent) && IsAttack)
+        if (IsAttack)
         {
-            if (agent.team != otherAgent.team)
+            if (other.TryGetComponent(out ClassAgent otherAgent))
             {
-                //Debug.Log("great");
-                agent.AddReward(1f);
-                otherAgent.TakeDamage(15);
+                if (agent.team != otherAgent.team)
+                {
+                    //Debug.Log("great");
+                    agent.AddReward(1f);
+                    otherAgent.TakeDamage(15);
+                }
+                //else
+                //{
+                //    //Debug.Log("Dont'hurt, you are his frend");
+                //    agent.AddReward(-0.3f);
+                //}
             }
-            else
-            {
-                //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f);
-            }
-        }    
+            //else if (other.TryGetComponent(out Wall wall))
+            //{
+            //    agent.AddReward(-0.3f);
+            //}
+        }
     }
 
     public void ResetSlash()

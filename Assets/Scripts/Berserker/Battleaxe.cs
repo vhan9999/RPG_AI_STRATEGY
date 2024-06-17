@@ -7,7 +7,7 @@ public class Battleaxe : MonoBehaviour
 {
     [SerializeField]
     public Animator anim;
-    private ClassAgent agent;
+    public ClassAgent agent;
     private bool IsAttack = false;
 
     public bool IsAllowedWhirlwind = false;
@@ -24,7 +24,7 @@ public class Battleaxe : MonoBehaviour
         set => anim.SetBool("isWhirlwind", value);
     }
 
-    private void Start()
+    private void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
     }
@@ -41,7 +41,7 @@ public class Battleaxe : MonoBehaviour
     {
         if (!IsCleave && !IsWhirlwind)
         {
-            agent.AddReward(-0.1f);
+            agent.AddReward(-0.2f);
             IsCleave = true;
         }
     }
@@ -50,7 +50,7 @@ public class Battleaxe : MonoBehaviour
     {
         if (IsAllowedWhirlwind)
         {
-            agent.AddReward(-0.2f);
+            agent.AddReward(-0.3f);
             IsCleave = false;
             IsWhirlwind = true;
             IsAllowedWhirlwind = false;
@@ -81,19 +81,26 @@ public class Battleaxe : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ClassAgent otherAgent) && (IsAttack || IsWhirlwind))
+        if (IsAttack || IsWhirlwind)
         {
-            if (agent.team != otherAgent.team)
+            if (other.TryGetComponent(out ClassAgent otherAgent))
             {
-                //Debug.Log("great");
-                agent.AddReward(IsCleave ? 1f : 0.3f);
-                otherAgent.TakeDamage(IsCleave ? 25 : 8);
+                if (agent.team != otherAgent.team)
+                {
+                    //Debug.Log("great");
+                    agent.AddReward(IsCleave ? 1f : 0.3f);
+                    otherAgent.TakeDamage(IsCleave ? 25 : 8);
+                }
+                else
+                {
+                   //Debug.Log("Dont'hurt, you are his frend");
+                   agent.AddReward(IsCleave ? -0.3f : -0.1f);
+                }
             }
-            else
-            {
-                //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(IsCleave ? -0.3f : -0.1f);
-            }
+            //else if (other.TryGetComponent(out Wall wall))
+            //{
+            //    agent.AddReward(IsCleave ? -0.3f : -0.1f);
+            //}
         }
     }
 }
