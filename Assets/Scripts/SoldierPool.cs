@@ -27,13 +27,14 @@ public class SoldierPool : MonoBehaviour
         bWPool.InitPool(bWarrior, 10, transform);
         bBPool.InitPool(bBerserker, 10, transform);
         bMPool.InitPool(bMage, 10, transform);
-        rWPool.InitPool(bWarrior, 10, transform);
-        rBPool.InitPool(bBerserker, 10, transform);
-        rMPool.InitPool(bMage, 10, transform);
+        rWPool.InitPool(rWarrior, 10, transform);
+        rBPool.InitPool(rBerserker, 10, transform);
+        rMPool.InitPool(rMage, 10, transform);
     }
 
     private ObjectPool<ClassAgent> GetPool(Team team, Profession profession)
     {
+        Debug.Log(team);
         switch (profession)
         {
             case Profession.Warrior:

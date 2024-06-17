@@ -21,7 +21,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parant = null)
     {
-        _parent = parant == null ? GameObject.Find("ObjectPools").transform : parant;
+        _parent = parant ?? GameObject.Find("ObjectPools").transform;
         _prefab = prefab;
 
         List<T> warmUpList = new List<T>();

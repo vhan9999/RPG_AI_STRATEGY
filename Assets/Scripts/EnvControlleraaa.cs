@@ -59,7 +59,6 @@ public class EnvControlleraaa : MonoBehaviour
         if (DeadTeam == Team.Blue)
         {
             blueDeadCount++;
-            
         }
         else
         {
@@ -129,6 +128,7 @@ public class EnvControlleraaa : MonoBehaviour
 
             //random soldier type
             int soldierPos = Random.Range(0, soldierPrices.Length);
+            Debug.Log(team);
             ClassAgent agent = soldierPool.Spawn(team, soldierTypes[soldierPos], spawnPoint, randomRot, transform.parent);
             money -= soldierPrices[soldierPos];
             agentList.Add(agent);
