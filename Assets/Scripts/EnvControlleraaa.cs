@@ -112,7 +112,7 @@ public class EnvControlleraaa : MonoBehaviour
         {
             //random position
             int randomPos = Random.Range(0, indexList.Count);
-            Vector3 spawnPoint = new Vector3(SpawnStartPoint.x + ((indexList[randomPos] % 19) * 2), 1.7f, 
+            Vector3 spawnPoint = transform.position + new Vector3(SpawnStartPoint.x + ((indexList[randomPos] % 19) * 2), 1.7f,
                 SpawnStartPoint.y + ((indexList[randomPos] / 19) * 2));//¨M©w¦ì¸m
             indexList.RemoveAt(randomPos);
 
@@ -129,7 +129,7 @@ public class EnvControlleraaa : MonoBehaviour
             //random soldier type
             int soldierPos = Random.Range(0, soldierPrices.Length);
             Debug.Log(team);
-            ClassAgent agent = soldierPool.Spawn(team, soldierTypes[soldierPos], spawnPoint, randomRot, transform.parent);
+            ClassAgent agent = soldierPool.Spawn(team, soldierTypes[soldierPos], spawnPoint, randomRot, transform);
             money -= soldierPrices[soldierPos];
             agentList.Add(agent);
             m_AgentGroup.RegisterAgent(agent);
