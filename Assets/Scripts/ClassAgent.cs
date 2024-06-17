@@ -13,7 +13,7 @@ using static UnityEngine.GraphicsBuffer;
 public class ClassAgent : Agent
 {
     //move
-    private Vector3 nowDir = Vector3.zero;
+    protected Vector3 nowDir = Vector3.zero;
     private Vector3 ctrlDir = Vector3.zero;
     [SerializeField]
     private float lerpSpeed = 5f;
@@ -23,6 +23,7 @@ public class ClassAgent : Agent
     [SerializeField] 
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
+    private bool isDead = false;
 
     //health
     public int health;
@@ -32,7 +33,7 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    protected EnvController envController;
+    protected EnvControlleraaa envController;
     protected Rigidbody rb;
 
     //init
@@ -42,14 +43,17 @@ public class ClassAgent : Agent
     //state
     protected bool isDizzy = false;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         bp = GetComponent<BehaviorParameters>();
-        envController = GetComponentInParent<EnvController>();
+        
         team = (Team)bp.TeamId;
-        rb = GetComponentInParent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
-
+    private void Start()
+    {
+        envController = GetComponentInParent<EnvControlleraaa>();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
@@ -96,6 +100,7 @@ public class ClassAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        isDead = false;
         currentHealth = health;
     }
 
@@ -188,10 +193,11 @@ public class ClassAgent : Agent
         AddReward(-damage * 0.015f);
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
+            isDead = true;
             gameObject.SetActive(false);
-            envController?.DeadTouch(team);
+            envController.DeadTouch(team);
         }
     }
 

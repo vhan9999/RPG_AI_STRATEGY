@@ -10,10 +10,10 @@ public class Sword : MonoBehaviour
 {
     [SerializeField]
     public Animator anim;
-    private ClassAgent agent;
+    public ClassAgent agent;
     private bool IsAttack = false;
 
-    private void Start()
+    private void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
     }
@@ -28,7 +28,7 @@ public class Sword : MonoBehaviour
     {
         if (!IsSlash)
         {
-            agent.AddReward(-0.03f);
+            agent.AddReward(-0.2f);
             IsSlash = true;
         }
     }

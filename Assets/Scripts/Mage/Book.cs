@@ -19,11 +19,11 @@ public class Book : MonoBehaviour
     private ClassAgent agent;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         fireBallCast = transform.GetChild(0).GetComponentInChildren<FireBallCast>();
         magicMissilePool = ObjectPool<MagicMissile>.Instance;
-        magicMissilePool.InitPool(magicMissile, 7);
+        magicMissilePool.InitPool(magicMissile, 8);
         fireBallPool = ObjectPool<FireBall>.Instance;
         fireBallPool.InitPool(fireBall, 1);
         agent = GetComponentInParent<ClassAgent>();
@@ -58,7 +58,7 @@ public class Book : MonoBehaviour
     private void AttackShoot()
     {
         agent.AddReward(-0.03f);
-        MagicMissile m = magicMissilePool.Spawn(transform.position + transform.up, transform.rotation);
+        MagicMissile m = magicMissilePool.Spawn(magicMissile, transform.position + transform.up, transform.rotation);
         m.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         m.moveDir = transform.forward;
         m.agent = agent;
@@ -86,7 +86,7 @@ public class Book : MonoBehaviour
     public void FireBallShoot()
     {
         IsSkill = false;
-        FireBall f = fireBallPool.Spawn(transform.position + transform.up, transform.rotation);
+        FireBall f = fireBallPool.Spawn(fireBall, transform.position + transform.up, transform.rotation);
         f.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         f.moveDir = transform.forward;
         f.agent = agent;

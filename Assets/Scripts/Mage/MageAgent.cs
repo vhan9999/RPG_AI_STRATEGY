@@ -15,9 +15,9 @@ public class MageAgent : ClassAgent
     // skill
     private Book book;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         book = GetComponentInChildren<Book>();
     }
 
