@@ -45,10 +45,10 @@ public class SoldierPool : MonoBehaviour
         }
     }
 
-    public void Spawn(Team team, Profession profession, Vector3 position, Quaternion quaternion, Transform transform)
+    public ClassAgent Spawn(Team team, Profession profession, Vector3 position, Quaternion quaternion, Transform transform)
     {
         ObjectPool<ClassAgent> pool = GetPool(team, profession);
-        pool.Spawn(position, quaternion, transform);
+        return pool.Spawn(position, quaternion, transform);
     }
 
     public void Rycle(Team team, Profession profession, ClassAgent obj)
