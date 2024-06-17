@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
+//ObjectPool<BerserkerAgent> BerserkerPool = ObjectPool<BerserkerAgent>.Instance;
+//ObjectPool<MageAgent> MagePool = ObjectPool<MageAgent>.Instance;  
 public class ObjectPool<T> where T : MonoBehaviour
 {
     private Queue<T> _objectQueue = new Queue<T>();
@@ -13,7 +15,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         
     }
 
-    // Singleton ³æ¨Ò¼Ò¦¡
+    // Singleton ï¿½ï¿½Ò¼Ò¦ï¿½
     public static ObjectPool<T> Instance { get; } = new ObjectPool<T>();
 
     public int queueCount
@@ -26,10 +28,10 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parant = null)
     {
-        _parent = parant == null ? GameObject.Find("magicMissilePool").transform : parant;
+        _parent = parant == null ? GameObject.Find("ObjectPools").transform : parant;
         _prefab = prefab;
 
-        // ª«¥ó¦À¹w¼ö¡C
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½C
         List<T> warmUpList = new List<T>();
         for (int i = 0; i < warmUpCount; i++)
         {
@@ -44,19 +46,16 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public T Spawn(Vector3 position, Quaternion quaternion, Transform transform = null)
     {
-        if (_prefab == null)
-        {
-            Debug.LogError(typeof(T).ToString() + " prefab not set!");
-            return default(T);
-        }
         if (queueCount <= 0)
         {
+            _prefab = prefab;
+          
             GameObject g = Object.Instantiate(_prefab, position, quaternion);
             g.transform.SetParent(transform ?? _parent);
             T t = g.GetComponent<T>();
             if (t == null)
             {
-                Debug.LogError(typeof(T).ToString() + " not found in prefab!");
+                //Debug.LogError(typeof(T).ToString() + " not found in prefab!");
                 return default(T);
             }
             _objectQueue.Enqueue(t);

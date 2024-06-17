@@ -8,12 +8,11 @@ using UnityEngine.Events;
 
 public class Sword : MonoBehaviour
 {
-    [SerializeField]
-    private Animator anim;
-    private ClassAgent agent;
+    public Animator anim;
+    public ClassAgent agent;
     private bool IsAttack = false;
 
-    private void Start()
+    private void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
     }
@@ -28,7 +27,7 @@ public class Sword : MonoBehaviour
     {
         if (!IsSlash)
         {
-            agent.AddReward(-0.03f);
+            agent.AddReward(-0.2f);
             IsSlash = true;
         }
     }

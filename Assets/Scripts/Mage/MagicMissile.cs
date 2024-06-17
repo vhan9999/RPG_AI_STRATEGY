@@ -43,7 +43,7 @@ public class MagicMissile : MonoBehaviour
             if (agent.team != otherAgent.team)
             {
                 //Debug.Log("great");
-                agent.AddReward(0.5f + Mathf.Min(timer / 2.5f, 0.5f));
+                agent.AddReward(0.8f);
                 otherAgent.TakeDamage(10);
                 ObjectPool<MagicMissile>.Instance.Recycle(this);
             }
