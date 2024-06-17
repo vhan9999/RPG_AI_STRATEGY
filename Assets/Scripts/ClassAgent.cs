@@ -33,7 +33,7 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    protected EnvController envController;
+    protected EnvControlleraaa envController;
     protected Rigidbody rb;
 
     //init
@@ -52,7 +52,7 @@ public class ClassAgent : Agent
     }
     private void Start()
     {
-        envController = GetComponentInParent<EnvController>();
+        envController = GetComponentInParent<EnvControlleraaa>();
     }
     private void Update()
     {
