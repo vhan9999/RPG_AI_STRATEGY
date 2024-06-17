@@ -39,20 +39,20 @@ public class SoldierPool : MonoBehaviour
         rMPool.InitPool(bMage, 10, transform);
     }
 
-    public void Spawn(Team team, Profession profession, Vector3 position, Quaternion quaternion)
+    public void Spawn(Team team, Profession profession, Vector3 position, Quaternion quaternion, Transform transform)
     {
         if (team == Team.Blue)
         {
             switch (profession)
             {
                 case Profession.Warrior:
-                    bWPool.Spawn(position, quaternion);
+                    bWPool.Spawn(position, quaternion, transform);
                     break;
                 case Profession.Berserker:
-                    bBPool.Spawn(position, quaternion);
+                    bBPool.Spawn(position, quaternion, transform);
                     break;
                 case Profession.Mage:
-                    bMPool.Spawn(position, quaternion);
+                    bMPool.Spawn(position, quaternion, transform);
                     break;
             }
         }
@@ -61,13 +61,13 @@ public class SoldierPool : MonoBehaviour
             switch (profession)
             {
                 case Profession.Warrior:
-                    rWPool.Spawn(position, quaternion);
+                    rWPool.Spawn(position, quaternion, transform);
                     break;
                 case Profession.Berserker:
-                    rBPool.Spawn(position, quaternion);
+                    rBPool.Spawn(position, quaternion, transform);
                     break;
                 case Profession.Mage:
-                    rMPool.Spawn(position, quaternion);
+                    rMPool.Spawn(position, quaternion, transform);
                     break;
             }
         }

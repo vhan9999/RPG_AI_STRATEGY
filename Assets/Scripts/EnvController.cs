@@ -142,7 +142,7 @@ public class EnvController : MonoBehaviour
             int pos = blueIndexList[randomNum];
             blueIndexList.RemoveAt(randomNum);
             item.Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = Quaternion.EulerAngles(0, Random.Range(0, 360), 0);
+            item.Agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         }
 
         foreach (PlayerInfo item in redAgentsList)
@@ -153,7 +153,7 @@ public class EnvController : MonoBehaviour
             int pos = redIndexList[randomNum];
             redIndexList.RemoveAt(randomNum);
             item.Agent.transform.localPosition = redAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = Quaternion.EulerAngles(0, Random.Range(0, 360), 0);
+            item.Agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         }
     }
 }

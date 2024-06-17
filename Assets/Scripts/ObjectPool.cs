@@ -42,7 +42,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         }
     }
 
-    public T Spawn(Vector3 position, Quaternion quaternion)
+    public T Spawn(Vector3 position, Quaternion quaternion, Transform transform = null)
     {
         if (_prefab == null)
         {
@@ -52,7 +52,7 @@ public class ObjectPool<T> where T : MonoBehaviour
         if (queueCount <= 0)
         {
             GameObject g = Object.Instantiate(_prefab, position, quaternion);
-            g.transform.SetParent(_parent.transform);
+            g.transform.SetParent(transform ?? _parent);
             T t = g.GetComponent<T>();
             if (t == null)
             {
