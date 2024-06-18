@@ -43,8 +43,7 @@ public class EnvControlleraaa : MonoBehaviour
 
     void FixedUpdate()
     {
-        m_ResetTimer += 1;
-        if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
+        if (m_ResetTimer++ >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
             Debug.Log("times up");
             m_BlueAgentGroup.GroupEpisodeInterrupted();

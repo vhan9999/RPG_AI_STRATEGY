@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.MLAgents;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,8 +19,6 @@ public class ObjectPool<T> where T : MonoBehaviour
     // Singleton
     public static ObjectPool<T> Instance { get; } = new ObjectPool<T>();
 
-    public int queueCount => _objectQueue.Count;
-
     public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parent = null)
     {
         _objectQueue = new Queue<T>();
@@ -32,15 +31,12 @@ public class ObjectPool<T> where T : MonoBehaviour
             T t = Spawn(Vector3.zero, Quaternion.identity, parent);
             warmUpList.Add(t);
         }
-        for (int i = 0; i < warmUpList.Count; i++)
-        {
-            Recycle(warmUpList[i]);
-        }
+        warmUpList.ForEach(obj => Recycle(obj));
     }
 
     public T Spawn(Vector3 position, Quaternion quaternion, Transform parent = null)
     {
-        if (queueCount <= 0)
+        if (_objectQueue.Count <= 0)
         {
             GameObject g = Object.Instantiate(_prefab, position, quaternion);
             T t = g.GetComponent<T>();
