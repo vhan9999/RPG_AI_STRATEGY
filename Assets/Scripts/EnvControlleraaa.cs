@@ -92,8 +92,8 @@ public class EnvControlleraaa : MonoBehaviour
         redDeadCount = 0;
         blueteamNum = 0;
         redTeamNum = 0;
-        //LoadRandomScene(Team.Blue);
-        //LoadRandomScene(Team.Red);
+        LoadRandomScene(Team.Blue);
+        LoadRandomScene(Team.Red);
     }
 
     private void LoadRandomScene(Team team)
@@ -110,36 +110,35 @@ public class EnvControlleraaa : MonoBehaviour
             soldierPool.Rycle(team, a.profession, a);
         }
         agentList.Clear();
-        //List<int> indexList = Enumerable.Range(0, 228).ToList();
-        //while(true) 
-        //{
-        //    //random position
-        //    int randomPos = Random.Range(0, indexList.Count);
-        //    Vector3 spawnPoint = transform.position + new Vector3(SpawnStartPoint.x + ((indexList[randomPos] % 19) * 2), 1.7f,
-        //        SpawnStartPoint.y + ((indexList[randomPos] / 19) * 2));//決定位置
-        //    indexList.RemoveAt(randomPos);
+        List<int> indexList = Enumerable.Range(0, 228).ToList();
+        while (true)
+        {
+            //random position
+            int randomPos = Random.Range(0, indexList.Count);
+            Vector3 spawnPoint = transform.position + new Vector3(SpawnStartPoint.x + ((indexList[randomPos] % 19) * 2), 1.7f,
+                SpawnStartPoint.y + ((indexList[randomPos] / 19) * 2));//決定位置
+            indexList.RemoveAt(randomPos);
 
-        //    //random rotate
-        //    Quaternion randomRot = Quaternion.Euler(0, Random.Range(0, 360), 0);
+            //random rotate
+            Quaternion randomRot = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-        //    //check money enough
-        //    while (Count - 1 >= 0 && soldierPrices[Count - 1] > money)
-        //    {
-        //        Count--;
-        //    }
-        //    if (Count == 0) break;
+            //check money enough
+            while (Count - 1 >= 0 && soldierPrices[Count - 1] > money)
+            {
+                Count--;
+            }
+            if (Count == 0) break;
 
-        //    //random soldier type
-        //    int soldierPos = Random.Range(0, soldierPrices.Length);
-        //    Debug.Log(team);
-        //    ClassAgent agent = soldierPool.Spawn(team, soldierTypes[soldierPos], spawnPoint, randomRot, transform);
-        //    money -= soldierPrices[soldierPos];
-        //    agentList.Add(agent);
-        //    m_AgentGroup.RegisterAgent(agent);
-        //    if(team == Team.Blue)
-        //        blueteamNum++;
-        //    else
-        //        redTeamNum++;
-        //}
+            //random soldier type
+            int soldierPos = Random.Range(0, soldierPrices.Length);
+            ClassAgent agent = soldierPool.Spawn(team, soldierTypes[soldierPos], spawnPoint, randomRot, transform);
+            money -= soldierPrices[soldierPos];
+            agentList.Add(agent);
+            m_AgentGroup.RegisterAgent(agent);
+            if (team == Team.Blue)
+                blueteamNum++;
+            else
+                redTeamNum++;
+        }
     }
 }

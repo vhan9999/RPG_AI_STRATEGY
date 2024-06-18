@@ -25,16 +25,15 @@ public class SoldierPool : MonoBehaviour
     void Awake()
     {
         bWPool.InitPool(bWarrior, 10, transform);
-        //bBPool.InitPool(bBerserker, 10, transform);
-        //bMPool.InitPool(bMage, 10, transform);
-        //rWPool.InitPool(rWarrior, 10, transform);
-        //rBPool.InitPool(rBerserker, 10, transform);
-        //rMPool.InitPool(rMage, 10, transform);
+        bBPool.InitPool(bBerserker, 10, transform);
+        bMPool.InitPool(bMage, 10, transform);
+        rWPool.InitPool(rWarrior, 10, transform);
+        rBPool.InitPool(rBerserker, 10, transform);
+        rMPool.InitPool(rMage, 10, transform);
     }
 
     private ObjectPool<ClassAgent> GetPool(Team team, Profession profession)
     {
-        Debug.Log(team);
         switch (profession)
         {
             case Profession.Warrior:
@@ -46,10 +45,11 @@ public class SoldierPool : MonoBehaviour
         }
     }
 
-    public ClassAgent Spawn(Team team, Profession profession, Vector3 position, Quaternion quaternion, Transform transform)
+    public ClassAgent Spawn(Team team, Profession profession, Vector3 position, Quaternion quaternion, Transform parent)
     {
         ObjectPool<ClassAgent> pool = GetPool(team, profession);
-        return pool.Spawn(position, quaternion, transform);
+        ClassAgent classAgent = pool.Spawn(position, quaternion, parent);
+        return classAgent;
     }
 
     public void Rycle(Team team, Profession profession, ClassAgent obj)
