@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObjectPool<T> where T : MonoBehaviour
 {
-    private Queue<T> _objectQueue = new Queue<T>();
+    private Queue<T> _objectQueue;
     private GameObject _prefab;
     private Transform _parent;
 
@@ -21,15 +21,14 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parant = null)
     {
+        _objectQueue = new Queue<T>();
         _parent = parant ?? GameObject.Find("ObjectPools").transform;
         _prefab = prefab;
 
-        List<T> warmUpList = new List<T>();
         for (int i = 0; i < warmUpCount; i++)
         {
-            T t = Spawn(Vector3.zero, Quaternion.identity);
-            warmUpList.Add(t);
-            Recycle(warmUpList[i]);
+            T t = Spawn(Vector3.zero, Quaternion.identity, parant);
+            Recycle(t);
         }
     }
 
@@ -58,5 +57,7 @@ public class ObjectPool<T> where T : MonoBehaviour
     {
         _objectQueue.Enqueue(obj);
         obj.gameObject.SetActive(false);
+        obj.transform.parent = _parent;
+        Debug.Log($"{_objectQueue.Count} {obj.transform.parent}");
     }
 }

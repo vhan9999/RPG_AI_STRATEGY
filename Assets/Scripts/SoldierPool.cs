@@ -25,11 +25,11 @@ public class SoldierPool : MonoBehaviour
     void Awake()
     {
         bWPool.InitPool(bWarrior, 10, transform);
-        bBPool.InitPool(bBerserker, 10, transform);
-        bMPool.InitPool(bMage, 10, transform);
-        rWPool.InitPool(rWarrior, 10, transform);
-        rBPool.InitPool(rBerserker, 10, transform);
-        rMPool.InitPool(rMage, 10, transform);
+        //bBPool.InitPool(bBerserker, 10, transform);
+        //bMPool.InitPool(bMage, 10, transform);
+        //rWPool.InitPool(rWarrior, 10, transform);
+        //rBPool.InitPool(rBerserker, 10, transform);
+        //rMPool.InitPool(rMage, 10, transform);
     }
 
     private ObjectPool<ClassAgent> GetPool(Team team, Profession profession)
@@ -55,6 +55,7 @@ public class SoldierPool : MonoBehaviour
     public void Rycle(Team team, Profession profession, ClassAgent obj)
     {
         ObjectPool<ClassAgent> pool = GetPool(team, profession);
+        obj.transform.parent = transform;
         pool.Recycle(obj);
     }
 }
