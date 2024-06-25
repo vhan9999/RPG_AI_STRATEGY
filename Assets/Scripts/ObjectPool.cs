@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.MLAgents;
 using Unity.VisualScripting;
 using UnityEngine;
-//ObjectPool<BerserkerAgent> BerserkerPool = ObjectPool<BerserkerAgent>.Instance;
-//ObjectPool<MageAgent> MagePool = ObjectPool<MageAgent>.Instance;  
+
 public class ObjectPool<T> where T : MonoBehaviour
 {
-    private Queue<T> _objectQueue = new Queue<T>();
+    private Queue<T> _objectQueue;
     private GameObject _prefab;
     private Transform _parent;
 
@@ -15,53 +16,40 @@ public class ObjectPool<T> where T : MonoBehaviour
         
     }
 
-    // Singleton ��ҼҦ�
+    // Singleton
     public static ObjectPool<T> Instance { get; } = new ObjectPool<T>();
 
-    public int queueCount
+    public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parent = null)
     {
-        get
-        {
-            return _objectQueue.Count;
-        }
-    }
-
-    public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parant = null)
-    {
-        _parent = parant == null ? GameObject.Find("ObjectPools").transform : parant;
+        _objectQueue = new Queue<T>();
+        _parent = parent ?? GameObject.Find("ObjectPools").transform;
         _prefab = prefab;
 
-        // ������w���C
         List<T> warmUpList = new List<T>();
         for (int i = 0; i < warmUpCount; i++)
         {
-            T t = Spawn(Vector3.zero, Quaternion.identity);
+            T t = Spawn(Vector3.zero, Quaternion.identity, parent);
             warmUpList.Add(t);
         }
-        for (int i = 0; i < warmUpList.Count; i++)
-        {
-            Recycle(warmUpList[i]);
-        }
+        warmUpList.ForEach(obj => Recycle(obj));
     }
 
-    public T Spawn(Vector3 position, Quaternion quaternion, Transform transform = null)
+    public T Spawn(Vector3 position, Quaternion quaternion, Transform parent = null)
     {
-        if (queueCount <= 0)
+        if (_objectQueue.Count <= 0)
         {
-          
             GameObject g = Object.Instantiate(_prefab, position, quaternion);
-            g.transform.SetParent(transform ?? _parent);
             T t = g.GetComponent<T>();
             if (t == null)
             {
-                //Debug.LogError(typeof(T).ToString() + " not found in prefab!");
                 return default(T);
             }
             _objectQueue.Enqueue(t);
         }
         T obj = _objectQueue.Dequeue();
-        obj.gameObject.transform.position = position;
-        obj.gameObject.transform.rotation = quaternion;
+        obj.transform.position = position;
+        obj.transform.rotation = quaternion;
+        obj.transform.parent = parent ?? _parent;
         obj.gameObject.SetActive(true);
 
         return obj;
@@ -71,5 +59,6 @@ public class ObjectPool<T> where T : MonoBehaviour
     {
         _objectQueue.Enqueue(obj);
         obj.gameObject.SetActive(false);
+        obj.transform.parent = _parent;
     }
 }
