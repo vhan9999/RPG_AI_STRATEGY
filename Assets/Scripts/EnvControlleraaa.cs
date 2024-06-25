@@ -1,29 +1,17 @@
 using System.Collections.Generic;
 using Unity.MLAgents;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using System;
-using static UnityEditor.Progress;
 using System.Linq;
 
 using Random = UnityEngine.Random;
 
 public class EnvControlleraaa : MonoBehaviour
 {
-    [Serializable]
-    public class PlayerInfo
-    {
-        public ClassAgent Agent;
-        [HideInInspector]
-        public Vector3 StartingPos;
-        [HideInInspector]
-        public Quaternion StartingRot;
-    }
-
     //Max Academy steps before this platform resets
     [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 14000;
 
-    private List<int> soldierPrices = new List<int> { 7, 8, 10 };//w,b,m
+    private int[] soldierPrices = { 7, 8, 10 };//w,b,m
+    private Profession[] soldierTypes = { Profession.Warrior, Profession.Berserker, Profession.Mage };
 
     //List of Agents On Platform
     private List<ClassAgent> blueAgentsList = new List<ClassAgent>();
@@ -34,24 +22,13 @@ public class EnvControlleraaa : MonoBehaviour
     [SerializeField] private int blueteamNum = 0;
     [SerializeField] private int redTeamNum = 0;
 
+    [SerializeField]
+    private SoldierPool soldierPool;
+
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_RedAgentGroup;
 
     private int m_ResetTimer;
-
-    private ObjectPool<WarriorAgent> blueWarriorPool = new ObjectPool<WarriorAgent> ();
-    private ObjectPool<WarriorAgent> redWarriorPool = new ObjectPool<WarriorAgent>();
-    private ObjectPool<BerserkerAgent> blueBerserkerPool = new ObjectPool<BerserkerAgent>();
-    private ObjectPool<BerserkerAgent> redBerserkerPool = new ObjectPool<BerserkerAgent>();
-    private ObjectPool<MageAgent> blueMagePool = new ObjectPool<MageAgent>();
-    private ObjectPool<MageAgent> redMagePool = new ObjectPool<MageAgent>();
-
-    [SerializeField] private GameObject blueWarrior;
-    [SerializeField] private GameObject redWarrior;
-    [SerializeField] private GameObject blueBerserker;
-    [SerializeField] private GameObject redBerserker;
-    [SerializeField] private GameObject blueMage;
-    [SerializeField] private GameObject redMage;
 
 
 
@@ -60,19 +37,13 @@ public class EnvControlleraaa : MonoBehaviour
         // Initialize TeamManager
         m_BlueAgentGroup = new SimpleMultiAgentGroup();
         m_RedAgentGroup = new SimpleMultiAgentGroup();
-        blueWarriorPool.InitPool(blueWarrior, 14, transform);
-        redWarriorPool.InitPool(redWarrior, 14, transform);
-        blueBerserkerPool.InitPool(blueBerserker, 12, transform);
-        redBerserkerPool.InitPool(redBerserker, 12, transform);
-        blueMagePool.InitPool(blueMage, 10, transform);
-        redMagePool.InitPool(redMage, 10, transform);
+
         ResetScene();
     }
 
     void FixedUpdate()
     {
-        m_ResetTimer += 1;
-        if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
+        if (m_ResetTimer++ >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
             Debug.Log("times up");
             m_BlueAgentGroup.GroupEpisodeInterrupted();
@@ -87,12 +58,10 @@ public class EnvControlleraaa : MonoBehaviour
         if (DeadTeam == Team.Blue)
         {
             blueDeadCount++;
-            
         }
         else
         {
             redDeadCount++;
-
         }
         if (blueDeadCount == blueteamNum)
         {
@@ -124,75 +93,51 @@ public class EnvControlleraaa : MonoBehaviour
         redTeamNum = 0;
         LoadRandomScene(Team.Blue);
         LoadRandomScene(Team.Red);
-
-        
     }
 
     private void LoadRandomScene(Team team)
     {
-        ClassAgent agent = null;
-        int Count = soldierPrices.Count;
-        int Money = 100;
+        int Count = soldierPrices.Length;
+        int money = 100;
         Vector2 SpawnStartPoint = team == Team.Blue ? new Vector2(-18, -23) : new Vector2(-18, 1);
-        ObjectPool<WarriorAgent> warriorPool = team == Team.Blue ? blueWarriorPool : redWarriorPool;
-        ObjectPool<BerserkerAgent> berserkerPool = team == Team.Blue ? blueBerserkerPool : redBerserkerPool;
-        ObjectPool<MageAgent> magePool = team == Team.Blue ? blueMagePool : redMagePool;
         SimpleMultiAgentGroup m_AgentGroup = team == Team.Blue ? m_BlueAgentGroup : m_RedAgentGroup;
         List<ClassAgent> agentList = team == Team.Blue ? blueAgentsList : redAgentsList;
-        
 
-        foreach (ClassAgent a in agentList)
+        foreach (ClassAgent a in agentList) 
         {
             m_AgentGroup.UnregisterAgent(a);
-            if (a is WarriorAgent)
-                warriorPool.Recycle((WarriorAgent)a);
-            else if (a is BerserkerAgent)
-                berserkerPool.Recycle((BerserkerAgent)a);
-            else if(a is MageAgent)
-                magePool.Recycle((MageAgent)a);
+            soldierPool.Rycle(team, a.profession, a);
         }
         agentList.Clear();
         List<int> indexList = Enumerable.Range(0, 228).ToList();
-        while(true) 
+        while (true)
         {
             //random position
             int randomPos = Random.Range(0, indexList.Count);
-            Vector3 spawnPoint = new Vector3(SpawnStartPoint.x + ((indexList[randomPos] % 19) * 2), 1.7f, SpawnStartPoint.y + ((indexList[randomPos] / 19) * 2));//決定位置
+            Vector3 spawnPoint = transform.position + new Vector3(SpawnStartPoint.x + ((indexList[randomPos] % 19) * 2), 1.7f,
+                SpawnStartPoint.y + ((indexList[randomPos] / 19) * 2));//決定位置
             indexList.RemoveAt(randomPos);
 
             //random rotate
-            int randomRot = Random.Range(0, 360);
+            Quaternion randomRot = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
             //check money enough
-            while(Count - 1 >= 0 && soldierPrices[Count - 1] > Money)
+            while (Count - 1 >= 0 && soldierPrices[Count - 1] > money)
             {
                 Count--;
             }
-            if (Count == 0)
-                break;
+            if (Count == 0) break;
+
             //random soldier type
-            int randomSoldier = Random.Range(0, soldierPrices.Count);
-            if (randomSoldier == 0)
-            {
-                agent = warriorPool.Spawn(team == Team.Blue ? blueWarrior : redWarrior, transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
-            }
-            else if (randomSoldier == 1)
-            {
-                agent = berserkerPool.Spawn(team == Team.Blue ? blueBerserker : redBerserker, transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
-            }
-            else if (randomSoldier == 2)
-            {
-                agent = magePool.Spawn(team == Team.Blue ? blueMage : redMage, transform.position + spawnPoint, Quaternion.Euler(new Vector3(0, randomRot, 0)), transform);
-            }
-            Money -= soldierPrices[randomSoldier];
+            int soldierPos = Random.Range(0, soldierPrices.Length);
+            ClassAgent agent = soldierPool.Spawn(team, soldierTypes[soldierPos], spawnPoint, randomRot, transform);
+            money -= soldierPrices[soldierPos];
             agentList.Add(agent);
             m_AgentGroup.RegisterAgent(agent);
-            if(team == Team.Blue)
+            if (team == Team.Blue)
                 blueteamNum++;
             else
                 redTeamNum++;
         }
-
-        //red
     }
 }

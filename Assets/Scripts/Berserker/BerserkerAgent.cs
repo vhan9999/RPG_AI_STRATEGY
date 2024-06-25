@@ -40,7 +40,7 @@ public class BerserkerAgent : ClassAgent
     {
         base.FixedUpdate();
     }
-
+    
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
 
@@ -48,7 +48,7 @@ public class BerserkerAgent : ClassAgent
         //actionMask.SetActionEnabled(2, 1, !battleaxe.IsWhirlwind);
         //actionMask.SetActionEnabled(2, 2, !battleaxe.IsWhirlwind);
         actionMask.SetActionEnabled(3, 1, !battleaxe.IsCleave && !battleaxe.IsWhirlwind);
-        actionMask.SetActionEnabled(4, 1, battleaxe.isActiveAndEnabled);
+        actionMask.SetActionEnabled(4, 1, battleaxe.IsAllowedWhirlwind);
     }
 
     protected override void SpeedAdjust()

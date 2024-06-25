@@ -9,5 +9,6 @@ public enum Profession
     Warrior,
     Mage,
     Berserker,
-    Lancer
+    Lancer,
+    Archer
 }

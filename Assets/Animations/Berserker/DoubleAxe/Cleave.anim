@@ -615,7 +615,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.4166666
+  - time: 1.7166667
     functionName: ResetCleave
     data: 
     objectReferenceParameter: {fileID: 0}

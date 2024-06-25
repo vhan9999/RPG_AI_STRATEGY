@@ -5,35 +5,42 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - BlueSword
-  - Blood
-  - RedSword
-  - BlueWarrior
-  - RedWarrior
-  - BlueBerserker
-  - RedBerserker
-  - BlueBattleaxe
-  - RedBattleaxe
-  - BlueMage
-  - RedMage
-  - BlueMagicMissle
-  - RedMagicMissle
-  - BlueFireBall
-  - RedFireBall
-  - OrangeTeam
   - BlueTeam
+  - OrangeTeam
+  - BlueSword
+  - OrangeSword
+  - Character
+  - Sword
+  - Blood
+  - BlueBerserker
+  - BlueBattleaxe
+  - BlueMage
+  - BlueFireBall
+  - BlueWarrior
+  - RedArrow
+  - RedMage
+  - RedArcher
+  - RedWarrior
+  - RedSword
+  - RedBerserker
+  - RedBattleaxe
+  - RedMagicMissle
+  - BlueMagicMissle
   - RedBigAxe
+  - BlueArrow
+  - BlueArcher
+  - RedFireBall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - floor
+  - 
   - Water
   - UI
-  - BlueTeam
-  - RedTeam
-  - Shoot
-  - Wall
+  - Arrows
+  - 
+  - 
+  - 
   - 
   - 
   - 
