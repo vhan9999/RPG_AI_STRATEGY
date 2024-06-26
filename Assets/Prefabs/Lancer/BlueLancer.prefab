@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8956982089028524204}
   - component: {fileID: 6096388028559188454}
   - component: {fileID: 7331581732133913970}
-  - component: {fileID: 7086165461378839314}
   - component: {fileID: 3350341375864540514}
   - component: {fileID: 4532655789392422570}
+  - component: {fileID: 5100594125863290470}
+  - component: {fileID: 2111892263697391289}
+  - component: {fileID: 3592245723662848677}
   m_Layer: 6
   m_Name: BlueLancer
   m_TagString: Untagged
@@ -29,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214968535993731991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5652452, y: 0.80000025, z: 2.142}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90,36 +92,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7086165461378839314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214968535993731991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BrainParameters:
-    VectorObservationSize: 0
-    NumStackedVectorObservations: 1
-    m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 0300000003000000030000000200000002000000
-    VectorActionSize: 0300000003000000030000000200000002000000
-    VectorActionDescriptions: []
-    VectorActionSpaceType: 0
-    hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 93435e844eed65b4ca3579e427e49d6a, type: 3}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
-  m_BehaviorName: Warrior
-  TeamId: 0
-  m_UseChildSensors: 1
-  m_UseChildActuators: 1
-  m_ObservableAttributeHandling: 0
 --- !u!65 &3350341375864540514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,6 +121,73 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &5100594125863290470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214968535993731991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 0
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 0300000003000000030000000200000002000000
+    VectorActionSize: 0300000003000000030000000200000002000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: Lancer
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &2111892263697391289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214968535993731991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55b11555966fbe41a50d67a6e9bc13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  lerpSpeed: 50
+  maxSpeed: 100
+  rotateSpeed: 150
+  health: 100
+  currentHealth: 100
+  team: 0
+  profession: 3
+--- !u!114 &3592245723662848677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214968535993731991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1001 &860273028755006571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -290,23 +329,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.81
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7123812
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.7017928
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalRotation.y
@@ -318,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 89.142
       objectReference: {fileID: 0}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
