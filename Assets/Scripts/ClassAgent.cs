@@ -197,7 +197,7 @@ public class ClassAgent : Agent
         {
             isDead = true;
             gameObject.SetActive(false);
-            envController.DeadTouch(team);
+            envController?.DeadTouch(team);
         }
     }
 
