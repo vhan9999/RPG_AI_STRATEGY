@@ -3,7 +3,11 @@ guid: fedefa5dce47645448dd68e73aaa8ef3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - anim: {instanceID: 0}
+  - agent: {instanceID: 0}
+  - shockWave: {fileID: 6632773384655981095, guid: 18544575b62176e4297b08c4fd8a3495, type: 3}
+  - SpawnPoint: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -39,7 +39,7 @@ public class WarriorAgent : ClassAgent
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        //Debug.Log($"{!sword.IsStab} {accelerate.IsAllowed}");
+        //Debug.Log($"{!sword.IsThrust} {accelerate.IsAllowed}");
         actionMask.SetActionEnabled(3, 1, !sword.IsSlash);
         actionMask.SetActionEnabled(4, 1, accelerate.IsAllowed);
     }

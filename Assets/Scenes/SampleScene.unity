@@ -793,6 +793,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueLancer
       objectReference: {fileID: 0}
+    - target: {fileID: 2998936754773606062, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998936754773606062, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998936754773606062, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998936754773606062, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998936754773606062, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998936754773606062, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998936754773606062, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 5100594125863290470, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
       propertyPath: m_BehaviorType
       value: 1
@@ -803,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8956982089028524204, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.07
+      value: 12.38
       objectReference: {fileID: 0}
     - target: {fileID: 8956982089028524204, guid: 161cc2fd29478c642985d1616b659dd3, type: 3}
       propertyPath: m_LocalPosition.y

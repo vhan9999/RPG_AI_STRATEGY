@@ -9,9 +9,10 @@ using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class LancerAgent : ClassAgent
-{    
+{
     // weapon
     private Spear spear;
+
 
     protected override void Awake()
     {
@@ -25,24 +26,24 @@ public class LancerAgent : ClassAgent
         {
             if (Input.GetMouseButtonDown(0))
             {
-                spear.Stab();
+                spear.Thrust();
             }
         }
     }
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !spear.IsStab);
+        actionMask.SetActionEnabled(3, 1, !spear.IsThrust);
     }
 
     protected override void SpeedAdjust()
     {
-        speed = spear.IsStab ? speed * 0.6f : speed;
+        speed = spear.IsThrust ? speed * 0.6f : speed;
     }
 
     protected override void AttackAction(int attackAction)
     {
-        if (attackAction == 1) spear.Stab();
+        if (attackAction == 1) spear.Thrust();
     }
 
     protected override void SkillAction(int skillAction)

@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 4869552855519710045}
   - component: {fileID: 6708404292676835031}
   m_Layer: 0
-  m_Name: Accelerate
+  m_Name: accelerate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4869552855519710045}
+  executeTime: 2
 --- !u!1 &2239468363358768606
 GameObject:
   m_ObjectHideFlags: 0
