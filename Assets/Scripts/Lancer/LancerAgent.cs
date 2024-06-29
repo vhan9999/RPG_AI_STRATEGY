@@ -7,6 +7,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEditor.Timeline.Actions;
 
 public class LancerAgent : ClassAgent
 {
@@ -42,6 +43,7 @@ public class LancerAgent : ClassAgent
     protected override void SpeedAdjust()
     {
         speed = spear.IsThrust ? speed * 0.6f : speed;
+        speed = spear.IsThrust ? speed * 1.8f : speed;
     }
 
     protected override void AttackAction(int attackAction)
@@ -51,6 +53,6 @@ public class LancerAgent : ClassAgent
 
     protected override void SkillAction(int skillAction)
     {
-
+        if (skillAction == 1) spear.Sprint();
     }
 }

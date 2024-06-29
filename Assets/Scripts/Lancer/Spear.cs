@@ -11,7 +11,7 @@ public class Spear : MonoBehaviour
     [SerializeField]
     private GameObject shockWavePrefab;
 
-    // shock wave
+    // Shock wave
     [SerializeField]
     private Transform spawnPoint;
     private int shockWaveFrame = 0;
@@ -53,20 +53,20 @@ public class Spear : MonoBehaviour
                     shockWaveList.Add(shockWave);
                 }
             }
-            for (int i = 0; i < shockWaveList.Count; i++) 
-            {
-                shockWaveList[i].Move();
-            }
+
+            // Move shockwave
+            shockWaveList.ForEach(shockWave => shockWave.Move());
+
+            // Manage shockwave count, keeping it at or below 84
             while (shockWaveList.Count > 84)
             {
+                ObjectPool<ShockWave>.Instance.Recycle(shockWaveList[0]);
                 shockWaveList.RemoveAt(0);
             }
+
             if (++shockWaveFrame >= 252)
             {
-                foreach (ShockWave shockWave in shockWaveList)
-                {
-                    ObjectPool<ShockWave>.Instance.Recycle(shockWave);
-                }
+                shockWaveList.ForEach(shockWave => ObjectPool<ShockWave>.Instance.Recycle(shockWave));
                 shockWaveList.Clear();
                 IsSprint = false;
                 Invoke("EnableSprint", 15f);
@@ -86,7 +86,7 @@ public class Spear : MonoBehaviour
         set => anim.SetBool("isSprint", value);
     }
 
-    // attack enemy
+    // Attack enemy
     public void Thrust()
     {
         if (!IsThrust)
@@ -96,7 +96,7 @@ public class Spear : MonoBehaviour
         }
     }
 
-    // use sprint to attack the enemies
+    // Use sprint to attack the enemies
     public void Sprint()
     {
         Debug.Log(IsAllowedSprint);
