@@ -8,9 +8,6 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private Rigidbody rigid;
 
-    //private string enemyTag;
-    private bool didHit = false;
-
     public ClassAgent agent;
 
     private int damage;
@@ -22,7 +19,6 @@ public class Arrow : MonoBehaviour
 
     private void ResetArrow()
     {
-        didHit = false;
         rigid.isKinematic = false;
         rigid.velocity = Vector3.zero;
         rigid.angularVelocity = Vector3.zero;
@@ -45,7 +41,6 @@ public class Arrow : MonoBehaviour
     {
         if (other.TryGetComponent(out ClassAgent otherAgent)) {
             if (agent.team != otherAgent.team) {
-                didHit = true;
                 agent.AddReward(1f);
                 otherAgent.GetComponent<ClassAgent>().TakeDamage(damage);
                 //Debug.Log("Hit opponent");

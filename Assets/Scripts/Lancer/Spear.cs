@@ -1,44 +1,76 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.Events;
 
 public class Spear : MonoBehaviour
 {
-    public Animator anim;
+    private Animator anim;
     public ClassAgent agent;
     private bool IsAttack = false;
     public bool IsAllowedSprint = true;
 
     [SerializeField]
-    private GameObject shockWave;
+    private GameObject shockWavePrefab;
+
+    // shock wave
     [SerializeField]
-    private Transform SpawnPoint;
+    private Transform spawnPoint;
+    private int shockWaveFrame = 0;
+    private List<ShockWave> shockWaveList = new List<ShockWave>();
+    private Vector3[] shockWaveAccelerate = { new Vector3(0.01f, 0.02f, -0.02f), new Vector3(-0.01f
+        , 0.02f, -0.02f), new Vector3(0.01f, -0.02f, -0.02f), new Vector3(-0.01f, -0.02f, -0.02f) };
 
     private void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
-        ObjectPool<ShockWave>.Instance.InitPool(shockWave, 20);
+        anim = GetComponent<Animator>();
+        ObjectPool<ShockWave>.Instance.InitPool(shockWavePrefab, 20);
     }
 
     private void OnEnable()
     {
         IsSprint = false;
-        IsAllowedSprint = false;
-        CancelInvoke("EnableSprint");
-        Invoke("EnableSprint", 5f);
+        IsAllowedSprint = true;
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+
+    }
+
+    private void FixedUpdate()
+    {
+        // Check if sprinting is active
+        if (IsSprint && shockWaveFrame < 252)
         {
-            ObjectPool<ShockWave>.Instance.Spawn(SpawnPoint.position, Quaternion.identity, transform);
-            Debug.Log(3);
+            int frame = shockWaveFrame % 20;
+            if (frame < 5)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    ShockWave shockWave = ObjectPool<ShockWave>.Instance.Spawn(spawnPoint.position, Quaternion.identity, transform);
+                    shockWave.Acceleration = shockWaveAccelerate[i];
+                    shockWaveList.Add(shockWave);
+                }
+            }
+            for (int i = 0; i < shockWaveList.Count; i++) 
+            {
+                shockWaveList[i].Move();
+            }
+            while (shockWaveList.Count > 84)
+            {
+                shockWaveList.RemoveAt(0);
+            }
+            if (++shockWaveFrame >= 252)
+            {
+                foreach (ShockWave shockWave in shockWaveList)
+                {
+                    ObjectPool<ShockWave>.Instance.Recycle(shockWave);
+                }
+                shockWaveList.Clear();
+                IsSprint = false;
+                Invoke("EnableSprint", 15f);
+            }
         }
     }
 
@@ -54,6 +86,7 @@ public class Spear : MonoBehaviour
         set => anim.SetBool("isSprint", value);
     }
 
+    // attack enemy
     public void Thrust()
     {
         if (!IsThrust)
@@ -63,22 +96,18 @@ public class Spear : MonoBehaviour
         }
     }
 
+    // use sprint to attack the enemies
     public void Sprint()
     {
+        Debug.Log(IsAllowedSprint);
         if (IsAllowedSprint)
         {
             agent.AddReward(-0.3f);
             IsThrust = false;
             IsSprint = true;
             IsAllowedSprint = false;
-            Invoke("StopSprint", 3f);
+            shockWaveFrame = 0;
         }
-    }
-
-    private void StopSprint()
-    {
-        IsSprint = false;
-        Invoke("EnableSprint", 15f);
     }
 
 
@@ -117,6 +146,7 @@ public class Spear : MonoBehaviour
         IsThrust = false;
     }
 
+    // Method to set the attack state
     public void SetAttackState(int attackState)
     {
         IsAttack = (attackState != 0);

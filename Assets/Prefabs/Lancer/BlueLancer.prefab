@@ -323,6 +323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear
       objectReference: {fileID: 0}
+    - target: {fileID: 8411359087683457979, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 2287330086943212102}
     - target: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -367,8 +371,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1774109677474998194, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
+--- !u!4 &2287330086943212102 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5755982287856564406, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}
+  m_PrefabInstance: {fileID: 5791455383288625904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2998936754773606062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8773360526715880542, guid: 6b701669e05712f4ab1f84f3f14cde34, type: 3}

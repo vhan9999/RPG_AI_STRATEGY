@@ -4,31 +4,18 @@ using UnityEngine;
 
 public class ShockWave : MonoBehaviour
 {
-    private Vector3 speed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    public Vector3 Speed = Vector3.zero;
+    public Vector3 Acceleration = Vector3.zero;
 
     private void OnEnable()
     {
-        Invoke("Recycle", 1f);
-        speed = new Vector3(0, 0, 0);
+        Speed = Vector3.zero;
+        Acceleration = Vector3.zero;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void Move()
     {
-        speed += new Vector3(0.01f, 0.02f, 0.01f);
-        Debug.Log(speed);
-        transform.Translate(speed);
-    }
-
-    private void Recycle()
-    {
-        ObjectPool<ShockWave>.Instance.Recycle(this);
+        Speed += Acceleration;
+        transform.Translate(Speed);
     }
 }

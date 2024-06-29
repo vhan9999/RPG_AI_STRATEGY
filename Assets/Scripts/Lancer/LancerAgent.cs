@@ -13,7 +13,6 @@ public class LancerAgent : ClassAgent
     // weapon
     private Spear spear;
 
-
     protected override void Awake()
     {
         base.Awake();
@@ -27,6 +26,10 @@ public class LancerAgent : ClassAgent
             if (Input.GetMouseButtonDown(0))
             {
                 spear.Thrust();
+            }
+            else if (Input.GetKeyDown(KeyCode.Z))
+            {
+                spear.Sprint();
             }
         }
     }
