@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Battleaxe : MonoBehaviour
 {
-    [SerializeField]
-    public Animator anim;
+    [SerializeField] public Animator anim;
     public ClassAgent agent;
     private bool IsAttack = false;
 

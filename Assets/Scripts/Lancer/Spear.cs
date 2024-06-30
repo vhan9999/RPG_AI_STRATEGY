@@ -12,8 +12,7 @@ public class Spear : MonoBehaviour
     private GameObject shockWavePrefab;
 
     // Shock wave
-    [SerializeField]
-    private Transform spawnPoint;
+    [SerializeField] private Transform spawnPoint;
     private int shockWaveFrame = 0;
     private List<ShockWave> shockWaveList = new List<ShockWave>();
     private Vector3[] shockWaveAccelerate = { new Vector3(0.01f, 0.02f, -0.02f), new Vector3(-0.01f
