@@ -8,15 +8,13 @@ public class Spear : MonoBehaviour
     private bool IsAttack = false;
     public bool IsAllowedSprint = true;
 
-    [SerializeField]
-    private GameObject shockWavePrefab;
-
     // Shock wave
+    [SerializeField] private GameObject shockWavePrefab;
     [SerializeField] private Transform spawnPoint;
     private int shockWaveFrame = 0;
     private List<ShockWave> shockWaveList = new List<ShockWave>();
-    private Vector3[] shockWaveAccelerate = { new Vector3(0.01f, 0.02f, -0.02f), new Vector3(-0.01f
-        , 0.02f, -0.02f), new Vector3(0.01f, -0.02f, -0.02f), new Vector3(-0.01f, -0.02f, -0.02f) };
+    private Vector3[] shockWaveInitState = { new Vector2(-1, 1), new Vector2(1, 1), 
+        new Vector2(-1, -1), new Vector2(1, -1)};
 
     private void Awake()
     {
@@ -48,7 +46,7 @@ public class Spear : MonoBehaviour
                 for (int i = 0; i < 4; i++)
                 {
                     ShockWave shockWave = ObjectPool<ShockWave>.Instance.Spawn(spawnPoint.position, Quaternion.identity, transform);
-                    shockWave.Acceleration = shockWaveAccelerate[i];
+                    shockWave.SetInitState(shockWaveInitState[i]);
                     shockWaveList.Add(shockWave);
                 }
             }
@@ -98,7 +96,6 @@ public class Spear : MonoBehaviour
     // Use sprint to attack the enemies
     public void Sprint()
     {
-        Debug.Log(IsAllowedSprint);
         if (IsAllowedSprint)
         {
             agent.AddReward(-0.3f);
