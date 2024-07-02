@@ -12,7 +12,7 @@ public class Spear : MonoBehaviour
     [SerializeField] private GameObject shockWavePrefab;
     [SerializeField] private Transform spawnPoint;
     private int shockWaveFrame = 0;
-    private List<ShockWave> shockWaveList = new List<ShockWave>();
+    private Queue<ShockWave> shockWaveQueue = new Queue<ShockWave>();
     private Vector3[] shockWaveInitState = { new Vector2(-1, 1), new Vector2(1, 1), 
         new Vector2(-1, -1), new Vector2(1, -1)};
 
@@ -47,24 +47,31 @@ public class Spear : MonoBehaviour
                 {
                     ShockWave shockWave = ObjectPool<ShockWave>.Instance.Spawn(spawnPoint.position, Quaternion.identity, transform);
                     shockWave.SetInitState(shockWaveInitState[i]);
-                    shockWaveList.Add(shockWave);
+                    shockWaveQueue.Enqueue(shockWave);
                 }
             }
 
             // Move shockwave
-            shockWaveList.ForEach(shockWave => shockWave.Move());
-
-            // Manage shockwave count, keeping it at or below 84
-            while (shockWaveList.Count > 84)
+            foreach (ShockWave shockWave in shockWaveQueue)
             {
-                ObjectPool<ShockWave>.Instance.Recycle(shockWaveList[0]);
-                shockWaveList.RemoveAt(0);
+                shockWave.Move();
             }
 
+            // Manage shockwave count, keeping it at or below 84
+            while (shockWaveQueue.Count > 84)
+            {
+                ShockWave shockWave = shockWaveQueue.Dequeue();
+                ObjectPool<ShockWave>.Instance.Recycle(shockWave);
+            }
+
+            // Check if the sprint state should end
             if (++shockWaveFrame >= 252)
             {
-                shockWaveList.ForEach(shockWave => ObjectPool<ShockWave>.Instance.Recycle(shockWave));
-                shockWaveList.Clear();
+                foreach (ShockWave shockWave in shockWaveQueue)
+                {
+                    ObjectPool<ShockWave>.Instance.Recycle(shockWave);
+                }
+                shockWaveQueue.Clear();
                 IsSprint = false;
                 Invoke("EnableSprint", 15f);
             }
