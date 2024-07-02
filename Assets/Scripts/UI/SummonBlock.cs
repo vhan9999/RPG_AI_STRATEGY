@@ -30,13 +30,16 @@ public class SummonBlock : MonoBehaviour
                 switch (chooseClass.ChoosingClass)
                 {
                     case "Mage":
-                        Instantiate(magePrefab, transform.position + new Vector3(0,2f,0), transform.rotation);
+                        Instantiate(magePrefab, transform.position + new Vector3(0, 1.1f, 0), transform.rotation);
                         break;
                     case "Warrior":
-                        Instantiate(warriorPrefab, transform.position + new Vector3(0, 2f, 0), transform.rotation);
+                        Instantiate(warriorPrefab, transform.position + new Vector3(0, 1.1f, 0), transform.rotation);
                         break;
                     case "Berserker":
-                        Instantiate(berserkerPrefab, transform.position + new Vector3(0, 2f, 0), transform.rotation);
+                        Instantiate(berserkerPrefab, transform.position + new Vector3(0, 1.1f, 0), transform.rotation);
+                        break;
+                    case "Archer":
+                        Instantiate(archerPrefab, transform.position + new Vector3(0, 1.1f, 0), transform.rotation);
                         break;
                     default:
                         Debug.LogError("Unknown class: " + chooseClass.ChoosingClass);
