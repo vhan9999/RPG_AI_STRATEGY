@@ -10,9 +10,13 @@ public class EnvPlay : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        
+        Time.timeScale = 1;
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
     }
 }
