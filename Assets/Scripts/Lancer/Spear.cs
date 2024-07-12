@@ -1,11 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spear : MonoBehaviour
+public class Spear : Weapon
 {
-    private Animator anim;
-    public ClassAgent agent;
-    private bool IsAttack = false;
     public bool IsAllowedSprint = true;
 
     // Shock wave
@@ -16,10 +13,9 @@ public class Spear : MonoBehaviour
     private Vector3[] shockWaveInitState = { new Vector2(-1, 1), new Vector2(1, 1), 
         new Vector2(-1, -1), new Vector2(1, -1)};
 
-    private void Awake()
+    protected override void Awake()
     {
-        agent = GetComponentInParent<ClassAgent>();
-        anim = GetComponent<Animator>();
+        base.Awake();
         ObjectPool<ShockWave>.Instance.InitPool(shockWavePrefab, 20);
     }
 
@@ -119,39 +115,8 @@ public class Spear : MonoBehaviour
         IsAllowedSprint = true;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (IsAttack)
-        {
-            if (other.TryGetComponent(out ClassAgent otherAgent))
-            {
-                if (agent.team != otherAgent.team)
-                {
-                    //Debug.Log("great");
-                    agent.AddReward(1f);
-                    otherAgent.TakeDamage(15);
-                }
-                else
-                {
-                    //Debug.Log("Dont'hurt, you are his frend");
-                    agent.AddReward(-0.3f);
-                }
-            }
-            //else if (other.TryGetComponent(out Wall wall))
-            //{
-            //    agent.AddReward(-0.3f);
-            //}
-        }
-    }
-
     public void ResetThrust()
     {
         IsThrust = false;
-    }
-
-    // Method to set the attack state
-    public void SetAttackState(int attackState)
-    {
-        IsAttack = (attackState != 0);
     }
 }

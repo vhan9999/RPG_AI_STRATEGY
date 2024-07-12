@@ -6,25 +6,26 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-public class Sword : Weapon
+public class TwoAxes : Weapon
 {
-    public bool IsSlash
+
+    public bool IsCleave
     {
-        get => anim.GetBool("isSlash");
-        set => anim.SetBool("isSlash", value);
+        get => anim.GetBool("isCleave");
+        set => anim.SetBool("isCleave", value);
     }
 
-    public void Slash()
+    public void Cleave()
     {
-        if (!IsSlash)
+        if (!IsCleave)
         {
             agent.AddReward(-0.2f);
-            IsSlash = true;
+            IsCleave = true;
         }
     }
 
-    public void ResetSlash()
+    public void ResetCleave()
     {
-        IsSlash = false;
+        IsCleave = false;
     }
 }

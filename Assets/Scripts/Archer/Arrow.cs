@@ -34,7 +34,7 @@ public class Arrow : MonoBehaviour
         rigid.isKinematic = false;
         rigid.AddForce(force, ForceMode.Impulse);
         damage = Mathf.Abs((int)force[2]);
-        //Debug.Log(damage);
+        //Debug.Log(attackPower);
     }
 
     private void OnTriggerEnter(Collider other)

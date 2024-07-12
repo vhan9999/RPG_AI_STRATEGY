@@ -42,8 +42,10 @@ public class LancerAgent : ClassAgent
 
     protected override void SpeedAdjust()
     {
+        forwardSpeedMult = spear.IsSprint ? 3f : 1f;
+        sideSpeedMult = spear.IsSprint ? 0.5f : 0.75f;
+        backSpeedMult = spear.IsSprint ? 0.2f : 0.5f;
         speed = spear.IsThrust ? speed * 0.6f : speed;
-        speed = spear.IsThrust ? speed * 1.8f : speed;
     }
 
     protected override void AttackAction(int attackAction)
