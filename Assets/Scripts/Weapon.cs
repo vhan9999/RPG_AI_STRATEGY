@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public virtual void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (IsAttack)
         {

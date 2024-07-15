@@ -8,6 +8,14 @@ using UnityEngine.Events;
 
 public class TwoAxes : Weapon
 {
+    protected override void Awake()
+    {
+        base.Awake();
+        SmallAxe[] smallAxes = GetComponentsInChildren<SmallAxe>();
+        Debug.Log(smallAxes.Length);
+        smallAxes[0].collideEvent.AddListener(OnTriggerEnter);
+        smallAxes[1].collideEvent.AddListener(OnTriggerEnter);
+    }
 
     public bool IsCleave
     {
