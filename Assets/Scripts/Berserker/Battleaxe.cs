@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using Unity.MLAgents;
 using UnityEngine;
 
-public class Battleaxe : MonoBehaviour
+public class Battleaxe : Weapon
 {
-    [SerializeField]
-    public Animator anim;
-    public ClassAgent agent;
-    private bool IsAttack = false;
-
     public bool IsAllowedWhirlwind = false;
 
     public bool IsCleave
@@ -22,11 +17,6 @@ public class Battleaxe : MonoBehaviour
     {
         get => anim.GetBool("isWhirlwind");
         set => anim.SetBool("isWhirlwind", value);
-    }
-
-    private void Awake()
-    {
-        agent = GetComponentInParent<ClassAgent>();
     }
 
     private void OnEnable()
@@ -63,11 +53,6 @@ public class Battleaxe : MonoBehaviour
         IsCleave = false;
     }
 
-    public void SetAttackState(int attackState)
-    {
-        IsAttack = (attackState != 0);
-    }
-
     public void StopWhirlwind()
     {
         IsWhirlwind = false;
@@ -79,7 +64,7 @@ public class Battleaxe : MonoBehaviour
         IsAllowedWhirlwind = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if (IsAttack || IsWhirlwind)
         {
@@ -89,7 +74,7 @@ public class Battleaxe : MonoBehaviour
                 {
                     //Debug.Log("great");
                     agent.AddReward(IsCleave ? 1f : 0.3f);
-                    otherAgent.TakeDamage(IsCleave ? 25 : 8);
+                    otherAgent.TakeDamage(IsCleave ? attackPower : 8);
                 }
                 else
                 {

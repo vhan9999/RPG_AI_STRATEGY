@@ -10,5 +10,6 @@ public enum Profession
     Mage,
     Berserker,
     Lancer,
-    Archer
+    Archer,
+    Viking
 }

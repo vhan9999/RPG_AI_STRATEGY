@@ -6,17 +6,8 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-public class Sword : MonoBehaviour
+public class Sword : Weapon
 {
-    public Animator anim;
-    public ClassAgent agent;
-    private bool IsAttack = false;
-
-    private void Awake()
-    {
-        agent = GetComponentInParent<ClassAgent>();
-    }
-
     public bool IsSlash
     {
         get => anim.GetBool("isSlash");
@@ -32,38 +23,8 @@ public class Sword : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (IsAttack)
-        {
-            if (other.TryGetComponent(out ClassAgent otherAgent))
-            {
-                if (agent.team != otherAgent.team)
-                {
-                    //Debug.Log("great");
-                    agent.AddReward(1f);
-                    otherAgent.TakeDamage(15);
-                }
-                //else
-                //{
-                //    //Debug.Log("Dont'hurt, you are his frend");
-                //    agent.AddReward(-0.3f);
-                //}
-            }
-            //else if (other.TryGetComponent(out Wall wall))
-            //{
-            //    agent.AddReward(-0.3f);
-            //}
-        }
-    }
-
     public void ResetSlash()
     {
         IsSlash = false;
-    }
-
-    public void SetAttackState(int attackState)
-    {
-        IsAttack = (attackState != 0);
     }
 }

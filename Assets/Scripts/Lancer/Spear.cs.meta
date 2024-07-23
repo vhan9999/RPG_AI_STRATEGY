@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fedefa5dce47645448dd68e73aaa8ef3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - agent: {instanceID: 0}
+  - shockWavePrefab: {fileID: 6632773384655981095, guid: 18544575b62176e4297b08c4fd8a3495, type: 3}
+  - spawnPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

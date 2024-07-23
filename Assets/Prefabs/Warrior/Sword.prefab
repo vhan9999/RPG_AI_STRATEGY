@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4595189305933340043}
+  agent: {fileID: 0}
 --- !u!1 &5478056278680019206
 GameObject:
   m_ObjectHideFlags: 0

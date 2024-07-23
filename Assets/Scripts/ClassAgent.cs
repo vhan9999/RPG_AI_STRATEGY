@@ -9,6 +9,7 @@ using UnityEngine.Assertions;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using System.Collections.Generic;
 using static UnityEngine.GraphicsBuffer;
+using System.Reflection;
 
 public class ClassAgent : Agent
 {
@@ -43,6 +44,10 @@ public class ClassAgent : Agent
     //state
     protected bool isDizzy = false;
 
+    protected float sideSpeedMult = 0.75f;
+    protected float forwardSpeedMult = 1f;
+    protected float backSpeedMult = 0.5f;
+
     protected virtual void Awake()
     {
         bp = GetComponent<BehaviorParameters>();
@@ -69,15 +74,14 @@ public class ClassAgent : Agent
         //    Debug.Log($"{speed} {maxSpeed} {lerpSpeed} {ctrlDir} {nowDir}");
         //}
         if (Vector3.Angle(nowDir, transform.forward) > 120)
-            speed = maxSpeed * 0.5f;
+            speed = maxSpeed * backSpeedMult;
         else if (Vector3.Angle(nowDir, transform.forward) > 80)
-            speed = maxSpeed * 0.75f;
+            speed = maxSpeed * sideSpeedMult;
         else
-            speed = maxSpeed;
+            speed = maxSpeed * forwardSpeedMult;
         speed = isDizzy ? speed * 0.3f : speed;
         SpeedAdjust();
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
-        //transform.Translate(nowDir * Time.deltaTime * speed, Space.World);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
@@ -197,7 +201,7 @@ public class ClassAgent : Agent
         {
             isDead = true;
             gameObject.SetActive(false);
-            envController.DeadTouch(team);
+            envController?.DeadTouch(team);
         }
     }
 
