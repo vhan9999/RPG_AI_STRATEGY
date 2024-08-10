@@ -72,7 +72,7 @@ public class Book : MonoBehaviour
     {
         if (!IsAttack && !IsCoolDown)
         {
-            agent.AddReward(-0.03f);
+            //agent.AddReward(-0.03f);
             fireBallCast.CastStart();
             IsCoolDown = true;
             IsSkill = true;

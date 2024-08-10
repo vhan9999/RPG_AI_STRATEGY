@@ -55,14 +55,14 @@ public class FireBall : MonoBehaviour
                 anim.SetBool("touch", true);
                 isHit = true;
                 //Debug.Log("great");
-                agent.AddReward(1f);
+                agent.AddReward(1f * 0.5f);
                 other.GetComponent<ClassAgent>().TakeDamage(30);
                 //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
             }
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f);
+                agent.AddReward(-0.3f * 0.5f);
             }
         }
     }

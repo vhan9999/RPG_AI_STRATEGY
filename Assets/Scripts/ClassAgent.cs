@@ -34,7 +34,7 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    protected EnvControlleraaa envController;
+    protected EnvController envController;
     protected Rigidbody rb;
 
     //init
@@ -57,7 +57,7 @@ public class ClassAgent : Agent
     }
     private void Start()
     {
-        envController = GetComponentInParent<EnvControlleraaa>();
+        envController = GetComponentInParent<EnvController>();
     }
     private void Update()
     {
@@ -194,7 +194,7 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int damage)
     {
-        AddReward(-damage * (this is MageAgent ? 0.02f : 0.005f));
+        //AddReward(-damage * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
         if (currentHealth <= 0 && !isDead)

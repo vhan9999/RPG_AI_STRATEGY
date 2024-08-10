@@ -73,13 +73,13 @@ public class Battleaxe : Weapon
                 if (agent.team != otherAgent.team)
                 {
                     //Debug.Log("great");
-                    agent.AddReward(IsCleave ? 1f : 0.3f);
+                    //agent.AddReward(IsCleave ? 1f : 0.3f);
                     otherAgent.TakeDamage(IsCleave ? attackPower : 8);
                 }
                 else
                 {
                    //Debug.Log("Dont'hurt, you are his frend");
-                   agent.AddReward(IsCleave ? -0.3f : -0.1f);
+                   //agent.AddReward(IsCleave ? -0.3f : -0.1f);
                 }
             }
             //else if (other.TryGetComponent(out Wall wall))

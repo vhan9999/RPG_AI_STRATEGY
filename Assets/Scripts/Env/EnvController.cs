@@ -87,16 +87,16 @@ public class EnvController : MonoBehaviour
         }
         if (blueDeadCount == teamNum)
         {
-            m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
-            m_RedAgentGroup.AddGroupReward(1);
+            m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * 1.8f);
+            m_RedAgentGroup.AddGroupReward(1 * 1.8f);
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
-            m_BlueAgentGroup.AddGroupReward(1);
-            m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+            m_BlueAgentGroup.AddGroupReward(1 * 1.8f);
+            m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * 1.8f);
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();

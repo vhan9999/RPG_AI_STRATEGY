@@ -26,14 +26,14 @@ public class Weapon : MonoBehaviour
                 if (agent.team != otherAgent.team)
                 {
                     //Debug.Log("great");
-                    agent.AddReward(1);
+                    agent.AddReward(1 * 0.5f);
                     otherAgent.TakeDamage(attackPower);
                 }
-                //else
-                //{
-                //    //Debug.Log("Dont'hurt, you are his frend");
-                //    agent.AddReward(-0.3f);
-                //}
+                else
+                {
+                    //Debug.Log("Dont'hurt, you are his frend");
+                    agent.AddReward(-0.3f * 0.5f);
+                }
             }
             //else if (other.TryGetComponent(out Wall wall))
             //{

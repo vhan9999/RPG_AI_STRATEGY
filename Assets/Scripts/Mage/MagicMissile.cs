@@ -43,14 +43,14 @@ public class MagicMissile : MonoBehaviour
             if (agent.team != otherAgent.team)
             {
                 //Debug.Log("great");
-                agent.AddReward(0.8f);
+                agent.AddReward(1f * 0.5f);
                 otherAgent.TakeDamage(10);
                 ObjectPool<MagicMissile>.Instance.Recycle(this);
             }
             else
             {
                 //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f);
+                agent.AddReward(-0.3f * 0.5f);
             }
         }
     }
