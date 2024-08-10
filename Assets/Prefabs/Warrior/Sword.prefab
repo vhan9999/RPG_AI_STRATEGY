@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c1108cf4867ac49848b07db42ee0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 4595189305933340043}
   agent: {fileID: 0}
+  attackPower: 25
 --- !u!1 &5478056278680019206
 GameObject:
   m_ObjectHideFlags: 0
