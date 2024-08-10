@@ -7,6 +7,7 @@ using static UnityEditor.Progress;
 using System.Linq;
 
 using Random = UnityEngine.Random;
+using Unity.VisualScripting;
 
 public class EnvController : MonoBehaviour
 {
@@ -79,26 +80,34 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
+            if (GameArgs.isDense) m_RedAgentGroup.AddGroupReward(0.5f / teamNum);
             blueDeadCount++;
         }
         else
         {
+            if (GameArgs.isDense) m_BlueAgentGroup.AddGroupReward(0.5f / teamNum);
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
-            m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * 1.8f);
-            m_RedAgentGroup.AddGroupReward(1 * 1.8f);
-            m_BlueAgentGroup.EndGroupEpisode();
-            m_RedAgentGroup.EndGroupEpisode();
+            if (GameArgs.isDense)
+            {
+                m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+                m_RedAgentGroup.AddGroupReward(1);
+                m_BlueAgentGroup.EndGroupEpisode();
+                m_RedAgentGroup.EndGroupEpisode();
+            }
             ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
-            m_BlueAgentGroup.AddGroupReward(1 * 1.8f);
-            m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * 1.8f);
-            m_BlueAgentGroup.EndGroupEpisode();
-            m_RedAgentGroup.EndGroupEpisode();  
+            if (GameArgs.isDense)
+            {
+                m_BlueAgentGroup.AddGroupReward(1);
+                m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+                m_BlueAgentGroup.EndGroupEpisode();
+                m_RedAgentGroup.EndGroupEpisode();
+            }
             ResetScene();
         }
     }

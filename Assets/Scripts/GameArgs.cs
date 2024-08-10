@@ -1,3 +1,9 @@
+public class GameArgs
+{
+    public const bool isDense = true;
+}
+
+
 public enum Team
 {
     Blue,

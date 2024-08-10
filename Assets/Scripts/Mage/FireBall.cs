@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class FireBall : Weapon
 {
     [SerializeField] private float speed;
     [SerializeField] private float existTime;
@@ -46,25 +46,10 @@ public class FireBall : MonoBehaviour
         anim.SetTrigger("new");
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out ClassAgent otherAgent))
-        {
-            if (agent.team != otherAgent.team)
-            {
-                anim.SetBool("touch", true);
-                isHit = true;
-                //Debug.Log("great");
-                agent.AddReward(1f * 0.5f);
-                other.GetComponent<ClassAgent>().TakeDamage(30);
-                //other.gameObject.GetComponent<BloodDropletPoolManager>().SpawnBloodDroplets();
-            }
-            else
-            {
-                //Debug.Log("Dont'hurt, you are his frend");
-                agent.AddReward(-0.3f * 0.5f);
-            }
-        }
+        base.OnTriggerEnter(other);
+        if (isHit) anim.SetBool("touch", true);
     }
 
     public void ExplodeDone()

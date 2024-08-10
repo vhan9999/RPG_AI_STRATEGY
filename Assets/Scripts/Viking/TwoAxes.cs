@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-public class TwoAxes : Weapon
+public class TwoAxes : Weapons
 {
     protected override void Awake()
     {

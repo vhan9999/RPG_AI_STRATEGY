@@ -10,6 +10,8 @@ using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using System.Collections.Generic;
 using static UnityEngine.GraphicsBuffer;
 using System.Reflection;
+using UnityEngine.Rendering;
+using System;
 
 public class ClassAgent : Agent
 {
@@ -47,6 +49,8 @@ public class ClassAgent : Agent
     protected float sideSpeedMult = 0.75f;
     protected float forwardSpeedMult = 1f;
     protected float backSpeedMult = 0.5f;
+
+    public float hpPct => (float)currentHealth / health * 100; 
 
     protected virtual void Awake()
     {
@@ -199,9 +203,33 @@ public class ClassAgent : Agent
         currentHealth -= damage;
         if (currentHealth <= 0 && !isDead)
         {
+            HealthPenalty(damage);
             isDead = true;
             gameObject.SetActive(false);
             envController?.DeadTouch(team);
+        }
+    }
+
+    private void HealthPenalty(int damage)
+    {
+        if (GameArgs.isDense)
+        {
+            AddReward(-1);
+        }
+        else
+        {
+            if ((hpPct > 75f && hpPct - damage <= 75f) || (hpPct > 50f && hpPct - damage <= 50f))
+            {
+               AddReward(-0.4f);
+            }
+            else if (hpPct > 25f && hpPct - damage <= 25f)
+            {
+                AddReward(-0.6f);
+            }
+            else if (hpPct > 0f && hpPct - damage <= 0f)
+            {
+                AddReward(-0.8f);
+            }
         }
     }
 
