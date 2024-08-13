@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.MLAgents;
 using UnityEngine;
 
-public class Battleaxe : Weapons
+public class Battleaxe : Weapon
 {
     public bool IsAllowedWhirlwind = false;
 

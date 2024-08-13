@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spear : Weapons
+public class Spear : Weapon
 {
     public bool IsAllowedSprint = true;
 
