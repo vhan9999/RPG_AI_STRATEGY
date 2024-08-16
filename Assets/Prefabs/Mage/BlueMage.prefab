@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5982908060819140878}
   - component: {fileID: 9091388739185380165}
   - component: {fileID: 2998797774162041268}
-  - component: {fileID: 6202821776414575649}
   - component: {fileID: 3182492681367632851}
+  - component: {fileID: 3109046851960766496}
   m_Layer: 6
   m_Name: BlueMage
   m_TagString: BlueMage
@@ -145,6 +145,7 @@ MonoBehaviour:
   currentHealth: 50
   team: 0
   profession: 1
+  count: 0
 --- !u!114 &2998797774162041268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,19 +160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!65 &6202821776414575649
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7513846362045146616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0106288, y: 1.727644, z: 1.0132251}
-  m_Center: {x: -0.0043777823, y: 0.26382244, z: -0.0088377}
 --- !u!54 &3182492681367632851
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -188,6 +176,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &3109046851960766496
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513846362045146616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.72062016
+  m_Height: 2.6141906
+  m_Direction: 1
+  m_Center: {x: -0.06592381, y: 0.42752147, z: -0.05404657}
 --- !u!1001 &3123840196354894765
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 890686313791203493}
   - component: {fileID: 7408926214419066429}
   - component: {fileID: 8914155739197228526}
-  - component: {fileID: 4644770537287980757}
   - component: {fileID: 5831174045225811229}
+  - component: {fileID: 2925488502605536342}
   m_Layer: 6
   m_Name: BlueWarrior
   m_TagString: Untagged
@@ -146,6 +146,7 @@ MonoBehaviour:
   currentHealth: 100
   team: 0
   profession: 0
+  count: 0
 --- !u!114 &8914155739197228526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,19 +161,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!65 &4644770537287980757
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850054750572236832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.1066296, z: 1.2}
-  m_Center: {x: 0, y: 0.25331485, z: 0}
 --- !u!54 &5831174045225811229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -189,6 +177,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &2925488502605536342
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850054750572236832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7970538
+  m_Height: 2.7872844
+  m_Direction: 1
+  m_Center: {x: -0.02911663, y: 0.4063578, z: -0.05404657}
 --- !u!1001 &4407844101899444426
 PrefabInstance:
   m_ObjectHideFlags: 0

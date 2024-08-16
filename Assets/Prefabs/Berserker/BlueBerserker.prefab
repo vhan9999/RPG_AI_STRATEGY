@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1230743704}
   - component: {fileID: 1230743708}
   - component: {fileID: 4504582515639459199}
-  - component: {fileID: 6775162443426748641}
+  - component: {fileID: 706239259502787042}
   m_Layer: 6
   m_Name: BlueBerserker
   m_TagString: BlueBerserker
@@ -115,6 +115,7 @@ MonoBehaviour:
   currentHealth: 120
   team: 0
   profession: 2
+  count: 0
 --- !u!114 &1230743704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +176,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &6775162443426748641
-BoxCollider:
+--- !u!136 &706239259502787042
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -185,9 +186,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.10663, z: 1.2}
-  m_Center: {x: 0, y: 0.2533149, z: 0}
+  m_Radius: 0.7970538
+  m_Height: 2.7872844
+  m_Direction: 1
+  m_Center: {x: -0.02911663, y: 0.4063578, z: -0.05404657}
 --- !u!1001 &225247225418916843
 PrefabInstance:
   m_ObjectHideFlags: 0

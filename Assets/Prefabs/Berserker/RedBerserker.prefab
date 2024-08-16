@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3134963040863204920}
   - component: {fileID: 3134963040863204924}
   - component: {fileID: 6237554712024944658}
-  - component: {fileID: 360738466226444089}
+  - component: {fileID: 5510390849607865322}
   m_Layer: 7
   m_Name: RedBerserker
   m_TagString: RedBattleaxe
@@ -115,6 +115,7 @@ MonoBehaviour:
   currentHealth: 120
   team: 1
   profession: 2
+  count: 0
 --- !u!114 &3134963040863204920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +176,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &360738466226444089
-BoxCollider:
+--- !u!136 &5510390849607865322
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -185,9 +186,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.10663, z: 1.2}
-  m_Center: {x: 0, y: 0.2533149, z: 0}
+  m_Radius: 0.7970538
+  m_Height: 2.7872844
+  m_Direction: 1
+  m_Center: {x: -0.02911663, y: 0.4063578, z: -0.05404657}
 --- !u!1001 &1115093758548284513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -413,11 +415,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
---- !u!95 &6225417787258746509 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3661488067369971094, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
-  m_PrefabInstance: {fileID: 7256732217917807387}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6285161781633430328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3714474454319933475, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
@@ -440,7 +437,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44af465a6d2a1b4aa76ae8e085f1bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 6225417787258746509}
+  agent: {fileID: 0}
+  attackPower: 0
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
   IsAllowedWhirlwind: 0
 --- !u!1001 &7300584966701209103
 PrefabInstance:

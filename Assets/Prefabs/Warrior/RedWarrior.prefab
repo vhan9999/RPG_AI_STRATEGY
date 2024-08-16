@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7930641340237552548}
   - component: {fileID: 2725915007851608630}
   - component: {fileID: 3427260092468783777}
-  - component: {fileID: 6358744257908385246}
   - component: {fileID: 6018355564763816777}
+  - component: {fileID: 1502150624602221219}
   m_Layer: 7
   m_Name: RedWarrior
   m_TagString: RedWarrior
@@ -147,6 +147,7 @@ MonoBehaviour:
   currentHealth: 100
   team: 1
   profession: 0
+  count: 0
 --- !u!114 &3427260092468783777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,19 +162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!65 &6358744257908385246
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182752182871103305}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.1066296, z: 1.2}
-  m_Center: {x: 0, y: 0.25331485, z: 0}
 --- !u!54 &6018355564763816777
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -190,6 +178,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &1502150624602221219
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182752182871103305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7970538
+  m_Height: 2.7872844
+  m_Direction: 1
+  m_Center: {x: -0.02911663, y: 0.4063578, z: -0.05404657}
 --- !u!1001 &998130971067838077
 PrefabInstance:
   m_ObjectHideFlags: 0
