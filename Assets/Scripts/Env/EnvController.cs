@@ -80,17 +80,17 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
-            if (GameArgs.isDense) m_RedAgentGroup.AddGroupReward(0.3f / teamNum);
+            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(0.3f / teamNum);
             blueDeadCount++;
         }
         else
         {
-            if (GameArgs.isDense) m_BlueAgentGroup.AddGroupReward(0.3f / teamNum);
+            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(0.3f / teamNum);
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
-            if (GameArgs.isDense)
+            if (GameArgs.IsDense)
             {
                 m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
                 m_RedAgentGroup.AddGroupReward(1);
@@ -101,7 +101,7 @@ public class EnvController : MonoBehaviour
         }
         else if (redDeadCount == teamNum)
         {
-            if (GameArgs.isDense)
+            if (GameArgs.IsDense)
             {
                 m_BlueAgentGroup.AddGroupReward(1);
                 m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));

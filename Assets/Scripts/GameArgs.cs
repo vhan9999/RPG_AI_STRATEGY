@@ -1,6 +1,6 @@
 public class GameArgs
 {
-    public static bool isDense = false;
+    public static bool IsDense = false;
 }
 
 

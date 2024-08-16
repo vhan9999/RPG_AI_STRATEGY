@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
                 else
                 {
                     //Debug.Log("Dont'hurt, you are his frend");
-                    if (GameArgs.isDense) agent.AddReward(-ffPenalty);
+                    if (GameArgs.IsDense) agent.AddReward(-ffPenalty);
                 }
             }
         }
@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
 
     private void DamageReward()
     {
-        if (GameArgs.isDense)
+        if (GameArgs.IsDense)
         {
             agent.AddReward(1);
         }
@@ -66,6 +66,6 @@ public class Weapon : MonoBehaviour
 
     public void SetAttackState(int state)
     {
-        IsAttack = state == 1 ? true : false; 
+        IsAttack = state == 1 ? true : false;
     }
 }

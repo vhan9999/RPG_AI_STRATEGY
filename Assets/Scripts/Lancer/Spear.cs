@@ -53,7 +53,7 @@ public class Spear : Weapon
                 shockWave.Move();
             }
 
-            // Manage shockwave count, keeping it at or below 84
+            // Manage shockwave count\, keeping it at or below 84
             while (shockWaveQueue.Count > 84)
             {
                 ShockWave shockWave = shockWaveQueue.Dequeue();

@@ -210,7 +210,7 @@ public class ClassAgent : Agent
 
     private void HealthPenalty(int damage)
     {
-        if (GameArgs.isDense)
+        if (GameArgs.IsDense)
         {
             AddReward(-1);
         }

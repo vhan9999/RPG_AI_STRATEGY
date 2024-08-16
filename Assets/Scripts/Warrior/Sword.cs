@@ -18,7 +18,7 @@ public class Sword : Weapon
     {
         if (!IsSlash)
         {
-            agent.AddReward(-0.2f);
+            if (GameArgs.IsDense) agent.AddReward(-0.2f);
             IsSlash = true;
         }
     }
