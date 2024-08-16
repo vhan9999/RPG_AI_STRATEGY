@@ -1,6 +1,6 @@
 public class GameArgs
 {
-    public const bool isDense = true;
+    public static bool isDense = false;
 }
 
 

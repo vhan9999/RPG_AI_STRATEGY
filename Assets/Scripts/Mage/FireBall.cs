@@ -9,16 +9,14 @@ public class FireBall : Weapon
 {
     [SerializeField] private float speed;
     [SerializeField] private float existTime;
-    public Animator anim;
     public Vector3 moveDir;
     private float timer;
-    public ClassAgent agent;
-    private bool isHit = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        ffPenalty = 0.3f;
+        IsAttack = true;
     }
     
     public void Reset()

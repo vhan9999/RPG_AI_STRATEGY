@@ -9,13 +9,12 @@ public class MagicMissile : Weapon
     [SerializeField] private float existTime;
     public Vector3 moveDir;
     private float timer;
-    [HideInInspector]
-    public ClassAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ffPenalty = 0.1f;
+        IsAttack = true;
     }
 
     public void Reset()

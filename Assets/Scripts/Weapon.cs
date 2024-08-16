@@ -20,15 +20,16 @@ public class Weapon : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (IsAttack || this is Throwables)
+        if (IsAttack)
         {
             if (other.TryGetComponent(out ClassAgent otherAgent))
             {
                 if (agent.team != otherAgent.team)
                 {
                     //Debug.Log("great");
+                    agent.count = 0;
                     isHit = true;
-                    HealthReward();
+                    DamageReward();
                     otherAgent.TakeDamage(attackPower);
                 }
                 else
@@ -40,7 +41,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void HealthReward()
+    private void DamageReward()
     {
         if (GameArgs.isDense)
         {

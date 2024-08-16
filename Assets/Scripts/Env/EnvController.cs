@@ -80,12 +80,12 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
-            if (GameArgs.isDense) m_RedAgentGroup.AddGroupReward(0.5f / teamNum);
+            if (GameArgs.isDense) m_RedAgentGroup.AddGroupReward(0.3f / teamNum);
             blueDeadCount++;
         }
         else
         {
-            if (GameArgs.isDense) m_BlueAgentGroup.AddGroupReward(0.5f / teamNum);
+            if (GameArgs.isDense) m_BlueAgentGroup.AddGroupReward(0.3f / teamNum);
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)

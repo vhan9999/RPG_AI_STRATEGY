@@ -50,7 +50,8 @@ public class ClassAgent : Agent
     protected float forwardSpeedMult = 1f;
     protected float backSpeedMult = 0.5f;
 
-    public float hpPct => (float)currentHealth / health * 100; 
+    public float hpPct => (float)currentHealth / health * 100;
+    public int count = 0;
 
     protected virtual void Awake()
     {
@@ -73,10 +74,6 @@ public class ClassAgent : Agent
 
     protected virtual void FixedUpdate()
     {
-        //if (this is BerserkerAgent)
-        //{
-        //    Debug.Log($"{speed} {maxSpeed} {lerpSpeed} {ctrlDir} {nowDir}");
-        //}
         if (Vector3.Angle(nowDir, transform.forward) > 120)
             speed = maxSpeed * backSpeedMult;
         else if (Vector3.Angle(nowDir, transform.forward) > 80)
@@ -147,6 +144,7 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        count++;
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
