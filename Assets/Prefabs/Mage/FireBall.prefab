@@ -82,11 +82,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649e6203f8beb024e8d8a9d210db7d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  attackPower: 30
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
   speed: 20
   existTime: 10
-  anim: {fileID: 463691300808794795}
   moveDir: {x: 0, y: 0, z: 0}
-  agent: {fileID: 0}
 --- !u!54 &63635738803380471
 Rigidbody:
   m_ObjectHideFlags: 0

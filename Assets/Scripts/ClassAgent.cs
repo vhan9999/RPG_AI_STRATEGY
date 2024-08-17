@@ -144,7 +144,14 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        count++;
+        if (!GameArgs.IsDense)
+        {
+            if (++count >= 2000)
+            {
+                AddReward(-0.2f);
+                count = 0;
+            }
+        }
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];

@@ -81,7 +81,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44af465a6d2a1b4aa76ae8e085f1bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 3661488067369971094}
+  agent: {fileID: 0}
+  attackPower: 30
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
   IsAllowedWhirlwind: 0
 --- !u!1 &4992923648748915264
 GameObject:
