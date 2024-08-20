@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -11,13 +12,21 @@ public class Weapon : MonoBehaviour
     public bool isHit = false;
     public bool IsAttack = false;
     public float ffPenalty = 0.3f;
+    private int attackCount = 0;
 
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
         anim = GetComponent<Animator>();
     }
-
+    private void OnEnable()
+    {
+        attackCount = 0;
+    }
+    private void OnDisable()
+    {
+        //agent.AddReward(0.1f * attackCount * GameArgs.attack); 1
+    }
     protected virtual void OnTriggerEnter(Collider other)
     {
         Debug.Log(attackPower);
@@ -50,17 +59,10 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            if ((agent.hpPct > 75f && agent.hpPct - attackPower <= 75f) || (agent.hpPct > 50f && agent.hpPct - attackPower <= 50f))
+            attackCount++;
+            if (attackCount % 2 == 0)//2
             {
-                agent.AddReward(0.5f);
-            }
-            else if (agent.hpPct > 25f && agent.hpPct - attackPower <= 25f)
-            {
-                agent.AddReward(0.8f);
-            }
-            else if (agent.hpPct > 0f && agent.hpPct - attackPower <= 0f)
-            {
-                agent.AddReward(1f);
+                agent.AddReward(0.5f * GameArgs.attack);
             }
         }
     } 
