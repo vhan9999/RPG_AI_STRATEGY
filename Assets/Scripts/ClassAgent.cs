@@ -51,7 +51,6 @@ public class ClassAgent : Agent
     protected float backSpeedMult = 0.5f;
 
     public float hpPct => (float)currentHealth / health * 100;
-    public int count = 0;
 
     protected virtual void Awake()
     {
@@ -144,14 +143,14 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        if (!GameArgs.IsDense)
-        {
-            if (++count >= 2000)
-            {
-                AddReward(-0.2f);
-                count = 0;
-            }
-        }
+        //if (!GameArgs.IsDense)
+        //{
+        //    if (++count >= 5000)
+        //    {
+        //        AddReward(-0.2f);
+        //        count = 0;
+        //    }
+        //}
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -223,18 +222,24 @@ public class ClassAgent : Agent
         }
         else
         {
-            if ((hpPct > 75f && hpPct - damage <= 75f) || (hpPct > 50f && hpPct - damage <= 50f))
-            {
-               AddReward(-0.4f);
-            }
-            else if (hpPct > 25f && hpPct - damage <= 25f)
-            {
-                AddReward(-0.6f);
-            }
-            else if (hpPct > 0f && hpPct - damage <= 0f)
-            {
-                AddReward(-0.8f);
-            }
+            AddReward(-0.4f);
+
+            //if ((hpPct > 75f && hpPct - damage <= 75f) || (hpPct > 50f && hpPct - damage <= 50f))
+            //{
+            //    Debug.Log("Health " + hpPct + " Deduct -0.4");
+            //    AddReward(-0.1f);
+            //}
+            //else if (hpPct > 25f && hpPct - damage <= 25f)
+            //{
+            //    Debug.Log("Health " + hpPct + " Deduct -0.6");
+            //    AddReward(-0.2f);
+            //}
+            //else if (hpPct > 0f && hpPct - damage <= 0f)
+            //{
+
+            //    Debug.Log("Health " + hpPct + " Deduct -0.8");
+            //    AddReward(-0.8f);
+            //}
         }
     }
 

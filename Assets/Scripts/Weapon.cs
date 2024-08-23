@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour
     public bool IsAttack = false;
     public float ffPenalty = 0.3f;
 
+    private int attackCount = 0;
+
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
@@ -20,7 +22,6 @@ public class Weapon : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        Debug.Log(attackPower);
         if (IsAttack)
         {
             if (other.TryGetComponent(out ClassAgent otherAgent))
@@ -28,7 +29,7 @@ public class Weapon : MonoBehaviour
                 if (agent.team != otherAgent.team)
                 {
                     //Debug.Log("great");
-                    agent.count = 0;
+                    //agent.count = 0;
                     isHit = true;
                     DamageReward();
                     otherAgent.TakeDamage(attackPower);
@@ -50,17 +51,11 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            if ((agent.hpPct > 75f && agent.hpPct - attackPower <= 75f) || (agent.hpPct > 50f && agent.hpPct - attackPower <= 50f))
+            attackCount++;
+            if (attackCount % 2 == 0)
             {
-                agent.AddReward(0.5f);
-            }
-            else if (agent.hpPct > 25f && agent.hpPct - attackPower <= 25f)
-            {
-                agent.AddReward(0.8f);
-            }
-            else if (agent.hpPct > 0f && agent.hpPct - attackPower <= 0f)
-            {
-                agent.AddReward(1f);
+                Debug.Log(agent.team + " Hit Twice" + " Add "+ 0.5f * GameArgs.attack);
+                agent.AddReward(0.5f * GameArgs.attack);
             }
         }
     } 
