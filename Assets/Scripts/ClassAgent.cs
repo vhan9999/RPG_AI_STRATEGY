@@ -223,23 +223,6 @@ public class ClassAgent : Agent
         else
         {
             AddReward(-0.4f);
-
-            //if ((hpPct > 75f && hpPct - damage <= 75f) || (hpPct > 50f && hpPct - damage <= 50f))
-            //{
-            //    Debug.Log("Health " + hpPct + " Deduct -0.4");
-            //    AddReward(-0.1f);
-            //}
-            //else if (hpPct > 25f && hpPct - damage <= 25f)
-            //{
-            //    Debug.Log("Health " + hpPct + " Deduct -0.6");
-            //    AddReward(-0.2f);
-            //}
-            //else if (hpPct > 0f && hpPct - damage <= 0f)
-            //{
-
-            //    Debug.Log("Health " + hpPct + " Deduct -0.8");
-            //    AddReward(-0.8f);
-            //}
         }
     }
 
