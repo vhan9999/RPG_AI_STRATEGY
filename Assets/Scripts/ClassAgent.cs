@@ -53,7 +53,6 @@ public class ClassAgent : Agent
     protected float backSpeedMult = 0.5f;
 
     public float hpPct => (float)currentHealth / health * 100;
-    public int count = 0;
 
     protected virtual void Awake()
     {
@@ -156,14 +155,14 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        if (!GameArgs.IsDense)
-        {
-            if (++count >= 2000)
-            {
-                AddReward(-0.2f);
-                count = 0;
-            }
-        }
+        //if (!GameArgs.IsDense)
+        //{
+        //    if (++count >= 5000)
+        //    {
+        //        AddReward(-0.2f);
+        //        count = 0;
+        //    }
+        //}
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -235,11 +234,7 @@ public class ClassAgent : Agent
         }
         else
         {
-            hurtCount++;
-            if (hurtCount % 2 == 0)//2
-            {
-                AddReward(0.5f * GameArgs.hurt);
-            }
+            AddReward(-0.4f);
         }
     }
 
