@@ -234,7 +234,7 @@ public class ClassAgent : Agent
         }
         else
         {
-            AddReward(-0.4f);
+            AddReward(-0.4f * GameArgs.hurt);
         }
     }
 

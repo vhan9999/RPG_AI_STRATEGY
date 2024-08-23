@@ -72,7 +72,7 @@ public class EnvController : MonoBehaviour
         {   
             if(GameArgs.attack >= 0.5f)
                 GameArgs.attack -= 0.0001f;
-            if (GameArgs.attack <= 1.5f)
+            if (GameArgs.hurt <= 1.5f)
                 GameArgs.hurt += 0.0001f;
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();

@@ -14,8 +14,6 @@ public class Weapon : MonoBehaviour
     public float ffPenalty = 0.3f;
     private int attackCount = 0;
 
-    private int attackCount = 0;
-
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
