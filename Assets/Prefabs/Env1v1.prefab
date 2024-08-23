@@ -56,6 +56,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671030599080458871}
     m_Modifications:
+    - target: {fileID: 890686313791203493, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: c611f6358a0f5ca49a32c9aae64ab37a, type: 3}
+    - target: {fileID: 890686313791203493, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 890686313791203493, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1316968958085546779, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -98,6 +110,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1316968958085546779, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925488502605536342, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7850054750572236832, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
@@ -176,19 +192,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788903487179522420, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4989398135144786845, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5541423489425179923, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6264584647395495395, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6361086164053692417, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_Name
@@ -215,6 +231,10 @@ PrefabInstance:
     - target: {fileID: 182752182871103305, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
       propertyPath: m_TagString
       value: RedWarrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502150624602221219, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2725915007851608630, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
       propertyPath: team
@@ -251,7 +271,11 @@ PrefabInstance:
     - target: {fileID: 7930641340237552548, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 93435e844eed65b4ca3579e427e49d6a, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: c611f6358a0f5ca49a32c9aae64ab37a, type: 3}
+    - target: {fileID: 7930641340237552548, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8952992619469440114, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
       propertyPath: m_RootOrder
       value: 2
