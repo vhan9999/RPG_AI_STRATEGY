@@ -96,8 +96,8 @@ public class ClassAgent : Agent
     }
     protected override void OnDisable()
     {
-        base.OnEnable();
-        //AddReward(0.1f * hurtCount * GameArgs.hurt); 1
+        base.OnDisable();
+        AddReward(-0.08f * hurtCount * GameArgs.hurt);
     }
     protected virtual void SpeedAdjust()
     {
@@ -217,9 +217,9 @@ public class ClassAgent : Agent
         //AddReward(-damage * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
+        HealthPenalty(damage);
         if (currentHealth <= 0 && !isDead)
         {
-            HealthPenalty(damage);
             isDead = true;
             gameObject.SetActive(false);
             envController?.DeadTouch(team);
@@ -234,7 +234,10 @@ public class ClassAgent : Agent
         }
         else
         {
-            AddReward(-0.4f);
+            if (++hurtCount  % 2 == 0)
+            {
+                AddReward(-0.8f);
+            }
         }
     }
 
