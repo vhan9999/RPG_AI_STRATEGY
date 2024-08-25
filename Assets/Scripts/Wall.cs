@@ -17,6 +17,7 @@ public class Wall : MonoBehaviour
         }
         else if (other.TryGetComponent(out ClassAgent agent))
         {
+            //Debug.Log(agent.team + " hit wall");
             agent.TakeDamage(200);
             agent.AddReward(-0.2f);
         }

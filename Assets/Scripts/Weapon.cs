@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
                 if (agent.team != otherAgent.team)
                 {
                     //Debug.Log("great");
-                    //agent.count = 0;
+                    //agent.count = 0;x`
                     isHit = true;
                     DamageReward();
                     otherAgent.TakeDamage(attackPower);
@@ -61,6 +61,11 @@ public class Weapon : MonoBehaviour
         else
         {
             attackCount++;
+            if (attackCount % 2 == 0){
+                //Debug.Log(agent.team + " attack twice");
+                agent.AddReward(0.75f);
+            }
+
         }
     } 
 
