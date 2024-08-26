@@ -62,8 +62,8 @@ public class Weapon : MonoBehaviour
         {
             attackCount++;
             if (attackCount % 2 == 0){
-                //Debug.Log(agent.team + " attack twice");
-                agent.AddReward(0.75f);
+                Debug.Log(agent.team + " attack twice");
+                agent.AddReward(0.5f*GameArgs.attack);
             }
 
         }

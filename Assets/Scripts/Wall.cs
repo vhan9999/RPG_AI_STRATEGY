@@ -19,7 +19,7 @@ public class Wall : MonoBehaviour
         {
             //Debug.Log(agent.team + " hit wall");
             agent.TakeDamage(200);
-            agent.AddReward(-0.2f);
+            agent.AddReward(-0.2f*GameArgs.hurt);
         }
         else if (other.TryGetComponent(out Weapon weapon))
         {

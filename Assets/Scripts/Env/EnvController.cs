@@ -8,6 +8,7 @@ using System.Linq;
 
 using Random = UnityEngine.Random;
 using Unity.VisualScripting;
+using Unity.Mathematics;
 
 public class EnvController : MonoBehaviour
 {
@@ -39,6 +40,9 @@ public class EnvController : MonoBehaviour
 
     public bool IsRandomScene;
 
+    private float randomX;
+    private float randomZ;
+
     void Start()
     {
         // Initialize TeamManager
@@ -51,12 +55,22 @@ public class EnvController : MonoBehaviour
             {
                 if (agent.team == Team.Blue)
                 {
+                    randomX = UnityEngine.Random.Range(-7f, 7f);
+                    randomZ = UnityEngine.Random.Range(-8f, -3f);
+                    Vector3 randomLocalPosition = new Vector3(randomX, 1.8f, randomZ);
+                    agent.transform.localPosition = randomLocalPosition;
+
                     blueAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     teamNum++;
                     m_BlueAgentGroup.RegisterAgent(agent);
                 }
                 else
                 {
+                    randomX = UnityEngine.Random.Range(-7f, 7f);
+                    randomZ = UnityEngine.Random.Range(3f, 9f);
+                    Vector3 randomLocalPosition = new Vector3(randomX, 1.8f, randomZ);
+                    agent.transform.localPosition = randomLocalPosition;
+
                     redAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     m_RedAgentGroup.RegisterAgent(agent);
                 }
@@ -65,16 +79,15 @@ public class EnvController : MonoBehaviour
         ResetScene();
     }
 
-    // idk
     void FixedUpdate()
     {
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
-            //if (GameArgs.attack >= 0.8f)
-            //    GameArgs.attack -= 0.0001f;
-            //if (GameArgs.hurt <= 0.7f)
-            //    GameArgs.hurt += 0.0001f;
+            if (GameArgs.attack >= 0.8f)
+                GameArgs.attack -= 0.0001f;
+            if (GameArgs.hurt <= 0.7f)
+                GameArgs.hurt += 0.0001f;
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();
             ResetScene();
@@ -85,12 +98,13 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
+            //if (!GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1);
             if (!GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / teamNum);
             blueDeadCount++;
         }
         else
         {
-            if (!GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / teamNum);
+            if (!GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1);
             redDeadCount++;
             //Debug.Log("Blue win");
         }

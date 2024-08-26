@@ -27,12 +27,8 @@ public class ClassAgent : Agent
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
     private bool isDead = false;
-
-    //private float randomX;
-    //private float randomZ;
-
     private int hurtCount = 0;
-    //public int count = 0;
+
 
     //health
     public int health;
@@ -65,6 +61,7 @@ public class ClassAgent : Agent
         team = (Team)bp.TeamId;
         rb = GetComponent<Rigidbody>();
     }
+
     private void Start()
     {
         envController = GetComponentInParent<EnvController>();
@@ -122,26 +119,6 @@ public class ClassAgent : Agent
     {
         isDead = false;
         currentHealth = health;
-        Debug.Log(team + " begin");
-        float randomX = 0f;
-        float randomZ = 0f;
-
-        if (team == Team.Blue)
-        {
-            randomX = UnityEngine.Random.Range(-7f, 7f);
-            randomZ = UnityEngine.Random.Range(-8f, -3f);
-            Debug.Log("Blue position : " + randomX + "," + randomZ);
-        }
-        else if (team == Team.Red)
-        {
-            randomX = UnityEngine.Random.Range(-7f, 7f);
-            randomZ = UnityEngine.Random.Range(3f, 9f);
-            Debug.Log("Red position : " + randomX + "," + randomZ);
-        }
-
-        Vector3 randomLocalPosition = new Vector3(randomX, 1.8f, randomZ);
-        transform.localPosition = randomLocalPosition;
-        
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -179,13 +156,6 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        //if (!GameArgs.IsDense)
-        //{
-        //    if (++count >= 100)
-        //    {
-        //        count = 0;
-        //    }
-        //}
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -240,6 +210,7 @@ public class ClassAgent : Agent
         //AddReward(-damage * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
+        hurtCount++;
         HealthPenalty();
         if (currentHealth <= 0 && !isDead)
         {
@@ -258,12 +229,11 @@ public class ClassAgent : Agent
         }
         else
         {
-            AddReward(-0.5f);
-            //if (++hurtCount  % 2 == 0)
-            //{
-
-            //    AddReward(-0.8f);
-            //}
+            if (hurtCount % 2 == 0)
+            {
+                //Debug.Log("Hurt");
+                AddReward(-0.5f*GameArgs.hurt);
+            }
         }
     }
 
