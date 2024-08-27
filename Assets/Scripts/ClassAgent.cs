@@ -28,7 +28,7 @@ public class ClassAgent : Agent
     private int rotateDir = 0;
     private bool isDead = false;
 
-    private int hurtCount = 0;
+    //private int hurtCount = 0;
 
     //health
     public int health;
@@ -40,6 +40,8 @@ public class ClassAgent : Agent
     protected BehaviorParameters bp;
     protected EnvController envController;
     protected Rigidbody rb;
+
+    protected float penaltyRatio;
 
     //init
     private Vector3 initPosition;
@@ -92,13 +94,19 @@ public class ClassAgent : Agent
     protected override void OnEnable()
     {
         base.OnEnable();
-        hurtCount = 0;
+        //hurtCount = 0;
     }
+
     protected override void OnDisable()
     {
         base.OnDisable();
-        AddReward(-0.08f * hurtCount * GameArgs.hurt);
+        if (!GameArgs.IsDense)
+        {
+            AddReward(-penaltyRatio * (1 - (float)currentHealth / health) * GameArgs.hurt);
+            Debug.Log(-penaltyRatio * (1 - (float)currentHealth / health) * GameArgs.hurt);
+        }
     }
+
     protected virtual void SpeedAdjust()
     {
         
@@ -234,10 +242,10 @@ public class ClassAgent : Agent
         }
         else
         {
-            if (++hurtCount  % 2 == 0)
-            {
-                AddReward(-0.8f);
-            }
+            //if (++hurtCount  % 2 == 0)
+            //{
+            //    AddReward(-0.8f);
+            //}
         }
     }
 

@@ -12,21 +12,28 @@ public class Weapon : MonoBehaviour
     public bool isHit = false;
     public bool IsAttack = false;
     public float ffPenalty = 0.3f;
-    private int attackCount = 0;
+    //private int attackCount = 0;
+    public float rewardRatio = 0;
+    private int damage = 0;
 
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
         anim = GetComponent<Animator>();
     }
+
     private void OnEnable()
     {
-        attackCount = 0;
+        //attackCount = 0;
     }
 
     private void OnDisable()
     {
-        agent?.AddReward(0.1f * attackCount * GameArgs.attack);
+        if (!GameArgs.IsDense && damage != 0)
+        {
+            agent?.AddReward(rewardRatio * (damage / 100f) * GameArgs.attack);
+            Debug.Log(rewardRatio * (damage / 100f) * GameArgs.attack);
+        }
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -40,29 +47,20 @@ public class Weapon : MonoBehaviour
                     //Debug.Log("great");
                     //agent.count = 0;
                     isHit = true;
-                    DamageReward();
+                    if (GameArgs.IsDense) agent.AddReward(1);
+                    damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
                 else
                 {
                     //Debug.Log("Dont'hurt, you are his frend");
+                    damage -= attackPower;
                     if (GameArgs.IsDense) agent.AddReward(-ffPenalty);
                 }
             }
+
         }
     }
-
-    private void DamageReward()
-    {
-        if (GameArgs.IsDense)
-        {
-            agent.AddReward(1);
-        }
-        else
-        {
-            attackCount++;
-        }
-    } 
 
     public void SetAttackState(int state)
     {

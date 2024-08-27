@@ -83,6 +83,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   attackPower: 25
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
+  rewardRatio: 0.8
 --- !u!1 &5478056278680019206
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class WarriorAgent : ClassAgent
         base.Awake();
         sword = GetComponentInChildren<Sword>();
         accelerate = GetComponentInChildren<Accelerate>();
+        penaltyRatio = 0.5f;
     }
 
     private void Update()

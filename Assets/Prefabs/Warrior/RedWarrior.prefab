@@ -147,7 +147,6 @@ MonoBehaviour:
   currentHealth: 100
   team: 1
   profession: 0
-  count: 0
 --- !u!114 &3427260092468783777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +185,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182752182871103305}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.7970538
   m_Height: 2.7872844
