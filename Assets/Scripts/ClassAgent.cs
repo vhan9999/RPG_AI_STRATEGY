@@ -106,6 +106,7 @@ public class ClassAgent : Agent
     public override void OnEpisodeBegin()
     {
         isDead = false;
+        Debug.Log("reset health");
         currentHealth = health;
     }
 
@@ -223,7 +224,12 @@ public class ClassAgent : Agent
         }
         else
         {
+<<<<<<< Updated upstream
             if ((hpPct > 75f && hpPct - damage <= 75f) || (hpPct > 50f && hpPct - damage <= 50f))
+=======
+            hurtCount++;
+            if (hurtCount % 2 == 0) //2
+>>>>>>> Stashed changes
             {
                AddReward(-0.4f);
             }

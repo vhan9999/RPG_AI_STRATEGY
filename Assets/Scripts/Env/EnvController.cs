@@ -94,20 +94,21 @@ public class EnvController : MonoBehaviour
             {
                 m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
                 m_RedAgentGroup.AddGroupReward(1);
-                m_BlueAgentGroup.EndGroupEpisode();
-                m_RedAgentGroup.EndGroupEpisode();
             }
+            m_BlueAgentGroup.EndGroupEpisode();
+            m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
             if (GameArgs.IsDense)
             {
+                Debug.Log("BlueWin");
                 m_BlueAgentGroup.AddGroupReward(1);
                 m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
-                m_BlueAgentGroup.EndGroupEpisode();
-                m_RedAgentGroup.EndGroupEpisode();
             }
+            m_BlueAgentGroup.EndGroupEpisode();
+            m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
         }
     }
@@ -131,6 +132,7 @@ public class EnvController : MonoBehaviour
     {
         foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
         {
+            Debug.Log("LoadFixedScene");
             item.Agent.gameObject.SetActive(false);
             item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;

@@ -20,7 +20,6 @@ public class Weapon : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        Debug.Log(attackPower);
         if (IsAttack)
         {
             if (other.TryGetComponent(out ClassAgent otherAgent))

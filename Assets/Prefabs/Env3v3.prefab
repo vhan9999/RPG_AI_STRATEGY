@@ -206,6 +206,7 @@ MonoBehaviour:
   currentHealth: 80
   team: 0
   profession: 1
+  count: 0
 --- !u!114 &4705721317879399826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,6 +882,7 @@ MonoBehaviour:
   currentHealth: 80
   team: 0
   profession: 1
+  count: 0
 --- !u!114 &5796804194360948515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,6 +1310,7 @@ MonoBehaviour:
   currentHealth: 120
   team: 0
   profession: 2
+  count: 0
 --- !u!114 &5876962863566642641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2211,6 +2214,7 @@ MonoBehaviour:
   currentHealth: 100
   team: 1
   profession: 0
+  count: 0
 --- !u!114 &1148828182878388321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4507,7 +4511,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 0
+  attackPower: 25
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
 --- !u!1 &6812081866832776434
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,6 +4661,7 @@ MonoBehaviour:
   currentHealth: 100
   team: 0
   profession: 0
+  count: 0
 --- !u!114 &5317886958902909244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4812,6 +4820,7 @@ MonoBehaviour:
   currentHealth: 120
   team: 1
   profession: 2
+  count: 0
 --- !u!114 &1800228509367863486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5112,7 +5121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 0
+  attackPower: 25
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
 --- !u!1 &7421445976126953589
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,7 +5373,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 0
+  attackPower: 30
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
   IsAllowedWhirlwind: 0
 --- !u!1 &7781776651233984209
 GameObject:
@@ -5701,7 +5716,6 @@ GameObject:
   - component: {fileID: 7286598188494129163}
   - component: {fileID: 4720891223534909828}
   - component: {fileID: 6327282106616141367}
-  - component: {fileID: 1800228509150303116}
   m_Layer: 0
   m_Name: Battleaxe
   m_TagString: Untagged
@@ -5772,22 +5786,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 0
-  IsAllowedWhirlwind: 0
---- !u!114 &1800228509150303116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8000825021983971076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c44af465a6d2a1b4aa76ae8e085f1bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  attackPower: 0
+  attackPower: 30
+  isHit: 0
+  IsAttack: 0
+  ffPenalty: 0.3
   IsAllowedWhirlwind: 0
 --- !u!1 &8012257042480517276
 GameObject:
