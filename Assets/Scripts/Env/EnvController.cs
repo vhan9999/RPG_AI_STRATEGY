@@ -22,7 +22,7 @@ public class EnvController : MonoBehaviour
     }
 
     //Max Academy steps before this platform resets
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 8000;
+    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 3000;
 
     //List of Agents On Platform
     private List<PlayerInfo> blueAgentsList = new List<PlayerInfo>();
@@ -70,6 +70,10 @@ public class EnvController : MonoBehaviour
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
+            if (GameArgs.attack >= 1.2f)
+                GameArgs.attack -= 0.0001f;
+            if (GameArgs.hurt <= 1f)
+                GameArgs.hurt += 0.0001f;
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();
             ResetScene();
@@ -80,12 +84,12 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
-            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(0.3f / teamNum);
+            if (!GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / teamNum);
             blueDeadCount++;
         }
         else
         {
-            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(0.3f / teamNum);
+            if (!GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / teamNum);
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
@@ -168,3 +172,4 @@ public class EnvController : MonoBehaviour
         }
     }
 }
+

@@ -28,6 +28,8 @@ public class ClassAgent : Agent
     private int rotateDir = 0;
     private bool isDead = false;
 
+    //private int hurtCount = 0;
+
     //health
     public int health;
     public int currentHealth;
@@ -38,6 +40,8 @@ public class ClassAgent : Agent
     protected BehaviorParameters bp;
     protected EnvController envController;
     protected Rigidbody rb;
+
+    protected float penaltyRatio = 1f;
 
     //init
     private Vector3 initPosition;
@@ -51,7 +55,10 @@ public class ClassAgent : Agent
     protected float backSpeedMult = 0.5f;
 
     public float hpPct => (float)currentHealth / health * 100;
-    public int count = 0;
+
+    [HideInInspector]
+    public int damage = 0;
+    public float rewardRatio;
 
     protected virtual void Awake()
     {
@@ -88,6 +95,17 @@ public class ClassAgent : Agent
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        //hurtCount = 0;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+    }
+
     protected virtual void SpeedAdjust()
     {
         
@@ -106,7 +124,6 @@ public class ClassAgent : Agent
     public override void OnEpisodeBegin()
     {
         isDead = false;
-        Debug.Log("reset health");
         currentHealth = health;
     }
 
@@ -145,14 +162,14 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        if (!GameArgs.IsDense)
-        {
-            if (++count >= 2000)
-            {
-                AddReward(-0.2f);
-                count = 0;
-            }
-        }
+        //if (!GameArgs.IsDense)
+        //{
+        //    if (++count >= 5000)
+        //    {
+        //        AddReward(-0.2f);
+        //        count = 0;
+        //    }
+        //}
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -204,13 +221,20 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int damage)
     {
-        //AddReward(-damage * (this is MageAgent ? 0.02f : 0.005f));
+        //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
+        HealthPenalty(damage);
         if (currentHealth <= 0 && !isDead)
         {
-            HealthPenalty(damage);
             isDead = true;
+            if (!GameArgs.IsDense)
+            {
+                float reward = Math.Max(rewardRatio * (damage / 100f) * GameArgs.attack, -0.5f) - (penaltyRatio * (1f - (float)currentHealth / health) * GameArgs.hurt);
+                AddReward(reward);
+                Debug.Log(reward);
+                damage = 0;
+            }
             gameObject.SetActive(false);
             envController?.DeadTouch(team);
         }
@@ -224,23 +248,10 @@ public class ClassAgent : Agent
         }
         else
         {
-<<<<<<< Updated upstream
-            if ((hpPct > 75f && hpPct - damage <= 75f) || (hpPct > 50f && hpPct - damage <= 50f))
-=======
-            hurtCount++;
-            if (hurtCount % 2 == 0) //2
->>>>>>> Stashed changes
-            {
-               AddReward(-0.4f);
-            }
-            else if (hpPct > 25f && hpPct - damage <= 25f)
-            {
-                AddReward(-0.6f);
-            }
-            else if (hpPct > 0f && hpPct - damage <= 0f)
-            {
-                AddReward(-0.8f);
-            }
+            //if (++hurtCount  % 2 == 0)
+            //{
+            //    AddReward(-0.8f);
+            //}
         }
     }
 

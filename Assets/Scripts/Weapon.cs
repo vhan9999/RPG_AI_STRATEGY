@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
+using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class Weapon : MonoBehaviour
 {
@@ -11,11 +13,29 @@ public class Weapon : MonoBehaviour
     public bool isHit = false;
     public bool IsAttack = false;
     public float ffPenalty = 0.3f;
+    //private int attackCount = 0;
+    //public float rewardRatio = 0;
+    //protected int damage = 0;
 
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
         anim = GetComponent<Animator>();
+    }
+
+    private void OnEnable()
+    {
+        //attackCount = 0;
+    }
+
+    private void OnDisable()
+    {
+        //if (!GameArgs.IsDense && damage != 0)
+        //{
+        //    agent?.AddReward(Math.Max(rewardRatio * (damage / 100f) * GameArgs.attack, -0.5f));
+        //    Debug.Log(rewardRatio * (damage / 100f) * GameArgs.attack);
+        //    damage = 0;
+        //}
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -27,42 +47,21 @@ public class Weapon : MonoBehaviour
                 if (agent.team != otherAgent.team)
                 {
                     //Debug.Log("great");
-                    agent.count = 0;
+                    //agent.count = 0;
                     isHit = true;
-                    DamageReward();
+                    if (GameArgs.IsDense) agent.AddReward(1);
+                    else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
                 else
                 {
                     //Debug.Log("Dont'hurt, you are his frend");
                     if (GameArgs.IsDense) agent.AddReward(-ffPenalty);
+                    else agent.damage -= attackPower / 3;
                 }
             }
         }
     }
-
-    private void DamageReward()
-    {
-        if (GameArgs.IsDense)
-        {
-            agent.AddReward(1);
-        }
-        else
-        {
-            if ((agent.hpPct > 75f && agent.hpPct - attackPower <= 75f) || (agent.hpPct > 50f && agent.hpPct - attackPower <= 50f))
-            {
-                agent.AddReward(0.5f);
-            }
-            else if (agent.hpPct > 25f && agent.hpPct - attackPower <= 25f)
-            {
-                agent.AddReward(0.8f);
-            }
-            else if (agent.hpPct > 0f && agent.hpPct - attackPower <= 0f)
-            {
-                agent.AddReward(1f);
-            }
-        }
-    } 
 
     public void SetAttackState(int state)
     {
