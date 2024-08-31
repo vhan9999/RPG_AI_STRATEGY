@@ -18,6 +18,7 @@ public class BerserkerAgent : ClassAgent
     {
         base.Awake();
         battleaxe = GetComponentInChildren<Battleaxe>();
+        penaltyRatio = 0.8f;
     }
 
     private void Update()

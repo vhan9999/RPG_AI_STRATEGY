@@ -19,6 +19,7 @@ public class MageAgent : ClassAgent
     {
         base.Awake();
         book = GetComponentInChildren<Book>();
+        penaltyRatio = 1f;
     }
 
     private void Update()

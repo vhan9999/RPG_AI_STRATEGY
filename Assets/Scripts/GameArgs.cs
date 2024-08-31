@@ -1,7 +1,7 @@
 public class GameArgs
 {
     public static bool IsDense = false;
-    public static float attack = 1.5f;
+    public static float attack = 2f;
     public static float hurt = 0.5f;
 }
 

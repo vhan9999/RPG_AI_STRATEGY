@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class Weapon : MonoBehaviour
 {
@@ -12,21 +13,31 @@ public class Weapon : MonoBehaviour
     public bool isHit = false;
     public bool IsAttack = false;
     public float ffPenalty = 0.3f;
-    private int attackCount = 0;
+    //private int attackCount = 0;
+    //public float rewardRatio = 0;
+    //protected int damage = 0;
 
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
         anim = GetComponent<Animator>();
     }
+
     private void OnEnable()
     {
-        attackCount = 0;
+        //attackCount = 0;
     }
+
     private void OnDisable()
     {
-        //agent.AddReward(0.1f * attackCount * GameArgs.attack); 1
+        //if (!GameArgs.IsDense && damage != 0)
+        //{
+        //    agent?.AddReward(Math.Max(rewardRatio * (damage / 100f) * GameArgs.attack, -0.5f));
+        //    Debug.Log(rewardRatio * (damage / 100f) * GameArgs.attack);
+        //    damage = 0;
+        //}
     }
+
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (IsAttack)
@@ -38,34 +49,19 @@ public class Weapon : MonoBehaviour
                     //Debug.Log("great");
                     //agent.count = 0;
                     isHit = true;
-                    DamageReward();
+                    if (GameArgs.IsDense) agent.AddReward(1);
+                    else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
                 else
                 {
                     //Debug.Log("Dont'hurt, you are his frend");
                     if (GameArgs.IsDense) agent.AddReward(-ffPenalty);
+                    else agent.damage -= attackPower / 3;
                 }
             }
         }
     }
-
-    private void DamageReward()
-    {
-        if (GameArgs.IsDense)
-        {
-            agent.AddReward(1);
-        }
-        else
-        {
-            attackCount++;
-            if (attackCount % 2 == 0)
-            {
-                Debug.Log(agent.team + " Hit Twice" + " Add "+ 0.5f * GameArgs.attack);
-                agent.AddReward(0.5f * GameArgs.attack);
-            }
-        }
-    } 
 
     public void SetAttackState(int state)
     {
