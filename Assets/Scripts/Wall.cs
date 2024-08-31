@@ -17,12 +17,12 @@ public class Wall : MonoBehaviour
         }
         else if (other.TryGetComponent(out ClassAgent agent))
         {
-            agent.TakeDamage(200);
-            agent.AddReward(-0.2f);
+            //agent.TakeDamage(200);
+            //agent.AddReward(-0.2f);
         }
         else if (other.TryGetComponent(out Weapon weapon))
         {
-            weapon.agent.AddReward(-1f);
+            //weapon.agent.AddReward(-1f);
         }
     }
 }

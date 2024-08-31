@@ -41,7 +41,7 @@ public class ClassAgent : Agent
     protected EnvController envController;
     protected Rigidbody rb;
 
-    protected float penaltyRatio;
+    protected float penaltyRatio = 1f;
 
     //init
     private Vector3 initPosition;
@@ -55,6 +55,10 @@ public class ClassAgent : Agent
     protected float backSpeedMult = 0.5f;
 
     public float hpPct => (float)currentHealth / health * 100;
+
+    [HideInInspector]
+    public int damage = 0;
+    public float rewardRatio;
 
     protected virtual void Awake()
     {
@@ -100,11 +104,6 @@ public class ClassAgent : Agent
     protected override void OnDisable()
     {
         base.OnDisable();
-        if (!GameArgs.IsDense)
-        {
-            AddReward(-penaltyRatio * (1 - (float)currentHealth / health) * GameArgs.hurt);
-            Debug.Log(-penaltyRatio * (1 - (float)currentHealth / health) * GameArgs.hurt);
-        }
     }
 
     protected virtual void SpeedAdjust()
@@ -222,13 +221,20 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int damage)
     {
-        //AddReward(-damage * (this is MageAgent ? 0.02f : 0.005f));
+        //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
         HealthPenalty(damage);
         if (currentHealth <= 0 && !isDead)
         {
             isDead = true;
+            if (!GameArgs.IsDense)
+            {
+                float reward = Math.Max(rewardRatio * (damage / 100f) * GameArgs.attack, -0.5f) - (penaltyRatio * (1f - (float)currentHealth / health) * GameArgs.hurt);
+                AddReward(reward);
+                Debug.Log(reward);
+                damage = 0;
+            }
             gameObject.SetActive(false);
             envController?.DeadTouch(team);
         }

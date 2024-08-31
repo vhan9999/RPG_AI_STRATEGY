@@ -87,7 +87,7 @@ MonoBehaviour:
   isHit: 0
   IsAttack: 0
   ffPenalty: 0.3
-  rewardRatio: 0.05
+  rewardRatio: 1.2
   speed: 20
   existTime: 10
   moveDir: {x: 0, y: 0, z: 0}

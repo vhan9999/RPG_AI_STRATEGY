@@ -22,7 +22,7 @@ public class EnvController : MonoBehaviour
     }
 
     //Max Academy steps before this platform resets
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 8000;
+    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 3000;
 
     //List of Agents On Platform
     private List<PlayerInfo> blueAgentsList = new List<PlayerInfo>();
