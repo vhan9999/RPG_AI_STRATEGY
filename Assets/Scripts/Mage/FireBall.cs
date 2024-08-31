@@ -15,7 +15,6 @@ public class FireBall : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        ffPenalty = 0.3f;
         IsAttack = true;
     }
     

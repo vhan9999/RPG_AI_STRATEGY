@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2998797774162041268}
   - component: {fileID: 3182492681367632851}
   - component: {fileID: 3109046851960766496}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: BlueMage
   m_TagString: BlueMage
   m_Icon: {fileID: 0}

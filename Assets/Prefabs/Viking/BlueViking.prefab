@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 5949942353296988698}
   - component: {fileID: 6946932901673401595}
   - component: {fileID: 1142081922306740941}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: BlueViking
-  m_TagString: Untagged
+  m_TagString: BlueViking
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,6 +161,8 @@ MonoBehaviour:
   currentHealth: 100
   team: 0
   profession: 5
+  damage: 0
+  rewardRatio: 0
 --- !u!114 &6946932901673401595
 MonoBehaviour:
   m_ObjectHideFlags: 0

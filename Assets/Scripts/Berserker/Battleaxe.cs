@@ -76,13 +76,13 @@ public class Battleaxe : Weapon
                 if (agent.team != otherAgent.team)
                 {
                     isHit = true;
-                    if (GameArgs.IsDense) agent.AddReward(1);
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * (IsCleave ? 0.1f : 0.05f));
                     else agent.damage += IsCleave ? attackPower : 8;
                     otherAgent.TakeDamage(IsCleave ? attackPower : 8);
                 }
                 else
                 {
-                    if (GameArgs.IsDense) agent.AddReward(-ffPenalty);
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f) * (IsCleave ? 1f : 0.2f));
                     else agent.damage -= (IsCleave ? attackPower : 8) / 3;
                 }
             }

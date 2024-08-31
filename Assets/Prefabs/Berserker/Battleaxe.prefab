@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3661488067369971094}
   - component: {fileID: 1606936256893623321}
   - component: {fileID: 1146352554}
-  m_Layer: 0
+  - component: {fileID: 3134963041081847050}
+  m_Layer: 9
   m_Name: Battleaxe
-  m_TagString: BlueBattleaxe
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,8 +86,23 @@ MonoBehaviour:
   attackPower: 30
   isHit: 0
   IsAttack: 0
-  ffPenalty: 0.3
-  rewardRatio: 1
+  IsAllowedWhirlwind: 0
+--- !u!114 &3134963041081847050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091421831883453081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44af465a6d2a1b4aa76ae8e085f1bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  attackPower: 0
+  isHit: 0
+  IsAttack: 0
   IsAllowedWhirlwind: 0
 --- !u!1 &4992923648748915264
 GameObject:
@@ -99,7 +115,7 @@ GameObject:
   - component: {fileID: 4322403292602538363}
   - component: {fileID: 1381318351597314097}
   - component: {fileID: 2454135903154373797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

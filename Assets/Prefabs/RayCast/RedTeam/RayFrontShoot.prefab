@@ -49,13 +49,14 @@ MonoBehaviour:
   - Wall
   - BlueMagicMissle
   - BlueFireBall
+  - BlueArrow
   m_RaysPerDirection: 6
   m_MaxRayDegrees: 80
   m_SphereCastRadius: 0.5
   m_RayLength: 45
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 3072
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}

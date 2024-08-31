@@ -13,7 +13,6 @@ public class MagicMissile : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        ffPenalty = 0.1f;
         IsAttack = true;
     }
 

@@ -224,34 +224,19 @@ public class ClassAgent : Agent
         //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
-        HealthPenalty(damage);
         if (currentHealth <= 0 && !isDead)
         {
             isDead = true;
             if (!GameArgs.IsDense)
             {
-                float reward = Math.Max(rewardRatio * (damage / 100f) * GameArgs.attack, -0.5f) - (penaltyRatio * (1f - (float)currentHealth / health) * GameArgs.hurt);
+                float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f) 
+                                     - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
                 AddReward(reward);
                 Debug.Log(reward);
                 damage = 0;
             }
             gameObject.SetActive(false);
             envController?.DeadTouch(team);
-        }
-    }
-
-    private void HealthPenalty(int damage)
-    {
-        if (GameArgs.IsDense)
-        {
-            AddReward(-1);
-        }
-        else
-        {
-            //if (++hurtCount  % 2 == 0)
-            //{
-            //    AddReward(-0.8f);
-            //}
         }
     }
 

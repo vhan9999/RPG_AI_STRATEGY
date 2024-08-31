@@ -7,15 +7,7 @@ public class Wall : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent(out FireBall fireball))
-        {
-            ObjectPool<FireBall>.Instance.Recycle(fireball);
-        }
-        else if (other.TryGetComponent(out MagicMissile magicMissile))
-        {
-            ObjectPool<MagicMissile>.Instance.Recycle(magicMissile);
-        }
-        else if (other.TryGetComponent(out ClassAgent agent))
+        if (other.TryGetComponent(out ClassAgent agent))
         {
             //agent.TakeDamage(200);
             //agent.AddReward(-0.2f);

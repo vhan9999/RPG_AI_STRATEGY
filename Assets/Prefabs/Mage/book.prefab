@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2809189749696316526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireBallCast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7519109695828086460}
   - component: {fileID: 6448174242292066856}
   - component: {fileID: 4788966403495442936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4483401925487453389}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.046, y: -0.232, z: 1.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3081671475260835900}
   - component: {fileID: 5120506869827503444}
   - component: {fileID: 1408184543028990009}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireBallCast
   m_TagString: Untagged
   m_Icon: {fileID: 0}

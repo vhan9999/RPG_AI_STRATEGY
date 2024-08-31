@@ -12,7 +12,6 @@ public class Weapon : MonoBehaviour
     public int attackPower;
     public bool isHit = false;
     public bool IsAttack = false;
-    public float ffPenalty = 0.3f;
     //private int attackCount = 0;
     //public float rewardRatio = 0;
     //protected int damage = 0;
@@ -49,16 +48,20 @@ public class Weapon : MonoBehaviour
                     //Debug.Log("great");
                     //agent.count = 0;
                     isHit = true;
-                    if (GameArgs.IsDense) agent.AddReward(1);
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f);
                     else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
                 else
                 {
                     //Debug.Log("Dont'hurt, you are his frend");
-                    if (GameArgs.IsDense) agent.AddReward(-ffPenalty);
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f));
                     else agent.damage -= attackPower / 3;
                 }
+            }
+            else if(other.TryGetComponent(out Wall wall))
+            {
+                isHit = true;
             }
         }
     }
