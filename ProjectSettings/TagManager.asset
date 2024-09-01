@@ -6,14 +6,10 @@ TagManager:
   tags:
   - Wall
   - BlueTeam
-  - OrangeTeam
   - BlueSword
-  - OrangeSword
   - Character
-  - Sword
   - Blood
   - BlueBerserker
-  - BlueBattleaxe
   - BlueMage
   - BlueFireBall
   - BlueWarrior
@@ -21,15 +17,16 @@ TagManager:
   - RedMage
   - RedArcher
   - RedWarrior
-  - RedSword
   - RedBerserker
-  - RedBattleaxe
   - RedMagicMissle
   - BlueMagicMissle
-  - RedBigAxe
   - BlueArrow
   - BlueArcher
   - RedFireBall
+  - RedBigAxe
+  - BlueViking
+  - RedViking
+  - BlueBattleaxe
   layers:
   - Default
   - TransparentFX
@@ -37,12 +34,12 @@ TagManager:
   - floor
   - Water
   - UI
-  - Arrows
   - 
-  - 
-  - 
-  - 
-  - 
+  - RedTeam
+  - BlueTeam
+  - Weapon
+  - Shoot
+  - Env
   - 
   - 
   - 

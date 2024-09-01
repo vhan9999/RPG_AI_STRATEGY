@@ -21,6 +21,7 @@ public class Battleaxe : Weapon
 
     private void OnEnable()
     {
+        IsAttack = false;
         IsWhirlwind = false;
         IsAllowedWhirlwind = false;
         CancelInvoke("EnableWhirlwind");
@@ -40,8 +41,9 @@ public class Battleaxe : Weapon
     {
         if (IsAllowedWhirlwind)
         {
-            agent.AddReward(-0.3f);
+            if (GameArgs.IsDense) agent.AddReward(-0.3f);
             IsCleave = false;
+            IsAttack = true;
             IsWhirlwind = true;
             IsAllowedWhirlwind = false;
             Invoke("StopWhirlwind", 3f);
@@ -55,6 +57,7 @@ public class Battleaxe : Weapon
 
     public void StopWhirlwind()
     {
+        IsAttack = false;
         IsWhirlwind = false;
         Invoke("EnableWhirlwind", 15f);
     }
@@ -66,26 +69,23 @@ public class Battleaxe : Weapon
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (IsAttack || IsWhirlwind)
+        if (IsAttack)
         {
             if (other.TryGetComponent(out ClassAgent otherAgent))
             {
                 if (agent.team != otherAgent.team)
                 {
-                    //Debug.Log("great");
-                    //agent.AddReward(IsCleave ? 1f : 0.3f);
+                    isHit = true;
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * (IsCleave ? 0.1f : 0.05f));
+                    else agent.damage += IsCleave ? attackPower : 8;
                     otherAgent.TakeDamage(IsCleave ? attackPower : 8);
                 }
                 else
                 {
-                   //Debug.Log("Dont'hurt, you are his frend");
-                   //agent.AddReward(IsCleave ? -0.3f : -0.1f);
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f) * (IsCleave ? 1f : 0.2f));
+                    else agent.damage -= (IsCleave ? attackPower : 8) / 3;
                 }
             }
-            //else if (other.TryGetComponent(out Wall wall))
-            //{
-            //    agent.AddReward(IsCleave ? -0.3f : -0.1f);
-            //}
         }
     }
 }

@@ -23,7 +23,7 @@ public class EnvController : MonoBehaviour
     }
 
     //Max Academy steps before this platform resets
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 8000;
+    [Tooltip("Max Environment Steps")] private int MaxEnvironmentSteps = 5000;  
 
     //List of Agents On Platform
     private List<PlayerInfo> blueAgentsList = new List<PlayerInfo>();
@@ -84,9 +84,9 @@ public class EnvController : MonoBehaviour
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
-            if (GameArgs.attack >= 0.8f)
+            if (GameArgs.attack >= 0.5f)
                 GameArgs.attack -= 0.0001f;
-            if (GameArgs.hurt <= 0.7f)
+            if (GameArgs.hurt <= 1.5f)
                 GameArgs.hurt += 0.0001f;
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();
@@ -110,24 +110,25 @@ public class EnvController : MonoBehaviour
         }
         if (blueDeadCount == teamNum)
         {
-            if (GameArgs.IsDense)
+            if (!GameArgs.IsDense)
             {
                 m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
-                m_RedAgentGroup.AddGroupReward(1);
-                m_BlueAgentGroup.EndGroupEpisode();
-                m_RedAgentGroup.EndGroupEpisode();
+                m_RedAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
             }
+            m_BlueAgentGroup.EndGroupEpisode();
+            m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
-            if (GameArgs.IsDense)
+            if (!GameArgs.IsDense)
             {
-                m_BlueAgentGroup.AddGroupReward(1);
+                Debug.Log("BlueWin");
+                m_BlueAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
                 m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
-                m_BlueAgentGroup.EndGroupEpisode();
-                m_RedAgentGroup.EndGroupEpisode();
             }
+            m_BlueAgentGroup.EndGroupEpisode();
+            m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
         }
     }
@@ -151,6 +152,7 @@ public class EnvController : MonoBehaviour
     {
         foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
         {
+            Debug.Log("LoadFixedScene");
             item.Agent.gameObject.SetActive(false);
             item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;

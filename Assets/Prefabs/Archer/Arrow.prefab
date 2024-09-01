@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5700436927588994146}
   - component: {fileID: 904715879130357936}
   - component: {fileID: 3189296879629224811}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Arrow
   m_TagString: RedArrow
   m_Icon: {fileID: 0}
@@ -127,5 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b9ad59b1394145a5a3bfb45a5d6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 904715879130357936}
   agent: {fileID: 0}
+  attackPower: 0
+  isHit: 0
+  IsAttack: 0
+  rigid: {fileID: 904715879130357936}

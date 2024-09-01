@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1230743708}
   - component: {fileID: 4504582515639459199}
   - component: {fileID: 706239259502787042}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: BlueBerserker
   m_TagString: BlueBerserker
   m_Icon: {fileID: 0}
@@ -115,7 +115,8 @@ MonoBehaviour:
   currentHealth: 120
   team: 0
   profession: 2
-  count: 0
+  damage: 0
+  rewardRatio: 0.8
 --- !u!114 &1230743704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,10 +198,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4108032451258910172}
     m_Modifications:
-    - target: {fileID: 1146352554, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
-      propertyPath: attackPower
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 3714474454319933475, guid: 554bfc942ae7d0e4bb0353b522560b68, type: 3}
       propertyPath: m_RootOrder
       value: 0

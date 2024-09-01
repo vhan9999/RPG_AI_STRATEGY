@@ -147,7 +147,8 @@ MonoBehaviour:
   currentHealth: 100
   team: 1
   profession: 0
-  count: 0
+  damage: 0
+  rewardRatio: 0.8
 --- !u!114 &3427260092468783777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182752182871103305}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.7970538
   m_Height: 2.7872844
@@ -512,10 +513,6 @@ PrefabInstance:
     - target: {fileID: 3569169539208927711, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_Name
       value: Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569169539208927711, guid: ac42f54076755af4181393f511e66604, type: 3}
-      propertyPath: m_TagString
-      value: RedSword
       objectReference: {fileID: 0}
     - target: {fileID: 4234487995425686373, guid: ac42f54076755af4181393f511e66604, type: 3}
       propertyPath: m_RootOrder

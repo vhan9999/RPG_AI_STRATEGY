@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4471556407401029550}
   - component: {fileID: 819146882078798444}
   - component: {fileID: 431763939535413485}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: MagicMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,6 @@ MonoBehaviour:
   attackPower: 10
   isHit: 0
   IsAttack: 0
-  ffPenalty: 0.3
   speed: 10
   existTime: 2.5
   moveDir: {x: 0, y: 0, z: 0}

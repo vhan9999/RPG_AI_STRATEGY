@@ -27,8 +27,8 @@ public class ClassAgent : Agent
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
     private bool isDead = false;
-    private int hurtCount = 0;
 
+    //private int hurtCount = 0;
 
     //health
     public int health;
@@ -40,6 +40,8 @@ public class ClassAgent : Agent
     protected BehaviorParameters bp;
     protected EnvController envController;
     protected Rigidbody rb;
+
+    protected float penaltyRatio = 1f;
 
     //init
     private Vector3 initPosition;
@@ -54,6 +56,10 @@ public class ClassAgent : Agent
 
     public float hpPct => (float)currentHealth / health * 100;
 
+    [HideInInspector]
+    public int damage = 0;
+    public float rewardRatio;
+
     protected virtual void Awake()
     {
         bp = GetComponent<BehaviorParameters>();
@@ -61,7 +67,6 @@ public class ClassAgent : Agent
         team = (Team)bp.TeamId;
         rb = GetComponent<Rigidbody>();
     }
-
     private void Start()
     {
         envController = GetComponentInParent<EnvController>();
@@ -93,13 +98,14 @@ public class ClassAgent : Agent
     protected override void OnEnable()
     {
         base.OnEnable();
-        hurtCount = 0;
+        //hurtCount = 0;
     }
+
     protected override void OnDisable()
     {
         base.OnDisable();
-        AddReward(-0.08f * hurtCount * GameArgs.hurt);
     }
+
     protected virtual void SpeedAdjust()
     {
         
@@ -156,6 +162,14 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        //if (!GameArgs.IsDense)
+        //{
+        //    if (++count >= 5000)
+        //    {
+        //        AddReward(-0.2f);
+        //        count = 0;
+        //    }
+        //}
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -207,33 +221,22 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int damage)
     {
-        //AddReward(-damage * (this is MageAgent ? 0.02f : 0.005f));
+        //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
-        hurtCount++;
-        HealthPenalty();
         if (currentHealth <= 0 && !isDead)
         {
-            //Debug.Log(team+" Dead");
             isDead = true;
+            if (!GameArgs.IsDense)
+            {
+                float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f) 
+                                     - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
+                AddReward(reward);
+                Debug.Log(reward);
+                damage = 0;
+            }
             gameObject.SetActive(false);
             envController?.DeadTouch(team);
-        }
-    }
-
-    private void HealthPenalty()
-    {
-        if (GameArgs.IsDense)
-        {
-            AddReward(-1);
-        }
-        else
-        {
-            if (hurtCount % 2 == 0)
-            {
-                //Debug.Log("Hurt");
-                AddReward(-0.5f*GameArgs.hurt);
-            }
         }
     }
 

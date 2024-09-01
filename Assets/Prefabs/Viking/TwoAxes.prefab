@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5888034816389711121}
   - component: {fileID: 2707134450298470945}
   - component: {fileID: 6923061431324476591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6235606925989498356}
   - component: {fileID: 2901194289622822913}
   - component: {fileID: 5571757304090743180}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 1127683472141062988}
   - component: {fileID: 4229443559771766646}
   - component: {fileID: 714144193823275582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1020714829751626182}
   - component: {fileID: 6932601841502211984}
   - component: {fileID: 3420080166140384123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 3945362486257220493}
   - component: {fileID: 1488407761897784948}
   - component: {fileID: 3727308304446261351}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TwoAxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,4 +359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 0
+  attackPower: 10
+  isHit: 0
+  IsAttack: 0
