@@ -50,6 +50,7 @@ public class Weapon : MonoBehaviour
                     isHit = true;
                     if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f);
                     else agent.damage += attackPower;
+                    Debug.Log("Hit");
                     otherAgent.TakeDamage(attackPower);
                 }
                 else
