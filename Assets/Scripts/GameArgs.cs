@@ -18,7 +18,7 @@ public class GameArgs
                 return 1f;
         }
     }
-    public static bool IsDense = false;
+    public static bool IsDense = true;
     public static float attack = 1.5f;
     public static float hurt = 0.5f;
 
