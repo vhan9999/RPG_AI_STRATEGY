@@ -219,6 +219,20 @@ public class ClassAgent : Agent
 
     }
 
+    public void GameOver()
+    {
+        isDead = true;
+        if (!GameArgs.IsDense)
+        {
+            float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f)
+            - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
+            AddReward(reward);
+            Debug.Log(reward);
+            damage = 0;
+        }
+        gameObject.SetActive(false);
+    }
+
     public void TakeDamage(int damage)
     {
         //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
@@ -226,16 +240,7 @@ public class ClassAgent : Agent
         currentHealth -= damage;
         if (currentHealth <= 0 && !isDead)
         {
-            isDead = true;
-            if (!GameArgs.IsDense)
-            {
-                float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f) 
-                                     - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
-                AddReward(reward);
-                Debug.Log(reward);
-                damage = 0;
-            }
-            gameObject.SetActive(false);
+            GameOver();
             envController?.DeadTouch(team);
         }
     }

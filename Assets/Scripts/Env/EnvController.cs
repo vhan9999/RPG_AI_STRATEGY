@@ -22,7 +22,7 @@ public class EnvController : MonoBehaviour
     }
 
     //Max Academy steps before this platform resets
-    [Tooltip("Max Environment Steps")] private int MaxEnvironmentSteps = 5000;  
+    [Tooltip("Max Environment Steps")] private int MaxEnvironmentSteps = 3000;  
 
     //List of Agents On Platform
     private List<PlayerInfo> blueAgentsList = new List<PlayerInfo>();
@@ -137,7 +137,7 @@ public class EnvController : MonoBehaviour
         foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
         {
             Debug.Log("LoadFixedScene");
-            item.Agent.gameObject.SetActive(false);
+            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
             item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;
             item.Agent.transform.rotation = item.StartingRot;
@@ -151,7 +151,7 @@ public class EnvController : MonoBehaviour
 
         foreach (PlayerInfo item in blueAgentsList)
         {
-            item.Agent.gameObject.SetActive(false);
+            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
             item.Agent.gameObject.SetActive(true);
             int randomNum = Random.Range(0, blueIndexList.Count);
             int pos = blueIndexList[randomNum];
@@ -162,7 +162,7 @@ public class EnvController : MonoBehaviour
 
         foreach (PlayerInfo item in redAgentsList)
         {
-            item.Agent.gameObject.SetActive(false);
+            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
             item.Agent.gameObject.SetActive(true);
             int randomNum = Random.Range(0, redIndexList.Count);
             int pos = redIndexList[randomNum];
