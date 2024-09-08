@@ -18,24 +18,24 @@ public class GameArgs
                 return 1f;
         }
     }
-    public static bool IsDense = true;
-    public static float attack = 1.5f;
+    public static bool IsDense = false;
+    public static float attack = 2f;
     public static float hurt = 0.5f;
 
     public static float warriorAttackRatio = 2f;
     public static float warriorHurtRatio = 0.1f;
 
-    public static float berserkerAttackRatio = 1.2f;
-    public static float berserkerHurtRatio = 0.3f;
+    public static float berserkerAttackRatio = 1.8f;
+    public static float berserkerHurtRatio = 0.1f;
 
-    public static float mageAttackRatio = 1f;
-    public static float mageHurtRatio = 3f;
+    public static float mageAttackRatio = 1.2f;
+    public static float mageHurtRatio = 0.3f;
 
-    public static float archerAttackRatio = 1f;
-    public static float archerHurtRatio = 3f;
+    public static float archerAttackRatio = 1.2f;
+    public static float archerHurtRatio = 0.3f;
 
-    public static float vikingAttackRatio = 1f;
-    public static float vikingHurtRatio = 0.3f;
+    public static float vikingAttackRatio = 1.8f;
+    public static float vikingHurtRatio = 0.1f;
 }
 
 
