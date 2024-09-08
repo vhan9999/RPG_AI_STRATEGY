@@ -10,6 +10,11 @@ public class Arrow : Weapon
 
     private int damage;
 
+    private void Start()
+    {
+        IsAttack = true;
+    }
+
     private void OnEnable()
     {
         ResetArrow();
@@ -38,11 +43,15 @@ public class Arrow : Weapon
     protected override void OnTriggerEnter(Collider other)
     {
         attackPower = damage;
-        base.OnTriggerEnter(other);
-        if (isHit) ObjectPool<Arrow>.Instance.Recycle(this);
+        GameArgs.archerAttackRatio = attackPower;
 
-        rigid.velocity = Vector3.zero;
-        rigid.angularVelocity = Vector3.zero;
-        rigid.isKinematic = true;
+        base.OnTriggerEnter(other);
+        if (isHit)
+        {
+            ObjectPool<Arrow>.Instance.Recycle(this);
+            rigid.velocity = Vector3.zero;
+            rigid.angularVelocity = Vector3.zero;
+            rigid.isKinematic = true;
+        }
     }
 }

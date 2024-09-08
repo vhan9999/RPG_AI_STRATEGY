@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2016033759746520196}
   - component: {fileID: 3089432119865364496}
   - component: {fileID: -1543594343689422367}
-  - component: {fileID: -4517784262080742757}
   - component: {fileID: 8443385935878427383}
   - component: {fileID: 6348116937799620967}
   - component: {fileID: 6191277983067919532}
+  - component: {fileID: 3648595334813799575}
   m_Layer: 8
   m_Name: "\u0E3ABlueArcher"
   m_TagString: BlueArcher
@@ -108,19 +108,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &-4517784262080742757
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5592173484569452277}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.1, z: 1.2}
-  m_Center: {x: 0, y: 0.24999997, z: 0}
 --- !u!114 &8443385935878427383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +178,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!136 &3648595334813799575
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592173484569452277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7425113
+  m_Height: 2.6621222
+  m_Direction: 1
+  m_Center: {x: 0.026347995, y: 0.38763404, z: 0}
 --- !u!1001 &858214517503315514
 PrefabInstance:
   m_ObjectHideFlags: 0

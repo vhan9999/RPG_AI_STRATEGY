@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7773819305099233594}
   - component: {fileID: 5949942353296988698}
   - component: {fileID: 6946932901673401595}
-  - component: {fileID: 1142081922306740941}
+  - component: {fileID: 45119162364878258}
   m_Layer: 7
   m_Name: RedViking
   m_TagString: RedViking
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Viking
-  TeamId: 0
+  TeamId: 1
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   rotateSpeed: 150
   health: 100
   currentHealth: 100
-  team: 0
+  team: 1
   profession: 5
   damage: 0
   rewardRatio: 0
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!65 &1142081922306740941
-BoxCollider:
+--- !u!136 &45119162364878258
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -187,9 +187,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.094155, z: 1.2}
-  m_Center: {x: 0, y: 0.24707758, z: 0}
+  m_Radius: 0.7970538
+  m_Height: 2.7872844
+  m_Direction: 1
+  m_Center: {x: -0.02911663, y: 0.4063578, z: -0.05404657}
 --- !u!1001 &1884145783243307716
 PrefabInstance:
   m_ObjectHideFlags: 0
