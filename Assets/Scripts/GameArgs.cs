@@ -35,7 +35,7 @@ public class GameArgs
     public static float archerHurtRatio = 3f;
 
     public static float vikingAttackRatio = 1f;
-    public static float vikingHurtRatio = 0.6f;
+    public static float vikingHurtRatio = 0.3f;
 }
 
 

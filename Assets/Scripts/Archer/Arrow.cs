@@ -9,10 +9,12 @@ public class Arrow : Weapon
     private Rigidbody rigid;
 
     private int damage;
+
     private void Start()
     {
         IsAttack = true;
     }
+
     private void OnEnable()
     {
         ResetArrow();
@@ -44,9 +46,12 @@ public class Arrow : Weapon
         GameArgs.archerAttackRatio = attackPower;
 
         base.OnTriggerEnter(other);
-        if (isHit) ObjectPool<Arrow>.Instance.Recycle(this);
-        rigid.velocity = Vector3.zero;
-        rigid.angularVelocity = Vector3.zero;
-        rigid.isKinematic = true;
+        if (isHit)
+        {
+            ObjectPool<Arrow>.Instance.Recycle(this);
+            rigid.velocity = Vector3.zero;
+            rigid.angularVelocity = Vector3.zero;
+            rigid.isKinematic = true;
+        }
     }
 }
