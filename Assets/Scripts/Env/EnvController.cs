@@ -70,10 +70,10 @@ public class EnvController : MonoBehaviour
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
-            if (GameArgs.attack >= 0.5f)
-                GameArgs.attack -= 0.0001f;
-            if (GameArgs.hurt <= 1.5f)
-                GameArgs.hurt += 0.0001f;
+            //if (GameArgs.attack >= 0.5f)
+            //    GameArgs.attack -= 0.0001f;
+            //if (GameArgs.hurt <= 1.5f)
+            //    GameArgs.hurt += 0.0001f;
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();
             ResetScene();
@@ -136,7 +136,7 @@ public class EnvController : MonoBehaviour
     {
         foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
         {
-            Debug.Log("LoadFixedScene");
+            //Debug.Log("LoadFixedScene");
             item.Agent.gameObject.SetActive(false);
             item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;

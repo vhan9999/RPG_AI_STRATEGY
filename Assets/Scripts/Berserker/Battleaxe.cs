@@ -82,6 +82,7 @@ public class Battleaxe : Weapon
                 }
                 else
                 {
+
                     if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f) * (IsCleave ? 1f : 0.2f));
                     else agent.damage -= (IsCleave ? attackPower : 8) / 3;
                 }

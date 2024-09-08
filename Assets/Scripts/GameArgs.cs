@@ -18,12 +18,12 @@ public class GameArgs
                 return 1f;
         }
     }
-    public static bool IsDense = false;
-    public static float attack = 1.5f;
-    public static float hurt = 0.5f;
+    public static bool IsDense = true;
+    public static float attack = 2f;
+    public static float hurt = 1f;
 
-    public static float warriorAttackRatio = 1f;
-    public static float warriorHurtRatio = 0.7f;
+    public static float warriorAttackRatio = 1.5f; // agent attack
+    public static float warriorHurtRatio = 0.7f; // get hit (penalty)
 
     public static float berserkerAttackRatio = 1.2f;
     public static float berserkerHurtRatio = 0.4f;
