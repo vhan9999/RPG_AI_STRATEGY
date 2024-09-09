@@ -52,7 +52,8 @@ public enum Profession
     Berserker,
     Lancer,
     Archer,
-    Viking
+    Viking,
+    Tank
 }
 
 public enum RewardType

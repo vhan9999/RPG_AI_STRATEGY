@@ -27,6 +27,8 @@ TagManager:
   - BlueViking
   - RedViking
   - BlueBattleaxe
+  - RedTank
+  - BlueTank
   layers:
   - Default
   - TransparentFX

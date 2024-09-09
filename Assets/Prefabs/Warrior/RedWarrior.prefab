@@ -200,6 +200,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8952992619469440114}
     m_Modifications:
+    - target: {fileID: 1924928602369804579, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924928602369804579, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
+      propertyPath: m_DetectableTags.Array.data[6]
+      value: BlueTank
+      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
       propertyPath: m_Name
       value: RayFrontEnemy
@@ -262,6 +270,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8952992619469440114}
     m_Modifications:
+    - target: {fileID: 1924928602369804579, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924928602369804579, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
+      propertyPath: m_DetectableTags.Array.data[6]
+      value: RedTank
+      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
       propertyPath: m_Name
       value: RayFrontTeam

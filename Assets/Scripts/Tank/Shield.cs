@@ -6,26 +6,26 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
 
-public class Sword : Weapon
+public class Shield : Weapon
 {
-    public bool IsSlash
+    public bool IsPush
     {
-        get => anim.GetBool("isSlash");
-        set => anim.SetBool("isSlash", value);
+        get => anim.GetBool("isPush");
+        set => anim.SetBool("isPush", value);
     }
 
-    public void Slash()
+    public void Push()
     {
-        if (!IsSlash)
+        if (!IsPush)
         {
             if (GameArgs.IsDense) agent.AddReward(-0.2f);
-            IsSlash = true;
+            IsPush = true;
         }
     }
 
-    public void ResetSlash()
+    public void ResetPush()
     {
-        Debug.Log("Reset Slash");
-        IsSlash = false;
+        Debug.Log("Reset Push");
+        IsPush = false;
     }
 }
