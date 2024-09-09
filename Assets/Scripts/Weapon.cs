@@ -48,16 +48,16 @@ public class Weapon : MonoBehaviour
                     //Debug.Log("great");
                     //agent.count = 0;
                     isHit = true;//+1
-                    //GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f
-                    if (GameArgs.IsDense) agent.AddReward(1);
+                    //
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f);
                     else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
                 else
                 {
                     //Debug.Log("Dont'hurt, you are his frend"); -1
-                    //-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f)
-                    if (GameArgs.IsDense) agent.AddReward(-1);
+                    //
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f));
                     else agent.damage -= attackPower / 3;
                 }
             }
