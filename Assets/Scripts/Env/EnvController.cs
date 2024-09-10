@@ -34,6 +34,8 @@ public class EnvController : MonoBehaviour
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_RedAgentGroup;
+    private TankAgent redTank;
+    private TankAgent blueTank;
 
     private int m_ResetTimer;
 
@@ -51,12 +53,14 @@ public class EnvController : MonoBehaviour
             {
                 if (agent.team == Team.Blue)
                 {
+                    if(agent is TankAgent) blueTank = agent as TankAgent;
                     blueAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     teamNum++;
                     m_BlueAgentGroup.RegisterAgent(agent);
                 }
                 else
                 {
+                    if (agent is TankAgent) redTank = agent as TankAgent;
                     redAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     m_RedAgentGroup.RegisterAgent(agent);
                 }
@@ -170,6 +174,11 @@ public class EnvController : MonoBehaviour
             item.Agent.transform.localPosition = redAgentsList[pos].StartingPos;
             item.Agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         }
+    }
+
+    public void tankPenalty(Team team)
+    {
+        (team == Team.Red ? redTank : blueTank).AddReward(0.001f);
     }
 }
 

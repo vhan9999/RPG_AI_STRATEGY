@@ -7,17 +7,19 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEditor.Timeline.Actions;
 
 public class TankAgent : ClassAgent
 {
     // weapon
     private Shield shield;
+    private WarCry warcry;
 
     protected override void Awake()
     {
         base.Awake();
         shield = GetComponentInChildren<Shield>();
-        penaltyRatio = 0.5f;
+        warcry = GetComponentInChildren<WarCry>();
     }
 
     private void Update()
@@ -41,5 +43,9 @@ public class TankAgent : ClassAgent
     protected override void AttackAction(int attackAction)
     {
         if (attackAction == 1) shield.Push();
+    }
+    protected override void SkillAction(int skillAction)
+    {
+        if (skillAction == 1) warcry.Execute();
     }
 }

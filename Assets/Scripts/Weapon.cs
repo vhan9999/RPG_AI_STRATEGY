@@ -39,6 +39,11 @@ public class Weapon : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        WeaponTouch(other);
+    }
+
+    public void WeaponTouch(Collider other)
+    {
         if (IsAttack)
         {
             if (other.TryGetComponent(out ClassAgent otherAgent))
@@ -49,7 +54,7 @@ public class Weapon : MonoBehaviour
                     //agent.count = 0;
                     isHit = true;//+1
                     //
-                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f);
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f * (attackPower/25f));
                     else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
@@ -57,11 +62,11 @@ public class Weapon : MonoBehaviour
                 {
                     //Debug.Log("Dont'hurt, you are his frend"); -1
                     //
-                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f));
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f * (attackPower / 25f)));
                     else agent.damage -= attackPower / 3;
                 }
             }
-            else if(other.TryGetComponent(out Wall wall))
+            else if (other.TryGetComponent(out Wall wall))
             {
                 isHit = true;
                 Debug.Log("hit");

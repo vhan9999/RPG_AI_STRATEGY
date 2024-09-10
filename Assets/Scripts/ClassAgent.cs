@@ -41,8 +41,6 @@ public class ClassAgent : Agent
     protected EnvController envController;
     protected Rigidbody rb;
 
-    protected float penaltyRatio = 1f;
-
     //init
     private Vector3 initPosition;
     private Quaternion initRotation;
@@ -87,7 +85,7 @@ public class ClassAgent : Agent
             speed = maxSpeed * sideSpeedMult;
         else
             speed = maxSpeed * forwardSpeedMult;
-        speed = isDizzy ? speed * 0.3f : speed;
+        speed = isDizzy ? speed * 0.2f : speed;
         SpeedAdjust();
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
@@ -233,27 +231,32 @@ public class ClassAgent : Agent
         gameObject.SetActive(false);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int hurt)
     {
         //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
-        currentHealth -= damage;
-        if (GameArgs.IsDense) AddReward(GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.hurt * 0.1f);
+        currentHealth -= hurt;
+        if (GameArgs.IsDense) AddReward(GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.hurt * 0.1f * (hurt/25f));
         if (currentHealth <= 0 && !isDead)
         {
             GameOver();
             envController?.DeadTouch(team);
         }
+
+        if (profession != Profession.Tank)
+            envController.tankPenalty(team);
     }
 
     public void StartDizziness()
     {
         isDizzy = true;
-        Invoke("Recover", 3f);
+        Invoke("Recover", 2f);
     }
 
     public void Recover()
     {
         isDizzy = false;
     }
+
+
 }

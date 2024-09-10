@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
@@ -16,6 +17,7 @@ public class Shield : Weapon
 
     public void Push()
     {
+        
         if (!IsPush)
         {
             if (GameArgs.IsDense) agent.AddReward(-0.2f);
@@ -23,23 +25,29 @@ public class Shield : Weapon
         }
     }
 
-    private void OnCollisionEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Arrow"))
+        if (other.TryGetComponent(out Weapon weapon))
         {
-            Arrow arrow = other.GetComponent<Arrow>();
-            ObjectPool<Arrow>.Instance.Recycle(arrow);
+            if (weapon.IsAttack)
+            {
+                agent.currentHealth += weapon.attackPower / 2;
+                if(GameArgs.IsDense)
+                    agent.AddReward(0.01f);
+            }
         }
-        if (other.gameObject.CompareTag("RedWarrior"))
-        {
-            Debug.Log("hit warrior");
-        }
-        //if (other.gameObject.CompareTag("")
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(!isHit)
+            WeaponTouch(other);
     }
 
     public void ResetPush()
     {
         Debug.Log("Reset Push");
         IsPush = false;
+        isHit = false;
     }
 }

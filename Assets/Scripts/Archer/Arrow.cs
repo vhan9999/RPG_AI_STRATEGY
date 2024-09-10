@@ -8,7 +8,7 @@ public class Arrow : Weapon
     [SerializeField]
     private Rigidbody rigid;
 
-    private int damage;
+    private int arrowDamage;
 
     private void Start()
     {
@@ -36,13 +36,13 @@ public class Arrow : Weapon
     {
         rigid.isKinematic = false;
         rigid.AddForce(force, ForceMode.Impulse);
-        damage = Mathf.Abs((int)force[2]);
+        arrowDamage = Mathf.Abs((int)force[2]);
         //Debug.Log(attackPower);
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
-        attackPower = damage;
+        attackPower = arrowDamage;
         GameArgs.archerAttackRatio = attackPower / 10f;
 
         base.OnTriggerEnter(other);

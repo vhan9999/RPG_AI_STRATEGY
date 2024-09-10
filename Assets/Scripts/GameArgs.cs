@@ -14,6 +14,8 @@ public class GameArgs
                 return rewardType == RewardType.Attack ? archerAttackRatio : archerHurtRatio;
             case Profession.Viking:
                 return rewardType == RewardType.Attack ? vikingAttackRatio : vikingHurtRatio;
+            case Profession.Tank:
+                return rewardType == RewardType.Attack ? tankAttackRatio : tankHurtRatio;
             default:
                 return 1f;
         }
@@ -23,19 +25,22 @@ public class GameArgs
     public static float hurt = 0.5f;
 
     public static float warriorAttackRatio = 1f;
-    public static float warriorHurtRatio = 0.1f;
+    public static float warriorHurtRatio = 0.3f;
 
     public static float berserkerAttackRatio = 1f;
-    public static float berserkerHurtRatio = 0.1f;
+    public static float berserkerHurtRatio = 0.2f;
 
     public static float mageAttackRatio = 1f;
-    public static float mageHurtRatio = 0.3f;
+    public static float mageHurtRatio = 0.5f;
 
     public static float archerAttackRatio = 1.2f;
-    public static float archerHurtRatio = 0.3f;
+    public static float archerHurtRatio = 0.5f;
 
     public static float vikingAttackRatio = 1f;
-    public static float vikingHurtRatio = 0.1f;
+    public static float vikingHurtRatio = 0.3f;
+
+    public static float tankAttackRatio = 0.7f;
+    public static float tankHurtRatio = 0;
 }
 
 
