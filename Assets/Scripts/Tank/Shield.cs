@@ -23,6 +23,20 @@ public class Shield : Weapon
         }
     }
 
+    private void OnCollisionEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Arrow"))
+        {
+            Arrow arrow = other.GetComponent<Arrow>();
+            ObjectPool<Arrow>.Instance.Recycle(arrow);
+        }
+        if (other.gameObject.CompareTag("RedWarrior"))
+        {
+            Debug.Log("hit warrior");
+        }
+        //if (other.gameObject.CompareTag("")
+    }
+
     public void ResetPush()
     {
         Debug.Log("Reset Push");
