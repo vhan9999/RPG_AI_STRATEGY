@@ -50,6 +50,17 @@ public class ArcherAgent : ClassAgent
 
     protected override void AttackAction(int attackAction)
     {
-        if (attackAction == 1) bow.Fire(bow.firePower);
+        if (attackAction == 1)
+        {
+            bow.SetDrawingAnimation(true); // start drawing animation
+            bow.fire = true;
+        }
+        else
+        {
+            bow.SetDrawingAnimation(false); // Stop drawing animation
+            bow.Fire(bow.firePower);
+            bow.firePower = 0;
+            bow.fire = false;
+        }
     }
 }

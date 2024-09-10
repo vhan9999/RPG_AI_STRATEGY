@@ -41,7 +41,6 @@ public class Battleaxe : Weapon
     {
         if (IsAllowedWhirlwind)
         {
-            if (GameArgs.IsDense) agent.AddReward(-0.3f);
             IsCleave = false;
             IsAttack = true;
             IsWhirlwind = true;
@@ -52,6 +51,8 @@ public class Battleaxe : Weapon
 
     public void ResetCleave()
     {
+        if (GameArgs.IsDense && !isHit) agent.AddReward(-0.03f);
+        isHit = false;
         IsCleave = false;
     }
 

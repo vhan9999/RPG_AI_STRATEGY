@@ -64,6 +64,7 @@ public class Weapon : MonoBehaviour
             else if(other.TryGetComponent(out Wall wall))
             {
                 isHit = true;
+                Debug.Log("hit");
             }
         }
     }
