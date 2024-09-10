@@ -25,6 +25,7 @@ public class Sword : Weapon
 
     public void ResetSlash()
     {
+        Debug.Log("Reset Slash");
         IsSlash = false;
     }
 }

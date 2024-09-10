@@ -18,7 +18,7 @@ public class GameArgs
                 return 1f;
         }
     }
-    public static bool IsDense = false;
+    public static bool IsDense = true;
     public static float attack = 2f;
     public static float hurt = 0.5f;
 
@@ -52,7 +52,8 @@ public enum Profession
     Berserker,
     Lancer,
     Archer,
-    Viking
+    Viking,
+    Tank
 }
 
 public enum RewardType
