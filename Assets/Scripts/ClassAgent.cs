@@ -224,6 +224,7 @@ public class ClassAgent : Agent
         //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= damage;
+        if (GameArgs.IsDense) AddReward(GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.hurt * 0.1f);
         if (currentHealth <= 0 && !isDead)
         {
             isDead = true;

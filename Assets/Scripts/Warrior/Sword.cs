@@ -18,7 +18,7 @@ public class Sword : Weapon
     {
         if (!IsSlash)
         {
-            if (GameArgs.IsDense) agent.AddReward(-0.2f);
+            
             IsSlash = true;
         }
     }
@@ -26,5 +26,8 @@ public class Sword : Weapon
     public void ResetSlash()
     {
         IsSlash = false;
+        if (GameArgs.IsDense && !isHit)
+            agent.AddReward(-0.03f);
+        isHit = false;
     }
 }
