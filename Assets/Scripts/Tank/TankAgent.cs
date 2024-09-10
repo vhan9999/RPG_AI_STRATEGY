@@ -31,6 +31,11 @@ public class TankAgent : ClassAgent
                 Debug.Log("attack");
                 shield.Push();
             }
+            if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("skill");
+                warcry.Execute();
+            }
         }
     }
 
