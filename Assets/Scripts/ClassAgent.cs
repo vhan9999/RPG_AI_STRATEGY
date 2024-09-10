@@ -224,8 +224,8 @@ public class ClassAgent : Agent
         isDead = true;
         if (!GameArgs.IsDense)
         {
-            float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f);
-            //- (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
+            float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f)
+            - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
             AddReward(reward);
             Debug.Log(reward);
             damage = 0;
