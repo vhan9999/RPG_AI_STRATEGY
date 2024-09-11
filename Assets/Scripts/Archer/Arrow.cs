@@ -43,7 +43,6 @@ public class Arrow : Weapon
     protected override void OnTriggerEnter(Collider other)
     {
         attackPower = arrowDamage;
-        GameArgs.archerAttackRatio = attackPower / 10f;
 
         base.OnTriggerEnter(other);
         if (isHit)

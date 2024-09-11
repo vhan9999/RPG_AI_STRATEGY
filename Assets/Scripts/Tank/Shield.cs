@@ -20,7 +20,6 @@ public class Shield : Weapon
         
         if (!IsPush)
         {
-            if (GameArgs.IsDense) agent.AddReward(-0.2f);
             IsPush = true;
         }
     }
@@ -47,6 +46,8 @@ public class Shield : Weapon
     public void ResetPush()
     {
         Debug.Log("Reset Push");
+        if (GameArgs.IsDense && !isHit)
+            agent.AddReward(-0.03f);
         IsPush = false;
         isHit = false;
     }

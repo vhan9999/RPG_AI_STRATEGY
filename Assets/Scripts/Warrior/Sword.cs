@@ -18,7 +18,6 @@ public class Sword : Weapon
     {
         if (!IsSlash)
         {
-            
             IsSlash = true;
         }
     }

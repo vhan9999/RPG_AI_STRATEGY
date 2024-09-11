@@ -22,6 +22,7 @@ public class ArcherAgent : ClassAgent
         //Debug.Log(bow.IsReloading);
         if (Input.GetMouseButtonDown(0) && !bow.IsReloading)
         {
+            
             bow.SetDrawingAnimation(true); // start drawing animation
             bow.fire = true;
         }
@@ -33,7 +34,7 @@ public class ArcherAgent : ClassAgent
         {
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
-            bow.firePower = 0;
+            bow.firePower = 10;
             bow.fire = false;
         }
     }
@@ -50,12 +51,12 @@ public class ArcherAgent : ClassAgent
 
     protected override void AttackAction(int attackAction)
     {
-        if (attackAction == 1)
+        if (attackAction == 1 && !bow.IsReloading)
         {
             bow.SetDrawingAnimation(true); // start drawing animation
             bow.fire = true;
-        }
-        else
+        }   
+        else if(bow.fire)
         {
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);

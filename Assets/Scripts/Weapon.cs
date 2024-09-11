@@ -70,6 +70,7 @@ public class Weapon : MonoBehaviour
             {
                 isHit = true;
                 Debug.Log("hit");
+                agent.AddReward(0.005f);
             }
         }
     }

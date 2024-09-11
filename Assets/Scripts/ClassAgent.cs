@@ -168,6 +168,7 @@ public class ClassAgent : Agent
         //        count = 0;
         //    }
         //}
+        Debug.Log("onactionreceived");
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -206,6 +207,7 @@ public class ClassAgent : Agent
         }
 
         if (isDizzy) return;
+        if (GetComponent<BehaviorParameters>().BehaviorType == BehaviorType.HeuristicOnly) return;
 
         AttackAction(attackAction);
 
@@ -236,7 +238,8 @@ public class ClassAgent : Agent
         //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= hurt;
-        if (GameArgs.IsDense) AddReward(GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.hurt * 0.1f * (hurt/25f));
+        float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.hurt * 0.1f * (hurt / 25f);
+        if (GameArgs.IsDense) AddReward(dansePenalty);
         if (currentHealth <= 0 && !isDead)
         {
             GameOver();
@@ -244,7 +247,7 @@ public class ClassAgent : Agent
         }
 
         if (profession != Profession.Tank)
-            envController?.tankPenalty(team);
+            envController?.tankPenalty(team, dansePenalty);
     }
 
     public void StartDizziness()
