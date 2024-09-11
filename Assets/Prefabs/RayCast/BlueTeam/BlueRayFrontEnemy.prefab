@@ -52,6 +52,7 @@ MonoBehaviour:
   - RedMage
   - RedArcher
   - RedViking
+  - RedTank
   m_RaysPerDirection: 30
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.5

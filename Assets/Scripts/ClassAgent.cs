@@ -244,7 +244,7 @@ public class ClassAgent : Agent
         }
 
         if (profession != Profession.Tank)
-            envController.tankPenalty(team);
+            envController?.tankPenalty(team);
     }
 
     public void StartDizziness()

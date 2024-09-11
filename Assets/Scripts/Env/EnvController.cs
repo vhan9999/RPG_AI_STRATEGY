@@ -178,7 +178,7 @@ public class EnvController : MonoBehaviour
 
     public void tankPenalty(Team team)
     {
-        (team == Team.Red ? redTank : blueTank).AddReward(0.001f);
+        (team == Team.Red ? redTank : blueTank)?.AddReward(0.001f);
     }
 }
 
