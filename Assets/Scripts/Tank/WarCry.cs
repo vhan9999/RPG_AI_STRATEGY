@@ -22,7 +22,7 @@ public class WarCry : MonoBehaviour
         {
             anim.SetTrigger("warCryTrigger");
             isAllowWarcry=false;
-            Invoke("ResetWarcry", 1f);
+            Invoke("ResetWarcry", 12f);
         }
     }
 

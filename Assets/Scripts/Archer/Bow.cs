@@ -25,7 +25,7 @@ public class Bow : MonoBehaviour
     [SerializeField]
     public float firePowerSpeed;
 
-    public float firePower;
+    public float firePower = 10;
 
     public bool fire;
 
@@ -57,13 +57,13 @@ public class Bow : MonoBehaviour
         if (isReloading) return;
 
         // Get arrow from the pool
-        agent.AddReward(-0.03f);
         Arrow a = arrowPool.Spawn(spawnPoint.position, transform.rotation);
         a.tag = agent.team == Team.Blue ? "BlueArrow" : "RedArrow";
         //Debug.Log(a.tag);
         a.agent = agent;
         
         var force = spawnPoint.TransformVector(Vector3.left * firePower);
+        Debug.Log(force);
         a.Fly(force);
         Reload();
     }

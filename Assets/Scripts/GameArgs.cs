@@ -22,7 +22,7 @@ public class GameArgs
     }
     public static bool IsDense = true;
     public static float attack = 2f;
-    public static float hurt = 0.5f;
+    public static float hurt = 1f;
 
     public static float warriorAttackRatio = 1f;
     public static float warriorHurtRatio = 0.3f;
@@ -33,7 +33,7 @@ public class GameArgs
     public static float mageAttackRatio = 1f;
     public static float mageHurtRatio = 0.5f;
 
-    public static float archerAttackRatio = 1.2f;
+    public static float archerAttackRatio = 0.8f;
     public static float archerHurtRatio = 0.5f;
 
     public static float vikingAttackRatio = 1f;
