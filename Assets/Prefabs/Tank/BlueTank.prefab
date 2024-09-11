@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2752972525124631717}
   - component: {fileID: 4636907801528576284}
   - component: {fileID: 5863383336946008769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueTank
   m_TagString: BlueTank
   m_Icon: {fileID: 0}
@@ -200,6 +200,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7354388928376372854}
     m_Modifications:
+    - target: {fileID: 2835599755467029972, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 183838282745704625}
     - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -250,29 +254,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+--- !u!95 &183838282745704625 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2721259582115448192, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+  m_PrefabInstance: {fileID: 2832417672328803633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7320457781318616493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
   m_PrefabInstance: {fileID: 2832417672328803633}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7988450318869192471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5301416123047062054, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
-  m_PrefabInstance: {fileID: 2832417672328803633}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2835599755467029972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7988450318869192471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 367457e9cc917ba41b601d476bb16de7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
 --- !u!1001 &4123759389529522705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,10 +274,6 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: 8792d547c32f4b6449bd1671e87b39d5, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontShoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896150343177612019, guid: 8792d547c32f4b6449bd1671e87b39d5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7071344302298414493, guid: 8792d547c32f4b6449bd1671e87b39d5, type: 3}
       propertyPath: m_RootOrder
@@ -390,10 +377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8492661172069296272, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
-      propertyPath: agent
-      value: 
-      objectReference: {fileID: 4636907801528576284}
     - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
       propertyPath: m_Name
       value: shield
@@ -415,10 +398,6 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7071344302298414493, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
       propertyPath: m_RootOrder
@@ -481,10 +460,6 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontTeam
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7071344302298414493, guid: 51e05e8c529c334499a38202852473bf, type: 3}
       propertyPath: m_RootOrder

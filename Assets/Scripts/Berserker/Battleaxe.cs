@@ -32,7 +32,6 @@ public class Battleaxe : Weapon
     {
         if (!IsCleave && !IsWhirlwind)
         {
-            if (GameArgs.IsDense) agent.AddReward(-0.2f);
             IsCleave = true;
         }
     }

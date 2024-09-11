@@ -57,8 +57,6 @@ public class Book : MonoBehaviour
 
     private void AttackShoot()
     {
-
-        if (GameArgs.IsDense) agent.AddReward(-0.03f);
         MagicMissile m = magicMissilePool.Spawn(transform.position + transform.up, transform.rotation);
         m.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         //Debug.Log(m.tag);

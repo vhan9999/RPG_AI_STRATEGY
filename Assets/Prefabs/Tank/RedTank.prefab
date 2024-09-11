@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6425596863264405061}
   - component: {fileID: 5689385521939733646}
   - component: {fileID: 1996295887963611451}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RedTank
   m_TagString: RedTank
   m_Icon: {fileID: 0}
@@ -39,6 +39,7 @@ Transform:
   - {fileID: 2560255395860840525}
   - {fileID: 5501995620254515089}
   - {fileID: 1582834627560107783}
+  - {fileID: 5726520269701433980}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -175,6 +176,7 @@ MonoBehaviour:
   currentHealth: 100
   team: 1
   profession: 6
+  isDizzy: 0
   damage: 0
   rewardRatio: 0
 --- !u!114 &1996295887963611451
@@ -191,6 +193,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!1001 &982091022491138784
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3743176686246310308}
+    m_Modifications:
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.365
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.678
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301416123047062054, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_Name
+      value: warCry
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+--- !u!4 &5726520269701433980 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+  m_PrefabInstance: {fileID: 982091022491138784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2032901973283076778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242,10 +306,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8492661172069296272, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
-      propertyPath: agent
-      value: 
-      objectReference: {fileID: 5689385521939733646}
     - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
       propertyPath: m_Name
       value: shield
