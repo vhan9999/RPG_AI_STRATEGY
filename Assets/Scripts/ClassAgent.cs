@@ -168,7 +168,7 @@ public class ClassAgent : Agent
         //        count = 0;
         //    }
         //}
-        Debug.Log("onactionreceived");
+        //Debug.Log("onactionreceived");
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];

@@ -111,7 +111,7 @@ public class EnvController : MonoBehaviour
         {
             if (GameArgs.IsDense)
             {
-                Debug.Log("BlueWin");
+                //Debug.Log("BlueWin");
                 m_BlueAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
                 m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
             }
@@ -140,7 +140,7 @@ public class EnvController : MonoBehaviour
     {
         foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
         {
-            Debug.Log("LoadFixedScene");
+            //Debug.Log("LoadFixedScene");
             item.Agent.gameObject.SetActive(false);
             item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;

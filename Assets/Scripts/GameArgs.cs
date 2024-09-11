@@ -20,9 +20,9 @@ public class GameArgs
                 return 1f;
         }
     }
-    public static bool IsDense = true;
-    public static float attack = 2f;
-    public static float hurt = 1f;
+    public static bool IsDense = false;
+    public static float attack = 1.5f;
+    public static float hurt = 0.7f;
 
     public static float warriorAttackRatio = 1f;
     public static float warriorHurtRatio = 0.3f;

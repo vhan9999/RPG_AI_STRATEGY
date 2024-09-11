@@ -69,7 +69,7 @@ public class Weapon : MonoBehaviour
             else if (other.TryGetComponent(out Wall wall))
             {
                 isHit = true;
-                Debug.Log("hit");
+                //Debug.Log("hit");
                 agent.AddReward(0.005f);
             }
         }
