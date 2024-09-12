@@ -58,9 +58,11 @@ public class ArcherAgent : ClassAgent
         }   
         else if(bow.fire)
         {
+            Debug.Log(bow.firePower);
+            if(GameArgs.IsDense)AddReward((bow.firePower-10)/30);
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
-            bow.firePower = 0;
+            bow.firePower = 10;
             bow.fire = false;
         }
     }

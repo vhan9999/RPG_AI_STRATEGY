@@ -22,15 +22,15 @@ public class EnvController : MonoBehaviour
     }
 
     //Max Academy steps before this platform resets
-    [Tooltip("Max Environment Steps")] private int MaxEnvironmentSteps = 10000;  
+    [Tooltip("Max Environment Steps")] private int MaxEnvironmentSteps = 5000;
 
     //List of Agents On Platform
     private List<PlayerInfo> blueAgentsList = new List<PlayerInfo>();
     private List<PlayerInfo> redAgentsList = new List<PlayerInfo>();
 
-    private int blueDeadCount = 0;
-    private int redDeadCount = 0;
-    private int teamNum = 0;
+    public int blueDeadCount = 0;
+    public int redDeadCount = 0;
+    public int teamNum = 0;
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_RedAgentGroup;
@@ -53,14 +53,14 @@ public class EnvController : MonoBehaviour
             {
                 if (agent.team == Team.Blue)
                 {
-                    if(agent is TankAgent) blueTank = agent as TankAgent;
+                    if (agent is TankAgent) blueTank = (TankAgent)agent;
                     blueAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     teamNum++;
                     m_BlueAgentGroup.RegisterAgent(agent);
                 }
                 else
                 {
-                    if (agent is TankAgent) redTank = agent as TankAgent;
+                    if (agent is TankAgent) redTank = (TankAgent)agent;
                     redAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     m_RedAgentGroup.RegisterAgent(agent);
                 }
@@ -141,7 +141,7 @@ public class EnvController : MonoBehaviour
         foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
         {
             Debug.Log("LoadFixedScene");
-            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
+            item.Agent.gameObject.SetActive(false);
             item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;
             item.Agent.transform.rotation = item.StartingRot;
@@ -155,7 +155,7 @@ public class EnvController : MonoBehaviour
 
         foreach (PlayerInfo item in blueAgentsList)
         {
-            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
+            item.Agent.gameObject.SetActive(false);
             item.Agent.gameObject.SetActive(true);
             int randomNum = Random.Range(0, blueIndexList.Count);
             int pos = blueIndexList[randomNum];
@@ -166,7 +166,7 @@ public class EnvController : MonoBehaviour
 
         foreach (PlayerInfo item in redAgentsList)
         {
-            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
+            item.Agent.gameObject.SetActive(false);
             item.Agent.gameObject.SetActive(true);
             int randomNum = Random.Range(0, redIndexList.Count);
             int pos = redIndexList[randomNum];
@@ -178,7 +178,7 @@ public class EnvController : MonoBehaviour
 
     public void tankPenalty(Team team, float teammatePenalty)
     {
-        if (GameArgs.IsDense) (team == Team.Red ? redTank : blueTank).AddReward(teammatePenalty/4);
+        if(GameArgs.IsDense)(team == Team.Red ? redTank : blueTank)?.AddReward(teammatePenalty/4);
     }
 }
 
