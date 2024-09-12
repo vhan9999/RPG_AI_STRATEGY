@@ -8,22 +8,15 @@ public class WarCry : MonoBehaviour
     [SerializeField]
     private Animator anim;
     private ClassAgent agent;
-    private bool isAllowWarcry = true;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
         agent = GetComponentInParent<ClassAgent>();
     }
 
     public void Execute()
     {
-        if (isAllowWarcry)
-        {
-            anim.SetTrigger("warCryTrigger");
-            isAllowWarcry=false;
-            Invoke("ResetWarcry", 12f);
-        }
+        anim.SetTrigger("warCryTrigger");
     }
 
     public void OnTriggerEnter(Collider other)
@@ -36,10 +29,5 @@ public class WarCry : MonoBehaviour
                 if(GameArgs.IsDense)agent.AddReward(0.02f);
             }
         }
-    }
-
-    public void ResetWarcry()
-    {
-        isAllowWarcry = true;
     }
 }

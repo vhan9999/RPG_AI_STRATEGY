@@ -46,7 +46,7 @@ public class ClassAgent : Agent
     private Quaternion initRotation;
 
     //state
-    [SerializeField] protected bool isDizzy = false;
+    protected bool isDizzy = false;
 
     protected float sideSpeedMult = 0.75f;
     protected float forwardSpeedMult = 1f;
