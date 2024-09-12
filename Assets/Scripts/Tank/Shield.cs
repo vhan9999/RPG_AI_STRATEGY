@@ -31,7 +31,7 @@ public class Shield : Weapon
             if (weapon.IsAttack)
             {
                 agent.currentHealth += weapon.attackPower / 2;
-                if(GameArgs.IsDense)
+                if (GameArgs.IsDense) 
                     agent.AddReward(0.01f);
             }
         }
@@ -39,7 +39,7 @@ public class Shield : Weapon
 
     private void OnTriggerStay(Collider other)
     {
-        if(!isHit)
+        if (!isHit)
             WeaponTouch(other);
     }
 

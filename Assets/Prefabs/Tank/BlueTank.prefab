@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2752972525124631717}
   - component: {fileID: 4636907801528576284}
   - component: {fileID: 5863383336946008769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueTank
   m_TagString: BlueTank
   m_Icon: {fileID: 0}
@@ -176,6 +176,7 @@ MonoBehaviour:
   currentHealth: 100
   team: 0
   profession: 6
+  isDizzy: 0
   damage: 0
   rewardRatio: 0
 --- !u!114 &5863383336946008769
@@ -199,6 +200,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7354388928376372854}
     m_Modifications:
+    - target: {fileID: 3755898737237218047, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -247,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: warCry
       objectReference: {fileID: 0}
+    - target: {fileID: 5301416123047062054, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
 --- !u!4 &7320457781318616493 stripped
@@ -264,6 +273,10 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: 8792d547c32f4b6449bd1671e87b39d5, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896150343177612019, guid: 8792d547c32f4b6449bd1671e87b39d5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: 8792d547c32f4b6449bd1671e87b39d5, type: 3}
       propertyPath: m_IsActive
@@ -379,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shield
       objectReference: {fileID: 0}
+    - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
 --- !u!4 &4765802059843721426 stripped
@@ -396,6 +413,10 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
       propertyPath: m_IsActive
@@ -462,6 +483,10 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontTeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
       propertyPath: m_IsActive
