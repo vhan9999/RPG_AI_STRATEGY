@@ -63,6 +63,7 @@ public class ClassAgent : Agent
         bp = GetComponent<BehaviorParameters>();
         
         team = (Team)bp.TeamId;
+        Debug.Log(team);
         rb = GetComponent<Rigidbody>();
     }
     private void Start()

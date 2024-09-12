@@ -149,7 +149,7 @@ MonoBehaviour:
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Tank
-  TeamId: 0
+  TeamId: 1
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   profession: 6
   isDizzy: 0
   damage: 0
-  rewardRatio: 0
+  rewardRatio: 1
 --- !u!114 &1996295887963611451
 MonoBehaviour:
   m_ObjectHideFlags: 0

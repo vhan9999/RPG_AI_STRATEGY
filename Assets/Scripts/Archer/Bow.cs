@@ -63,7 +63,6 @@ public class Bow : MonoBehaviour
         a.agent = agent;
         
         var force = spawnPoint.TransformVector(Vector3.left * firePower);
-        Debug.Log(force);
         a.Fly(force);
         Reload();
     }

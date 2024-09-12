@@ -124,8 +124,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 5635530891676177459}
   anim: {fileID: 7801074499085259746}
   maxFirePower: 40
-  firePowerSpeed: 70
-  firePower: 20
+  firePowerSpeed: 30
+  firePower: 10
   fire: 0
 --- !u!1 &6154672802766362920
 GameObject:

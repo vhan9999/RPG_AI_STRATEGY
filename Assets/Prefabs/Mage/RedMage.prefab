@@ -143,8 +143,9 @@ MonoBehaviour:
   rotateSpeed: 150
   health: 80
   currentHealth: 80
-  team: 0
+  team: 1
   profession: 1
+  isDizzy: 0
   damage: 0
   rewardRatio: 1
 --- !u!114 &2998797774162041268
