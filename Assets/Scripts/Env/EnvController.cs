@@ -176,9 +176,9 @@ public class EnvController : MonoBehaviour
         }
     }
 
-    public void tankPenalty(Team team, float teammatePenalty)
-    {
-        if(GameArgs.IsDense)(team == Team.Red ? redTank : blueTank).AddReward(teammatePenalty/4);
-    }
+    //public void tankPenalty(Team team, float teammatePenalty)
+    //{
+    //    if(GameArgs.IsDense)(team == Team.Red ? redTank : blueTank).AddReward(teammatePenalty/4);
+    //}
 }
 

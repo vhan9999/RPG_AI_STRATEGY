@@ -246,8 +246,8 @@ public class ClassAgent : Agent
             envController?.DeadTouch(team);
         }
 
-        if (profession != Profession.Tank)
-            envController?.tankPenalty(team, dansePenalty);
+        //if (profession != Profession.Tank)
+        //    envController?.tankPenalty(team, dansePenalty);
     }
 
     public void StartDizziness()
