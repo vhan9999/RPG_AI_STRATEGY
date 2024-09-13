@@ -145,6 +145,7 @@ MonoBehaviour:
   currentHealth: 80
   team: 0
   profession: 1
+  isDizzy: 0
   damage: 0
   rewardRatio: 1
 --- !u!114 &2998797774162041268
