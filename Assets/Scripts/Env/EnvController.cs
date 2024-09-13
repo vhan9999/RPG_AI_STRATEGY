@@ -100,8 +100,8 @@ public class EnvController : MonoBehaviour
         {
             if (GameArgs.IsDense)
             {
-                m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
-                m_RedAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
+               // m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+                m_RedAgentGroup.AddGroupReward(1);
             }
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
@@ -112,8 +112,8 @@ public class EnvController : MonoBehaviour
             if (GameArgs.IsDense)
             {
                 Debug.Log("BlueWin");
-                m_BlueAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
-                m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+                m_BlueAgentGroup.AddGroupReward(1);
+                //m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
             }
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();

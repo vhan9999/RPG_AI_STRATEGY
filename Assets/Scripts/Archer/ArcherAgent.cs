@@ -41,7 +41,7 @@ public class ArcherAgent : ClassAgent
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !bow.fire && !bow.IsReloading);
+        actionMask.SetActionEnabled(3, 1, !bow.IsReloading);
     }
 
     protected override void SpeedAdjust()
@@ -59,7 +59,7 @@ public class ArcherAgent : ClassAgent
         else if(bow.fire)
         {
             Debug.Log(bow.firePower);
-            if(GameArgs.IsDense)AddReward((bow.firePower-10)/30);
+            if(GameArgs.IsDense)AddReward(((bow.firePower-10)/120)*GameArgs.attack);
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
             bow.firePower = 10;

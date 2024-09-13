@@ -18,6 +18,7 @@ public class Arrow : Weapon
     private void OnEnable()
     {
         ResetArrow();
+        isHit = false;
     }
 
     private void ResetArrow()
