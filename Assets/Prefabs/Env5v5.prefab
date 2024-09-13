@@ -275,6 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743abe1695cb3f64bbd66d31dbc5956d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueDeadCount: 0
+  redDeadCount: 0
+  teamNum: 0
   IsRandomScene: 1
 --- !u!1 &4697023294222904438
 GameObject:
@@ -665,10 +668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u0E3ABlueArcher"
       objectReference: {fileID: 0}
-    - target: {fileID: 5592173484569452277, guid: f5d93cfd0b6036a4e9ee902f7b242b37, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5d93cfd0b6036a4e9ee902f7b242b37, type: 3}
 --- !u!4 &3499249422952975552 stripped
@@ -811,10 +810,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueTank
       objectReference: {fileID: 0}
-    - target: {fileID: 1776149699358518605, guid: 188aed53b99700241990f8b9450c1333, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7354388928376372854, guid: 188aed53b99700241990f8b9450c1333, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -920,10 +915,6 @@ PrefabInstance:
     - target: {fileID: 5592173484569452277, guid: a95df3979c6682542811363d441c4221, type: 3}
       propertyPath: m_Name
       value: RedArcher
-      objectReference: {fileID: 0}
-    - target: {fileID: 5592173484569452277, guid: a95df3979c6682542811363d441c4221, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a95df3979c6682542811363d441c4221, type: 3}
@@ -1110,10 +1101,6 @@ PrefabInstance:
     - target: {fileID: 5567645559728251551, guid: b0d3f9485733c754e8173e7d1bda2193, type: 3}
       propertyPath: m_Name
       value: RedTank
-      objectReference: {fileID: 0}
-    - target: {fileID: 5567645559728251551, guid: b0d3f9485733c754e8173e7d1bda2193, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d3f9485733c754e8173e7d1bda2193, type: 3}

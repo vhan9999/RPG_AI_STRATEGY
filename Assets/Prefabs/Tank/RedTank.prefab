@@ -274,10 +274,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RayFrontTeam
       objectReference: {fileID: 0}
-    - target: {fileID: 4896150343177612019, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 7071344302298414493, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -339,10 +335,6 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: d275227faca53c24db42d8fcad22dab0, type: 3}
       propertyPath: m_Name
       value: RayFrontShoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896150343177612019, guid: d275227faca53c24db42d8fcad22dab0, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7071344302298414493, guid: d275227faca53c24db42d8fcad22dab0, type: 3}
       propertyPath: m_RootOrder
@@ -475,10 +467,6 @@ PrefabInstance:
     - target: {fileID: 4896150343177612019, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
       propertyPath: m_Name
       value: RayFrontEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4896150343177612019, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7071344302298414493, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
       propertyPath: m_RootOrder

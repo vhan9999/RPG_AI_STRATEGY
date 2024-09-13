@@ -25,13 +25,13 @@ public class GameArgs
     public static float hurt = 1f;
 
     public static float warriorAttackRatio = 1f;
-    public static float warriorHurtRatio = 0.3f;
+    public static float warriorHurtRatio = 0.2f;
 
     public static float berserkerAttackRatio = 1f;
     public static float berserkerHurtRatio = 0.2f;
 
     public static float mageAttackRatio = 1f;
-    public static float mageHurtRatio = 0.5f;
+    public static float mageHurtRatio = 0.3f;
 
     public static float archerAttackRatio = 0.8f;
     public static float archerHurtRatio = 0.5f;
