@@ -9,13 +9,20 @@ public class WarCry : MonoBehaviour
     private Animator anim;
     private ClassAgent agent;
     private bool isAllowWarcry = true;
+    public float cooldownTime = 0;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         agent = GetComponentInParent<ClassAgent>();
     }
-
+    void Update()
+    {
+        if (cooldownTime > 0)
+            cooldownTime -= Time.deltaTime;
+        else
+            cooldownTime = 0;
+    }
     public void Execute()
     {
         if (isAllowWarcry)
@@ -23,6 +30,7 @@ public class WarCry : MonoBehaviour
             anim.SetTrigger("warCryTrigger");
             isAllowWarcry=false;
             Invoke("ResetWarcry", 12f);
+            cooldownTime = 12f;
         }
     }
 

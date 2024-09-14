@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     //private int attackCount = 0;
     //public float rewardRatio = 0;
     //protected int damage = 0;
+    
 
     protected virtual void Awake()
     {

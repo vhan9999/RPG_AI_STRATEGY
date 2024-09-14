@@ -39,7 +39,12 @@ public class TankAgent : ClassAgent
         }
     }
 
-
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(warcry.cooldownTime);
+        sensor.AddObservation(shield.IsPush);
+    }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         actionMask.SetActionEnabled(3, 1, !shield.IsPush);

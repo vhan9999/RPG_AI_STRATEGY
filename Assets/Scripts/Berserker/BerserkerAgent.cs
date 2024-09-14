@@ -40,7 +40,13 @@ public class BerserkerAgent : ClassAgent
     {
         base.FixedUpdate();
     }
-    
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(battleaxe.cooldownTime);
+        sensor.AddObservation(battleaxe.IsCleave);
+        sensor.AddObservation(battleaxe.IsWhirlwind);
+    }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
 

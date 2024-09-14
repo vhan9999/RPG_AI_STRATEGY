@@ -13,6 +13,7 @@ public class Sword : Weapon
         get => anim.GetBool("isSlash");
         set => anim.SetBool("isSlash", value);
     }
+    
 
     public void Slash()
     {

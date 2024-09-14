@@ -10,6 +10,7 @@ public class Book : MonoBehaviour
     public bool IsAttack = false;
     public bool IsSkill = false;
     public bool IsCoolDown = false;
+    public float cooldownTime = 0;
     private FireBallCast fireBallCast;
     [SerializeField] private GameObject fireBall;
     [SerializeField] private GameObject magicMissile;
@@ -32,7 +33,10 @@ public class Book : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (cooldownTime > 0)
+            cooldownTime -= Time.deltaTime;
+        else
+            cooldownTime = 0;
     }
     private void OnEnable()
     {
@@ -75,6 +79,7 @@ public class Book : MonoBehaviour
             IsCoolDown = true;
             IsSkill = true;
             Invoke("CoolDown", 15f);
+            cooldownTime = 15f;
         }
     }
 

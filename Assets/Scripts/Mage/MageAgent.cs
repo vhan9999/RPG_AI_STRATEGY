@@ -35,7 +35,13 @@ public class MageAgent : ClassAgent
             }
         }
     }
-
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(book.cooldownTime);
+        sensor.AddObservation(book.IsSkill);
+        sensor.AddObservation(book.IsAttack);
+    }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsSkill);

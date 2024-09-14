@@ -6,6 +6,15 @@ using UnityEngine;
 public class Battleaxe : Weapon
 {
     public bool IsAllowedWhirlwind = false;
+    public float cooldownTime = 0;
+
+    void Update()
+    {
+        if (cooldownTime > 0)
+            cooldownTime -= Time.deltaTime;
+        else
+            cooldownTime = 0;
+    }
 
     public bool IsCleave
     {
@@ -60,6 +69,7 @@ public class Battleaxe : Weapon
         IsAttack = false;
         IsWhirlwind = false;
         Invoke("EnableWhirlwind", 15f);
+        cooldownTime = 15f;
     }
 
     private void EnableWhirlwind()

@@ -214,6 +214,11 @@ public class ClassAgent : Agent
 
         SkillAction(skillAction);
     }
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(currentHealth);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
