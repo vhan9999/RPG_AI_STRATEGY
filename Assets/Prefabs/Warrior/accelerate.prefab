@@ -412,7 +412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 4869552855519710045}
-  executeTime: 2
+  executeTime: 1.5
+  cooldownTime: 0
 --- !u!1 &2239468363358768606
 GameObject:
   m_ObjectHideFlags: 0

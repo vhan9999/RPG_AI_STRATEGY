@@ -25,7 +25,6 @@ public class Sword : Weapon
 
     public void ResetSlash()
     {
-        Debug.Log("Reset Slash");
         IsSlash = false;
         if (GameArgs.IsDense && !isHit)
             agent.AddReward(-0.03f);

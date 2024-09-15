@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743abe1695cb3f64bbd66d31dbc5956d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueDeadCount: 0
+  redDeadCount: 0
+  teamNum: 0
   IsRandomScene: 0
 --- !u!1001 &5671030600515787126
 PrefabInstance:
@@ -137,6 +140,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5671030599080458871}
     m_Modifications:
+    - target: {fileID: 240897497791257873, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 656073890743692284, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3132712170217910726, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -208,6 +219,14 @@ PrefabInstance:
     - target: {fileID: 6361086164053692417, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978961409446988809, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161363426275061806, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}

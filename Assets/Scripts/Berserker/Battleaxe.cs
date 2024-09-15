@@ -28,7 +28,7 @@ public class Battleaxe : Weapon
         set => anim.SetBool("isWhirlwind", value);
     }
 
-    private void OnEnable()
+    public void alive()
     {
         IsAttack = false;
         IsWhirlwind = false;

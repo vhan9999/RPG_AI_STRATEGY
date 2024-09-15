@@ -38,18 +38,16 @@ public class Book : MonoBehaviour
         else
             cooldownTime = 0;
     }
-    private void OnEnable()
+    public void Revive()
     {
-       IsAttack = false;
-       IsSkill = false;
-       IsCoolDown = false;
-    }
-
-    private void OnDisable()    
-    {
+        IsAttack = false;
+        IsSkill = false;
+        IsCoolDown = false;
         CancelInvoke("AttackShoot");
         CancelInvoke("CoolDown");
+
     }
+
     public void AttackCast()
     {
         if (!IsAttack && !IsSkill)
@@ -78,8 +76,8 @@ public class Book : MonoBehaviour
             fireBallCast.CastStart();
             IsCoolDown = true;
             IsSkill = true;
-            Invoke("CoolDown", 15f);
-            cooldownTime = 15f;
+            Invoke("CoolDown", 8f);
+            cooldownTime = 8f;
         }
     }
 
