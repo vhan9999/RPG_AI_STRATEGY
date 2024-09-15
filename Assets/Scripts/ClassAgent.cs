@@ -127,6 +127,7 @@ public class ClassAgent : Agent
         currentHealth = health;
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<DecisionRequester>().enabled = true;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -246,7 +247,7 @@ public class ClassAgent : Agent
         transform.position =new Vector3(transform.position.x, -0.32f, transform.position.z);
         rotateDir = 0;
         ctrlDir = Vector3.zero;
-        //gameObject.SetActive(false);
+        GetComponent<DecisionRequester>().enabled = false;
     }
 
     public void TakeDamage(int hurt)
