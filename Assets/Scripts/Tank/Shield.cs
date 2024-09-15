@@ -45,7 +45,6 @@ public class Shield : Weapon
 
     public void ResetPush()
     {
-        Debug.Log("Reset Push");
         if (GameArgs.IsDense && !isHit)
             agent.AddReward(-0.03f);
         IsPush = false;

@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     //private int attackCount = 0;
     //public float rewardRatio = 0;
     //protected int damage = 0;
+    
 
     protected virtual void Awake()
     {
@@ -69,7 +70,6 @@ public class Weapon : MonoBehaviour
             else if (other.TryGetComponent(out Wall wall))
             {
                 isHit = true;
-                Debug.Log("hit");
                 if (GameArgs.IsDense) agent.AddReward(-0.005f);
             }
         }

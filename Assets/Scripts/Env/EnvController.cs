@@ -78,9 +78,11 @@ public class EnvController : MonoBehaviour
                 GameArgs.attack -= 0.0001f;
             if (GameArgs.hurt <= 1.5f)
                 GameArgs.hurt += 0.0001f;
+            m_RedAgentGroup.AddGroupReward(-0.5f);
+            m_BlueAgentGroup.AddGroupReward(-0.5f);
+            ResetScene();
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();
-            ResetScene();
         }
     }
 
@@ -89,35 +91,37 @@ public class EnvController : MonoBehaviour
         if (DeadTeam == Team.Blue)
         {
             if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / teamNum);
+            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-(1f / teamNum));
             blueDeadCount++;
         }
         else
         {
             if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / teamNum);
+            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-(1f / teamNum));
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
             if (GameArgs.IsDense)
             {
-               // m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
-                m_RedAgentGroup.AddGroupReward(1);
+                m_BlueAgentGroup.AddGroupReward(-m_ResetTimer / MaxEnvironmentSteps);
+                m_RedAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
             }
+            ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
-            ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
             if (GameArgs.IsDense)
             {
                 Debug.Log("BlueWin");
-                m_BlueAgentGroup.AddGroupReward(1);
-                //m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+                m_BlueAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
+                m_RedAgentGroup.AddGroupReward(-m_ResetTimer / MaxEnvironmentSteps);
             }
+            ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
-            ResetScene();
         }
     }
 
@@ -134,6 +138,7 @@ public class EnvController : MonoBehaviour
         m_ResetTimer = 0;
         blueDeadCount = 0;
         redDeadCount = 0;
+
     }
 
     private void LoadFixedScene()
@@ -142,7 +147,6 @@ public class EnvController : MonoBehaviour
         {
             Debug.Log("LoadFixedScene");
             if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
-            item.Agent.gameObject.SetActive(true);
             item.Agent.transform.localPosition = item.StartingPos;
             item.Agent.transform.rotation = item.StartingRot;
         }
