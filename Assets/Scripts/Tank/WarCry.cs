@@ -29,8 +29,8 @@ public class WarCry : MonoBehaviour
         {
             anim.SetTrigger("warCryTrigger");
             isAllowWarcry=false;
-            Invoke("ResetWarcry", 12f);
-            cooldownTime = 12f;
+            Invoke("ResetWarcry", 6f);
+            cooldownTime = 6f;
         }
     }
 

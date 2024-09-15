@@ -22,7 +22,7 @@ public class WarriorAgent : ClassAgent
         accelerate = GetComponentInChildren<Accelerate>();
     }
 
-    private void Update()
+        private void Update()
     {
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {

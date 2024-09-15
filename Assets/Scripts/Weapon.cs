@@ -70,7 +70,6 @@ public class Weapon : MonoBehaviour
             else if (other.TryGetComponent(out Wall wall))
             {
                 isHit = true;
-                Debug.Log("hit");
                 if (GameArgs.IsDense) agent.AddReward(-0.005f);
             }
         }

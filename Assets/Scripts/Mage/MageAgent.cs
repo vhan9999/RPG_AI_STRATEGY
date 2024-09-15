@@ -20,7 +20,11 @@ public class MageAgent : ClassAgent
         base.Awake();
         book = GetComponentInChildren<Book>();
     }
-
+    public override void OnEpisodeBegin()
+    {
+        base.OnEpisodeBegin();
+        book.Revive();
+    }
     private void Update()
     {
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)
