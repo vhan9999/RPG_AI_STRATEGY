@@ -23,6 +23,7 @@ public class ClassAgent : Agent
     [SerializeField]
     private float maxSpeed = 10f;
     protected float speed = 10f;
+    private float inputSpeed = 0;
     [SerializeField] 
     public float rotateSpeed = 150f;
     private int rotateDir = 0;
@@ -46,7 +47,7 @@ public class ClassAgent : Agent
     private Quaternion initRotation;
 
     //state
-    protected bool isDizzy = false;
+    [SerializeField] protected bool isDizzy = false;
 
     protected float sideSpeedMult = 0.75f;
     protected float forwardSpeedMult = 1f;
@@ -87,6 +88,7 @@ public class ClassAgent : Agent
             speed = maxSpeed * forwardSpeedMult;
         speed = isDizzy ? speed * 0.2f : speed;
         SpeedAdjust();
+        inputSpeed = speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
@@ -123,6 +125,9 @@ public class ClassAgent : Agent
     {
         isDead = false;
         currentHealth = health;
+        gameObject.GetComponent<CapsuleCollider>().enabled = true;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<DecisionRequester>().enabled = true;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -160,6 +165,7 @@ public class ClassAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        if(isDead) return;
         //if (!GameArgs.IsDense)
         //{
         //    if (++count >= 5000)
@@ -168,7 +174,6 @@ public class ClassAgent : Agent
         //        count = 0;
         //    }
         //}
-        //Debug.Log("onactionreceived");
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
         int rotateAction = actions.DiscreteActions[2];
@@ -213,6 +218,13 @@ public class ClassAgent : Agent
 
         SkillAction(skillAction);
     }
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(currentHealth);
+        sensor.AddObservation(isDead);
+        sensor.AddObservation(inputSpeed);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -230,7 +242,12 @@ public class ClassAgent : Agent
             Debug.Log(reward);
             damage = 0;
         }
-        gameObject.SetActive(false);
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        transform.position =new Vector3(transform.position.x, -0.32f, transform.position.z);
+        rotateDir = 0;
+        ctrlDir = Vector3.zero;
+        GetComponent<DecisionRequester>().enabled = false;
     }
 
     public void TakeDamage(int hurt)
@@ -246,14 +263,14 @@ public class ClassAgent : Agent
             envController?.DeadTouch(team);
         }
 
-        //if (profession != Profession.Tank)
-        //    envController?.tankPenalty(team, dansePenalty);
+        if (profession != Profession.Tank)
+            envController?.tankPenalty(team, dansePenalty);
     }
 
     public void StartDizziness()
     {
         isDizzy = true;
-        Invoke("Recover", 2f);
+        Invoke("Recover", 1f);
     }
 
     public void Recover()

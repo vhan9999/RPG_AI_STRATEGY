@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
+using Unity.MLAgents.Sensors;
 using UnityEngine;
 
 public class ArcherAgent : ClassAgent
@@ -38,10 +39,15 @@ public class ArcherAgent : ClassAgent
             bow.fire = false;
         }
     }
-
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(bow.cooldownTime);
+        sensor.AddObservation(bow.fire);
+    }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !bow.fire && !bow.IsReloading);
+        actionMask.SetActionEnabled(3, 1, !bow.IsReloading);
     }
 
     protected override void SpeedAdjust()
@@ -58,9 +64,10 @@ public class ArcherAgent : ClassAgent
         }   
         else if(bow.fire)
         {
+            if(GameArgs.IsDense)AddReward(((bow.firePower-10)/240)*(GameArgs.attack-1.5f));
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
-            bow.firePower = 0;
+            bow.firePower = 10;
             bow.fire = false;
         }
     }

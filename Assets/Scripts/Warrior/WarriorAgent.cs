@@ -22,7 +22,7 @@ public class WarriorAgent : ClassAgent
         accelerate = GetComponentInChildren<Accelerate>();
     }
 
-    private void Update()
+        private void Update()
     {
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {
@@ -35,6 +35,14 @@ public class WarriorAgent : ClassAgent
                 accelerate.Execute();
             }
         }
+    }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(accelerate.cooldownTime);
+        sensor.AddObservation(accelerate.Status);
+        sensor.AddObservation(sword.IsSlash);
     }
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)

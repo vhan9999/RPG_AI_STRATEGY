@@ -115,6 +115,7 @@ MonoBehaviour:
   currentHealth: 120
   team: 0
   profession: 2
+  isDizzy: 0
   damage: 0
   rewardRatio: 0.8
 --- !u!114 &1230743704
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 0
+    VectorObservationSize: 6
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0

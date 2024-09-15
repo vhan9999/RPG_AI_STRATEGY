@@ -20,7 +20,10 @@ public class MagicMissile : Weapon
     {
         timer = 0;
     }
-
+    private void OnEnable()
+    {
+        isHit = false;
+    }
     // Update is called once per frame
     void Update()
     {

@@ -22,15 +22,15 @@ public class EnvController : MonoBehaviour
     }
 
     //Max Academy steps before this platform resets
-    [Tooltip("Max Environment Steps")] private int MaxEnvironmentSteps = 10000;  
+    [Tooltip("Max Environment Steps")] private int MaxEnvironmentSteps = 5000;
 
     //List of Agents On Platform
     private List<PlayerInfo> blueAgentsList = new List<PlayerInfo>();
     private List<PlayerInfo> redAgentsList = new List<PlayerInfo>();
 
-    private int blueDeadCount = 0;
-    private int redDeadCount = 0;
-    private int teamNum = 0;
+    public int blueDeadCount = 0;
+    public int redDeadCount = 0;
+    public int teamNum = 0;
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_RedAgentGroup;
@@ -53,14 +53,14 @@ public class EnvController : MonoBehaviour
             {
                 if (agent.team == Team.Blue)
                 {
-                    if(agent is TankAgent) blueTank = agent as TankAgent;
+                    if (agent is TankAgent) blueTank = (TankAgent)agent;
                     blueAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     teamNum++;
                     m_BlueAgentGroup.RegisterAgent(agent);
                 }
                 else
                 {
-                    if (agent is TankAgent) redTank = agent as TankAgent;
+                    if (agent is TankAgent) redTank = (TankAgent)agent;
                     redAgentsList.Add(new PlayerInfo { Agent = agent, StartingPos = agent.transform.localPosition, StartingRot = agent.transform.rotation });
                     m_RedAgentGroup.RegisterAgent(agent);
                 }
@@ -78,9 +78,11 @@ public class EnvController : MonoBehaviour
                 GameArgs.attack -= 0.0001f;
             if (GameArgs.hurt <= 1.5f)
                 GameArgs.hurt += 0.0001f;
+            m_RedAgentGroup.AddGroupReward(-0.5f);
+            m_BlueAgentGroup.AddGroupReward(-0.5f);
+            ResetScene();
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();
-            ResetScene();
         }
     }
 
@@ -89,35 +91,37 @@ public class EnvController : MonoBehaviour
         if (DeadTeam == Team.Blue)
         {
             if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / teamNum);
+            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-(1f / teamNum));
             blueDeadCount++;
         }
         else
         {
             if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / teamNum);
+            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-(1f / teamNum));
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
             if (GameArgs.IsDense)
             {
-                m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+                m_BlueAgentGroup.AddGroupReward(-m_ResetTimer / MaxEnvironmentSteps);
                 m_RedAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
             }
+            ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
-            ResetScene();
         }
         else if (redDeadCount == teamNum)
         {
             if (GameArgs.IsDense)
             {
-                //Debug.Log("BlueWin");
+                Debug.Log("BlueWin");
                 m_BlueAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
-                m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+                m_RedAgentGroup.AddGroupReward(-m_ResetTimer / MaxEnvironmentSteps);
             }
+            ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
-            ResetScene();
         }
     }
 
@@ -134,15 +138,15 @@ public class EnvController : MonoBehaviour
         m_ResetTimer = 0;
         blueDeadCount = 0;
         redDeadCount = 0;
+
     }
 
     private void LoadFixedScene()
     {
         foreach (PlayerInfo item in blueAgentsList.Concat(redAgentsList))
         {
-            //Debug.Log("LoadFixedScene");
-            item.Agent.gameObject.SetActive(false);
-            item.Agent.gameObject.SetActive(true);
+            Debug.Log("LoadFixedScene");
+            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
             item.Agent.transform.localPosition = item.StartingPos;
             item.Agent.transform.rotation = item.StartingRot;
         }
@@ -155,7 +159,7 @@ public class EnvController : MonoBehaviour
 
         foreach (PlayerInfo item in blueAgentsList)
         {
-            item.Agent.gameObject.SetActive(false);
+            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
             item.Agent.gameObject.SetActive(true);
             int randomNum = Random.Range(0, blueIndexList.Count);
             int pos = blueIndexList[randomNum];
@@ -166,7 +170,7 @@ public class EnvController : MonoBehaviour
 
         foreach (PlayerInfo item in redAgentsList)
         {
-            item.Agent.gameObject.SetActive(false);
+            if (item.Agent.gameObject.activeSelf) item.Agent.GameOver();
             item.Agent.gameObject.SetActive(true);
             int randomNum = Random.Range(0, redIndexList.Count);
             int pos = redIndexList[randomNum];
@@ -176,9 +180,9 @@ public class EnvController : MonoBehaviour
         }
     }
 
-    //public void tankPenalty(Team team, float teammatePenalty)
-    //{
-    //    if(GameArgs.IsDense)(team == Team.Red ? redTank : blueTank).AddReward(teammatePenalty/4);
-    //}
+    public void tankPenalty(Team team, float teammatePenalty)
+    {
+        if(GameArgs.IsDense)(team == Team.Red ? redTank : blueTank)?.AddReward(teammatePenalty/4);
+    }
 }
 

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 0
+    VectorObservationSize: 5
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   currentHealth: 100
   team: 0
   profession: 4
+  isDizzy: 0
   damage: 0
   rewardRatio: 0
   bow: {fileID: 3497034634105338162}
@@ -199,14 +200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3687686518526234062}
     m_Modifications:
-    - target: {fileID: 1924928602369804579, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1924928602369804579, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
-      propertyPath: m_DetectableTags.Array.data[6]
-      value: RedTank
-      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontEnemy
@@ -404,14 +397,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3687686518526234062}
     m_Modifications:
-    - target: {fileID: 1924928602369804579, guid: 51e05e8c529c334499a38202852473bf, type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1924928602369804579, guid: 51e05e8c529c334499a38202852473bf, type: 3}
-      propertyPath: m_DetectableTags.Array.data[6]
-      value: BlueTank
-      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontTeam

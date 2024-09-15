@@ -30,8 +30,8 @@ public class Shield : Weapon
         {
             if (weapon.IsAttack)
             {
-                agent.currentHealth += weapon.attackPower / 2;
-                if(GameArgs.IsDense)
+                agent.currentHealth = agent.currentHealth > agent.health ? agent.health : agent.currentHealth + weapon.attackPower / 2;
+                if (GameArgs.IsDense)
                     agent.AddReward(0.01f);
             }
         }
@@ -45,7 +45,6 @@ public class Shield : Weapon
 
     public void ResetPush()
     {
-        Debug.Log("Reset Push");
         if (GameArgs.IsDense && !isHit)
             agent.AddReward(-0.03f);
         IsPush = false;

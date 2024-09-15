@@ -275,6 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743abe1695cb3f64bbd66d31dbc5956d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueDeadCount: 0
+  redDeadCount: 0
+  teamNum: 0
   IsRandomScene: 1
 --- !u!1 &4697023294222904438
 GameObject:

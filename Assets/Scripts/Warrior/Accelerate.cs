@@ -10,10 +10,18 @@ public class Accelerate : MonoBehaviour
     private Animator anim;
     [SerializeField]
     private float executeTime = 2f;
+    public float cooldownTime = 0;
     private ClassAgent agent;
 
     public bool IsAllowed { get; private set; }
 
+    void Update()
+    {
+        if (cooldownTime > 0)
+            cooldownTime -= Time.deltaTime;
+        else
+            cooldownTime = 0;
+    }
     public bool Status
     {
         get => anim.GetBool("isAccelerate");
@@ -51,5 +59,6 @@ public class Accelerate : MonoBehaviour
     {
         anim.SetBool("isAccelerate", false);
         Invoke("EnableSkill", 10f);
+        cooldownTime = 10f;
     }
 }

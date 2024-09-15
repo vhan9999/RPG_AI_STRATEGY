@@ -15,6 +15,7 @@ public class Bow : MonoBehaviour
     private ObjectPool<Arrow> arrowPool;
     private ClassAgent agent;
     private bool isReloading;
+    public float cooldownTime = 0;
 
     [SerializeField]
     public Animator anim;
@@ -27,7 +28,7 @@ public class Bow : MonoBehaviour
 
     public float firePower = 10;
 
-    public bool fire;
+    public bool fire = false;
 
     private void Start()
     {
@@ -35,7 +36,13 @@ public class Bow : MonoBehaviour
         arrowPool.InitPool(arrowPrefab, 2);
         agent = GetComponentInParent<ClassAgent>();
     }
-
+    void Update()
+    {
+        if (cooldownTime > 0)
+            cooldownTime -= Time.deltaTime;
+        else
+            cooldownTime = 0;
+    }
     public void SetDrawingAnimation(bool value)
     {
         anim.SetBool("isReadyFire", value);
@@ -45,6 +52,7 @@ public class Bow : MonoBehaviour
     {
         isReloading = true;
         Invoke("ReloadAfterTime", reloadTime);
+        cooldownTime = reloadTime;
     }
 
     private void ReloadAfterTime()
@@ -57,13 +65,12 @@ public class Bow : MonoBehaviour
         if (isReloading) return;
 
         // Get arrow from the pool
-        Arrow a = arrowPool.Spawn(spawnPoint.position, transform.rotation);
+        Arrow a = arrowPool.Spawn(agent.transform.position, transform.rotation);
         a.tag = agent.team == Team.Blue ? "BlueArrow" : "RedArrow";
         //Debug.Log(a.tag);
         a.agent = agent;
         
         var force = spawnPoint.TransformVector(Vector3.left * firePower);
-        Debug.Log(force);
         a.Fly(force);
         Reload();
     }

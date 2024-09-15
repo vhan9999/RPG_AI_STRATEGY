@@ -8,6 +8,7 @@ using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using OpenCover.Framework.Model;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UIElements;
 
 public class BerserkerAgent : ClassAgent
 {
@@ -19,8 +20,12 @@ public class BerserkerAgent : ClassAgent
         base.Awake();
         battleaxe = GetComponentInChildren<Battleaxe>();
     }
-
-    private void Update()
+    public override void OnEpisodeBegin()
+    {
+        base.OnEpisodeBegin();
+        battleaxe.alive();
+    }
+        private void Update()
     {
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {
@@ -40,7 +45,13 @@ public class BerserkerAgent : ClassAgent
     {
         base.FixedUpdate();
     }
-    
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(battleaxe.cooldownTime);
+        sensor.AddObservation(battleaxe.IsCleave);
+        sensor.AddObservation(battleaxe.IsWhirlwind);
+    }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
 

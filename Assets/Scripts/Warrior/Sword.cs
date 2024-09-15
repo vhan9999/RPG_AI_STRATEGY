@@ -13,6 +13,7 @@ public class Sword : Weapon
         get => anim.GetBool("isSlash");
         set => anim.SetBool("isSlash", value);
     }
+    
 
     public void Slash()
     {
@@ -24,7 +25,6 @@ public class Sword : Weapon
 
     public void ResetSlash()
     {
-        //Debug.Log("Reset Slash");
         IsSlash = false;
         if (GameArgs.IsDense && !isHit)
             agent.AddReward(-0.03f);
