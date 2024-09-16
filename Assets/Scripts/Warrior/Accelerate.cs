@@ -58,7 +58,7 @@ public class Accelerate : MonoBehaviour
     private void Stop()
     {
         anim.SetBool("isAccelerate", false);
-        Invoke("EnableSkill", 10f);
-        cooldownTime = 10f;
+        Invoke("EnableSkill", 5f);
+        cooldownTime = 5f;
     }
 }
