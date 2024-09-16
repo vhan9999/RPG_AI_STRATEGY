@@ -10,7 +10,8 @@ public class Weapon : MonoBehaviour
     protected Animator anim;
     public ClassAgent agent;
     public int attackPower;
-    public bool isHit = false;
+    public bool isHitWall = false;
+    public bool isHitHuman = false;
     public bool IsAttack = false;
     //private int attackCount = 0;
     //public float rewardRatio = 0;
@@ -53,7 +54,7 @@ public class Weapon : MonoBehaviour
                 {
                     //Debug.Log("great");
                     //agent.count = 0;
-                    isHit = true;//+1
+                    isHitHuman = true;
                     //
                     if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f * (attackPower/25f));
                     else agent.damage += attackPower;
@@ -69,7 +70,7 @@ public class Weapon : MonoBehaviour
             }
             else if (other.TryGetComponent(out Wall wall))
             {
-                isHit = true;
+                isHitWall = true;
                 if (GameArgs.IsDense) agent.AddReward(-0.005f);
             }
         }

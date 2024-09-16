@@ -32,13 +32,14 @@ public class FireBall : Weapon
         {
             ObjectPool<FireBall>.Instance.Recycle(this);
         }
-        if(!isHit)
+        if(!isHitHuman && !isHitWall)
             transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
     }
     
     private void OnEnable()
     {
-        isHit = false;
+        isHitHuman = false;
+        isHitWall = false;
         anim.SetBool("touch", false);
         anim.SetTrigger("new");
     }
@@ -46,7 +47,7 @@ public class FireBall : Weapon
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
-        if (isHit) anim.SetBool("touch", true);
+        if (isHitHuman || isHitWall) anim.SetBool("touch", true);
     }
 
     public void ExplodeDone()

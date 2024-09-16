@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.MLAgents;
 using UnityEngine;
@@ -18,7 +19,8 @@ public class Arrow : Weapon
     private void OnEnable()
     {
         ResetArrow();
-        isHit = false;
+        isHitHuman = false;
+        isHitWall = false;
     }
 
     private void ResetArrow()
@@ -45,8 +47,15 @@ public class Arrow : Weapon
     {
         attackPower = arrowDamage;
 
+        if (isHitHuman)
+        {
+            float distanse = Vector3.Distance(agent.transform.position, other.transform.position);
+            if(GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.08f * Math.Min(distanse / 12, 1f));
+            else agent.damage += (int)(Math.Min(distanse / 12, 1f) * attackPower * 0.5f);
+
+        }
         base.OnTriggerEnter(other);
-        if (isHit)
+        if (isHitWall || isHitHuman)
         {
             ObjectPool<Arrow>.Instance.Recycle(this);
             rigid.velocity = Vector3.zero;

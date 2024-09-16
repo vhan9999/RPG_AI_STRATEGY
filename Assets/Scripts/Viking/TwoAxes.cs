@@ -34,8 +34,9 @@ public class TwoAxes : Weapon
 
     public void ResetCleave()
     {
-        if(GameArgs.IsDense && !isHit) agent.AddReward(-0.03f);
-        isHit = false;
+        if(GameArgs.IsDense && !isHitHuman) agent.AddReward(-0.03f);
+        isHitHuman = false;
+        isHitWall = false;
         IsCleave = false;
     }
 }
