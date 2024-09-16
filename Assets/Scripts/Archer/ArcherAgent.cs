@@ -16,6 +16,8 @@ public class ArcherAgent : ClassAgent
         base.Awake();
         bow = GetComponentInChildren<Bow>();
         bow.Reload();
+        forwardSpeedMult = 0.8f;
+        backSpeedMult = 1f;
     }
 
     private void Update()
