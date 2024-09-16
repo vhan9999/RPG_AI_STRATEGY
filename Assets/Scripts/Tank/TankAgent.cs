@@ -47,7 +47,7 @@ public class TankAgent : ClassAgent
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !shield.IsPush);
+        //actionMask.SetActionEnabled(3, 1, !shield.IsPush);
     }
 
     protected override void AttackAction(int attackAction)

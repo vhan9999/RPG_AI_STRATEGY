@@ -11,7 +11,6 @@ using UnityEditor.Timeline.Actions;
 
 public class MageAgent : ClassAgent
 {
-
     // skill
     private Book book;
 
@@ -19,7 +18,10 @@ public class MageAgent : ClassAgent
     {
         base.Awake();
         book = GetComponentInChildren<Book>();
+        forwardSpeedMult = 0.8f;
+        backSpeedMult = 1f;
     }
+
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();

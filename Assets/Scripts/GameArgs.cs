@@ -20,15 +20,15 @@ public class GameArgs
                 return 1f;
         }
     }
-    public static bool IsDense = true;
+    public static bool IsDense = false;
     public static float attack = 2f;
     public static float hurt = 1f;
-
+      
     public static float warriorAttackRatio = 1f;
-    public static float warriorHurtRatio = 0.3f;
+    public static float warriorHurtRatio = 0.2f;
 
     public static float berserkerAttackRatio = 1f;
-    public static float berserkerHurtRatio = 0.2f;
+    public static float berserkerHurtRatio = 0.3f;
 
     public static float mageAttackRatio = 1f;
     public static float mageHurtRatio = 0.5f;

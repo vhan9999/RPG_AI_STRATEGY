@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 5
+    VectorObservationSize: 0
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: e8d9fe0521016fc4c9e77127b99b4e9a, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 1
   m_BehaviorType: 0
   m_BehaviorName: Archer
@@ -200,6 +200,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3687686518526234062}
     m_Modifications:
+    - target: {fileID: 1924928602369804579, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924928602369804579, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
+      propertyPath: m_DetectableTags.Array.data[6]
+      value: RedTank
+      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontEnemy
@@ -397,6 +405,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3687686518526234062}
     m_Modifications:
+    - target: {fileID: 1924928602369804579, guid: 51e05e8c529c334499a38202852473bf, type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924928602369804579, guid: 51e05e8c529c334499a38202852473bf, type: 3}
+      propertyPath: m_DetectableTags.Array.data[6]
+      value: BlueTank
+      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontTeam
