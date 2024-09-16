@@ -39,15 +39,16 @@ public class Shield : Weapon
 
     private void OnTriggerStay(Collider other)
     {
-        if(!isHit)
+        if(!isHitHuman && !isHitWall)
             WeaponTouch(other);
     }
 
     public void ResetPush()
     {
-        if (GameArgs.IsDense && !isHit)
+        if (GameArgs.IsDense && !isHitHuman)
             agent.AddReward(-0.03f);
         IsPush = false;
-        isHit = false;
+        isHitHuman = false;
+        isHitWall = false;
     }
 }

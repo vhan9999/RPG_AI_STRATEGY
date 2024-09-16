@@ -26,8 +26,9 @@ public class Sword : Weapon
     public void ResetSlash()
     {
         IsSlash = false;
-        if (GameArgs.IsDense && !isHit)
+        if (GameArgs.IsDense && !isHitHuman)
             agent.AddReward(-0.03f);
-        isHit = false;
+        isHitHuman = false;
+        isHitWall = false;
     }
 }
