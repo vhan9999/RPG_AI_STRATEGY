@@ -89,6 +89,7 @@ public class ClassAgent : Agent
         else
             speed = maxSpeed * forwardSpeedMult;
         speed = isDizzy ? speed * 0.2f : speed;
+        speed = isSlowDown ? speed * 0.75f : speed;
         SpeedAdjust();
         inputSpeed = speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
