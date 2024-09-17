@@ -122,9 +122,10 @@ MonoBehaviour:
   reloadTime: 1
   arrowPrefab: {fileID: 1690420554900138641, guid: f36ae60e96c03be42a06a4914b22c643, type: 3}
   spawnPoint: {fileID: 5635530891676177459}
+  cooldownTime: 0
   anim: {fileID: 7801074499085259746}
   maxFirePower: 40
-  firePowerSpeed: 30
+  firePowerSpeed: 40
   firePower: 10
   fire: 0
 --- !u!1 &6154672802766362920

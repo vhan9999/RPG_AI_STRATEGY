@@ -223,6 +223,7 @@ public class ClassAgent : Agent
         sensor.AddObservation(currentHealth);
         sensor.AddObservation(isDead);
         sensor.AddObservation(inputSpeed);
+        sensor.AddObservation(isDizzy);
     }
 
     private void OnTriggerEnter(Collider other)
