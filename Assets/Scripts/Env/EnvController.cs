@@ -128,6 +128,12 @@ public class EnvController : MonoBehaviour
             GameArgs.attack -= 0.0001f;
         if (GameArgs.hurt <= 1.5f)
             GameArgs.hurt += 0.0001f;
+
+        if (GameArgs.selfRewardRatio >= 0.75)
+            GameArgs.selfRewardRatio -= 0.0001f;
+        if (GameArgs.teamRewardRatio <= 0.75)
+            GameArgs.teamRewardRatio += 0.0001f;
+
         if (IsRandomScene)
         {
             LoadRandomScene();
