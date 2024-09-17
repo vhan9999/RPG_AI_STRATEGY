@@ -116,6 +116,7 @@ MonoBehaviour:
   team: 1
   profession: 2
   isDizzy: 0
+  isSlowDown: 0
   damage: 0
   rewardRatio: 0.8
 --- !u!114 &3134963040863204920
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 6
+    VectorObservationSize: 7
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0

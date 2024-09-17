@@ -59,8 +59,9 @@ public class Battleaxe : Weapon
 
     public void ResetCleave()
     {
-        if (GameArgs.IsDense && !isHit) agent.AddReward(-0.03f);
-        isHit = false;
+        if (GameArgs.IsDense && !isHitHuman) agent.AddReward(-0.03f);
+        isHitHuman = false;
+        isHitWall = false;
         IsCleave = false;
     }
 
@@ -79,24 +80,7 @@ public class Battleaxe : Weapon
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (IsAttack)
-        {
-            if (other.TryGetComponent(out ClassAgent otherAgent))
-            {
-                if (agent.team != otherAgent.team)
-                {
-                    isHit = true;
-                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * (IsCleave ? 0.1f : 0.05f));
-                    else agent.damage += IsCleave ? attackPower : 8;
-                    otherAgent.TakeDamage(IsCleave ? attackPower : 8);
-                }
-                else
-                {
-
-                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.03f) * (IsCleave ? 1f : 0.2f));
-                    else agent.damage -= (IsCleave ? attackPower : 8) / 3;
-                }
-            }
-        }
+        attackPower = IsCleave ? 30 : 8;
+        base.OnTriggerEnter(other);
     }
 }

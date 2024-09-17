@@ -16,6 +16,8 @@ public class ArcherAgent : ClassAgent
         base.Awake();
         bow = GetComponentInChildren<Bow>();
         bow.Reload();
+        forwardSpeedMult = 0.8f;
+        backSpeedMult = 1f;
     }
 
     private void Update()
@@ -44,6 +46,7 @@ public class ArcherAgent : ClassAgent
         base.CollectObservations(sensor);
         sensor.AddObservation(bow.cooldownTime);
         sensor.AddObservation(bow.fire);
+        sensor.AddObservation(bow.firePower);
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {

@@ -83,10 +83,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 30
+  attackPower: 0
   isHit: 0
+  isHitHuman: 0
   IsAttack: 0
   IsAllowedWhirlwind: 0
+  cooldownTime: 0
 --- !u!114 &3134963041081847050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +104,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   attackPower: 0
   isHit: 0
+  isHitHuman: 0
   IsAttack: 0
   IsAllowedWhirlwind: 0
+  cooldownTime: 0
 --- !u!1 &4992923648748915264
 GameObject:
   m_ObjectHideFlags: 0

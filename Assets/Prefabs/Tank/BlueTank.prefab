@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776149699358518605}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: dd15f611044a7ec4093d6e97867d45e0, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Tank
@@ -200,10 +200,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7354388928376372854}
     m_Modifications:
-    - target: {fileID: 2835599755467029972, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 183838282745704625}
+    - target: {fileID: 3755898737237218047, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -252,13 +252,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: warCry
       objectReference: {fileID: 0}
+    - target: {fileID: 5301416123047062054, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
---- !u!95 &183838282745704625 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2721259582115448192, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
-  m_PrefabInstance: {fileID: 2832417672328803633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7320457781318616493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4817085015438389404, guid: fc47fdbf2a5bc1b4ab00e0f209e9f208, type: 3}
@@ -377,9 +376,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8492661172069296272, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
+      propertyPath: agent
+      value: 
+      objectReference: {fileID: 4636907801528576284}
     - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
       propertyPath: m_Name
       value: shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}

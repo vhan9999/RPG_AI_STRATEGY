@@ -48,6 +48,7 @@ public class ClassAgent : Agent
 
     //state
     [SerializeField] protected bool isDizzy = false;
+    [SerializeField] protected bool isSlowDown = false;
 
     protected float sideSpeedMult = 0.75f;
     protected float forwardSpeedMult = 1f;
@@ -62,14 +63,15 @@ public class ClassAgent : Agent
     protected virtual void Awake()
     {
         bp = GetComponent<BehaviorParameters>();
-        
         team = (Team)bp.TeamId;
         rb = GetComponent<Rigidbody>();
     }
+
     private void Start()
     {
         envController = GetComponentInParent<EnvController>();
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
@@ -87,6 +89,7 @@ public class ClassAgent : Agent
         else
             speed = maxSpeed * forwardSpeedMult;
         speed = isDizzy ? speed * 0.2f : speed;
+        speed = isSlowDown ? speed * 0.75f : speed;
         SpeedAdjust();
         inputSpeed = speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
@@ -224,6 +227,7 @@ public class ClassAgent : Agent
         sensor.AddObservation(currentHealth);
         sensor.AddObservation(isDead);
         sensor.AddObservation(inputSpeed);
+        sensor.AddObservation(isDizzy);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -278,5 +282,14 @@ public class ClassAgent : Agent
         isDizzy = false;
     }
 
+    public void SlowDown()
+    {
+        isSlowDown = true;
+        Invoke("ResetSlowDown", 0.5f);
+    }
 
+    private void ResetSlowDown()
+    {
+        isSlowDown = false;
+    }
 }
