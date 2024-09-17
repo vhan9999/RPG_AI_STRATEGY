@@ -46,6 +46,7 @@ public class ArcherAgent : ClassAgent
         base.CollectObservations(sensor);
         sensor.AddObservation(bow.cooldownTime);
         sensor.AddObservation(bow.fire);
+        sensor.AddObservation(bow.firePower);
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {

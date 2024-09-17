@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,10 +181,6 @@ PrefabInstance:
     - target: {fileID: 3637113449828974547, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5247284840069232212, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
@@ -723,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &946088490
 Light:
   m_ObjectHideFlags: 0
@@ -869,17 +865,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2989617961445839134, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3637113449828974544, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
       propertyPath: m_Name
       value: Env5v5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637113449828974544, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3637113449828974547, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
       propertyPath: m_RootOrder
@@ -924,10 +912,6 @@ PrefabInstance:
     - target: {fileID: 3637113449828974547, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8509821049475656830, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
