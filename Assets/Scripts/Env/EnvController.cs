@@ -74,10 +74,7 @@ public class EnvController : MonoBehaviour
         m_ResetTimer += 1;
         if (m_ResetTimer >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
-            if (GameArgs.attack >= 1.5f)
-                GameArgs.attack -= 0.0001f;
-            if (GameArgs.hurt <= 1.5f)
-                GameArgs.hurt += 0.0001f;
+            
             if (!GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-0.5f);
             if (!GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-0.5f);
             ResetScene();
@@ -127,6 +124,10 @@ public class EnvController : MonoBehaviour
 
     private void ResetScene()
     {
+        if (GameArgs.attack >= 1.5f)
+            GameArgs.attack -= 0.0001f;
+        if (GameArgs.hurt <= 1.5f)
+            GameArgs.hurt += 0.0001f;
         if (IsRandomScene)
         {
             LoadRandomScene();
