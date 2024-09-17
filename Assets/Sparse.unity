@@ -852,6 +852,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2175526574163121087, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175526574163121087, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
+      propertyPath: m_BrainParameters.m_ActionSpec.m_NumContinuousActions
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3637113449828974544, guid: 87909bd39fb0c3743a46e06cf627ebc3, type: 3}
       propertyPath: m_Name
       value: Env5v5

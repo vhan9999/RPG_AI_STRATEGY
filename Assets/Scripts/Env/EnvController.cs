@@ -78,8 +78,8 @@ public class EnvController : MonoBehaviour
                 GameArgs.attack -= 0.0001f;
             if (GameArgs.hurt <= 1.5f)
                 GameArgs.hurt += 0.0001f;
-            m_RedAgentGroup.AddGroupReward(-0.5f);
-            m_BlueAgentGroup.AddGroupReward(-0.5f);
+            if (!GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-0.5f);
+            if (!GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-0.5f);
             ResetScene();
             m_BlueAgentGroup.GroupEpisodeInterrupted();
             m_RedAgentGroup.GroupEpisodeInterrupted();
@@ -102,7 +102,7 @@ public class EnvController : MonoBehaviour
         }
         if (blueDeadCount == teamNum)
         {
-            if (GameArgs.IsDense)
+            if (!GameArgs.IsDense)
             {
                 m_BlueAgentGroup.AddGroupReward(-m_ResetTimer / MaxEnvironmentSteps);
                 m_RedAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
@@ -113,7 +113,7 @@ public class EnvController : MonoBehaviour
         }
         else if (redDeadCount == teamNum)
         {
-            if (GameArgs.IsDense)
+            if (!GameArgs.IsDense)
             {
                 Debug.Log("BlueWin");
                 m_BlueAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
