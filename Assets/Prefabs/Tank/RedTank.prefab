@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 5
+    VectorObservationSize: 6
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   team: 1
   profession: 6
   isDizzy: 0
+  isSlowDown: 0
   damage: 0
   rewardRatio: 0
 --- !u!114 &1996295887963611451
