@@ -22,25 +22,28 @@ public class ArcherAgent : ClassAgent
 
     private void Update()
     {
-        //Debug.Log(bow.IsReloading);
-        if (Input.GetMouseButtonDown(0) && !bow.IsReloading)
+        if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {
-            
-            bow.SetDrawingAnimation(true); // start drawing animation
-            bow.fire = true;
-        }
-        if (bow.fire && bow.firePower < bow.maxFirePower)
-        {
-            bow.firePower += Time.deltaTime * bow.firePowerSpeed;
-        }
-        if (bow.fire && Input.GetMouseButtonUp(0))
-        {
-            bow.SetDrawingAnimation(false); // Stop drawing animation
-            bow.Fire(bow.firePower);
-            bow.firePower = 10;
-            bow.fire = false;
+            if (Input.GetMouseButtonDown(0) && !bow.IsReloading)
+            {
+
+                bow.SetDrawingAnimation(true); // start drawing animation
+                bow.fire = true;
+            }
+            if (bow.fire && bow.firePower < bow.maxFirePower)
+            {
+                bow.firePower += Time.deltaTime * bow.firePowerSpeed;
+            }
+            if (bow.fire && Input.GetMouseButtonUp(0))
+            {
+                bow.SetDrawingAnimation(false); // Stop drawing animation
+                bow.Fire(bow.firePower);
+                bow.firePower = 10;
+                bow.fire = false;
+            }
         }
     }
+
     public override void CollectObservations(VectorSensor sensor)
     {
         base.CollectObservations(sensor);
