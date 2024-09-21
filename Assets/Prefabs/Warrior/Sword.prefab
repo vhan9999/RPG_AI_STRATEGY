@@ -83,8 +83,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   attackPower: 25
-  isHit: 0
+  isHitWall: 0
+  isHitHuman: 0
   IsAttack: 0
+  attackDuration: 0
+  attackTime: 0
+  slashAni: {fileID: 7400000, guid: 7a0c16446cfc9a74f90b320186149e63, type: 2}
 --- !u!1 &5478056278680019206
 GameObject:
   m_ObjectHideFlags: 0

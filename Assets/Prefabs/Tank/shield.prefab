@@ -134,5 +134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   attackPower: 25
-  isHit: 0
+  isHitWall: 0
+  isHitHuman: 0
   IsAttack: 0
+  attackDuration: 0
+  attackTime: 0
+  pushAni: {fileID: 7400000, guid: 326db08a75b8e674b9f28fb8bbff93a2, type: 2}

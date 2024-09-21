@@ -12,31 +12,18 @@ public class Weapon : MonoBehaviour
     public int attackPower;
     public bool isHitWall = false;
     public bool isHitHuman = false;
-    public bool IsAttack = false;
+    public bool giveHurt = false;
     //private int attackCount = 0;
     //public float rewardRatio = 0;
     //protected int damage = 0;
-    
 
+    
+    public float attackDuration;
+    public float attackTime = 0f;
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
         anim = GetComponent<Animator>();
-    }
-
-    private void OnEnable()
-    {
-        //attackCount = 0;
-    }
-
-    private void OnDisable()
-    {
-        //if (!GameArgs.IsDense && damage != 0)
-        //{
-        //    agent?.AddReward(Math.Max(rewardRatio * (damage / 100f) * GameArgs.attack, -0.5f));
-        //    Debug.Log(rewardRatio * (damage / 100f) * GameArgs.attack);
-        //    damage = 0;
-        //}
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -46,7 +33,7 @@ public class Weapon : MonoBehaviour
 
     public void WeaponTouch(Collider other)
     {
-        if (IsAttack)
+        if (giveHurt)
         {
             if (other.TryGetComponent(out ClassAgent otherAgent))
             {
@@ -78,6 +65,6 @@ public class Weapon : MonoBehaviour
 
     public void SetAttackState(int state)
     {
-        IsAttack = state == 1 ? true : false;
+        giveHurt = state == 1 ? true : false;
     }
 }

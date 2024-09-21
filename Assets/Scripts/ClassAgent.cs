@@ -15,6 +15,7 @@ using System;
 
 public class ClassAgent : Agent
 {
+    
     //move
     protected Vector3 nowDir = Vector3.zero;
     private Vector3 ctrlDir = Vector3.zero;
