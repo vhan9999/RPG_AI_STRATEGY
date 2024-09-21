@@ -810,6 +810,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueTank
       objectReference: {fileID: 0}
+    - target: {fileID: 2752972525124631717, guid: 188aed53b99700241990f8b9450c1333, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7354388928376372854, guid: 188aed53b99700241990f8b9450c1333, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1054,6 +1058,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3637113449828974547}
     m_Modifications:
+    - target: {fileID: -6425596863264405061, guid: b0d3f9485733c754e8173e7d1bda2193, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3743176686246310308, guid: b0d3f9485733c754e8173e7d1bda2193, type: 3}
       propertyPath: m_RootOrder
       value: 10

@@ -49,6 +49,7 @@ public class ArcherAgent : ClassAgent
         base.Heuristic(actionsOuts);
         
     }
+
     public override void CollectObservations(VectorSensor sensor)
     {
         base.CollectObservations(sensor);

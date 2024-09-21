@@ -275,6 +275,7 @@ public class ClassAgent : Agent
     public void StartDizziness()
     {
         isDizzy = true;
+        CancelInvoke("Recover");
         Invoke("Recover", 1f);
     }
 
@@ -286,6 +287,7 @@ public class ClassAgent : Agent
     public void SlowDown()
     {
         isSlowDown = true;
+        CancelInvoke("ResetDown");
         Invoke("ResetSlowDown", 0.5f);
     }
 
