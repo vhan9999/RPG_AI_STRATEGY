@@ -45,7 +45,6 @@ public class TankAgent : ClassAgent
         sensor.AddObservation(warcry.cooldownTime);
         sensor.AddObservation(shield.IsPush);
     }
-
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
         //actionMask.SetActionEnabled(3, 1, !shield.IsPush);
@@ -55,7 +54,6 @@ public class TankAgent : ClassAgent
     {
         if (attackAction == 1) shield.Push();
     }
-
     protected override void SkillAction(int skillAction)
     {
         if (skillAction == 1) warcry.Execute();
