@@ -50,7 +50,7 @@ public class Arrow : Weapon
         if (isHitHuman)
         {
             float distanse = Vector3.Distance(agent.transform.position, other.transform.position);
-            if (other.TryGetComponent(out ClassAgent otherAgent)) otherAgent.SlowDown();
+            
             if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.08f * Math.Min(distanse / 12, 1f));
             else agent.damage += (int)(Math.Min(distanse / 12, 1f) * attackPower * 0.5f);
 

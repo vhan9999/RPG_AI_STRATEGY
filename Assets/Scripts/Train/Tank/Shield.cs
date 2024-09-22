@@ -54,8 +54,11 @@ public class Shield : Weapon
 
     private void OnTriggerStay(Collider other)
     {
-        if(!isHitHuman && !isHitWall)
+        if (!isHitHuman && !isHitWall)
+        {
             WeaponTouch(other);
+            if (other.TryGetComponent(out ClassAgent otherAgent)) otherAgent.SlowDown();
+        }
     }
 
     public void ResetPush()

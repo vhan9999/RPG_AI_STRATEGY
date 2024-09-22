@@ -474,6 +474,10 @@ PrefabInstance:
       propertyPath: agent
       value: 
       objectReference: {fileID: 4636907801528576284}
+    - target: {fileID: 8492661172069296272, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
+      propertyPath: attackPower
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
       propertyPath: m_Name
       value: shield

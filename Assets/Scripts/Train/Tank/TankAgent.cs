@@ -49,6 +49,10 @@ public class TankAgent : ClassAgent
     {
         //actionMask.SetActionEnabled(3, 1, !shield.IsPush);
     }
+    protected override void SpeedAdjust()
+    {
+        speed = shield.IsPush ? speed * 0.5f : speed;
+    }
 
     protected override void AttackAction(int attackAction)
     {
