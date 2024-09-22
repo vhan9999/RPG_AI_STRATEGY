@@ -25,8 +25,7 @@ public class ClassAgent : Agent
     private float maxSpeed = 10f;
     protected float speed = 10f;
     private float inputSpeed = 0;
-    [SerializeField] 
-    public float rotateSpeed = 400f;
+    private float rotateSpeed = 400f;
     private float rotateScale = 0;
     private bool isDead = false;
 
