@@ -22,6 +22,7 @@ public class ArcherAgent : ClassAgent
 
     private void Update()
     {
+        Debug.Log(bow.fire);
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)
         {
             if (Input.GetMouseButtonDown(0) && !bow.IsReloading)
@@ -53,7 +54,7 @@ public class ArcherAgent : ClassAgent
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !bow.IsReloading);
+        actionMask.SetActionEnabled(2, 1, !bow.IsReloading);
     }
 
     protected override void SpeedAdjust()

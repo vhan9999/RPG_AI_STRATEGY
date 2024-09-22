@@ -50,8 +50,8 @@ public class MageAgent : ClassAgent
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsSkill);
-        actionMask.SetActionEnabled(4, 1, !book.IsAttack && !book.IsCoolDown);
+        actionMask.SetActionEnabled(2, 1, !book.IsAttack && !book.IsSkill);
+        actionMask.SetActionEnabled(3, 1, !book.IsAttack && !book.IsCoolDown);
     }
 
     protected override void SpeedAdjust()

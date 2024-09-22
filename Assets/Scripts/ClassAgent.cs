@@ -25,8 +25,8 @@ public class ClassAgent : Agent
     protected float speed = 10f;
     private float inputSpeed = 0;
     [SerializeField] 
-    public float rotateSpeed = 150f;
-    private int rotateDir = 0;
+    public float rotateSpeed = 400f;
+    private float rotateScale = 0;
     private bool isDead = false;
 
     //private int hurtCount = 0;
@@ -95,7 +95,7 @@ public class ClassAgent : Agent
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
-        transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
+        transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateScale, 0f);
     }
 
     protected override void OnEnable()
@@ -136,52 +136,47 @@ public class ClassAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         if (bp.BehaviorType != BehaviorType.HeuristicOnly) return;
-        ActionSegment<int> actions = actionsOut.DiscreteActions;
+        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
+        ActionSegment<int> dicreteActions = actionsOut.DiscreteActions;
+
+
         // move
         if (Input.GetKey(KeyCode.W))
         {
-            actions[0] = 1;
+            dicreteActions[0] = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            actions[0] = 2;
+            dicreteActions[0] = 2;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            actions[1] = 1;
+            dicreteActions[1] = 1;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            actions[1] = 2;
+            dicreteActions[1] = 2;
         }
 
         // rotate
         if (Input.GetKey(KeyCode.Q))
         {
-            actions[2] = 1;
+            continuousActions[0] = 0.4f;
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            actions[2] = 2;
+            continuousActions[0] = -0.4f;
         }
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         if(isDead) return;
-        //if (!GameArgs.IsDense)
-        //{
-        //    if (++count >= 5000)
-        //    {
-        //        AddReward(-0.2f);
-        //        count = 0;
-        //    }
-        //}
+        float rotateAction = actions.ContinuousActions[0];
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
-        int rotateAction = actions.DiscreteActions[2];
-        int attackAction = actions.DiscreteActions[3];
-        int skillAction = actions.DiscreteActions[4];
+        int attackAction = actions.DiscreteActions[2];
+        int skillAction = actions.DiscreteActions[3];
 
         // move forward and backward
         ctrlDir = Vector3.zero;
@@ -204,15 +199,8 @@ public class ClassAgent : Agent
         ctrlDir = ctrlDir.normalized;
 
         // rotate
-        rotateDir = 0;
-        if (rotateAction == 1)
-        {
-            rotateDir = -1;
-        }
-        else if (rotateAction == 2)
-        {
-            rotateDir = 1;
-        }
+        rotateScale = 0;
+        rotateScale = rotateAction;
 
         if (isDizzy) return;
         if (GetComponent<BehaviorParameters>().BehaviorType == BehaviorType.HeuristicOnly) return;
@@ -249,14 +237,13 @@ public class ClassAgent : Agent
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         transform.position =new Vector3(transform.position.x, -0.32f, transform.position.z);
-        rotateDir = 0;
+        rotateScale = 0;
         ctrlDir = Vector3.zero;
         GetComponent<DecisionRequester>().enabled = false;
     }
 
     public void TakeDamage(int hurt)
     {
-        //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= hurt;
         float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.hurt * 0.1f * (hurt / 25f);
