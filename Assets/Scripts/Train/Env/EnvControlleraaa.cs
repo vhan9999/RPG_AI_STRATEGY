@@ -16,6 +16,8 @@ public class EnvControlleraaa : MonoBehaviour
     //List of Agents On Platform
     private List<ClassAgent> blueAgentsList = new List<ClassAgent>();
     private List<ClassAgent> redAgentsList = new List<ClassAgent>();
+    private List<TankAgent> blueTanksList = new List<TankAgent>();
+    private List<TankAgent> redTanksList = new List<TankAgent>();
 
     [SerializeField] private int blueDeadCount = 0;
     [SerializeField] private int redDeadCount = 0;
@@ -147,6 +149,8 @@ public class EnvControlleraaa : MonoBehaviour
             int soldierPos = Random.Range(0, soldierTypes.Length);
             ClassAgent blueAgent = soldierPool.Spawn(Team.Blue, soldierTypes[soldierPos], blueSpawnPoint, Quaternion.Euler(0f, 0f, 0f), transform);
             ClassAgent redAgent = soldierPool.Spawn(Team.Red, soldierTypes[soldierPos], redSpawnPoint, Quaternion.Euler(0f, 180f, 0f), transform);
+            if (blueAgent is TankAgent) blueTanksList.Add((TankAgent)blueAgent);
+            if (redAgent is TankAgent) redTanksList.Add((TankAgent)redAgent);
             blueAgentsList.Add(blueAgent);
             redAgentsList.Add(redAgent);
             m_BlueAgentGroup.RegisterAgent(blueAgent);
@@ -178,6 +182,7 @@ public class EnvControlleraaa : MonoBehaviour
             //random soldier type
             int soldierPos = Random.Range(0, soldierTypes.Length);
             ClassAgent agent = soldierPool.Spawn(team, soldierTypes[soldierPos], spawnPoint, team_rotation, transform);
+            if (agent is TankAgent) (team == Team.Blue ? blueTanksList : redTanksList).Add((TankAgent)agent);
             agentList.Add(agent);
             m_AgentGroup.RegisterAgent(agent);
             if (team == Team.Blue)
@@ -210,5 +215,11 @@ public class EnvControlleraaa : MonoBehaviour
         }
 
         return random_position;
+    }
+    public void tankPenalty(Team team, float teammatePenalty)
+    {
+        List<TankAgent> tankList = team == Team.Blue ? blueTanksList : redTanksList;
+        foreach (TankAgent tankAgent in tankList)
+            if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / (5-tankList.Count));
     }
 }
