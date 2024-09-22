@@ -25,8 +25,7 @@ public class ClassAgent : Agent
     private float maxSpeed = 10f;
     protected float speed = 10f;
     private float inputSpeed = 0;
-    [SerializeField] 
-    public float rotateSpeed = 400f;
+    private float rotateSpeed = 400f;
     private float rotateScale = 0;
     private bool isDead = false;
 
@@ -40,7 +39,7 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    protected EnvControlleraaa envController;
+    protected EnvController envController;
     protected Rigidbody rb;
 
     //init
@@ -70,7 +69,7 @@ public class ClassAgent : Agent
 
     private void Start()
     {
-        envController = GetComponentInParent<EnvControlleraaa>();
+        envController = GetComponentInParent<EnvController>();
     }
 
     private void Update()
