@@ -144,6 +144,7 @@ public class ClassAgent : Agent
         // move
         if (Input.GetKey(KeyCode.W))
         {
+            Debug.Log("press w");
             dicreteActions[0] = 1;
         }
         if (Input.GetKey(KeyCode.S))
@@ -162,11 +163,11 @@ public class ClassAgent : Agent
         // rotate
         if (Input.GetKey(KeyCode.Q))
         {
-            continuousActions[0] = 0.4f;
+            continuousActions[0] = -0.4f;
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            continuousActions[0] = -0.4f;
+            continuousActions[0] = 0.4f;
         }
     }
 
