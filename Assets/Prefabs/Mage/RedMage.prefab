@@ -140,7 +140,6 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 50
   maxSpeed: 100
-  rotateSpeed: 150
   health: 80
   currentHealth: 80
   team: 1
@@ -178,7 +177,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &278691688587384718
 CapsuleCollider:

@@ -262,11 +262,11 @@ public class ClassAgent : Agent
     public void StartDizziness()
     {
         isDizzy = true;
-        CancelInvoke("Recover");
-        Invoke("Recover", 1f);
+        CancelInvoke("RecoverDizziness");
+        Invoke("RecoverDizziness", 1.5f);
     }
 
-    public void Recover()
+    public void RecoverDizziness()
     {
         isDizzy = false;
     }
