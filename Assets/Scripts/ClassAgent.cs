@@ -39,7 +39,7 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    protected EnvControlleraaa envController;
+    protected EnvController envController;
     protected Rigidbody rb;
 
     //init
@@ -69,7 +69,7 @@ public class ClassAgent : Agent
 
     private void Start()
     {
-        envController = GetComponentInParent<EnvControlleraaa>();
+        envController = GetComponentInParent<EnvController>();
     }
 
     private void Update()
@@ -262,11 +262,11 @@ public class ClassAgent : Agent
     public void StartDizziness()
     {
         isDizzy = true;
-        CancelInvoke("Recover");
-        Invoke("Recover", 1f);
+        CancelInvoke("RecoverDizziness");
+        Invoke("RecoverDizziness", 1.5f);
     }
 
-    public void Recover()
+    public void RecoverDizziness()
     {
         isDizzy = false;
     }
