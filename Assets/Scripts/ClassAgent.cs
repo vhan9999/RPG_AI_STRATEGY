@@ -25,7 +25,7 @@ public class ClassAgent : Agent
     private float maxSpeed = 10f;
     protected float speed = 10f;
     private float inputSpeed = 0;
-    private float rotateSpeed = 400f;
+    private float rotateSpeed = 200f;
     private float rotateScale = 0;
     private bool isDead = false;
 
@@ -143,7 +143,6 @@ public class ClassAgent : Agent
         // move
         if (Input.GetKey(KeyCode.W))
         {
-            Debug.Log("press w");
             dicreteActions[0] = 1;
         }
         if (Input.GetKey(KeyCode.S))
@@ -200,7 +199,6 @@ public class ClassAgent : Agent
         ctrlDir = ctrlDir.normalized;
 
         // rotate
-        rotateScale = 0;
         rotateScale = rotateAction;
 
         if (isDizzy) return;
@@ -274,7 +272,7 @@ public class ClassAgent : Agent
     public void SlowDown()
     {
         isSlowDown = true;
-        CancelInvoke("ResetDown");
+        CancelInvoke("ResetSlowDown");
         Invoke("ResetSlowDown", 0.5f);
     }
 

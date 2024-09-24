@@ -82,19 +82,23 @@ public class GameManager : MonoBehaviour
 
     private void Possession(RaycastHit hit)
     {
+        //ui設定
         PlayingUI.SetActive(true);
+        hpBar.GetComponent<healthBar>().Player = possessedPlayer;
+        ChangeSkillIcon();
+
+        //設定角色
         possessedPlayer = hit.collider.gameObject;
         possessedPlayer.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
         possessedPlayer.GetComponentInChildren<Camera>().enabled = true;
         possessedAgent = possessedPlayer.GetComponent<ClassAgent>();
 
+        //換視角
         mainCamera = Camera.main;
         mainCamera.enabled = false;
         isWatching = false;
 
-        hpBar.SetActive(true);
-        hpBar.GetComponent<healthBar>().Player = possessedPlayer;
-        ChangeSkillIcon();
+        
     }
     private void Depossession()
     {
