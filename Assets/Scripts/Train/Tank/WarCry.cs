@@ -13,7 +13,7 @@ public class WarCry : MonoBehaviour
     public float cooldownTime = 0;
     public float cooldown;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         agent = GetComponentInParent<ClassAgent>();

@@ -52,7 +52,7 @@ public class Weapon : MonoBehaviour
                     //Debug.Log("Dont'hurt, you are his frend"); -1
                     //
                     if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.01f * (attackPower / 25f)));
-                    else agent.damage -= attackPower / 3;
+                    else agent.damage -= attackPower / 5;
                 }
             }
             else if (other.TryGetComponent(out Wall wall))
