@@ -28,7 +28,6 @@ public class Weapon : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        Debug.Log("a");
         WeaponTouch(other);
     }
 
@@ -66,7 +65,6 @@ public class Weapon : MonoBehaviour
 
     public void SetAttackState(int state)
     {
-        Debug.Log(state);
         giveHurt = state == 1 ? true : false;
     }
 }

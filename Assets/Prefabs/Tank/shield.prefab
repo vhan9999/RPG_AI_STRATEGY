@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 13815050605408496}
   - component: {fileID: 3200010527737203007}
   - component: {fileID: 8492661172069296272}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8608390279752058518}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -133,10 +133,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 25
+  attackPower: 20
   isHitWall: 0
   isHitHuman: 0
-  IsAttack: 0
+  giveHurt: 0
   attackDuration: 0
   attackTime: 0
   pushAni: {fileID: 7400000, guid: 326db08a75b8e674b9f28fb8bbff93a2, type: 2}
