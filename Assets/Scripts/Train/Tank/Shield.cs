@@ -56,7 +56,6 @@ public class Shield : Weapon
     {
         if (!isHitHuman && !isHitWall)
         {
-            Debug.Log("b");
             WeaponTouch(other);
             if (giveHurt && other.TryGetComponent(out ClassAgent otherAgent)) otherAgent.SlowDown();
         }

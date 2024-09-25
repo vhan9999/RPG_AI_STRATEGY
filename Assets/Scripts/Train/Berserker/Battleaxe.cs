@@ -21,7 +21,6 @@ public class Battleaxe : Weapon
 
     void Update()
     {
-        Debug.Log(cooldown);
         if (cooldownTime > 0)
             cooldownTime -= Time.deltaTime;
         else

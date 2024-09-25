@@ -54,7 +54,6 @@ public class Accelerate : MonoBehaviour
 
     public void Execute()
     {
-        Debug.Log(IsAllowed);
         if (IsAllowed)
         {
             IsAllowed = false;

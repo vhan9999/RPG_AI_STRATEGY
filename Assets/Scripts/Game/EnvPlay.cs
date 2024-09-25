@@ -11,6 +11,8 @@ public class EnvPlay : MonoBehaviour
 
     private List<ClassAgent> blueAgentsList = new List<ClassAgent>();
     private List<ClassAgent> redAgentsList = new List<ClassAgent>();
+    private int blueCount = 0;
+    private int redCount = 0;
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_RedAgentGroup;
@@ -51,20 +53,41 @@ public class EnvPlay : MonoBehaviour
             Debug.Log(postion);
             ClassAgent agent = soldierPool.Spawn(Team.Red, profession, postion, rotation, transform);
             redAgentsList.Add(agent);
+            redCount++;
         }
     }
 
     public void AddCharacter(ClassAgent agent)
     {
         blueAgentsList.Add(agent);
+        blueCount++;
     }
 
     public void RemoveCharacter(ClassAgent agent)
     {
        blueAgentsList.Remove(agent);
+        blueCount--;
     }
-
-    public void EndGame()
+    public void DeadTouch(Team DeadTeam)
+    {
+        if (DeadTeam == Team.Blue)
+        {
+            blueCount--;
+        }
+        else
+        {
+            redCount--;
+        }
+        if (blueCount == 0)
+        {
+            EndGame(false);
+        }
+        else if (redCount == 0)
+        {
+            EndGame(true);
+        }
+    }
+    public void EndGame(bool win)
     {
         foreach (ClassAgent a in blueAgentsList)
         {
@@ -76,10 +99,14 @@ public class EnvPlay : MonoBehaviour
             m_RedAgentGroup.UnregisterAgent(a);
             soldierPool.Rycle(Team.Red, a.profession, a);
         }
-
+        
         redAgentsList.Clear();
         blueAgentsList.Clear();
-        level++;
+        blueCount = 0;
+        redCount = 0;
+
+        if(win) level++;
         StartLevel();
+        Time.timeScale = 0;
     }
 }
