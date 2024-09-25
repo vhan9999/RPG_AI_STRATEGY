@@ -211,10 +211,10 @@ public class ClassAgent : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         base.CollectObservations(sensor);
-        sensor.AddObservation(currentHealth);
-        sensor.AddObservation(isDead);
-        sensor.AddObservation(inputSpeed);
-        sensor.AddObservation(isDizzy);
+        //sensor.AddObservation(currentHealth);
+        //sensor.AddObservation(isDead);
+        //sensor.AddObservation(inputSpeed);
+        //sensor.AddObservation(isDizzy);
     }
 
     private void OnTriggerEnter(Collider other)

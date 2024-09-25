@@ -54,9 +54,9 @@ public class ArcherAgent : ClassAgent
     public override void CollectObservations(VectorSensor sensor)
     {
         base.CollectObservations(sensor);
-        sensor.AddObservation(bow.cooldownTime);
-        sensor.AddObservation(bow.fire);
-        sensor.AddObservation(bow.firePower);
+        //sensor.AddObservation(bow.cooldownTime);
+        //sensor.AddObservation(bow.fire);
+        //sensor.AddObservation(bow.firePower);
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
@@ -77,9 +77,10 @@ public class ArcherAgent : ClassAgent
         }   
         else if(bow.fire)
         {
-            if(GameArgs.IsDense)AddReward(((bow.firePower-10)/240)*(GameArgs.attack-1.5f));
+            if (GameArgs.IsDense) AddReward(((bow.firePower - 10) / 360));
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
+            Debug.Log(bow.firePower);
             bow.firePower = 10;
             bow.fire = false;
         }

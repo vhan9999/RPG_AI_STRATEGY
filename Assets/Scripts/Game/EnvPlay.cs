@@ -47,6 +47,7 @@ public class EnvPlay : MonoBehaviour
         {
             Profession profession = characterInfo.Profession;
             Vector3 postion = transform.position + characterInfo.StartingPos;
+            Debug.Log(postion);
             Quaternion rotation = Quaternion.Euler(0, 180f, 0);
             Debug.Log(postion);
             ClassAgent agent = soldierPool.Spawn(Team.Red, profession, postion, rotation, transform);

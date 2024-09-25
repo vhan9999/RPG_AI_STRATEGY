@@ -40,9 +40,9 @@ public class WarriorAgent : ClassAgent
     public override void CollectObservations(VectorSensor sensor)
     {
         base.CollectObservations(sensor);
-        sensor.AddObservation(accelerate.cooldownTime);
-        sensor.AddObservation(accelerate.Status);
-        sensor.AddObservation(sword.IsSlash);
+        //sensor.AddObservation(accelerate.cooldownTime);
+        //sensor.AddObservation(accelerate.Status);
+        //sensor.AddObservation(sword.IsSlash);
     }
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
