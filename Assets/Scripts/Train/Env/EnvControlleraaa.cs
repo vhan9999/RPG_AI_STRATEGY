@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class EnvControlleraaa : MonoBehaviour
 {
     //Max Academy steps before this platform resets
-    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 14000;
+    [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 5000;
 
     private Profession[] soldierTypes = { Profession.Warrior, Profession.Berserker, Profession.Mage, Profession.Archer, Profession.Tank };
 
