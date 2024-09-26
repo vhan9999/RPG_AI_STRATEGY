@@ -24,6 +24,8 @@ public class EnvControlleraaa : MonoBehaviour
     [SerializeField] private int blueteamNum = 0;
     [SerializeField] private int redTeamNum = 0;
 
+    private int randomTeamNum = 0;
+
     [SerializeField]
     private SoldierPool soldierPool;
 
@@ -106,24 +108,20 @@ public class EnvControlleraaa : MonoBehaviour
     private void ResetScene()
     {
         m_ResetTimer = 0;
+
+        //team num
         blueDeadCount = 0;
         redDeadCount = 0;
         blueteamNum = 0;
         redTeamNum = 0;
-        if (isAsymmetry)
-        {
-            LoadASymmetryRandomScene(Team.Blue);
-            LoadASymmetryRandomScene(Team.Red);
-        }
-        else
-        {
-            LoadSymmetryRandomScene();
-        }
-    }
 
-    private void LoadSymmetryRandomScene()
-    {
+        randomTeamNum = Random.Range(3, 6);
 
+        //tanklist
+        blueTanksList.Clear();
+        redTanksList.Clear();
+
+        //agent list
         foreach (ClassAgent a in blueAgentsList)
         {
             m_BlueAgentGroup.UnregisterAgent(a);
@@ -138,8 +136,26 @@ public class EnvControlleraaa : MonoBehaviour
         }
         redAgentsList.Clear();
 
+        //env reset
+        MaxEnvironmentSteps = randomTeamNum*1000;
+        if (isAsymmetry)
+        {
+            LoadASymmetryRandomScene(Team.Blue);
+            LoadASymmetryRandomScene(Team.Red);
+        }
+        else
+        {
+            LoadSymmetryRandomScene();
+        }
+    }
+
+    private void LoadSymmetryRandomScene()
+    {
+
+        
+
         List<Vector3> positions = new List<Vector3>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < randomTeamNum; i++)
         {
             //random position
             Vector3 blueSpawnPoint = findPostion(Team.Blue, positions);
@@ -166,14 +182,9 @@ public class EnvControlleraaa : MonoBehaviour
         List<ClassAgent> agentList = team == Team.Blue ? blueAgentsList : redAgentsList;
         Quaternion team_rotation = Quaternion.Euler(0f, team == Team.Blue ? 0f : 180f, 0f);
 
-        foreach (ClassAgent a in agentList) 
-        {
-            m_AgentGroup.UnregisterAgent(a);
-            soldierPool.Rycle(team, a.profession, a);
-        }
         agentList.Clear();
         List<Vector3> positions = new List<Vector3>();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < randomTeamNum; i++)
         {
             //random position
 
@@ -220,6 +231,6 @@ public class EnvControlleraaa : MonoBehaviour
     {
         List<TankAgent> tankList = team == Team.Blue ? blueTanksList : redTanksList;
         foreach (TankAgent tankAgent in tankList)
-            if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / (5-tankList.Count));
+            if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / (randomTeamNum - tankList.Count));
     }
 }
