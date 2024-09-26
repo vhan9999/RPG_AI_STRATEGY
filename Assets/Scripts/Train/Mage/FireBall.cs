@@ -17,7 +17,7 @@ public class FireBall : Weapon
     {
         giveHurt = true;
     }
-    
+
     public void Reset()
     {
         timer = 0;
@@ -40,8 +40,7 @@ public class FireBall : Weapon
     {
         isHitHuman = false;
         isHitWall = false;
-        anim.SetBool("touch", false);
-        anim.SetTrigger("new");
+        anim.SetTrigger("shoot");
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -52,6 +51,7 @@ public class FireBall : Weapon
 
     public void ExplodeDone()
     {
+        anim.SetBool("touch", false);
         ObjectPool<FireBall>.Instance.Recycle(this);
     }
 }

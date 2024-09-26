@@ -112,7 +112,7 @@ public class Book : MonoBehaviour
     public void FireBallShoot()
     {
         IsSkill = false;
-        Invoke("CoolDown", 8f);
+        Invoke("CoolDown", 1f);
         cooldownTime = 8f;
         FireBall f = fireBallPool.Spawn(transform.position + transform.up, transform.rotation);
         f.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
