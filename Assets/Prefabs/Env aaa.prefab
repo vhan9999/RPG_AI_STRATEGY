@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490512c2286aa5649a53044134b5ffad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxEnvironmentSteps: 8000
+  MaxEnvironmentSteps: 5000
   blueDeadCount: 0
   redDeadCount: 0
   blueteamNum: 0

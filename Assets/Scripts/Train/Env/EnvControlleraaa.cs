@@ -5,6 +5,8 @@ using System.Linq;
 
 using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
+using Unity.Mathematics;
+using System;
 
 public class EnvControlleraaa : MonoBehaviour
 {
@@ -231,6 +233,6 @@ public class EnvControlleraaa : MonoBehaviour
     {
         List<TankAgent> tankList = team == Team.Blue ? blueTanksList : redTanksList;
         foreach (TankAgent tankAgent in tankList)
-            if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / (randomTeamNum - tankList.Count));
+            if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / Math.Max(randomTeamNum - tankList.Count, 1));
     }
 }
