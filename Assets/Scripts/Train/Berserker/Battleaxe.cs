@@ -82,9 +82,7 @@ public class Battleaxe : Weapon
 
     public void ResetCleave()
     {
-        if (GameArgs.IsDense && !isHitHuman) agent.AddReward(-0.03f);
-        isHitHuman = false;
-        isHitWall = false;
+        resetAttack();
         IsCleave = false;
         attackTime = 0;
     }

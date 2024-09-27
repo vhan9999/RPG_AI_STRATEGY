@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayFrontEnemySensor
   m_DetectableTags:
-  - Wall
   - RedWarrior
   - RedBerserker
   - RedMage
@@ -59,7 +58,7 @@ MonoBehaviour:
   m_RayLength: 45
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 2176
+    m_Bits: 128
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 0}

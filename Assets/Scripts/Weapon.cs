@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
                     //agent.count = 0;
                     isHitHuman = true;
                     //
-                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f * (attackPower/25f));
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * (2 - GameArgs.rewardRatio) * 0.1f * (attackPower/25f));
                     else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
@@ -51,7 +51,7 @@ public class Weapon : MonoBehaviour
                 {
                     //Debug.Log("Dont'hurt, you are his frend"); -1
                     //
-                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.01f * (attackPower / 25f)));
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * (2 - GameArgs.rewardRatio) * 0.01f * (attackPower / 25f)));
                     else agent.damage -= attackPower / 5;
                 }
             }
@@ -66,5 +66,14 @@ public class Weapon : MonoBehaviour
     public void SetAttackState(int state)
     {
         giveHurt = state == 1 ? true : false;
+    }
+
+    //¶È­­¶i¾Ô
+    public void resetAttack()
+    {
+        if (GameArgs.IsDense && !isHitHuman)
+            agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * (GameArgs.rewardRatio + 0.01f));
+        isHitHuman = false;
+        isHitWall = false;
     }
 }

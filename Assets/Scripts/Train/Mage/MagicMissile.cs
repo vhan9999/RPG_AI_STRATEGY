@@ -45,7 +45,7 @@ public class MagicMissile : Weapon
         if(isHitHuman) 
         {
             float distanse = Vector3.Distance(agent.transform.position, other.transform.position);
-            if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.02f * Math.Min(distanse / 8, 1f));
+            if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * (2 - GameArgs.rewardRatio) * 0.02f * Math.Min(distanse / 8, 1f));
             else agent.damage += (int)(Math.Min(distanse / 8, 1f) * attackPower * 0.5f);
         }
         if (isHitHuman || isHitWall) ObjectPool<MagicMissile>.Instance.Recycle(this);

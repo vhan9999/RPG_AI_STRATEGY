@@ -63,11 +63,9 @@ public class Shield : Weapon
 
     public void ResetPush()
     {
-        if (GameArgs.IsDense && !isHitHuman)
-            agent.AddReward(-0.03f);
+        resetAttack();
         IsPush = false;
-        isHitHuman = false;
-        isHitWall = false;
+        
         attackTime = 0;
     }
 }

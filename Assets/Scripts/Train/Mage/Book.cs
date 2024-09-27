@@ -38,7 +38,7 @@ public class Book : MonoBehaviour
         agent = GetComponentInParent<ClassAgent>();
 
         attackDuration = 0.8f;
-        cooldown = 8f;
+        cooldown = 6f;
         skillDuration = fireBallCastAni.length;
     }
 
@@ -112,8 +112,8 @@ public class Book : MonoBehaviour
     public void FireBallShoot()
     {
         IsSkill = false;
-        Invoke("CoolDown", 1f);
-        cooldownTime = 8f;
+        Invoke("CoolDown", cooldown);
+        cooldownTime = cooldown;
         FireBall f = fireBallPool.Spawn(transform.position + transform.up, transform.rotation);
         f.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         f.moveDir = transform.forward;

@@ -25,7 +25,7 @@ public class ClassAgent : Agent
     private float maxSpeed = 10f;
     protected float speed = 10f;
     private float inputSpeed = 0;
-    private float rotateSpeed = 200f;
+    private float rotateSpeed = 300f;
     private float rotateScale = 0;
     private bool isDead = false;
 
@@ -95,7 +95,7 @@ public class ClassAgent : Agent
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
-        transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateScale, 0f);
+        transform.Rotate(0f, rotateSpeed * Time.deltaTime * Mathf.Pow(rotateScale,3), 0f);
     }
 
     protected override void OnEnable()
@@ -227,8 +227,8 @@ public class ClassAgent : Agent
         isDead = true;
         if (!GameArgs.IsDense)
         {
-            float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f)
-            - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
+            float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * (2-GameArgs.rewardRatio), -0.5f)
+            - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * (GameArgs.rewardRatio+1));
             AddReward(reward);
             Debug.Log(reward);
             damage = 0;
@@ -245,7 +245,7 @@ public class ClassAgent : Agent
     {
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= hurt;
-        float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.hurt * 0.1f * (hurt / 25f);
+        float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (GameArgs.rewardRatio+1)/2 * 0.1f * (hurt / 25f);
         if (GameArgs.IsDense) AddReward(dansePenalty);
         if (currentHealth <= 0 && !isDead)
         {
@@ -253,8 +253,8 @@ public class ClassAgent : Agent
             envController?.DeadTouch(team);
         }
 
-        if (profession != Profession.Tank)
-            envController?.tankPenalty(team, dansePenalty);
+        //if (profession != Profession.Tank)
+        //    envController?.tankPenalty(team, dansePenalty);
     }
 
     public void StartDizziness()

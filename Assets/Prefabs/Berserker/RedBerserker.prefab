@@ -110,8 +110,8 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 50
   maxSpeed: 100
-  health: 120
-  currentHealth: 120
+  health: 140
+  currentHealth: 140
   team: 1
   profession: 2
   isDizzy: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bc87bb835d0ca834fb881b86014a7226, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Berserker
@@ -200,14 +200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333920880436845436}
     m_Modifications:
-    - target: {fileID: 1924928602369804579, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1924928602369804579, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
-      propertyPath: m_DetectableTags.Array.data[6]
-      value: BlueTank
-      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: a3cd371590a37a34e9a5d145a8e8f80d, type: 3}
       propertyPath: m_Name
       value: RayFrontEnemy
@@ -394,14 +386,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1333920880436845436}
     m_Modifications:
-    - target: {fileID: 1924928602369804579, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
-      propertyPath: m_DetectableTags.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1924928602369804579, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
-      propertyPath: m_DetectableTags.Array.data[6]
-      value: RedTank
-      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: e8d5503dc518daa449e1320fac977bc7, type: 3}
       propertyPath: m_Name
       value: RayFrontTeam

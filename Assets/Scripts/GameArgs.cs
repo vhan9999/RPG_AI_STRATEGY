@@ -21,14 +21,16 @@ public class GameArgs
         }
     }
     public static bool IsDense = true;
-    public static float attack = 2f;
-    public static float hurt = 1f;
-      
+    
+    public static int step = 0;
+    public static int maxStep = 4000000;
+    public static float rewardRatio => step /maxStep;
+
     public static float warriorAttackRatio = 1f;
     public static float warriorHurtRatio = 0.4f;
 
     public static float berserkerAttackRatio = 1f;
-    public static float berserkerHurtRatio = 0.4f;
+    public static float berserkerHurtRatio = 0.3f;
 
     public static float mageAttackRatio = 1f;
     public static float mageHurtRatio = 0.7f;
@@ -40,7 +42,7 @@ public class GameArgs
     public static float vikingHurtRatio = 0.3f;
 
     public static float tankAttackRatio = 1.2f;
-    public static float tankHurtRatio = 0;
+    public static float tankHurtRatio = 0.3f;
 }
 
 

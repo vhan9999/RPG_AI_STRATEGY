@@ -115,7 +115,7 @@ public class EnvControlleraaa : MonoBehaviour
         blueteamNum = 0;
         redTeamNum = 0;
 
-        randomTeamNum = Random.Range(3, 6);
+        randomTeamNum = Random.Range(3, 7);
 
         //tanklist
         blueTanksList.Clear();
@@ -163,8 +163,8 @@ public class EnvControlleraaa : MonoBehaviour
 
             //random soldier type
             int soldierPos = Random.Range(0, soldierTypes.Length);
-            ClassAgent blueAgent = soldierPool.Spawn(Team.Blue, soldierTypes[soldierPos], blueSpawnPoint, Quaternion.Euler(0f, 0f, 0f), transform);
-            ClassAgent redAgent = soldierPool.Spawn(Team.Red, soldierTypes[soldierPos], redSpawnPoint, Quaternion.Euler(0f, 180f, 0f), transform);
+            ClassAgent blueAgent = soldierPool.Spawn(Team.Blue, soldierTypes[soldierPos], blueSpawnPoint, Quaternion.Euler(0f, Random.Range(0, 360), 0f), transform);
+            ClassAgent redAgent = soldierPool.Spawn(Team.Red, soldierTypes[soldierPos], redSpawnPoint, Quaternion.Euler(0f, Random.Range(0,360), 0f), transform);
             if (blueAgent is TankAgent) blueTanksList.Add((TankAgent)blueAgent);
             if (redAgent is TankAgent) redTanksList.Add((TankAgent)redAgent);
             blueAgentsList.Add(blueAgent);
@@ -180,7 +180,7 @@ public class EnvControlleraaa : MonoBehaviour
     {
         SimpleMultiAgentGroup m_AgentGroup = team == Team.Blue ? m_BlueAgentGroup : m_RedAgentGroup;
         List<ClassAgent> agentList = team == Team.Blue ? blueAgentsList : redAgentsList;
-        Quaternion team_rotation = Quaternion.Euler(0f, team == Team.Blue ? 0f : 180f, 0f);
+        Quaternion team_rotation = Quaternion.Euler(0f, Random.Range(0, 360), 0f);
 
         agentList.Clear();
         List<Vector3> positions = new List<Vector3>();
@@ -227,10 +227,10 @@ public class EnvControlleraaa : MonoBehaviour
 
         return random_position;
     }
-    public void tankPenalty(Team team, float teammatePenalty)
-    {
-        List<TankAgent> tankList = team == Team.Blue ? blueTanksList : redTanksList;
-        foreach (TankAgent tankAgent in tankList)
-            if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / (randomTeamNum - tankList.Count));
-    }
+    //public void tankPenalty(Team team, float teammatePenalty)
+    //{
+    //    List<TankAgent> tankList = team == Team.Blue ? blueTanksList : redTanksList;
+    //    foreach (TankAgent tankAgent in tankList)
+    //        if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / (randomTeamNum - tankList.Count));
+    //}
 }

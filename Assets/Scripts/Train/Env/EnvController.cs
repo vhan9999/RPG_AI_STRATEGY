@@ -124,10 +124,6 @@ public class EnvController : MonoBehaviour
 
     private void ResetScene()
     {
-        if (GameArgs.attack >= 1.5f)
-            GameArgs.attack -= 0.0001f;
-        if (GameArgs.hurt <= 1.5f)
-            GameArgs.hurt += 0.0001f;
         if (IsRandomScene)
         {
             LoadRandomScene();

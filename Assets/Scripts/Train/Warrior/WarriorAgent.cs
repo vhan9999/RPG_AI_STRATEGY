@@ -37,6 +37,12 @@ public class WarriorAgent : ClassAgent
         }
     }
 
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        base.OnActionReceived(actions);
+        GameArgs.step++;
+    }
+
     public override void CollectObservations(VectorSensor sensor)
     {
         base.CollectObservations(sensor);

@@ -64,7 +64,7 @@ public class BerserkerAgent : ClassAgent
 
     protected override void SpeedAdjust()
     {
-        speed = battleaxe.IsCleave ? speed * 0.4f : speed;
+        speed = battleaxe.IsCleave ? speed * 0.6f : speed;
     }
 
     protected override void AttackAction(int attackAction)
