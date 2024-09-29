@@ -5,6 +5,7 @@ using System.Linq;
 
 using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
+using System;
 
 public class EnvControlleraaa : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class EnvControlleraaa : MonoBehaviour
     private float ground_length = 0;
     private float ground_weigth = 0;
 
+    private float radius = 0;
+
 
     void Start()
     {
@@ -50,8 +53,7 @@ public class EnvControlleraaa : MonoBehaviour
         Ground ground = GetComponentInChildren<Ground>();
         ground_weigth = (int)ground.transform.localScale.x;
         ground_length = (int)ground.transform.localScale.z;
-        Debug.Log(ground_weigth);
-        Debug.Log(ground_length);
+        radius = (int)ground.transform.localScale.x / 2;
         ResetScene();
     }
 
@@ -149,6 +151,36 @@ public class EnvControlleraaa : MonoBehaviour
         }
     }
 
+    public Vector3  findCirclePosition(Team team, List<Vector3> positions)
+    {
+
+
+        bool isfind = false;
+        Vector3 random_position = new Vector3(0, 0, 0);
+        while (!isfind)
+        {
+            double r = Random.Range(1, radius);
+            double thetaDegrees = Random.Range(team == Team.Blue ? 1 : -1, team == Team.Blue ? 35 : -35) * 5;
+
+            double thetaRadians = Math.PI * thetaDegrees / 180.0;
+            double x = r * Math.Cos(thetaRadians);
+            double z = r * Math.Sin(thetaRadians);
+            random_position = new Vector3((float)x, 1.7f, (float)z);
+            isfind = true;
+            foreach (Vector2 position in positions)
+            {
+                if (Vector2.Distance(position, random_position) < 0.7f)
+                {
+                    isfind = false;
+                    break;
+                }
+            }
+            if (isfind) random_position += transform.position;
+        }
+
+        return random_position;
+    }
+
     private void LoadSymmetryRandomScene()
     {
 
@@ -158,8 +190,8 @@ public class EnvControlleraaa : MonoBehaviour
         for (int i = 0; i < randomTeamNum; i++)
         {
             //random position
-            Vector3 blueSpawnPoint = findPostion(Team.Blue, positions);
-            Vector3 redSpawnPoint = findPostion(Team.Red, positions);
+            Vector3 blueSpawnPoint = findCirclePosition(Team.Blue, positions);
+            Vector3 redSpawnPoint = findCirclePosition(Team.Red, positions);
 
             //random soldier type
             int soldierPos = Random.Range(0, soldierTypes.Length);
@@ -188,7 +220,7 @@ public class EnvControlleraaa : MonoBehaviour
         {
             //random position
 
-            Vector3 spawnPoint = findPostion(team, positions);
+            Vector3 spawnPoint = findCirclePosition(team, positions);
 
             //random soldier type
             int soldierPos = Random.Range(0, soldierTypes.Length);
@@ -203,34 +235,28 @@ public class EnvControlleraaa : MonoBehaviour
         }
     }
 
-    Vector3 findPostion(Team team, List<Vector3> positions)
+    Vector3 findPosition(Team team, List<Vector3> positions)
     {
         float team_length_pos_init = team == Team.Blue ? -0.45f * ground_length : 0.45f * ground_length;
         float team_length_pos_end = team == Team.Blue ? -0.05f * ground_length : 0.05f * ground_length;
 
         bool isfind = false;
-        Vector3 random_position = transform.position;
+        Vector3 random_position = new Vector3(0, 0, 0);
         while (!isfind)
         {
-            Vector3 random_postion = new Vector3(Random.Range(-ground_weigth / 2, ground_weigth / 2), 1.7f, Random.Range(team_length_pos_init, team_length_pos_end));
+            random_position = new Vector3(Random.Range(-ground_weigth / 2, ground_weigth / 2), 1.7f, Random.Range(team_length_pos_init, team_length_pos_end));
             isfind = true;
             foreach (Vector2 position in positions)
             {
-                if (Vector2.Distance(position, random_postion) < 0.7f)
+                if (Vector2.Distance(position, random_position) < 0.7f)
                 {
                     isfind = false;
                     break;
                 }
             }
-            if (isfind) random_position += random_postion;
+            if (isfind) random_position += transform.position;
         }
 
         return random_position;
     }
-    //public void tankPenalty(Team team, float teammatePenalty)
-    //{
-    //    List<TankAgent> tankList = team == Team.Blue ? blueTanksList : redTanksList;
-    //    foreach (TankAgent tankAgent in tankList)
-    //        if (GameArgs.IsDense) tankAgent?.AddReward(teammatePenalty / (randomTeamNum - tankList.Count));
-    //}
 }

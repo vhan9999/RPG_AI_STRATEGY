@@ -7,12 +7,13 @@ public class EnvPlay : MonoBehaviour
 {
     [SerializeField]
     private SoldierPool soldierPool;
-    public int level = 0;
 
     private List<ClassAgent> blueAgentsList = new List<ClassAgent>();
     private List<ClassAgent> redAgentsList = new List<ClassAgent>();
-    private int blueCount = 0;
-    private int redCount = 0;
+    public int blueCount = 0;
+    public int redCount = 0;
+    private int level;
+    private int max_level = 5;
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_RedAgentGroup;
@@ -20,7 +21,8 @@ public class EnvPlay : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        StartLevel();
+        m_BlueAgentGroup = new SimpleMultiAgentGroup();
+        m_RedAgentGroup = new SimpleMultiAgentGroup();
     }
 
     public void StartGame()
@@ -29,23 +31,20 @@ public class EnvPlay : MonoBehaviour
 
         foreach (ClassAgent a in blueAgentsList)
         {
-            m_BlueAgentGroup.UnregisterAgent(a);
+            m_BlueAgentGroup.RegisterAgent(a);
         }
+
 
         foreach (ClassAgent a in redAgentsList)
         {
-            m_RedAgentGroup.UnregisterAgent(a);
+            m_RedAgentGroup.RegisterAgent(a);
         }
     }
 
-    public void PauseGame()
+    public void StartLevel(int num)
     {
-        Time.timeScale = 0;
-    }
-
-    public void StartLevel()
-    {
-        foreach (CharacterInfo characterInfo in LevelManager.levels[level])
+        level = num;
+        foreach (CharacterInfo characterInfo in LevelManager.levels[num])
         {
             Profession profession = characterInfo.Profession;
             Vector3 postion = transform.position + characterInfo.StartingPos;
@@ -65,9 +64,11 @@ public class EnvPlay : MonoBehaviour
 
     public void RemoveCharacter(ClassAgent agent)
     {
-       blueAgentsList.Remove(agent);
+        blueAgentsList.Remove(agent);
+        soldierPool.Rycle(agent.team, agent.profession, agent);
         blueCount--;
     }
+
     public void DeadTouch(Team DeadTeam)
     {
         if (DeadTeam == Team.Blue)
@@ -105,8 +106,8 @@ public class EnvPlay : MonoBehaviour
         blueCount = 0;
         redCount = 0;
 
-        if(win) level++;
-        StartLevel();
+        if(win) level = (level+1)%max_level;
+        StartLevel(level);
         Time.timeScale = 0;
     }
 }

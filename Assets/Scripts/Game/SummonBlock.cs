@@ -12,7 +12,9 @@ public class SummonBlock : MonoBehaviour
     [SerializeField] private SoldierPool soldierPool;
 
     [SerializeField] private MemberCountManager memberCountManager;
-    private int nowMemberCount = 0;
+
+    [SerializeField] private EnvPlay envplay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,33 +35,33 @@ public class SummonBlock : MonoBehaviour
                     foreach (Collider collider in colliders)
                     {
                         ClassAgent agent = collider.gameObject.GetComponent<ClassAgent>();
-                        soldierPool.Rycle(agent.team, agent.profession, agent);
-                        nowMemberCount--;
+                        envplay.RemoveCharacter(agent);
                     }
                 }
-                else if(nowMemberCount < 5 && chooseClass.ChoosingClass != "")
+                else if(envplay.blueCount < 5 && chooseClass.ChoosingClass != "")
                 {
-                    nowMemberCount++;
+                    ClassAgent agent = null;
                     switch (chooseClass.ChoosingClass)
                     {
                         case "Mage":
-                            soldierPool.Spawn(Team.Blue, Profession.Mage, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
+                            agent = soldierPool.Spawn(Team.Blue, Profession.Mage, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
                             break;
                         case "Warrior":
-                            soldierPool.Spawn(Team.Blue, Profession.Warrior, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
+                            agent = soldierPool.Spawn(Team.Blue, Profession.Warrior, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
                             break;
                         case "Berserker":
-                            soldierPool.Spawn(Team.Blue, Profession.Berserker, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
+                            agent = soldierPool.Spawn(Team.Blue, Profession.Berserker, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
                             break;
                         case "Archer":
-                            soldierPool.Spawn(Team.Blue, Profession.Archer, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
+                            agent = soldierPool.Spawn(Team.Blue, Profession.Archer, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
                             break;
                         case "Tank":
-                            soldierPool.Spawn(Team.Blue, Profession.Tank, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
+                            agent = soldierPool.Spawn(Team.Blue, Profession.Tank, transform.position + new Vector3(0, 0.8f, 0), transform.rotation);
                             break;
                     }
+                    envplay.AddCharacter(agent);
                 }
-                memberCountManager.changeNum(nowMemberCount);
+                memberCountManager.changeNum(envplay.blueCount);
             }
         }
 

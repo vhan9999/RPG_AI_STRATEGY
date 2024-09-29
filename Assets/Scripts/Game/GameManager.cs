@@ -91,7 +91,9 @@ public class GameManager : MonoBehaviour
         possessedPlayer = hit.collider.gameObject;
         possessedPlayer.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
         possessedPlayer.GetComponentInChildren<Camera>().enabled = true;
+        possessedPlayer.GetComponentInChildren<MouseLook>().enabled = true;
         possessedAgent = possessedPlayer.GetComponent<ClassAgent>();
+
 
         //´«µø¨¤
         mainCamera = Camera.main;
@@ -106,6 +108,7 @@ public class GameManager : MonoBehaviour
         possessedPlayer.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
         mainCamera.enabled = true;
         possessedPlayer.GetComponentInChildren<Camera>().enabled = false;
+        possessedPlayer.GetComponentInChildren<MouseLook>().enabled = false;
 
         isWatching = true;
 
