@@ -72,7 +72,7 @@ public class Weapon : MonoBehaviour
     public void resetAttack()
     {
         if (GameArgs.IsDense && !isHitHuman)
-            agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * (GameArgs.rewardRatio + 0.01f));
+            agent.AddReward(-GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * (GameArgs.rewardRatio + 0.01f));
         isHitHuman = false;
         isHitWall = false;
     }

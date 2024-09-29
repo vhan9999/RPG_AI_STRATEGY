@@ -5,6 +5,7 @@ using System.Linq;
 
 using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class EnvControlleraaa : MonoBehaviour
 {
@@ -50,13 +51,13 @@ public class EnvControlleraaa : MonoBehaviour
         Ground ground = GetComponentInChildren<Ground>();
         ground_weigth = (int)ground.transform.localScale.x;
         ground_length = (int)ground.transform.localScale.z;
-        Debug.Log(ground_weigth);
-        Debug.Log(ground_length);
         ResetScene();
     }
 
     void FixedUpdate()
     {
+        
+
         if (m_ResetTimer++ >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
             Debug.Log("times up");
@@ -108,6 +109,12 @@ public class EnvControlleraaa : MonoBehaviour
     private void ResetScene()
     {
         m_ResetTimer = 0;
+
+        //reward
+        if(GameArgs.rewardRatio < 1)
+        {
+            GameArgs.rewardRatio += 0.0001f;
+        }
 
         //team num
         blueDeadCount = 0;

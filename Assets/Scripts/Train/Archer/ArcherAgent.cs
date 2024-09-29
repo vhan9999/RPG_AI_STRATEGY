@@ -28,7 +28,6 @@ public class ArcherAgent : ClassAgent
         bool isHu = gameObject.GetComponent<BehaviorParameters>().BehaviorType == BehaviorType.HeuristicOnly;
         if (Input.GetMouseButtonDown(0) && !bow.IsReloading && isHu)
         {
-            Debug.Log("attack!");
             bow.SetDrawingAnimation(true); // start drawing animation
             bow.fire = true;
         }

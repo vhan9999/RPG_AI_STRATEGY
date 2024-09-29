@@ -22,9 +22,7 @@ public class GameArgs
     }
     public static bool IsDense = true;
     
-    public static int step = 0;
-    public static int maxStep = 4000000;
-    public static float rewardRatio => step /maxStep;
+    public static float rewardRatio = 0;
 
     public static float warriorAttackRatio = 1f;
     public static float warriorHurtRatio = 0.4f;

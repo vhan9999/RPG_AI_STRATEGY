@@ -6,12 +6,13 @@ using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using Unity.VisualScripting;
 
 public class WarriorAgent : ClassAgent
 {
     // weapon
     public Sword sword;
-
+    private int lastStep;
     // skill
     public Accelerate accelerate;
 
@@ -35,12 +36,6 @@ public class WarriorAgent : ClassAgent
                 accelerate.Execute();
             }
         }
-    }
-
-    public override void OnActionReceived(ActionBuffers actions)
-    {
-        base.OnActionReceived(actions);
-        GameArgs.step++;
     }
 
     public override void CollectObservations(VectorSensor sensor)
