@@ -32,7 +32,6 @@ public class SoldierPool : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("init");
         bWPool.InitPool(bWarrior, 5, transform);
         bBPool.InitPool(bBerserker, 5, transform);
         bMPool.InitPool(bMage, 5, transform);

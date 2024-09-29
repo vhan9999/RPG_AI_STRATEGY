@@ -59,6 +59,8 @@ public class EnvControlleraaa : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+
         if (m_ResetTimer++ >= MaxEnvironmentSteps && MaxEnvironmentSteps > 0)
         {
             Debug.Log("times up");
@@ -110,6 +112,12 @@ public class EnvControlleraaa : MonoBehaviour
     private void ResetScene()
     {
         m_ResetTimer = 0;
+
+        //reward
+        if(GameArgs.rewardRatio < 1)
+        {
+            GameArgs.rewardRatio += 0.0001f;
+        }
 
         //team num
         blueDeadCount = 0;
