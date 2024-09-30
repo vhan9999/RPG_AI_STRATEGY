@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class GameArgs
 {
     public static float GetRewardRatio(Profession profession, RewardType rewardType)
@@ -20,6 +22,14 @@ public class GameArgs
                 return 1f;
         }
     }
+
+    public static float GetPowNum(float num, float pow)
+    {
+        int sign = num >= 0 ? 1 : -1;
+        num = Mathf.Pow(Mathf.Abs(num), pow) * sign;
+        return num;
+    }
+
     public static bool IsDense = true;
     
     public static float rewardRatio = 0;

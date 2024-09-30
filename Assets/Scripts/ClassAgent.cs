@@ -25,7 +25,7 @@ public class ClassAgent : Agent
     private float maxSpeed = 10f;
     protected float speed = 10f;
     private float inputSpeed = 0;
-    private float rotateSpeed = 300f;
+    private float rotateSpeed = 250f;
     private float rotateScale = 0;
     private bool isDead = false;
 
@@ -95,7 +95,7 @@ public class ClassAgent : Agent
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
-        transform.Rotate(0f, rotateSpeed * Time.deltaTime * Mathf.Pow(rotateScale,3), 0f);
+        transform.Rotate(0f, rotateSpeed * Time.deltaTime * GameArgs.GetPowNum(rotateScale, 1.4f), 0f);
     }
 
     protected override void OnEnable()
