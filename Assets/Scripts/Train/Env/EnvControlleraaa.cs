@@ -111,6 +111,8 @@ public class EnvControlleraaa : MonoBehaviour
 
     private void ResetScene()
     {
+        GameArgs.gameCount++;
+        Debug.Log(GameArgs.gameCount);
         m_ResetTimer = 0;
 
         //reward

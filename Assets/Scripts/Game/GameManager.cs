@@ -82,11 +82,6 @@ public class GameManager : MonoBehaviour
 
     private void Possession(RaycastHit hit)
     {
-        //ui設定
-        PlayingUI.SetActive(true);
-        hpBar.GetComponent<healthBar>().Player = possessedPlayer;
-        ChangeSkillIcon();
-
         //設定角色
         possessedPlayer = hit.collider.gameObject;
         possessedPlayer.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
@@ -95,12 +90,20 @@ public class GameManager : MonoBehaviour
         possessedAgent = possessedPlayer.GetComponent<ClassAgent>();
 
 
+        //ui設定
+        PlayingUI.SetActive(true);
+        hpBar.GetComponent<healthBar>().Player = possessedPlayer;
+        ChangeSkillIcon();
+
+
         //換視角
         mainCamera = Camera.main;
         mainCamera.enabled = false;
         isWatching = false;
 
-        
+        //鎖滑鼠
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     private void Depossession()
     {
@@ -111,6 +114,9 @@ public class GameManager : MonoBehaviour
         possessedPlayer.GetComponentInChildren<MouseLook>().enabled = false;
 
         isWatching = true;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         hpBar.SetActive(false);
     }
