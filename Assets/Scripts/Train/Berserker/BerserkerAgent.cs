@@ -24,7 +24,9 @@ public class BerserkerAgent : ClassAgent
     {
         base.OnEpisodeBegin();
         battleaxe.alive();
+        InvokeRepeating("TurnJudge", 1f, 1f);
     }
+
     private void Update()
     {
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)

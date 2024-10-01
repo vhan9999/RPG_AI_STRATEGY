@@ -22,6 +22,12 @@ public class TankAgent : ClassAgent
         warcry = GetComponentInChildren<WarCry>();
     }
 
+    public override void OnEpisodeBegin()
+    {
+        base.OnEpisodeBegin();
+        InvokeRepeating("TurnJudge", 1f, 1f);
+    }
+
     private void Update()
     {
         if (bp.BehaviorType == BehaviorType.HeuristicOnly)

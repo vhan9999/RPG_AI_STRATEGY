@@ -100,6 +100,11 @@ public class ClassAgent : Agent
         transform.Rotate(0f, rotateSpeed * Time.deltaTime * Mathf.Pow(Mathf.Abs(rotateScale), 1.4f) * sign, 0f);
     }
 
+    private void TurnJudge()
+    {
+        envController.TurnReward(this);
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -241,6 +246,7 @@ public class ClassAgent : Agent
         rotateScale = 0;
         ctrlDir = Vector3.zero;
         GetComponent<DecisionRequester>().enabled = false;
+        CancelInvoke("TurnJudge");
     }
 
     public void TakeDamage(int hurt)

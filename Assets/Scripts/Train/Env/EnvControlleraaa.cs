@@ -242,7 +242,7 @@ public class EnvControlleraaa : MonoBehaviour
         }
     }
 
-    private void TurnReward(ClassAgent agent)
+    public void TurnReward(ClassAgent agent)
     {
         List<ClassAgent> agentList = agent.team == Team.Blue ? blueAgentsList : redAgentsList;
 
@@ -255,6 +255,30 @@ public class EnvControlleraaa : MonoBehaviour
             {
                 mostCloseAgent = agentList[i];
                 currentDistance = distance;
+            }
+        }
+
+        float angle = Vector3.Angle(agent.transform.position - mostCloseAgent.transform.position, agent.transform.forward);
+        if (currentDistance < 5)
+        {
+            if (angle <= 120)
+            {
+                agent.AddReward(0.0005f * (1 - GameArgs.rewardRatio));
+            }
+        }
+        else
+        {
+            if (angle <= 30)
+            {
+                agent.AddReward(0.0005f * (1 - GameArgs.rewardRatio));
+            }
+            else if (angle <= 60)
+            {
+                agent.AddReward(0.0001f * (1 - GameArgs.rewardRatio));
+            }
+            else if (angle >= 90)
+            {
+                agent.AddReward(-0.0005f * (1 - GameArgs.rewardRatio));
             }
         }
     }
