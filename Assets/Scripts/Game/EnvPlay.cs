@@ -23,7 +23,6 @@ public class EnvPlay : MonoBehaviour
         Time.timeScale = 0;
         m_BlueAgentGroup = new SimpleMultiAgentGroup();
         m_RedAgentGroup = new SimpleMultiAgentGroup();
-        StartLevel(0);
     }
 
     public void StartGame()

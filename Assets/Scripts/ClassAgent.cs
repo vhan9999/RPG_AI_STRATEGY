@@ -12,6 +12,7 @@ using static UnityEngine.GraphicsBuffer;
 using System.Reflection;
 using UnityEngine.Rendering;
 using System;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ClassAgent : Agent
 {
@@ -95,7 +96,8 @@ public class ClassAgent : Agent
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
-        transform.Rotate(0f, rotateSpeed * Time.deltaTime * GameArgs.GetPowNum(rotateScale, 1.4f), 0f);
+        int sign = rotateScale >= 0 ? 1 : -1;
+        transform.Rotate(0f, rotateSpeed * Time.deltaTime * Mathf.Pow(Mathf.Abs(rotateScale), 1.4f) * sign, 0f);
     }
 
     protected override void OnEnable()

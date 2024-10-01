@@ -191,9 +191,6 @@ public class EnvControlleraaa : MonoBehaviour
 
     private void LoadSymmetryRandomScene()
     {
-
-        
-
         List<Vector3> positions = new List<Vector3>();
         for (int i = 0; i < randomTeamNum; i++)
         {
@@ -240,6 +237,23 @@ public class EnvControlleraaa : MonoBehaviour
                 blueteamNum++;
             else
                 redTeamNum++;
+        }
+    }
+
+    private void TurnReward(ClassAgent agent)
+    {
+        List<ClassAgent> agentList = agent.team == Team.Blue ? blueAgentsList : redAgentsList;
+
+        ClassAgent mostCloseAgent = agentList[0];
+        float currentDistance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
+        for (int i = 1; i < agentList.Count; i++)
+        {
+            float distance = Vector3.Distance(agent.transform.position, agentList[i].transform.position);
+            if (currentDistance > distance)
+            {
+                mostCloseAgent = agentList[i];
+                currentDistance = distance;
+            }
         }
     }
 
