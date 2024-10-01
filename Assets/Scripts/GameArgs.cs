@@ -34,6 +34,8 @@ public class GameArgs
     
     public static float rewardRatio = 0;
 
+    public static float gameCount = 0;
+
     public static float warriorAttackRatio = 1f;
     public static float warriorHurtRatio = 0.4f;
 

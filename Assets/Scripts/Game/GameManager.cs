@@ -100,7 +100,9 @@ public class GameManager : MonoBehaviour
         mainCamera.enabled = false;
         isWatching = false;
 
-        
+        //Âê·Æ¹«
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     private void Depossession()
     {
@@ -111,6 +113,9 @@ public class GameManager : MonoBehaviour
         possessedPlayer.GetComponentInChildren<MouseLook>().enabled = false;
 
         isWatching = true;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         hpBar.SetActive(false);
     }
