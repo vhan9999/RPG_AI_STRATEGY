@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private bool isWatching = true;
+    public bool isWatching = true;
     private bool isGameStart = false;
     private GameObject possessedPlayer;
     private ClassAgent possessedAgent;
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void Possession(RaycastHit hit)
+    public void Possession(RaycastHit hit)
     {
         //³]©w¨¤¦â
         possessedPlayer = hit.collider.gameObject;
@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-    private void Depossession()
+    public void Depossession()
     {
         PlayingUI.SetActive(false);
         possessedPlayer.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;

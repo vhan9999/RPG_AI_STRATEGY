@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.MLAgents;
 using UnityEngine;
 
-public class EnvPlay : MonoBehaviour
+public class EnvPlay : MonoBehaviour, IEnvController
 {
     [SerializeField]
     private SoldierPool soldierPool;
 
     private List<ClassAgent> blueAgentsList = new List<ClassAgent>();
     private List<ClassAgent> redAgentsList = new List<ClassAgent>();
+    public GameObject lines;
+    public GameManager gameManager;
+    public TextMeshProUGUI winLoseText;
     public int blueCount = 0;
     public int redCount = 0;
     private int level;
@@ -28,17 +32,7 @@ public class EnvPlay : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1;
-
-        foreach (ClassAgent a in blueAgentsList)
-        {
-            m_BlueAgentGroup.RegisterAgent(a);
-        }
-
-
-        foreach (ClassAgent a in redAgentsList)
-        {
-            m_RedAgentGroup.RegisterAgent(a);
-        }
+        lines.SetActive(false);
     }
 
     public void StartLevel(int num)
@@ -51,6 +45,7 @@ public class EnvPlay : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, 180f, 0);
             ClassAgent agent = soldierPool.Spawn(Team.Red, profession, postion, rotation, transform);
             redAgentsList.Add(agent);
+            m_RedAgentGroup.RegisterAgent(agent);
             redCount++;
         }
     }
@@ -58,6 +53,7 @@ public class EnvPlay : MonoBehaviour
     public void AddCharacter(ClassAgent agent)
     {
         blueAgentsList.Add(agent);
+        m_BlueAgentGroup.RegisterAgent(agent);
         blueCount++;
     }
 
@@ -65,6 +61,7 @@ public class EnvPlay : MonoBehaviour
     {
         blueAgentsList.Remove(agent);
         soldierPool.Rycle(agent.team, agent.profession, agent);
+        m_BlueAgentGroup.UnregisterAgent(agent);
         blueCount--;
     }
 
@@ -80,15 +77,27 @@ public class EnvPlay : MonoBehaviour
         }
         if (blueCount == 0)
         {
-            EndGame(false);
+            ShowGameEnd(false);
         }
         else if (redCount == 0)
         {
-            EndGame(true);
+            ShowGameEnd(true);
         }
+    }
+    public void ShowGameEnd(bool win)
+    {
+        winLoseText.gameObject.SetActive(true);
+        if (win)
+            winLoseText.text = "You Won";
+        else
+            winLoseText.text = "You Lose";
+        EndGame(win);
     }
     public void EndGame(bool win)
     {
+        winLoseText.gameObject.SetActive(false);
+        if (!gameManager.isWatching)
+            gameManager.Depossession();
         foreach (ClassAgent a in blueAgentsList)
         {
             m_BlueAgentGroup.UnregisterAgent(a);
@@ -104,6 +113,7 @@ public class EnvPlay : MonoBehaviour
         blueAgentsList.Clear();
         blueCount = 0;
         redCount = 0;
+        lines.SetActive(true);
 
         if(win) level = (level+1)%max_level;
         StartLevel(level);

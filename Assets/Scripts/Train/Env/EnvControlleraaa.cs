@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
 using System;
 
-public class EnvControlleraaa : MonoBehaviour
+public class EnvControlleraaa : MonoBehaviour, IEnvController
 {
     //Max Academy steps before this platform resets
     [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 5000;
