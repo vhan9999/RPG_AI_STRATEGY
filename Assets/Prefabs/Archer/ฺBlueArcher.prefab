@@ -408,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556574447539085251, guid: 383f5107150d3f94ba88fc201756c0d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.236001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6556574447539085251, guid: 383f5107150d3f94ba88fc201756c0d1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6722163005603553678, guid: 383f5107150d3f94ba88fc201756c0d1, type: 3}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 3687686518526234062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 383f5107150d3f94ba88fc201756c0d1, type: 3}
 --- !u!4 &737512758186442557 stripped
