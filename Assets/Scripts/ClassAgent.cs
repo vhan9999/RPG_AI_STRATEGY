@@ -103,7 +103,8 @@ public class ClassAgent : Agent
 
     private void TurnJudge()
     {
-        envController.TurnReward(this);
+        if(envController is EnvControlleraaa)
+           ((EnvControlleraaa)envController).TurnReward(this);
     }
 
     protected override void OnEnable()
