@@ -61,4 +61,13 @@ public class ObjectPool<T> where T : MonoBehaviour
         obj.gameObject.SetActive(false);
         obj.transform.parent = _parent;
     }
+
+    public void RecycleAll()
+    {
+        foreach(T obj in _objectQueue)
+        {
+            if (obj.gameObject.activeSelf)
+                Recycle(obj);
+        }
+    }
 }

@@ -28,7 +28,7 @@ public class ClassAgent : Agent
     private float inputSpeed = 0;
     private float rotateSpeed = 250f;
     private float rotateScale = 0;
-    private bool isDead = false;
+    public bool isDead = false;
 
     //private int hurtCount = 0;
 

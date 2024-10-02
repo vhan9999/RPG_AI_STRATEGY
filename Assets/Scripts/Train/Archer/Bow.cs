@@ -30,11 +30,11 @@ public class Bow : MonoBehaviour
 
     public bool fire = false;
 
-    private void Start()
+    private void Awake()
     {
         arrowPool = ObjectPool<Arrow>.Instance;
         arrowPool.InitPool(arrowPrefab, 2);
-        agent = GetComponentInParent<ClassAgent>();
+        agent = GetComponentInParent<ClassAgent>(); 
     }
     void Update()
     {

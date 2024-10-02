@@ -15,7 +15,7 @@ public class healthBar : MonoBehaviour
 
         if (Player != null)
         {
-            Health.sizeDelta = new Vector2((Player.GetComponent<ClassAgent>().currentHealth/ Player.GetComponent<ClassAgent>().health)*100, Health.sizeDelta.y);
+            Health.sizeDelta = new Vector2(Player.GetComponent<ClassAgent>().hpPct, Health.sizeDelta.y);
 
             if (Hurt.sizeDelta.x > Health.sizeDelta.x)
             {

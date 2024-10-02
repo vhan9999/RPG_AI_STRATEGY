@@ -11,13 +11,15 @@ public class EnvPlay : MonoBehaviour, IEnvController
 
     private List<ClassAgent> blueAgentsList = new List<ClassAgent>();
     private List<ClassAgent> redAgentsList = new List<ClassAgent>();
-    public GameObject lines;
+    
     public GameManager gameManager;
     public TextMeshProUGUI winLoseText;
+    public TextMeshProUGUI levelText;
     public int blueCount = 0;
     public int redCount = 0;
     private int level;
     private int max_level = 5;
+    private bool isWin = false;
 
     private SimpleMultiAgentGroup m_BlueAgentGroup;
     private SimpleMultiAgentGroup m_RedAgentGroup;
@@ -29,15 +31,10 @@ public class EnvPlay : MonoBehaviour, IEnvController
         m_RedAgentGroup = new SimpleMultiAgentGroup();
     }
 
-    public void StartGame()
-    {
-        Time.timeScale = 1;
-        lines.SetActive(false);
-    }
-
     public void StartLevel(int num)
     {
         level = num;
+        levelText.text = "Level " + (level+1);  
         foreach (CharacterInfo characterInfo in LevelManager.levels[num])
         {
             Profession profession = characterInfo.Profession;
@@ -70,6 +67,7 @@ public class EnvPlay : MonoBehaviour, IEnvController
         if (DeadTeam == Team.Blue)
         {
             blueCount--;
+            gameManager.CheckAgentDead();
         }
         else
         {
@@ -87,17 +85,26 @@ public class EnvPlay : MonoBehaviour, IEnvController
     public void ShowGameEnd(bool win)
     {
         winLoseText.gameObject.SetActive(true);
-        if (win)
-            winLoseText.text = "You Won";
-        else
-            winLoseText.text = "You Lose";
-        EndGame(win);
+        winLoseText.text = win ? "You Won" : "You Lose";
+
+        isWin = win;
+        Invoke("EndGame", 2f);
     }
-    public void EndGame(bool win)
+    public void EndGame()
     {
         winLoseText.gameObject.SetActive(false);
-        if (!gameManager.isWatching)
-            gameManager.Depossession();
+
+        ClearScene();
+
+
+
+        if (isWin) level = (level+1)%max_level;
+        StartLevel(level);
+        isWin = false;
+    }
+    public void ClearScene()
+    {
+
         foreach (ClassAgent a in blueAgentsList)
         {
             m_BlueAgentGroup.UnregisterAgent(a);
@@ -108,15 +115,16 @@ public class EnvPlay : MonoBehaviour, IEnvController
             m_RedAgentGroup.UnregisterAgent(a);
             soldierPool.Rycle(Team.Red, a.profession, a);
         }
-        
+
+        ObjectPool<FireBall>.Instance.RecycleAll();
+        ObjectPool<MagicMissile>.Instance.RecycleAll();
+        ObjectPool<Arrow>.Instance.RecycleAll();
+
         redAgentsList.Clear();
         blueAgentsList.Clear();
         blueCount = 0;
         redCount = 0;
-        lines.SetActive(true);
 
-        if(win) level = (level+1)%max_level;
-        StartLevel(level);
-        Time.timeScale = 0;
+        gameManager.GameOver();
     }
 }
