@@ -40,13 +40,8 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    protected IEnvController envController;
-    protected EnvPlay envPlay;
+    public IEnvController envController;
     protected Rigidbody rb;
-
-    //init
-    private Vector3 initPosition;
-    private Quaternion initRotation;
 
     //state
     [SerializeField] protected bool isDizzy = false;
@@ -217,6 +212,7 @@ public class ClassAgent : Agent
 
         SkillAction(skillAction);
     }
+
     public override void CollectObservations(VectorSensor sensor)
     {
         base.CollectObservations(sensor);

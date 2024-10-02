@@ -244,22 +244,11 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
 
     public void TurnReward(ClassAgent agent)
     {
-        List<ClassAgent> agentList = agent.team == Team.Blue ? blueAgentsList : redAgentsList;
-
-        ClassAgent mostCloseAgent = agentList[0];
-        float currentDistance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
-        for (int i = 1; i < agentList.Count; i++)
-        {
-            float distance = Vector3.Distance(agent.transform.position, agentList[i].transform.position);
-            if (currentDistance > distance)
-            {
-                mostCloseAgent = agentList[i];
-                currentDistance = distance;
-            }
-        }
+        ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
 
         float angle = Vector3.Angle(agent.transform.position - mostCloseAgent.transform.position, agent.transform.forward);
-        if (currentDistance < 5)
+        float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
+        if (distance < 5)
         {
             if (angle <= 120)
             {
@@ -283,28 +272,33 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         }
     }
 
-    Vector3 findPosition(Team team, List<Vector3> positions)
+    private ClassAgent findMostCloseEnemy(ClassAgent agent)
     {
-        float team_length_pos_init = team == Team.Blue ? -0.45f * ground_length : 0.45f * ground_length;
-        float team_length_pos_end = team == Team.Blue ? -0.05f * ground_length : 0.05f * ground_length;
+        List<ClassAgent> agentList = agent.team == Team.Blue ? redAgentsList : blueAgentsList;
 
-        bool isfind = false;
-        Vector3 random_position = new Vector3(0, 0, 0);
-        while (!isfind)
+        ClassAgent mostCloseAgent = agentList[0];
+        float currentDistance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
+        for (int i = 1; i < agentList.Count; i++)
         {
-            random_position = new Vector3(Random.Range(-ground_weigth / 2, ground_weigth / 2), 1.7f, Random.Range(team_length_pos_init, team_length_pos_end));
-            isfind = true;
-            foreach (Vector2 position in positions)
+            float distance = Vector3.Distance(agent.transform.position, agentList[i].transform.position);
+            if (currentDistance > distance)
             {
-                if (Vector2.Distance(position, random_position) < 0.7f)
-                {
-                    isfind = false;
-                    break;
-                }
+                mostCloseAgent = agentList[i];
+                currentDistance = distance;
             }
-            if (isfind) random_position += transform.position;
         }
 
-        return random_position;
+        return mostCloseAgent;
+    }
+
+    public void DistanceReward(ClassAgent agent, float reward)
+    {
+        ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
+        float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
+
+        if (distance < 5)
+        {
+            agent.AddReward(reward);
+        }
     }
 }
