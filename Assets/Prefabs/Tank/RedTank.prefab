@@ -171,6 +171,7 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 50
   maxSpeed: 100
+  isDead: 0
   health: 100
   currentHealth: 100
   team: 1
@@ -246,21 +247,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8492661172069296272, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
-      propertyPath: agent
-      value: 
-      objectReference: {fileID: 5689385521939733646}
-    - target: {fileID: 8492661172069296272, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
-      propertyPath: attackPower
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
       propertyPath: m_Name
       value: shield
-      objectReference: {fileID: 0}
-    - target: {fileID: 8608390279752058518, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd73a6635504a3542902aa0f66b7ab5d, type: 3}

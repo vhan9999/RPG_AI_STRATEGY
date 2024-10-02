@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5379986802587386308}
   - component: {fileID: 7097288330829691022}
   - component: {fileID: 6006420930618973210}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2721259582115448192}
   - component: {fileID: 7924683353347940474}
   - component: {fileID: 5209641332343396464}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: warCry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
