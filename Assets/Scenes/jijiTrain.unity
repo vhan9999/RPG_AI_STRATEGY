@@ -405,6 +405,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6012032683930476148, guid: 758f10925983f9e41b2ab4dfdb6b2f01, type: 3}
+      propertyPath: isAsymmetry
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8075993199282356685, guid: 758f10925983f9e41b2ab4dfdb6b2f01, type: 3}
       propertyPath: m_RootOrder
       value: 1

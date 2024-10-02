@@ -1,3 +1,4 @@
+using Google.Protobuf.Collections;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
@@ -12,10 +13,17 @@ public class GameManager : MonoBehaviour
     public bool isWatching = true;
     private bool isGameStart = false;
     private GameObject possessedPlayer;
-    private ClassAgent possessedAgent;
+    private ClassAgent possessedAgent = null;
     private Camera mainCamera;
 
+    [SerializeField] private GameObject lines;
     [SerializeField] private GameObject PlayingUI;
+    [SerializeField] private GameObject SettingUI;
+    [SerializeField] private GameObject StartButton;
+    [SerializeField] private GameObject MenuButton;
+    [SerializeField] private GameObject PauseButton;
+    [SerializeField] private GameObject StopButton;
+    [SerializeField] private GameObject SummonBlock;
 
     [SerializeField] private ImageManager imageManager;
     [SerializeField] private Image attackIcon;
@@ -69,11 +77,22 @@ public class GameManager : MonoBehaviour
     {
         isGameStart = true;
         Time.timeScale = 1;
+        lines.SetActive(false);
     }
     public void GameOver()
     {
+        if (!isWatching)
+            Depossession();
         isGameStart = false;
         Time.timeScale = 0;
+        SummonBlock.SetActive(true);
+        lines.SetActive(true);
+        PlayingUI.SetActive(false);
+        SettingUI.SetActive(true);
+        StartButton.SetActive(true);
+        MenuButton.SetActive(true);
+        PauseButton.SetActive(false);
+        StopButton.SetActive(false);
     }
     public void GamePause()
     {
@@ -112,13 +131,18 @@ public class GameManager : MonoBehaviour
         mainCamera.enabled = true;
         possessedPlayer.GetComponentInChildren<Camera>().enabled = false;
         possessedPlayer.GetComponentInChildren<MouseLook>().enabled = false;
-
+        possessedPlayer = null;
+        possessedAgent = null;
         isWatching = true;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
 
-        hpBar.SetActive(false);
+    public void CheckAgentDead()
+    {
+        if (possessedAgent != null && possessedAgent.isDead)
+            Depossession();
     }
     private void ChangeSkillIcon()
     {

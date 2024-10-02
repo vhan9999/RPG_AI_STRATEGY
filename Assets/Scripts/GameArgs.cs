@@ -22,7 +22,6 @@ public class GameArgs
                 return 1f;
         }
     }
-
     public static bool IsDense = true;
     
     public static float rewardRatio = 0;
