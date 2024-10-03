@@ -138,6 +138,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         {
             m_BlueAgentGroup.UnregisterAgent(a);
             soldierPool.Rycle(Team.Blue, a.profession, a);
+            if (!a.isDead) a.GameOver();
         }
         blueAgentsList.Clear();
 
@@ -145,6 +146,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         {
             m_RedAgentGroup.UnregisterAgent(a);
             soldierPool.Rycle(Team.Red, a.profession, a);
+            if (!a.isDead) a.GameOver();
         }
         redAgentsList.Clear();
 
@@ -247,6 +249,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
 
         float angle = Vector3.Angle(mostCloseAgent.transform.position - agent.transform.position, agent.transform.forward);
+        Debug.Log(angle);
         float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
         if (distance < 5)
         {
@@ -259,7 +262,6 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         {
             if (angle <= 30)
             {
-                Debug.Log("");
                 agent.AddReward(0.0005f * (1 - GameArgs.rewardRatio));
             }
             else if (angle <= 60)

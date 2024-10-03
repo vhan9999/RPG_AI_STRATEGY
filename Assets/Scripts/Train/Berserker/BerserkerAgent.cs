@@ -24,6 +24,7 @@ public class BerserkerAgent : ClassAgent
     {
         base.OnEpisodeBegin();
         battleaxe.alive();
+        CancelInvoke("TurnJudge");
         InvokeRepeating("TurnJudge", 1f, 1f);
     }
 
