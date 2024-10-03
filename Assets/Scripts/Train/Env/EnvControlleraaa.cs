@@ -259,6 +259,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         {
             if (angle <= 30)
             {
+                Debug.Log("");
                 agent.AddReward(0.0005f * (1 - GameArgs.rewardRatio));
             }
             else if (angle <= 60)

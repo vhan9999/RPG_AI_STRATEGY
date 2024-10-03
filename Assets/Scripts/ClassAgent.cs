@@ -92,8 +92,7 @@ public class ClassAgent : Agent
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
-        int sign = rotateScale >= 0 ? 1 : -1;
-        transform.Rotate(0f, rotateSpeed * Time.deltaTime * Mathf.Pow(Mathf.Abs(rotateScale), 1.4f) * sign, 0f);
+        transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateScale, 0f);
     }
 
     private void TurnJudge()
