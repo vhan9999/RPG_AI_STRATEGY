@@ -22,7 +22,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
 
     [SerializeField] private int blueDeadCount = 0;
     [SerializeField] private int redDeadCount = 0;
-    [SerializeField] private int blueteamNum = 0;
+    [SerializeField] private int blueTeamNum = 0;
     [SerializeField] private int redTeamNum = 0;
 
     private int randomTeamNum = 0;
@@ -82,15 +82,19 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
     {   
         if (DeadTeam == Team.Blue)
         {
+            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / blueTeamNum);
+            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-(1f / blueTeamNum));
             blueDeadCount++;
         }
         else
         {
+            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / redTeamNum);
+            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-(1f / redTeamNum));
             redDeadCount++;
         }
-        if (blueDeadCount == blueteamNum)
+        if (blueDeadCount == blueTeamNum)
         {
-            Debug.Log("red win"+blueDeadCount+" "+ blueteamNum);
+            Debug.Log("red win"+blueDeadCount+" "+ blueTeamNum);
             m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
             m_RedAgentGroup.AddGroupReward(1);
             m_BlueAgentGroup.EndGroupEpisode();
@@ -124,7 +128,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         //team num
         blueDeadCount = 0;
         redDeadCount = 0;
-        blueteamNum = 0;
+        blueTeamNum = 0;
         redTeamNum = 0;
 
         randomTeamNum = Random.Range(3, 7);
@@ -210,7 +214,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
             redAgentsList.Add(redAgent);
             m_BlueAgentGroup.RegisterAgent(blueAgent);
             m_RedAgentGroup.RegisterAgent(redAgent);
-            blueteamNum++;
+            blueTeamNum++;
             redTeamNum++;
         }
     }
@@ -236,7 +240,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
             agentList.Add(agent);
             m_AgentGroup.RegisterAgent(agent);
             if (team == Team.Blue)
-                blueteamNum++;
+                blueTeamNum++;
             else
                 redTeamNum++;
         }
