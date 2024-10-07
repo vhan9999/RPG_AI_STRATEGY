@@ -17,13 +17,7 @@ public class ObjectPool<T> where T : MonoBehaviour
     }
 
     // Singleton
-    public static ObjectPool<T> Instance
-    {
-        get
-        {
-            return Instance ?? new ObjectPool<T>();
-        }
-    }
+    public static ObjectPool<T> Instance { get; } = new ObjectPool<T>();
 
     public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parent = null)
     {
