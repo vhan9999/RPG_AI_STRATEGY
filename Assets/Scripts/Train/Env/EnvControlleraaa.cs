@@ -95,7 +95,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         if (blueDeadCount == blueTeamNum)
         {
             Debug.Log("red win"+blueDeadCount+" "+ blueTeamNum);
-            m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+            m_BlueAgentGroup.AddGroupReward(-0.7f);
             m_RedAgentGroup.AddGroupReward(1);
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
@@ -106,7 +106,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         {
             Debug.Log("blue win" + redDeadCount + " " + redTeamNum);
             m_BlueAgentGroup.AddGroupReward(1);
-            m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+            m_RedAgentGroup.AddGroupReward(-0.7f);
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -122,7 +122,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         //reward
         if(GameArgs.rewardRatio < 1)
         {
-            GameArgs.rewardRatio += 0.0001f;
+            GameArgs.rewardRatio += 0.00005f;
         }
 
         //team num
@@ -253,30 +253,30 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
 
         float angle = Vector3.Angle(mostCloseAgent.transform.position - agent.transform.position, agent.transform.forward);
-        Debug.Log(angle);
         float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
         if (distance < 5)
         {
             if (angle <= 120)
             {
-                agent.AddReward(0.0005f * (1 - GameArgs.rewardRatio));
+                agent.AddReward(0.005f * (2 - GameArgs.rewardRatio) / 2);
             }
         }
         else
         {
             if (angle <= 30)
             {
-                agent.AddReward(0.0005f * (1 - GameArgs.rewardRatio));
+                agent.AddReward(0.005f * (2 - GameArgs.rewardRatio)/2);
             }
             else if (angle <= 60)
             {
-                agent.AddReward(0.0001f * (1 - GameArgs.rewardRatio));
+                agent.AddReward(0.001f * (2 - GameArgs.rewardRatio) / 2);
             }
             else if (angle >= 90)
             {
-                agent.AddReward(-0.0005f * (1 - GameArgs.rewardRatio));
+                agent.AddReward(-0.005f * (2 - GameArgs.rewardRatio) / 2);
             }
         }
+        agent.AddReward(0.0002f * ((float)Math.Pow(20 - distance,2) / 15f) * (2 - GameArgs.rewardRatio));
     }
 
     private ClassAgent findMostCloseEnemy(ClassAgent agent)
@@ -303,9 +303,14 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
         float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
 
-        if (distance > 5)
+        if(distance > 12)
+        {
+            agent.AddReward(2f*reward);
+        }
+        else if (distance > 4)
         {
             agent.AddReward(reward);
         }
+
     }
 }

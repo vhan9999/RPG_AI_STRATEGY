@@ -1903,10 +1903,10 @@ MonoBehaviour:
   MaxEnvironmentSteps: 5000
   blueDeadCount: 0
   redDeadCount: 0
-  blueteamNum: 0
+  blueTeamNum: 0
   redTeamNum: 0
   soldierPool: {fileID: 3293534439085275518}
-  isAsymmetry: 0
+  isAsymmetry: 1
 --- !u!1001 &2016992259049496793
 PrefabInstance:
   m_ObjectHideFlags: 0
