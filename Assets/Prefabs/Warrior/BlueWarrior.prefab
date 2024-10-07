@@ -141,15 +141,15 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   lerpSpeed: 50
-  maxSpeed: 100
-  health: 100
-  currentHealth: 100
+  maxSpeed: 110
+  isDead: 0
+  health: 125
+  currentHealth: 125
   team: 0
   profession: 0
   isDizzy: 0
   isSlowDown: 0
   damage: 0
-  rewardRatio: 0.8
   sword: {fileID: 0}
   accelerate: {fileID: 0}
 --- !u!114 &8914155739197228526

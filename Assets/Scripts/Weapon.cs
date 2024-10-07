@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
                     //agent.count = 0;
                     isHitHuman = true;
                     //
-                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * (2 - GameArgs.rewardRatio) * 0.1f * (attackPower/25f));
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.rewardRatio * 0.1f * (attackPower/25f));
                     else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
@@ -51,14 +51,13 @@ public class Weapon : MonoBehaviour
                 {
                     //Debug.Log("Dont'hurt, you are his frend"); -1
                     //
-                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * (2 - GameArgs.rewardRatio) * 0.01f * (attackPower / 25f)));
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.rewardRatio * 0.01f * (attackPower / 25f)));
                     else agent.damage -= attackPower / 5;
                 }
             }
             else if (other.TryGetComponent(out Wall wall))
             {
                 isHitWall = true;
-                if (GameArgs.IsDense) agent.AddReward(-0.005f);
             }
         }
     }
@@ -73,7 +72,11 @@ public class Weapon : MonoBehaviour
     {
         if (agent.envController is EnvControlleraaa)
         {
-            ((EnvControlleraaa)(agent.envController)).DistanceReward(agent, -GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * (GameArgs.rewardRatio / 2 + 0.5f));
+            ((EnvControlleraaa)(agent.envController)).DistanceReward(agent, -GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * GameArgs.rewardRatio);
+        }
+        if (!isHitHuman)
+        {
+            agent.AddReward(-GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * GameArgs.rewardRatio);
         }
         isHitHuman = false;
         isHitWall = false;

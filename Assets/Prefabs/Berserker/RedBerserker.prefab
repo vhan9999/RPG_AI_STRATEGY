@@ -109,7 +109,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   lerpSpeed: 50
-  maxSpeed: 100
+  maxSpeed: 110
+  isDead: 0
   health: 140
   currentHealth: 140
   team: 1
@@ -117,7 +118,6 @@ MonoBehaviour:
   isDizzy: 0
   isSlowDown: 0
   damage: 0
-  rewardRatio: 0.8
   battleaxe: {fileID: 0}
 --- !u!114 &3134963040863204920
 MonoBehaviour:

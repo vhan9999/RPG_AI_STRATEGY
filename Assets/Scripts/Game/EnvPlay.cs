@@ -17,6 +17,7 @@ public class EnvPlay : MonoBehaviour, IEnvController
     public TextMeshProUGUI levelText;
     public int blueCount = 0;
     public int redCount = 0;
+    public RealObjectPool objectPool;
     private int level;
     private int max_level = 5;
     private bool isWin = false;
@@ -116,9 +117,7 @@ public class EnvPlay : MonoBehaviour, IEnvController
             soldierPool.Rycle(Team.Red, a.profession, a);
         }
 
-        ObjectPool<FireBall>.Instance.RecycleAll();
-        ObjectPool<MagicMissile>.Instance.RecycleAll();
-        ObjectPool<Arrow>.Instance.RecycleAll();
+        objectPool.RecycleAll();
 
         redAgentsList.Clear();
         blueAgentsList.Clear();

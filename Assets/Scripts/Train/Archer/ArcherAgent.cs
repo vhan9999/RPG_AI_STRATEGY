@@ -17,9 +17,8 @@ public class ArcherAgent : ClassAgent
         base.Awake();
         bow = GetComponentInChildren<Bow>();
         bow.Reload();
-        forwardSpeedMult = 0.8f;
-        sideSpeedMult = 0.9f;
-        backSpeedMult = 1f;
+        sideSpeedMult = 0.95f;
+        backSpeedMult = 0.9f;
     }
 
     private void Update()
@@ -76,7 +75,7 @@ public class ArcherAgent : ClassAgent
         }   
         else if(bow.fire)
         {
-            if(GameArgs.IsDense)AddReward(((bow.firePower-10)/240)*(2-GameArgs.rewardRatio)/2);
+            if(GameArgs.IsDense)AddReward(((bow.firePower-10)/240)* GameArgs.rewardRatio);
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
             bow.firePower = 10;

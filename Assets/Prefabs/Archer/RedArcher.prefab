@@ -156,14 +156,14 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 50
   maxSpeed: 100
-  health: 90
-  currentHealth: 90
+  isDead: 0
+  health: 85
+  currentHealth: 85
   team: 1
   profession: 4
   isDizzy: 0
   isSlowDown: 0
   damage: 0
-  rewardRatio: 0
   bow: {fileID: 3497034634105338162}
 --- !u!114 &6191277983067919532
 MonoBehaviour:

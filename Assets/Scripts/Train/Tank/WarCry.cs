@@ -44,7 +44,7 @@ public class WarCry : MonoBehaviour
             if (agent.team != otherAgent.team)
             {
                 otherAgent.StartDizziness();
-                if(GameArgs.IsDense)agent.AddReward(0.02f);
+                if(GameArgs.IsDense)agent.AddReward(0.04f * GameArgs.rewardRatio);
             }
         }
     }

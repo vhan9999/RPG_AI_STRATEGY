@@ -19,13 +19,14 @@ public class BerserkerAgent : ClassAgent
     {
         base.Awake();
         battleaxe = GetComponentInChildren<Battleaxe>();
+
     }
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
         battleaxe.alive();
-        CancelInvoke("TurnJudge");
-        InvokeRepeating("TurnJudge", 1f, 1f);
+        //CancelInvoke("TurnJudge");
+        //InvokeRepeating("TurnJudge", 1f, 1f);
     }
 
     private void Update()

@@ -26,8 +26,6 @@ public class WarriorAgent : ClassAgent
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
-        CancelInvoke("TurnJudge");
-        InvokeRepeating("TurnJudge", 1f, 1f);
     }
 
     private void Update()

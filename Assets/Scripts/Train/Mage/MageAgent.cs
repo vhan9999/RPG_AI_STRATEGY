@@ -18,9 +18,8 @@ public class MageAgent : ClassAgent
     {
         base.Awake();
         book = GetComponentInChildren<Book>();
-        forwardSpeedMult = 0.8f;
         sideSpeedMult = 0.9f;
-        backSpeedMult = 1f;
+        backSpeedMult = 0.8f;
     }
 
     public override void OnEpisodeBegin()
