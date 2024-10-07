@@ -170,16 +170,15 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   lerpSpeed: 50
-  maxSpeed: 100
+  maxSpeed: 110
   isDead: 0
-  health: 100
-  currentHealth: 100
+  health: 120
+  currentHealth: 120
   team: 1
   profession: 6
   isDizzy: 0
   isSlowDown: 0
   damage: 0
-  rewardRatio: 0
   shield: {fileID: 0}
   warcry: {fileID: 0}
 --- !u!114 &1996295887963611451

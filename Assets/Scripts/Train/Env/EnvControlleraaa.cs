@@ -72,7 +72,7 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S)) 
+        if (Input.GetKeyDown(KeyCode.Q)) 
         {
             ResetScene();
         }
@@ -95,8 +95,8 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         if (blueDeadCount == blueTeamNum)
         {
             Debug.Log("red win"+blueDeadCount+" "+ blueTeamNum);
-            m_BlueAgentGroup.AddGroupReward(-0.7f);
-            m_RedAgentGroup.AddGroupReward(1);
+            m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * (1-GameArgs.rewardRatio));
+            m_RedAgentGroup.AddGroupReward((1 - m_ResetTimer / MaxEnvironmentSteps) * (1 - GameArgs.rewardRatio));
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -105,8 +105,8 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         else if (redDeadCount == redTeamNum)
         {
             Debug.Log("blue win" + redDeadCount + " " + redTeamNum);
-            m_BlueAgentGroup.AddGroupReward(1);
-            m_RedAgentGroup.AddGroupReward(-0.7f);
+            m_BlueAgentGroup.AddGroupReward((1 - m_ResetTimer / MaxEnvironmentSteps) * (1 - GameArgs.rewardRatio));
+            m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * (1 - GameArgs.rewardRatio));
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -120,9 +120,9 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         m_ResetTimer = 0;
 
         //reward
-        if(GameArgs.rewardRatio < 1)
+        if(GameArgs.rewardRatio > 0.3f)
         {
-            GameArgs.rewardRatio += 0.00005f;
+            GameArgs.rewardRatio -= 0.000035f;
         }
 
         //team num
@@ -258,25 +258,25 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         {
             if (angle <= 120)
             {
-                agent.AddReward(0.005f * (2 - GameArgs.rewardRatio) / 2);
+                agent.AddReward(0.005f * GameArgs.rewardRatio);
             }
         }
         else
         {
             if (angle <= 30)
             {
-                agent.AddReward(0.005f * (2 - GameArgs.rewardRatio)/2);
+                agent.AddReward(0.005f * GameArgs.rewardRatio);
             }
             else if (angle <= 60)
             {
-                agent.AddReward(0.001f * (2 - GameArgs.rewardRatio) / 2);
+                agent.AddReward(0.001f * GameArgs.rewardRatio);
             }
             else if (angle >= 90)
             {
-                agent.AddReward(-0.005f * (2 - GameArgs.rewardRatio) / 2);
+                agent.AddReward(-0.005f * GameArgs.rewardRatio);
             }
         }
-        agent.AddReward(0.0002f * ((float)Math.Pow(20 - distance,2) / 15f) * (2 - GameArgs.rewardRatio));
+        agent.AddReward(0.0002f * ((float)Math.Pow(20 - distance,2) / 15f) * GameArgs.rewardRatio);
     }
 
     private ClassAgent findMostCloseEnemy(ClassAgent agent)
@@ -298,18 +298,16 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         return mostCloseAgent;
     }
 
+    //ªÅ´§
     public void DistanceReward(ClassAgent agent, float reward)
     {
         ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
         float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
 
-        if(distance > 12)
-        {
-            agent.AddReward(2f*reward);
-        }
-        else if (distance > 4)
+        if(distance > 10)
         {
             agent.AddReward(reward);
+            Debug.Log("distance2" + reward);
         }
 
     }

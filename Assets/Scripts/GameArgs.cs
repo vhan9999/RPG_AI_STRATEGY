@@ -24,7 +24,7 @@ public class GameArgs
     }
     public static bool IsDense = true;
     
-    public static float rewardRatio = 0;
+    public static float rewardRatio = 1;
 
     public static float gameCount = 0;
 

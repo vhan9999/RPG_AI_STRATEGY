@@ -17,8 +17,19 @@ public class ObjectPool<T> where T : MonoBehaviour
     }
 
     // Singleton
-    public static ObjectPool<T> Instance { get; } = new ObjectPool<T>();
+    public static ObjectPool<T> instance = null;
+    public static ObjectPool<T> Instance
+    {
+        get
+        {
 
+            if (instance == null) {
+                instance = new ObjectPool<T>();
+                Debug.Log("new objectpool");
+            }
+            return instance;
+        }
+    }
     public void InitPool(GameObject prefab, int warmUpCount = 0, Transform parent = null)
     {
         _objectQueue = new Queue<T>();
@@ -62,12 +73,5 @@ public class ObjectPool<T> where T : MonoBehaviour
         obj.transform.parent = _parent;
     }
 
-    public void RecycleAll()
-    {
-        foreach(T obj in _objectQueue)
-        {
-            if (obj.gameObject.activeSelf)
-                Recycle(obj);
-        }
-    }
+    
 }

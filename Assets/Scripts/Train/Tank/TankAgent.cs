@@ -25,8 +25,8 @@ public class TankAgent : ClassAgent
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
-        CancelInvoke("TurnJudge");
-        InvokeRepeating("TurnJudge", 1f, 1f);
+        //CancelInvoke("TurnJudge");
+        //InvokeRepeating("TurnJudge", 1f, 1f);
     }
 
     private void Update()
@@ -54,7 +54,7 @@ public class TankAgent : ClassAgent
     }
     public override void WriteDiscreteActionMask(IDiscreteActionMask actionMask)
     {
-        //actionMask.SetActionEnabled(3, 1, !shield.IsPush);
+        actionMask.SetActionEnabled(3, 1, !shield.IsPush);
     }
     protected override void SpeedAdjust()
     {

@@ -38,7 +38,7 @@ public class Book : MonoBehaviour
         agent = GetComponentInParent<ClassAgent>();
 
         attackDuration = 0.8f;
-        cooldown = 6f;
+        cooldown = 4.5f;
         skillDuration = fireBallCastAni.length;
     }
 

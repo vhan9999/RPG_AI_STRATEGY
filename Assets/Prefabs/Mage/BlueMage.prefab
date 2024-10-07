@@ -141,14 +141,14 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 50
   maxSpeed: 100
-  health: 80
-  currentHealth: 80
+  isDead: 0
+  health: 70
+  currentHealth: 70
   team: 0
   profession: 1
   isDizzy: 0
   isSlowDown: 0
   damage: 0
-  rewardRatio: 1
   book: {fileID: 0}
 --- !u!114 &2998797774162041268
 MonoBehaviour:

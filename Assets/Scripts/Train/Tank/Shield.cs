@@ -47,7 +47,7 @@ public class Shield : Weapon
             {
                 agent.currentHealth = agent.currentHealth > agent.health ? agent.health : agent.currentHealth + weapon.attackPower / 2;
                 if (GameArgs.IsDense)
-                    agent.AddReward(0.01f);
+                    agent.AddReward(0.03f * GameArgs.rewardRatio);
             }
         }
     }

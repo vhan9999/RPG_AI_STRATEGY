@@ -55,7 +55,6 @@ public class ClassAgent : Agent
 
     [HideInInspector]
     public int damage = 0;
-    public float rewardRatio;
 
     protected virtual void Awake()
     {
@@ -250,7 +249,7 @@ public class ClassAgent : Agent
     {
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
         currentHealth -= hurt;
-        float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (GameArgs.rewardRatio+1)/2 * 0.1f * (hurt / 25f);
+        float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.rewardRatio * 0.1f * (hurt / 25f);
         if (GameArgs.IsDense) AddReward(dansePenalty);
         if (currentHealth <= 0 && !isDead)
         {
