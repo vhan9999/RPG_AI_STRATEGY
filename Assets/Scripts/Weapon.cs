@@ -75,6 +75,10 @@ public class Weapon : MonoBehaviour
         {
             ((EnvControlleraaa)(agent.envController)).DistanceReward(agent, -GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * (GameArgs.rewardRatio / 2 + 0.5f));
         }
+        else if (agent.envController is EnvController)
+        {
+            ((EnvController)(agent.envController)).DistanceReward(agent, -GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * (GameArgs.rewardRatio / 2 + 0.5f));
+        }
         isHitHuman = false;
         isHitWall = false;
     }

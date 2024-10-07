@@ -9,7 +9,7 @@ using System.Linq;
 using Random = UnityEngine.Random;
 using Unity.VisualScripting;
 
-public class EnvController : MonoBehaviour
+public class EnvController : MonoBehaviour, IEnvController
 {
     [Serializable]
     public class PlayerInfo
@@ -87,22 +87,22 @@ public class EnvController : MonoBehaviour
     {
         if (DeadTeam == Team.Blue)
         {
-            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / teamNum);
-            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-(1f / teamNum));
+            if (!GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / teamNum);
+            if (!GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-(1f / teamNum));
             blueDeadCount++;
         }
         else
         {
-            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / teamNum);
-            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-(1f / teamNum));
+            if (!GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / teamNum);
+            if (!GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-(1f / teamNum));
             redDeadCount++;
         }
         if (blueDeadCount == teamNum)
         {
-            if (!GameArgs.IsDense)
+            if (GameArgs.IsDense)
             {
-                m_BlueAgentGroup.AddGroupReward(-m_ResetTimer / MaxEnvironmentSteps);
-                m_RedAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
+                m_BlueAgentGroup.AddGroupReward(-0.7f);
+                m_RedAgentGroup.AddGroupReward(1f);
             }
             ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
@@ -110,11 +110,11 @@ public class EnvController : MonoBehaviour
         }
         else if (redDeadCount == teamNum)
         {
-            if (!GameArgs.IsDense)
+            if (GameArgs.IsDense)
             {
                 Debug.Log("BlueWin");
-                m_BlueAgentGroup.AddGroupReward(1 - m_ResetTimer / MaxEnvironmentSteps);
-                m_RedAgentGroup.AddGroupReward(-m_ResetTimer / MaxEnvironmentSteps);
+                m_BlueAgentGroup.AddGroupReward(1f);
+                m_RedAgentGroup.AddGroupReward(-0.7f);
             }
             ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
@@ -162,7 +162,7 @@ public class EnvController : MonoBehaviour
             int pos = blueIndexList[randomNum];
             blueIndexList.RemoveAt(randomNum);
             item.Agent.transform.localPosition = blueAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = item.StartingRot;
+            item.Agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         }
 
         foreach (PlayerInfo item in redAgentsList)
@@ -173,7 +173,41 @@ public class EnvController : MonoBehaviour
             int pos = redIndexList[randomNum];
             redIndexList.RemoveAt(randomNum);
             item.Agent.transform.localPosition = redAgentsList[pos].StartingPos;
-            item.Agent.transform.rotation = item.StartingRot;
+            item.Agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+        }
+    }
+
+    private ClassAgent findMostCloseEnemy(ClassAgent agent)
+    {
+        List<PlayerInfo> agentList = agent.team == Team.Blue ? redAgentsList : blueAgentsList;
+
+        ClassAgent mostCloseAgent = agentList[0].Agent;
+        float currentDistance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
+        for (int i = 1; i < agentList.Count; i++)
+        {
+            float distance = Vector3.Distance(agent.transform.position, agentList[i].Agent.transform.position);
+            if (currentDistance > distance)
+            {
+                mostCloseAgent = agentList[i].Agent;
+                currentDistance = distance;
+            }
+        }
+
+        return mostCloseAgent;
+    }
+
+    public void DistanceReward(ClassAgent agent, float reward)
+    {
+        ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
+        float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
+
+        if (distance > 8)
+        {
+            agent.AddReward(reward * 2f);
+        }
+        if (distance > 4)
+        {
+            agent.AddReward(reward);
         }
     }
 

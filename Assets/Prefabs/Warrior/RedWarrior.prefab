@@ -141,8 +141,9 @@ MonoBehaviour:
   MaxStep: 0
   lerpSpeed: 50
   maxSpeed: 100
-  health: 100
-  currentHealth: 100
+  isDead: 0
+  health: 115
+  currentHealth: 115
   team: 1
   profession: 0
   isDizzy: 0

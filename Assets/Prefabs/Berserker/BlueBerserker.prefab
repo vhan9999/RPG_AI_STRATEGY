@@ -110,7 +110,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   lerpSpeed: 50
-  maxSpeed: 100
+  maxSpeed: 120
+  isDead: 0
   health: 140
   currentHealth: 140
   team: 0
