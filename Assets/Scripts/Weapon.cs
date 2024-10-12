@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
                     //agent.count = 0;
                     isHitHuman = true;
                     //
-                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f * (attackPower/25f));
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f * (attackPower / 25f));
                     else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }

@@ -66,8 +66,8 @@ public class EnvControlleraaa : MonoBehaviour
         if (blueDeadCount == blueteamNum)
         {
             Debug.Log("red win"+blueDeadCount+" "+ blueteamNum);
-            m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
-            m_RedAgentGroup.AddGroupReward(1);
+            m_BlueAgentGroup.AddGroupReward((-(1 - m_ResetTimer / MaxEnvironmentSteps)) * GameArgs.teamRewardRatio);
+            m_RedAgentGroup.AddGroupReward(1 * GameArgs.teamRewardRatio);
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -76,8 +76,8 @@ public class EnvControlleraaa : MonoBehaviour
         else if (redDeadCount == redTeamNum)
         {
             Debug.Log("blue win" + redDeadCount + " " + redTeamNum);
-            m_BlueAgentGroup.AddGroupReward(1);
-            m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps));
+            m_BlueAgentGroup.AddGroupReward((1) * GameArgs.teamRewardRatio);
+            m_RedAgentGroup.AddGroupReward(((-(1 - m_ResetTimer / MaxEnvironmentSteps))) * GameArgs.teamRewardRatio);
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();

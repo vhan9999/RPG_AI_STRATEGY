@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 0
-  isHit: 0
+  attackPower: 35
+  isHitWall: 0
   isHitHuman: 0
   IsAttack: 0
   IsAllowedWhirlwind: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   attackPower: 0
-  isHit: 0
+  isHitWall: 0
   isHitHuman: 0
   IsAttack: 0
   IsAllowedWhirlwind: 0

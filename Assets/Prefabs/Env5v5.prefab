@@ -726,6 +726,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5982908060819140878, guid: d4b2dc17fe4270342b171082c650a1c9, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7513846362045146616, guid: d4b2dc17fe4270342b171082c650a1c9, type: 3}
       propertyPath: m_Name
       value: BlueMage
@@ -744,6 +748,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3637113449828974547}
     m_Modifications:
+    - target: {fileID: 1230743704, guid: 39c517421cde8bc4e88f5545f54038ee, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4108032451258910172, guid: 39c517421cde8bc4e88f5545f54038ee, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -809,6 +817,10 @@ PrefabInstance:
     - target: {fileID: 1776149699358518605, guid: 188aed53b99700241990f8b9450c1333, type: 3}
       propertyPath: m_Name
       value: BlueTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752972525124631717, guid: 188aed53b99700241990f8b9450c1333, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7354388928376372854, guid: 188aed53b99700241990f8b9450c1333, type: 3}
       propertyPath: m_RootOrder
@@ -930,6 +942,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3637113449828974547}
     m_Modifications:
+    - target: {fileID: 890686313791203493, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1316968958085546779, guid: ef810194b91ce3c4bb46e3c2edf358c2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1036,6 +1052,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3134963040863204920, guid: 5eda4d348b313cc488337c34be2ad702, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7797180692352469063, guid: 5eda4d348b313cc488337c34be2ad702, type: 3}
       propertyPath: m_Name
       value: RedBerserker
@@ -1054,6 +1074,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3637113449828974547}
     m_Modifications:
+    - target: {fileID: -6425596863264405061, guid: b0d3f9485733c754e8173e7d1bda2193, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3743176686246310308, guid: b0d3f9485733c754e8173e7d1bda2193, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1160,6 +1184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5982908060819140878, guid: dc37fe81b38db0843b6d613be6006faa, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7513846362045146616, guid: dc37fe81b38db0843b6d613be6006faa, type: 3}
       propertyPath: m_Name
       value: RedMage
@@ -1181,6 +1209,10 @@ PrefabInstance:
     - target: {fileID: 182752182871103305, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
       propertyPath: m_Name
       value: RedWarrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930641340237552548, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8952992619469440114, guid: 66c6abff8f123d14991072aa212f3985, type: 3}
       propertyPath: m_RootOrder

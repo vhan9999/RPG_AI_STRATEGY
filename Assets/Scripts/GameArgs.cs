@@ -22,19 +22,7 @@ public class GameArgs
                 return 1f;
         }
     }
-
-    public static float GetTeamOrSelfRewardRatio(bool isTeam)
-    {
-        if (isTeam == true)
-        {
-            return teamRewardRatio;
-        }
-        else
-        {
-            return selfRewardRatio;
-        }
-    }
-
+        
     public static bool IsDense = false;
     public static float attack = 2f;
     public static float hurt = 1f;

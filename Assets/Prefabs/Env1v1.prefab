@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743abe1695cb3f64bbd66d31dbc5956d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueDeadCount: 0
+  redDeadCount: 0
+  teamNum: 0
   IsRandomScene: 0
 --- !u!1001 &5671030600515787126
 PrefabInstance:
@@ -191,19 +194,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788903487179522420, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4989398135144786845, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5541423489425179923, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6264584647395495395, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6361086164053692417, guid: 7f929a8c832ecfa46b81ec5e98610009, type: 3}
       propertyPath: m_Name
