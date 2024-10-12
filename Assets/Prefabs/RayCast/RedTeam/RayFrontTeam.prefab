@@ -53,8 +53,8 @@ MonoBehaviour:
   - RedArcher
   - RedViking
   - RedTank
-  m_RaysPerDirection: 20
-  m_MaxRayDegrees: 180
+  m_RaysPerDirection: 8
+  m_MaxRayDegrees: 60
   m_SphereCastRadius: 0.5
   m_RayLength: 45
   m_RayLayerMask:
@@ -62,6 +62,6 @@ MonoBehaviour:
     m_Bits: 2176
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
-  rayMissColor: {r: 1, g: 1, b: 1, a: 0}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0

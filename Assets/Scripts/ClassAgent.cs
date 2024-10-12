@@ -96,8 +96,8 @@ public class ClassAgent : Agent
 
     private void TurnJudge()
     {
-        if(envController is EnvControlleraaa)
-           ((EnvControlleraaa)envController).TurnReward(this);
+        if(envController is EnvControllerRandom)
+           ((EnvControllerRandom)envController).TurnReward(this);
     }
 
     protected override void OnEnable()

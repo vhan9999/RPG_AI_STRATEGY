@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
 using System;
 
-public class EnvControlleraaa : MonoBehaviour, IEnvController
+public class EnvControllerRandom : MonoBehaviour, IEnvController
 {
     //Max Academy steps before this platform resets
     [Tooltip("Max Environment Steps")] public int MaxEnvironmentSteps = 5000;
@@ -82,21 +82,17 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
     {   
         if (DeadTeam == Team.Blue)
         {
-            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(1f / blueTeamNum);
-            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(-(1f / blueTeamNum));
             blueDeadCount++;
         }
         else
         {
-            if (GameArgs.IsDense) m_BlueAgentGroup.AddGroupReward(1f / redTeamNum);
-            if (GameArgs.IsDense) m_RedAgentGroup.AddGroupReward(-(1f / redTeamNum));
             redDeadCount++;
         }
         if (blueDeadCount == blueTeamNum)
         {
             Debug.Log("red win"+blueDeadCount+" "+ blueTeamNum);
-            m_BlueAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * (1-GameArgs.rewardRatio));
-            m_RedAgentGroup.AddGroupReward((1 - m_ResetTimer / MaxEnvironmentSteps) * (1 - GameArgs.rewardRatio));
+            m_BlueAgentGroup.AddGroupReward(-(1 - blueTeamNum / blueTeamNum) * (1.5f -GameArgs.rewardRatio));
+            m_RedAgentGroup.AddGroupReward((1 - redTeamNum / redTeamNum) * (1.5f - GameArgs.rewardRatio));
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -105,8 +101,8 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         else if (redDeadCount == redTeamNum)
         {
             Debug.Log("blue win" + redDeadCount + " " + redTeamNum);
-            m_BlueAgentGroup.AddGroupReward((1 - m_ResetTimer / MaxEnvironmentSteps) * (1 - GameArgs.rewardRatio));
-            m_RedAgentGroup.AddGroupReward(-(1 - m_ResetTimer / MaxEnvironmentSteps) * (1 - GameArgs.rewardRatio));
+            m_BlueAgentGroup.AddGroupReward((1 - blueTeamNum / blueTeamNum) * (1.5f - GameArgs.rewardRatio));
+            m_RedAgentGroup.AddGroupReward(-(1 - redTeamNum / redTeamNum) * (1.5f - GameArgs.rewardRatio));
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -120,9 +116,9 @@ public class EnvControlleraaa : MonoBehaviour, IEnvController
         m_ResetTimer = 0;
 
         //reward
-        if(GameArgs.rewardRatio > 0.3f)
+        if(GameArgs.rewardRatio > 0.5f)
         {
-            GameArgs.rewardRatio -= 0.000035f;
+            GameArgs.rewardRatio -= 0.0000025f;
         }
 
         //team num
