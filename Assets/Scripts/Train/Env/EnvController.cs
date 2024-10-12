@@ -9,7 +9,7 @@ using System.Linq;
 using Random = UnityEngine.Random;
 using Unity.VisualScripting;
 
-public class EnvController : MonoBehaviour
+public class EnvController : MonoBehaviour, IEnvController
 {
     [Serializable]
     public class PlayerInfo
