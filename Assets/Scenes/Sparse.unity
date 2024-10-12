@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (4)
@@ -275,12 +271,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273404608}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 72.1, y: 192.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &473448459
 PrefabInstance:
@@ -289,10 +285,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (8)
@@ -371,12 +363,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815024761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.63961, y: 171.143, z: -31.744017}
+  m_LocalPosition: {x: 75.63961, y: 155.6, z: -23.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1324940448
 PrefabInstance:
@@ -385,10 +377,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (7)
@@ -450,10 +438,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (6)
@@ -515,10 +499,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (1)
@@ -664,10 +644,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (3)
@@ -729,10 +705,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (2)
@@ -756,63 +728,6 @@ PrefabInstance:
     - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d64226e520b06a549b528d7bef341478, type: 3}
---- !u!1001 &1871753968
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_Name
-      value: CicleGroundBase (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -66.89807
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.4473743
       objectReference: {fileID: 0}
     - target: {fileID: 9153978796187211287, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_LocalRotation.w
@@ -912,10 +827,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3499224215711757540, guid: d64226e520b06a549b528d7bef341478, type: 3}
-      propertyPath: IsRandomScene
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase (5)
@@ -977,6 +888,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2853620427356543343, guid: d64226e520b06a549b528d7bef341478, type: 3}
+      propertyPath: rayMissColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686747939141939076, guid: d64226e520b06a549b528d7bef341478, type: 3}
+      propertyPath: rayMissColor.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8162249943126190808, guid: d64226e520b06a549b528d7bef341478, type: 3}
       propertyPath: m_Name
       value: CicleGroundBase

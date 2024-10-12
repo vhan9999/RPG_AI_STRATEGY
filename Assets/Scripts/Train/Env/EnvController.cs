@@ -101,8 +101,8 @@ public class EnvController : MonoBehaviour, IEnvController
         {
             if (GameArgs.IsDense)
             {
-                m_BlueAgentGroup.AddGroupReward(-0.7f);
-                m_RedAgentGroup.AddGroupReward(1f);
+                m_BlueAgentGroup.AddGroupReward(-0.7f * (2-GameArgs.rewardRatio));
+                m_RedAgentGroup.AddGroupReward(2 - GameArgs.rewardRatio);
             }
             ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
@@ -113,8 +113,8 @@ public class EnvController : MonoBehaviour, IEnvController
             if (GameArgs.IsDense)
             {
                 Debug.Log("BlueWin");
-                m_BlueAgentGroup.AddGroupReward(1f);
-                m_RedAgentGroup.AddGroupReward(-0.7f);
+                m_BlueAgentGroup.AddGroupReward(2 - GameArgs.rewardRatio);
+                m_RedAgentGroup.AddGroupReward(-0.7f * (2 - GameArgs.rewardRatio));
             }
             ResetScene();
             m_BlueAgentGroup.EndGroupEpisode();
@@ -132,6 +132,13 @@ public class EnvController : MonoBehaviour, IEnvController
         {
             LoadFixedScene();
         }
+
+        //reward
+        if (GameArgs.rewardRatio > 0.3f)
+        {
+            GameArgs.rewardRatio -= 0.000035f;
+        }
+
         m_ResetTimer = 0;
         blueDeadCount = 0;
         redDeadCount = 0;
