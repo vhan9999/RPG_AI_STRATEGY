@@ -119,7 +119,6 @@ public class EnvControllerRandom : MonoBehaviour, IEnvController
         if(GameArgs.rewardRatio > 0.5f)
         {
             GameArgs.rewardRatio -= 0.0000025f;
-
         }
 
         //team num
