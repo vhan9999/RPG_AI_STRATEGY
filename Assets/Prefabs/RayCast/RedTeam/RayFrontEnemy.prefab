@@ -52,8 +52,8 @@ MonoBehaviour:
   - BlueArcher
   - BlueViking
   - BlueTank
-  m_RaysPerDirection: 40
-  m_MaxRayDegrees: 180
+  m_RaysPerDirection: 10
+  m_MaxRayDegrees: 60
   m_SphereCastRadius: 0.5
   m_RayLength: 45
   m_RayLayerMask:

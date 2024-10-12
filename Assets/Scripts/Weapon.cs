@@ -70,9 +70,9 @@ public class Weapon : MonoBehaviour
     //¶È­­¶i¾Ô
     public void resetAttack()
     {
-        if (agent.envController is EnvControlleraaa)
+        if (agent.envController is EnvControllerRandom)
         {
-            ((EnvControlleraaa)(agent.envController)).DistanceReward(agent, -GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * GameArgs.rewardRatio);
+            ((EnvControllerRandom)(agent.envController)).DistanceReward(agent, -GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * GameArgs.rewardRatio);
         }
         if (!isHitHuman)
         {
