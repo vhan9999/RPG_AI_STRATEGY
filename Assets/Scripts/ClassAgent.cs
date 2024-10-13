@@ -26,7 +26,7 @@ public class ClassAgent : Agent
     private float maxSpeed = 10f;
     protected float speed = 10f;
     private float inputSpeed = 0;
-    private float rotateSpeed = 250f;
+    private float rotateSpeed = 200f;
     private float rotateScale = 0;
     public bool isDead = false;
 
@@ -163,11 +163,11 @@ public class ClassAgent : Agent
         // rotate
         if (Input.GetKey(KeyCode.Q))
         {
-            continuousActions[0] = -0.4f;
+            continuousActions[0] = -1f;
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            continuousActions[0] = 0.4f;
+            continuousActions[0] = 1f;
         }
     }
 
@@ -238,7 +238,7 @@ public class ClassAgent : Agent
         }
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        transform.position =new Vector3(transform.position.x, -0.32f, transform.position.z);
+        transform.localPosition = new Vector3(transform.position.x, -0.32f, transform.position.z);
         rotateScale = 0;
         ctrlDir = Vector3.zero;
         GetComponent<DecisionRequester>().enabled = false;

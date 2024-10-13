@@ -75,7 +75,7 @@ public class ArcherAgent : ClassAgent
         }   
         else if(bow.fire)
         {
-            if(GameArgs.IsDense)AddReward(((bow.firePower-10)/240)* GameArgs.rewardRatio);
+            if(GameArgs.IsDense)AddReward(((bow.firePower-10)/480)* GameArgs.rewardRatio);
             bow.SetDrawingAnimation(false); // Stop drawing animation
             bow.Fire(bow.firePower);
             bow.firePower = 10;

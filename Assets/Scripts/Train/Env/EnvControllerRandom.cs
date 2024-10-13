@@ -91,8 +91,8 @@ public class EnvControllerRandom : MonoBehaviour, IEnvController
         if (blueDeadCount == blueTeamNum)
         {
             Debug.Log("red win"+blueDeadCount+" "+ blueTeamNum);
-            m_BlueAgentGroup.AddGroupReward(-(1 - blueTeamNum / blueTeamNum) * (1.5f -GameArgs.rewardRatio));
-            m_RedAgentGroup.AddGroupReward((1 - redTeamNum / redTeamNum) * (1.5f - GameArgs.rewardRatio));
+            m_BlueAgentGroup.AddGroupReward(-(1 - (redDeadCount / redTeamNum)) * (1.5f - GameArgs.rewardRatio));
+            m_RedAgentGroup.AddGroupReward((1 - (redDeadCount / redTeamNum)) * (1.5f - GameArgs.rewardRatio));
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -101,8 +101,8 @@ public class EnvControllerRandom : MonoBehaviour, IEnvController
         else if (redDeadCount == redTeamNum)
         {
             Debug.Log("blue win" + redDeadCount + " " + redTeamNum);
-            m_BlueAgentGroup.AddGroupReward((1 - blueTeamNum / blueTeamNum) * (1.5f - GameArgs.rewardRatio));
-            m_RedAgentGroup.AddGroupReward(-(1 - redTeamNum / redTeamNum) * (1.5f - GameArgs.rewardRatio));
+            m_BlueAgentGroup.AddGroupReward((1 - (blueDeadCount / blueTeamNum)) * (1.5f - GameArgs.rewardRatio));
+            m_RedAgentGroup.AddGroupReward(-(1 - (blueDeadCount / blueTeamNum)) * (1.5f - GameArgs.rewardRatio));
             m_BlueAgentGroup.EndGroupEpisode();
             m_RedAgentGroup.EndGroupEpisode();
             ResetScene();
@@ -118,7 +118,7 @@ public class EnvControllerRandom : MonoBehaviour, IEnvController
         //reward
         if(GameArgs.rewardRatio > 0.5f)
         {
-            GameArgs.rewardRatio -= 0.0000025f;
+            GameArgs.rewardRatio -= 0.00002f;
         }
 
         //team num
@@ -300,7 +300,7 @@ public class EnvControllerRandom : MonoBehaviour, IEnvController
         ClassAgent mostCloseAgent = findMostCloseEnemy(agent);
         float distance = Vector3.Distance(agent.transform.position, mostCloseAgent.transform.position);
 
-        if(distance > 10)
+        if(distance > 6)
         {
             agent.AddReward(reward);
             Debug.Log("distance2" + reward);
