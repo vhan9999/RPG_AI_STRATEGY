@@ -122,6 +122,8 @@ MonoBehaviour:
   reloadTime: 1
   arrowPrefab: {fileID: 1690420554900138641, guid: f36ae60e96c03be42a06a4914b22c643, type: 3}
   spawnPoint: {fileID: 5635530891676177459}
+  audioSource: {fileID: 0}
+  releaseSound: {fileID: 8300000, guid: a200380aa7a1115479d935dfe429de34, type: 3}
   cooldownTime: 0
   anim: {fileID: 7801074499085259746}
   maxFirePower: 40

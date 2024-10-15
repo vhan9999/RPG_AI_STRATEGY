@@ -9,8 +9,8 @@ public class Arrow : Weapon
     [SerializeField]
     private Rigidbody rigid;
 
-    private int arrowDamage;
 
+    private int arrowDamage;
     private void Start()
     {
         giveHurt = true;

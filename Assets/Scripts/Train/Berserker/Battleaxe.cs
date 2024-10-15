@@ -12,11 +12,21 @@ public class Battleaxe : Weapon
     public float skillDuration;
     public float skillTime = 0f;
 
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip cleaveSound;
+
     private void Start()
     {
         attackDuration = cleaveAni.length;
         cooldown = 15f;
         skillDuration = 3f;
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -63,8 +73,13 @@ public class Battleaxe : Weapon
         if (!IsCleave && !IsWhirlwind)
         {
             IsCleave = true;
+
+            // Play cleave sound
+            if (cleaveSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(cleaveSound);
+            }
         }
-        
     }
 
     public void Whirlwind()

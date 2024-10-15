@@ -85,10 +85,12 @@ MonoBehaviour:
   attackPower: 25
   isHitWall: 0
   isHitHuman: 0
-  IsAttack: 0
+  giveHurt: 0
   attackDuration: 0
   attackTime: 0
   slashAni: {fileID: 7400000, guid: 7a0c16446cfc9a74f90b320186149e63, type: 2}
+  audioSource: {fileID: 0}
+  slashSound: {fileID: 8300000, guid: 015b3b5ca2481f040b895ac58771c08b, type: 3}
 --- !u!1 &5478056278680019206
 GameObject:
   m_ObjectHideFlags: 0

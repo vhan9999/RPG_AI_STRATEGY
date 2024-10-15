@@ -141,6 +141,8 @@ MonoBehaviour:
   fireBall: {fileID: 1210770741284570739, guid: 079abfd1bd3335c4f9f5f6542df1c66f, type: 3}
   magicMissile: {fileID: 7995286412899389133, guid: 360650b2147289d48bf74da0369bf18d, type: 3}
   fireBallCastAni: {fileID: 7400000, guid: 5d7ccbdf0f1f82642bdcc0e4deae9e38, type: 2}
+  audioSource: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 4c853f32e71431b4a9828c2cbc64217d, type: 3}
 --- !u!1 &5584729491797657305
 GameObject:
   m_ObjectHideFlags: 0

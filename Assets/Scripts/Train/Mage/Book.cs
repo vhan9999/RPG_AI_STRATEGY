@@ -23,6 +23,10 @@ public class Book : MonoBehaviour
     [SerializeField] private GameObject magicMissile;
     [SerializeField] private AnimationClip fireBallCastAni;
 
+    // Audio components
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSound;
+
     private ObjectPool<MagicMissile> magicMissilePool;
     private ObjectPool<FireBall>fireBallPool;
     private ClassAgent agent;
@@ -40,6 +44,12 @@ public class Book : MonoBehaviour
         attackDuration = 0.8f;
         cooldown = 4.5f;
         skillDuration = fireBallCastAni.length;
+
+        // Initialize AudioSource if not already assigned
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -114,6 +124,12 @@ public class Book : MonoBehaviour
         IsSkill = false;
         Invoke("CoolDown", cooldown);
         cooldownTime = cooldown;
+        // Play release sound
+        if (attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
+
         FireBall f = fireBallPool.Spawn(transform.position + transform.up, transform.rotation);
         f.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         f.moveDir = transform.forward;

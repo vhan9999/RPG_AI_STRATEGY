@@ -85,15 +85,17 @@ MonoBehaviour:
   attackPower: 0
   isHitWall: 0
   isHitHuman: 0
-  IsAttack: 0
-  cooldown: 0
-  cooldownTime: 0
-  skillDuration: 0
-  skillTime: 0
+  giveHurt: 0
   attackDuration: 0
   attackTime: 0
   IsAllowedWhirlwind: 0
   cleaveAni: {fileID: 7400000, guid: 1635c90837aa1c5498b5e53f7ce7d950, type: 2}
+  cooldown: 0
+  cooldownTime: 0
+  skillDuration: 0
+  skillTime: 0
+  audioSource: {fileID: 0}
+  cleaveSound: {fileID: 8300000, guid: e3cb6be581b89f84089ed7139679f389, type: 3}
 --- !u!1 &4992923648748915264
 GameObject:
   m_ObjectHideFlags: 0
