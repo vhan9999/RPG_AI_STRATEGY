@@ -115,7 +115,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: dc48617a865a6324e920cf83c61bea6a, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 2a24297289774394d914b3798e7b7eb3, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Mage
