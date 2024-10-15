@@ -12,31 +12,18 @@ public class Weapon : MonoBehaviour
     public int attackPower;
     public bool isHitWall = false;
     public bool isHitHuman = false;
-    public bool IsAttack = false;
+    public bool giveHurt = false;
     //private int attackCount = 0;
     //public float rewardRatio = 0;
     //protected int damage = 0;
-    
 
+    
+    public float attackDuration;
+    public float attackTime = 0f;
     protected virtual void Awake()
     {
         agent = GetComponentInParent<ClassAgent>();
         anim = GetComponent<Animator>();
-    }
-
-    private void OnEnable()
-    {
-        //attackCount = 0;
-    }
-
-    private void OnDisable()
-    {
-        //if (!GameArgs.IsDense && damage != 0)
-        //{
-        //    agent?.AddReward(Math.Max(rewardRatio * (damage / 100f) * GameArgs.attack, -0.5f));
-        //    Debug.Log(rewardRatio * (damage / 100f) * GameArgs.attack);
-        //    damage = 0;
-        //}
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -46,7 +33,7 @@ public class Weapon : MonoBehaviour
 
     public void WeaponTouch(Collider other)
     {
-        if (IsAttack)
+        if (giveHurt)
         {
             if (other.TryGetComponent(out ClassAgent otherAgent))
             {
@@ -56,7 +43,7 @@ public class Weapon : MonoBehaviour
                     //agent.count = 0;
                     isHitHuman = true;
                     //
-                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.1f * (attackPower / 25f));
+                    if (GameArgs.IsDense) agent.AddReward(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.rewardRatio * 0.1f * (attackPower/25f));
                     else agent.damage += attackPower;
                     otherAgent.TakeDamage(attackPower);
                 }
@@ -64,20 +51,34 @@ public class Weapon : MonoBehaviour
                 {
                     //Debug.Log("Dont'hurt, you are his frend"); -1
                     //
-                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.attack * 0.01f * (attackPower / 25f)));
-                    else agent.damage -= attackPower / 3;
+                    if (GameArgs.IsDense) agent.AddReward(-(GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * GameArgs.rewardRatio * 0.01f * (attackPower / 25f)));
+                    else agent.damage -= attackPower / 5;
                 }
             }
             else if (other.TryGetComponent(out Wall wall))
             {
                 isHitWall = true;
-                if (GameArgs.IsDense) agent.AddReward(-0.005f);
             }
         }
     }
 
     public void SetAttackState(int state)
     {
-        IsAttack = state == 1 ? true : false;
+        giveHurt = state == 1 ? true : false;
+    }
+
+    //¶È­­¶i¾Ô
+    public void resetAttack()
+    {
+        if (agent.envController is EnvControllerRandom)
+        {
+            ((EnvControllerRandom)(agent.envController)).DistanceReward(agent, -GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * GameArgs.rewardRatio);
+        }
+        if (!isHitHuman)
+        {
+            agent.AddReward(-GameArgs.GetRewardRatio(agent.profession, RewardType.Attack) * 0.05f * (attackPower / 25f) * GameArgs.rewardRatio);
+        }
+        isHitHuman = false;
+        isHitWall = false;
     }
 }

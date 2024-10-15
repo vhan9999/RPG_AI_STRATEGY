@@ -52,6 +52,7 @@ MonoBehaviour:
   blueteamNum: 0
   redTeamNum: 0
   soldierPool: {fileID: 1089673194848859940}
+  isAsymmetry: 0
 --- !u!1001 &4131626210378772099
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -112,11 +112,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  attackPower: 10
-  isHit: 0
-  IsAttack: 0
-  speed: 10
-  existTime: 2.5
+  attackPower: 15
+  isHitWall: 0
+  isHitHuman: 0
+  giveHurt: 0
+  attackDuration: 0
+  attackTime: 0
+  speed: 15
+  existTime: 3
   moveDir: {x: 0, y: 0, z: 0}
 --- !u!54 &431763939535413485
 Rigidbody:

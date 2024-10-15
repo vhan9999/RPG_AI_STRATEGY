@@ -10,34 +10,38 @@ public class SoldierPool : MonoBehaviour
     private ObjectPool<ClassAgent> bBPool = new ObjectPool<ClassAgent>();
     private ObjectPool<ClassAgent> bMPool = new ObjectPool<ClassAgent>();
     private ObjectPool<ClassAgent> bAPool = new ObjectPool<ClassAgent>();
+    private ObjectPool<ClassAgent> bTPool = new ObjectPool<ClassAgent>();
 
     private ObjectPool<ClassAgent> rWPool = new ObjectPool<ClassAgent>();
     private ObjectPool<ClassAgent> rBPool = new ObjectPool<ClassAgent>();
     private ObjectPool<ClassAgent> rMPool = new ObjectPool<ClassAgent>();
     private ObjectPool<ClassAgent> rAPool = new ObjectPool<ClassAgent>();
+    private ObjectPool<ClassAgent> rTPool = new ObjectPool<ClassAgent>();
 
     public GameObject bWarrior;
     public GameObject bBerserker;
     public GameObject bMage;
     public GameObject bArcher;
-
+    public GameObject bTank;
 
     public GameObject rWarrior;
     public GameObject rBerserker;
     public GameObject rMage;
     public GameObject rArcher;
+    public GameObject rTank;
 
     void Awake()
     {
-        Debug.Log("init");
-        bWPool.InitPool(bWarrior, 10, transform);
-        bBPool.InitPool(bBerserker, 10, transform);
-        bMPool.InitPool(bMage, 10, transform);
-        bAPool.InitPool(bArcher, 10, transform);
-        rWPool.InitPool(rWarrior, 10, transform);
-        rBPool.InitPool(rBerserker, 10, transform);
-        rMPool.InitPool(rMage, 10, transform);
-        rAPool.InitPool(rArcher, 10, transform);
+        bWPool.InitPool(bWarrior, 5, transform);
+        bBPool.InitPool(bBerserker, 5, transform);
+        bMPool.InitPool(bMage, 5, transform);
+        bAPool.InitPool(bArcher, 5, transform);
+        bTPool.InitPool(bTank, 5, transform);
+        rWPool.InitPool(rWarrior, 5, transform);
+        rBPool.InitPool(rBerserker, 5, transform);
+        rMPool.InitPool(rMage, 5, transform);
+        rAPool.InitPool(rArcher, 5, transform);
+        rTPool.InitPool(rTank, 5, transform);
     }
 
     private ObjectPool<ClassAgent> GetPool(Team team, Profession profession)
@@ -50,8 +54,11 @@ public class SoldierPool : MonoBehaviour
                 return team == Team.Blue ? bBPool : rBPool;
             case Profession.Mage:
                 return team == Team.Blue ? bMPool : rMPool;
-            default:
+            case Profession.Archer:
                 return team == Team.Blue ? bAPool : rAPool;
+            case Profession.Tank:
+                return team == Team.Blue ? bTPool : rTPool;
+            default: return null;
         }
     }
 
