@@ -12,9 +12,11 @@ using static UnityEngine.GraphicsBuffer;
 using System.Reflection;
 using UnityEngine.Rendering;
 using System;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class ClassAgent : Agent
 {
+    
     //move
     protected Vector3 nowDir = Vector3.zero;
     private Vector3 ctrlDir = Vector3.zero;
@@ -23,10 +25,10 @@ public class ClassAgent : Agent
     [SerializeField]
     private float maxSpeed = 10f;
     protected float speed = 10f;
-    [SerializeField] 
-    public float rotateSpeed = 150f;
-    private int rotateDir = 0;
-    private bool isDead = false;
+    private float inputSpeed = 0;
+    private float rotateSpeed = 200f;
+    private float rotateScale = 0;
+    public bool isDead = false;
 
     //private int hurtCount = 0;
 
@@ -38,17 +40,12 @@ public class ClassAgent : Agent
     public Team team;
     public Profession profession; 
     protected BehaviorParameters bp;
-    protected EnvController envController;
+    public IEnvController envController;
     protected Rigidbody rb;
 
-    protected float penaltyRatio = 1f;
-
-    //init
-    private Vector3 initPosition;
-    private Quaternion initRotation;
-
     //state
-    protected bool isDizzy = false;
+    [SerializeField] protected bool isDizzy = false;
+    [SerializeField] protected bool isSlowDown = false;
 
     protected float sideSpeedMult = 0.75f;
     protected float forwardSpeedMult = 1f;
@@ -58,19 +55,19 @@ public class ClassAgent : Agent
 
     [HideInInspector]
     public int damage = 0;
-    public float rewardRatio;
 
     protected virtual void Awake()
     {
         bp = GetComponent<BehaviorParameters>();
-        
         team = (Team)bp.TeamId;
         rb = GetComponent<Rigidbody>();
     }
+
     private void Start()
     {
-        envController = GetComponentInParent<EnvController>();
+        envController = GetComponentInParent<IEnvController>();
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
@@ -87,12 +84,20 @@ public class ClassAgent : Agent
             speed = maxSpeed * sideSpeedMult;
         else
             speed = maxSpeed * forwardSpeedMult;
-        speed = isDizzy ? speed * 0.3f : speed;
+        speed = isDizzy ? speed * 0.2f : speed;
+        speed = isSlowDown ? speed * 0.75f : speed;
         SpeedAdjust();
+        inputSpeed = speed;
         nowDir = Vector3.Lerp(nowDir, ctrlDir, lerpSpeed * Time.deltaTime);
         rb.AddForce(nowDir * Time.deltaTime * speed, ForceMode.VelocityChange);
         //rb.velocity = nowDir * Time.deltaTime * speed;
-        transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateDir, 0f);
+        transform.Rotate(0f, rotateSpeed * Time.deltaTime * rotateScale, 0f);
+    }
+
+    private void TurnJudge()
+    {
+        if(envController is EnvControllerRandom)
+           ((EnvControllerRandom)envController).TurnReward(this);
     }
 
     protected override void OnEnable()
@@ -125,56 +130,55 @@ public class ClassAgent : Agent
     {
         isDead = false;
         currentHealth = health;
+        gameObject.GetComponent<CapsuleCollider>().enabled = true;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<DecisionRequester>().enabled = true;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         if (bp.BehaviorType != BehaviorType.HeuristicOnly) return;
-        ActionSegment<int> actions = actionsOut.DiscreteActions;
+        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
+        ActionSegment<int> dicreteActions = actionsOut.DiscreteActions;
+
+
         // move
         if (Input.GetKey(KeyCode.W))
         {
-            actions[0] = 1;
+            dicreteActions[0] = 1;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            actions[0] = 2;
+            dicreteActions[0] = 2;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            actions[1] = 1;
+            dicreteActions[1] = 1;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            actions[1] = 2;
+            dicreteActions[1] = 2;
         }
 
         // rotate
         if (Input.GetKey(KeyCode.Q))
         {
-            actions[2] = 1;
+            continuousActions[0] = -1f;
         }
         else if (Input.GetKey(KeyCode.E))
         {
-            actions[2] = 2;
+            continuousActions[0] = 1f;
         }
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        //if (!GameArgs.IsDense)
-        //{
-        //    if (++count >= 5000)
-        //    {
-        //        AddReward(-0.2f);
-        //        count = 0;
-        //    }
-        //}
+        if(isDead) return;
+        float rotateAction = actions.ContinuousActions[0];
         int moveFrontBack = actions.DiscreteActions[0];
         int moveLeftRight = actions.DiscreteActions[1];
-        int rotateAction = actions.DiscreteActions[2];
-        int attackAction = actions.DiscreteActions[3];
-        int skillAction = actions.DiscreteActions[4];
+        int attackAction = actions.DiscreteActions[2];
+        int skillAction = actions.DiscreteActions[3];
 
         // move forward and backward
         ctrlDir = Vector3.zero;
@@ -197,21 +201,23 @@ public class ClassAgent : Agent
         ctrlDir = ctrlDir.normalized;
 
         // rotate
-        rotateDir = 0;
-        if (rotateAction == 1)
-        {
-            rotateDir = -1;
-        }
-        else if (rotateAction == 2)
-        {
-            rotateDir = 1;
-        }
+        rotateScale = rotateAction;
 
         if (isDizzy) return;
+        if (GetComponent<BehaviorParameters>().BehaviorType == BehaviorType.HeuristicOnly) return;
 
         AttackAction(attackAction);
 
         SkillAction(skillAction);
+    }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        base.CollectObservations(sensor);
+        sensor.AddObservation(currentHealth);
+        sensor.AddObservation(isDead);
+        sensor.AddObservation(inputSpeed);
+        sensor.AddObservation(isDizzy);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -219,35 +225,63 @@ public class ClassAgent : Agent
 
     }
 
-    public void TakeDamage(int damage)
+    public void GameOver()
     {
-        //AddReward(-reward * (this is MageAgent ? 0.02f : 0.005f));
+        isDead = true;
+        if (!GameArgs.IsDense)
+        {
+            float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * (2-GameArgs.rewardRatio), -0.5f)
+            - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * (GameArgs.rewardRatio+1));
+            AddReward(reward);
+            Debug.Log(reward);
+            damage = 0;
+        }
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        transform.localPosition = new Vector3(transform.position.x, -0.32f, transform.position.z);
+        rotateScale = 0;
+        ctrlDir = Vector3.zero;
+        GetComponent<DecisionRequester>().enabled = false;
+        CancelInvoke("TurnJudge");
+    }
+
+    public void TakeDamage(int hurt)
+    {
         //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
-        currentHealth -= damage;
+        currentHealth -= hurt;
+        float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.rewardRatio * 0.1f * (hurt / 25f);
+        if (GameArgs.IsDense) AddReward(dansePenalty);
         if (currentHealth <= 0 && !isDead)
         {
-            isDead = true;
-            if (!GameArgs.IsDense)
-            {
-                float reward = Math.Max(GameArgs.GetRewardRatio(profession, RewardType.Attack) * (damage / 100f) * GameArgs.attack, -0.5f) 
-                                     - (GameArgs.GetRewardRatio(profession, RewardType.Hurt) * (1f - (float)currentHealth / health) * GameArgs.hurt);
-                AddReward(reward);
-                Debug.Log(reward);
-                damage = 0;
-            }
-            gameObject.SetActive(false);
+            GameOver();
             envController?.DeadTouch(team);
         }
+
+        //if (profession != Profession.Tank)
+        //    envController?.tankPenalty(team, dansePenalty);
     }
 
     public void StartDizziness()
     {
         isDizzy = true;
-        Invoke("Recover", 3f);
+        CancelInvoke("RecoverDizziness");
+        Invoke("RecoverDizziness", 1.5f);
     }
 
-    public void Recover()
+    public void RecoverDizziness()
     {
         isDizzy = false;
+    }
+
+    public void SlowDown()
+    {
+        isSlowDown = true;
+        CancelInvoke("ResetSlowDown");
+        Invoke("ResetSlowDown", 0.5f);
+    }
+
+    private void ResetSlowDown()
+    {
+        isSlowDown = false;
     }
 }

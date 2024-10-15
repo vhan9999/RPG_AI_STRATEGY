@@ -44,9 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SensorName: RayFrontShootSensor
+  m_SensorName: BlueRayFrontShoot
   m_DetectableTags:
-  - Wall
   - RedMagicMissle
   - RedFireBall
   - RedArrow
@@ -56,9 +55,9 @@ MonoBehaviour:
   m_RayLength: 45
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 1024
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
-  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 0}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0

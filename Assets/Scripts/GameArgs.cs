@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class GameArgs
 {
     public static float GetRewardRatio(Profession profession, RewardType rewardType)
@@ -14,28 +16,35 @@ public class GameArgs
                 return rewardType == RewardType.Attack ? archerAttackRatio : archerHurtRatio;
             case Profession.Viking:
                 return rewardType == RewardType.Attack ? vikingAttackRatio : vikingHurtRatio;
+            case Profession.Tank:
+                return rewardType == RewardType.Attack ? tankAttackRatio : tankHurtRatio;
             default:
                 return 1f;
         }
     }
     public static bool IsDense = true;
-    public static float attack = 1.5f;
-    public static float hurt = 0.5f;
+    
+    public static float rewardRatio = 1;
 
-    public static float warriorAttackRatio = 1f;
-    public static float warriorHurtRatio = 0.7f;
+    public static float gameCount = 0;
 
-    public static float berserkerAttackRatio = 1.2f;
-    public static float berserkerHurtRatio = 0.4f;
+    public static float warriorAttackRatio = 1.2f;
+    public static float warriorHurtRatio = 0.2f;
 
-    public static float mageAttackRatio = 0.7f;
-    public static float mageHurtRatio = 3f;
+    public static float berserkerAttackRatio = 1.3f;
+    public static float berserkerHurtRatio = 0.2f;
 
-    public static float archerAttackRatio = 1f;
-    public static float archerHurtRatio = 3f;
+    public static float mageAttackRatio = 1f;
+    public static float mageHurtRatio = 0.7f;
+
+    public static float archerAttackRatio = 0.8f;
+    public static float archerHurtRatio = 0.7f;
 
     public static float vikingAttackRatio = 1f;
-    public static float vikingHurtRatio = 0.6f;
+    public static float vikingHurtRatio = 0.3f;
+
+    public static float tankAttackRatio = 1.2f;
+    public static float tankHurtRatio = 0.2f;
 }
 
 
@@ -52,7 +61,8 @@ public enum Profession
     Berserker,
     Lancer,
     Archer,
-    Viking
+    Viking,
+    Tank
 }
 
 public enum RewardType

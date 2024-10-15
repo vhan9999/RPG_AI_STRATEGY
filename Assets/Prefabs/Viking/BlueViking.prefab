@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7773819305099233594}
   - component: {fileID: 5949942353296988698}
   - component: {fileID: 6946932901673401595}
-  - component: {fileID: 1142081922306740941}
+  - component: {fileID: 7954131425804121480}
   m_Layer: 8
   m_Name: BlueViking
   m_TagString: BlueViking
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!65 &1142081922306740941
-BoxCollider:
+--- !u!136 &7954131425804121480
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -187,9 +187,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.094155, z: 1.2}
-  m_Center: {x: 0, y: 0.24707758, z: 0}
+  m_Radius: 0.7970538
+  m_Height: 2.7872844
+  m_Direction: 1
+  m_Center: {x: -0.02911663, y: 0.4063578, z: -0.05404657}
 --- !u!1001 &2007154793338968288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,6 +260,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6818920878232836101}
     m_Modifications:
+    - target: {fileID: 1924928602369804579, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924928602369804579, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
+      propertyPath: m_DetectableTags.Array.data[6]
+      value: RedTank
+      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: d25d526d8837ccc43ac5280a18a5326b, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontEnemy
@@ -321,6 +330,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6818920878232836101}
     m_Modifications:
+    - target: {fileID: 1924928602369804579, guid: 51e05e8c529c334499a38202852473bf, type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924928602369804579, guid: 51e05e8c529c334499a38202852473bf, type: 3}
+      propertyPath: m_DetectableTags.Array.data[6]
+      value: BlueTank
+      objectReference: {fileID: 0}
     - target: {fileID: 4896150343177612019, guid: 51e05e8c529c334499a38202852473bf, type: 3}
       propertyPath: m_Name
       value: BlueRayFrontTeam
