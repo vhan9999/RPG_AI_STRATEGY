@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7203750514279068041}
   - component: {fileID: -3136099864850298685}
   - component: {fileID: -7871872417387314022}
+  - component: {fileID: 1709358069596980621}
   m_Layer: 0
   m_Name: BloodDroplet
   m_TagString: Blood
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 341260852189151084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.4074683, y: 82.87991, z: -2.3252296}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +94,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341260852189151084}
   serializedVersion: 2
-  m_Mass: 0.01
+  m_Mass: 0.25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -114,3 +115,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0.05, y: 0.05, z: -0.05}
+--- !u!114 &1709358069596980621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341260852189151084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac36ded83ee4b64f83b4f57a326ba45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 2
+  minForce: 0.5
+  maxForce: 0.8

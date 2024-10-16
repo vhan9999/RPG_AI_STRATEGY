@@ -10,7 +10,8 @@ public class BloodDropletPoolManager : MonoBehaviour
     public Queue<GameObject> pool = new Queue<GameObject>();
 
     public int numberOfDroplets = 10; // Number of droplets to spawn
-    public float spawnRadius = 1f; // Radius around the player to spawn the droplets
+    public float spawnRadius = 2f; // Radius around the player to spawn the droplets
+
 
     void Awake()
     {
