@@ -22,6 +22,7 @@ public class Book : MonoBehaviour
     [SerializeField] private GameObject fireBall;
     [SerializeField] private GameObject magicMissile;
     [SerializeField] private AnimationClip fireBallCastAni;
+    [SerializeField] private AudioSource audioSource;
 
     private ObjectPool<MagicMissile> magicMissilePool;
     private ObjectPool<FireBall>fireBallPool;
@@ -114,6 +115,7 @@ public class Book : MonoBehaviour
         IsSkill = false;
         Invoke("CoolDown", cooldown);
         cooldownTime = cooldown;
+        audioSource?.Play();
         FireBall f = fireBallPool.Spawn(transform.position + transform.up, transform.rotation);
         f.tag = agent.team == Team.Blue ? "BlueMagicMissle" : "RedMagicMissle";
         f.moveDir = transform.forward;

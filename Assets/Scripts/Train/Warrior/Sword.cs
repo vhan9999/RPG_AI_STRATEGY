@@ -8,6 +8,9 @@ using UnityEngine.Events;
 
 public class Sword : Weapon
 {
+    // Audio components
+    [SerializeField] private AudioSource audioSource;
+
     public AnimationClip slashAni;
     private void Start()
     {
@@ -35,6 +38,7 @@ public class Sword : Weapon
     {
         if (!IsSlash)
         {
+            audioSource?.Play();
             IsSlash = true;
         }
     }

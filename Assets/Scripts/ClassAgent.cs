@@ -247,7 +247,8 @@ public class ClassAgent : Agent
 
     public void TakeDamage(int hurt)
     {
-        //BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
+        BloodDropletPoolManager.Instance.SpawnBloodDroplets(transform.position);
+
         currentHealth -= hurt;
         float dansePenalty = GameArgs.GetRewardRatio(profession, RewardType.Hurt) * GameArgs.rewardRatio * 0.1f * (hurt / 25f);
         if (GameArgs.IsDense) AddReward(dansePenalty);

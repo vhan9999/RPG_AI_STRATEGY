@@ -12,6 +12,9 @@ public class Battleaxe : Weapon
     public float skillDuration;
     public float skillTime = 0f;
 
+    [SerializeField] private AudioSource audioSource;
+
+
     private void Start()
     {
         attackDuration = cleaveAni.length;
@@ -62,9 +65,10 @@ public class Battleaxe : Weapon
     {
         if (!IsCleave && !IsWhirlwind)
         {
+            audioSource?.Play();
             IsCleave = true;
         }
-        
+
     }
 
     public void Whirlwind()
