@@ -6363,6 +6363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467599163}
   - component: {fileID: 1467599164}
+  - component: {fileID: 1467599165}
   m_Layer: 0
   m_Name: ObjectPools
   m_TagString: Untagged
@@ -6397,6 +6398,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a0d0034cd26eb4180df7af2584cc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1467599165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467599162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5ae621a0e22ce4db067489b3729796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodBlockPrefab: {fileID: 341260852189151084, guid: 0018f96ab7715904f812d380f3f152f1, type: 3}
+  poolSize: 2000
+  numberOfDroplets: 10
+  spawnRadius: 2
 --- !u!1 &1508371799
 GameObject:
   m_ObjectHideFlags: 0
