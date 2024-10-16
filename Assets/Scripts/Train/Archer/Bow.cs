@@ -15,6 +15,9 @@ public class Bow : MonoBehaviour
     private ObjectPool<Arrow> arrowPool;
     private ClassAgent agent;
     private bool isReloading;
+    [SerializeField] private AudioSource audioSource;
+
+
     public float cooldownTime = 0;
 
     [SerializeField]
@@ -34,7 +37,12 @@ public class Bow : MonoBehaviour
     {
         arrowPool = ObjectPool<Arrow>.Instance;
         arrowPool.InitPool(arrowPrefab, 2);
-        agent = GetComponentInParent<ClassAgent>(); 
+        agent = GetComponentInParent<ClassAgent>();
+
+        //if (audioSource == null)
+        //{
+        //    audioSource = gameObject.AddComponent<AudioSource>();
+        //}
     }
     void Update()
     {
@@ -63,7 +71,7 @@ public class Bow : MonoBehaviour
     public void Fire(float firePower)
     {
         if (isReloading) return;
-
+        audioSource?.Play();
         // Get arrow from the pool
         Arrow a = arrowPool.Spawn(agent.transform.position, transform.rotation);
         a.tag = agent.team == Team.Blue ? "BlueArrow" : "RedArrow";

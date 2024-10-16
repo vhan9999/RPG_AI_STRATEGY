@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class BloodDropletPoolManager : MonoBehaviour
 {
     public GameObject bloodBlockPrefab;
-    static public BloodDropletPoolManager Instance {  get; private set; }
+    static public BloodDropletPoolManager Instance { get; private set; }
 
     public int poolSize = 2000;
     public Queue<GameObject> pool = new Queue<GameObject>();
 
     public int numberOfDroplets = 10; // Number of droplets to spawn
-    public float spawnRadius = 1f; // Radius around the player to spawn the droplets
+    public float spawnRadius = 2f; // Radius around the player to spawn the droplets
+
 
     void Awake()
     {
@@ -39,7 +42,7 @@ public class BloodDropletPoolManager : MonoBehaviour
         GameObject droplet = pool.Dequeue();
         droplet.SetActive(true);
         droplet.transform.position = position;
-        
+
         return droplet;
     }
 
