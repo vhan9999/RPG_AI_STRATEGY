@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7203750514279068041}
   - component: {fileID: -3136099864850298685}
   - component: {fileID: -7871872417387314022}
+  - component: {fileID: 1106199053080092042}
   m_Layer: 0
   m_Name: BloodDroplet
   m_TagString: Blood
@@ -114,3 +115,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0.05, y: 0.05, z: -0.05}
+--- !u!114 &1106199053080092042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341260852189151084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac36ded83ee4b64f83b4f57a326ba45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 2
+  minForce: 0.03
+  maxForce: 0.06
