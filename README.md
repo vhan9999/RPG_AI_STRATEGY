@@ -59,3 +59,9 @@ This project lays the foundation for more complex AI-driven games and provides i
 3. Andrew Cohen, Ervin Teng, Vincent-Pierre Berges, Ruo-Ping Dong, Hunter Henry, Marwan Mattar, Alexander Zook, Sujoy Ganguly, "On the Use and Misuse of Absorbing States in Multi-agent Reinforcement Learning", arxiv, 2022-06-07
 4. Hanski, Jari, Biçak, Kaan Baris"An Evaluation of the Unity Machine Learning Agents Toolkit in Dense and Sparse Reward Video Game Environments", DiVA portal, 2021-07-05
 5. Maram Hasan, Rajdeep Niyogi"Reward specifications in collaborative multi-agent learning: A comparative study", ACM, 2024-05-21
+6. B. O. Schejbal, “Deep reinforcement learning for super mario bros,” 2022
+7. A. Juliani, “Unity: A general platform for intelligent agents,” arXiv preprint arXiv:1809.02627, 2018
+8. P. Xu, J. Zhang, Q. Yin, C. Yu, Y. Yang, and K. Huang, “Subspace-aware exploration for sparse-reward multi-agent tasks,” in Proceedings of the AAAI Conference on Artificial Intelligence, vol. 37, pp. 11717–11725, 2023
+9. A. Nair, B. McGrew, M. Andrychowicz, W. Zaremba, and P. Abbeel, “Overcoming exploration in reinforcement learning with demonstrations,” in 2018 IEEE international conference on robotics and automation (ICRA), pp. 6292–6299, IEEE, 2018.
+10. M. J. Mataric, “Reward functions for accelerated learning,” in Machine learning proceedings 1994, pp. 181–189, Elsevier, 1994.
+11. A. Mohtasib, G. Neumann, and H. Cuayáhuitl, “A study on dense and sparse (visual) rewards in robot policy learning,” in Towards Autonomous Robotic Systems: 22nd Annual Conference, TAROS 2021, Lincoln, UK, September 8–10, 2021, Proceedings 22, pp. 3–13, Springer, 2021.
